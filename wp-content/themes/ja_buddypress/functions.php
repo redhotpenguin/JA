@@ -411,7 +411,7 @@ function ja_header() {
 			<p><a href="/"><img src="http://www.journalismaccelerator.com/wp-content/uploads/2011/01/ja_logo_1.png"  alt="Journalism Accelerator Logo" width="450" height="46" /></a></p>
 			<p><a href="/">A forum about innovation in journalism, beyond the usual suspects</a></p>
 			</div>
-			<form method="post" class="search_form" id="search_form" action="http://www.journalismaccelerator.com/"> 
+			<form method="get" class="search_form" id="search_form" action="http://www.journalismaccelerator.com/"> 
 		
 	<p> 
 		<input class="text_input" type="text" name="s" id="s" value="<?php echo $_GET['s'];?>" /> 
@@ -1001,5 +1001,9 @@ function ja_bp_directory_members_search_form() {
 <?php
 }
 
-
-
+function parent_category_is($cat) {
+	$categories = get_the_category();
+	foreach ($categories as $category) {
+		if ( $category->category_parent == $cat ) return true;
+	}
+}
