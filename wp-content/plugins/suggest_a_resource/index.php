@@ -42,7 +42,7 @@ function r_fill_ID() {
 
 function r_create_form() {
 	?>
-	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(!is_category(25) && !in_category(25) || is_home()) { ?> style="display:none" <?php } ?>>
+	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(!is_category(25) || is_home()) { ?> style="display:none" <?php } ?>>
     <input type="hidden" name="form" value="1062791" />
     <input type="hidden" name="viewkey" value="dcRMIPaG0P" />
     <input type="hidden" name="hidden_fields" id="hidden_fields1062791" value="" />
@@ -135,11 +135,11 @@ function widget_suggest_a_resource($args) {
 	  echo "<p style=\"margin-bottom:0\">Would you like to share a resource on the Journalism Accelerator? Make a suggestion. Tell us why others need to know.</p>";
   }
   
- else {
+ if (!is_category(25)) {
   echo $before_title;
 ?>
 
-<a href="#askaquestion" class="expand question"><span class="expandlink">Ask a Question</span></a>
+<?php if (!in_category(25) || is_home()) { ?><a href="#askaquestion" class="expand question"><span class="expandlink">Ask a Question</span></a><?php } ?>
 <a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>
 
 <?php echo $after_title;
