@@ -1,0 +1,66 @@
+.wphc-message {
+	margin-bottom: 10px;
+	padding: 7px;
+	background-color:#DEEFC6;
+	border:1px solid #7AAE30;
+	color:#8ABE40;
+	font-size:14pt;
+	font-weight:bold;
+	letter-spacing:-1px;
+	text-align: center;
+}
+#wphc {
+   /* color: #a9a9a9; */
+   width: 530px;
+   font-weight: bold;
+   font-size: 12pt;
+   font-family: Arial;
+   position: relative;
+	width: 530px;
+}
+#wphc label  {
+	float: left;
+	width: 150px;
+	padding-right: 10px;
+	text-align: right;
+	letter-spacing:-1px;
+	padding-top: .5em;
+}
+#wphc input[type=text], #wphc textarea {
+	width: 350px;
+	padding: .5em;
+	background: none;
+	border: 1px solid #CCC;
+	color: #999999;
+	font-weight: bold;
+	font-size: 11pt;
+	font-family: Arial;
+}
+#wphc textarea {
+	height: 80px;
+}
+#wphc input[type=text]:focus, #wphc textarea:focus {
+	outline: 3px solid #84b5d7;
+	color: #3b6a8a;
+}
+#wphc #edit-honeytrap-wrapper {
+	display: none;
+}
+#wphc button {
+	padding: 0.5em 1em;
+	margin-left: 300px;
+	background: #000;
+	border: 1px solid #000;
+	color: #FFF;
+	font-weight: bold;
+}
+#wphc div {
+	margin-bottom: 10px;
+}
+#wphc label.error {
+	float: right;
+	font-size: 70%;
+	color: #ce0000;
+	position: relative;
+	top: -4px;
+}

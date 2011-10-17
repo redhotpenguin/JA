@@ -1,0 +1,179 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Highrise Contact\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-17 21:41-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc-André Lanciault <mal@inboxintl.com>\n"
+"Language-Team: INBOX International <info@inboxintl.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+#: form.inc.php:20
+msgid "First name"
+msgstr "Prénom"
+
+#: form.inc.php:24
+msgid "Last name"
+msgstr "Nom"
+
+#: form.inc.php:28
+msgid "Title"
+msgstr "Titre"
+
+#: form.inc.php:33
+msgid "Company"
+msgstr "Compagnie"
+
+#: form.inc.php:37
+msgid "City"
+msgstr "Ville"
+
+#: form.inc.php:41
+msgid "Phone number"
+msgstr "Téléphone"
+
+#: form.inc.php:50
+msgid "Web site"
+msgstr "Site web"
+
+#: form.inc.php:54
+msgid "Message"
+msgstr "Message"
+
+#: form.inc.php:57
+msgid "Send"
+msgstr "Envoyer"
+
+#: wp-highrise-contact-admin.php:17
+msgid "lead@mycompany.com"
+msgstr ""
+
+#: wp-highrise-contact-admin.php:18
+msgid "Lead Created"
+msgstr "Création d'un prospect"
+
+#: wp-highrise-contact-admin.php:62
+msgid "WP Highrise Contact Options"
+msgstr "Options WP Highrise Contact"
+
+#: wp-highrise-contact-admin.php:63
+msgid "This plugin generates a form which you can drop on any page or post. When a visitor fills the form, the data will be sent to you via email and it will also be sent to your 37signals Highrise account where the following will be created:"
+msgstr "Ce plugin génère un formulaire de contact que vous pouvez placer sur n'importe quelle page ou post. Lorsqu'un visiteur rempli le formulaire, les données vous serons envoyées par courriel et seront aussi envoyées vers votre compte Highrise où les éléments suivants seront créés:"
+
+#: wp-highrise-contact-admin.php:65
+msgid "A contact populated with the form's data (name, email, company, title, phone, etc...)"
+msgstr "Un contact possédant les informations collectés (nom, courriel, compagnie, titre, etc...)"
+
+#: wp-highrise-contact-admin.php:66
+msgid "A note will be created, associated with the previously create contact"
+msgstr "Une note sera créée, associée au contact"
+
+#: wp-highrise-contact-admin.php:67
+msgid "A task associated to this note"
+msgstr "Une tâche associée au contact"
+
+#: wp-highrise-contact-admin.php:70
+msgid "How to display a form"
+msgstr "Comment afficher le formulaire"
+
+#: wp-highrise-contact-admin.php:71
+msgid "To display the form, simply us the shortcode <b>[wp-highrise-contact]</b> on any post or page. When the post or page is rendered, the shortcode will be replaced by the form."
+msgstr "Pour afficher le formulaire, utilisez simplement le shortcode <b>[wp-highrise-contact]</b> sur n'importe quelle page ou post. Lorsque la page ou le post sera affiché, le shortcode sera remplacé par le formulaire."
+
+#: wp-highrise-contact-admin.php:75
+msgid "Contact Form Notification"
+msgstr "Notification"
+
+#: wp-highrise-contact-admin.php:76
+msgid "When a visitor fills out the form, a notification is sent to an email address to notify someone in your organisation"
+msgstr "Lorsqu'un visiteur rempli le formulaire, une notification est envoyée à une adresse courriel"
+
+#: wp-highrise-contact-admin.php:79
+msgid "Recipient email address:"
+msgstr "Adresse courriel du destinataire:"
+
+#: wp-highrise-contact-admin.php:83
+msgid "Subject of the email:"
+msgstr "Objet du courriel:"
+
+#: wp-highrise-contact-admin.php:88
+msgid "Highrise Connection"
+msgstr "Connexion Highrise"
+
+#: wp-highrise-contact-admin.php:89
+msgid "Input the credentials of your Highrise account. Please note that your <b>Highrise Account Name</b> is the first part of your Highrise URL. For example, if your URL is https://<b>mycompany</b>.highrisehq.com, your Highrise Account Name is <em>mycompany</em>."
+msgstr "Entrez les informations d'accès de votre compte Highrise. Veuillez noter que le <b>nom de votre compte Highrise</b> est constitué de la première partie de votre URL. Par exemple, si votre URL est https://<b>mycompany</b>.highrisehq.com, le nom de votre compte Highrise est <em>mycompany</em>."
+
+#: wp-highrise-contact-admin.php:91
+msgid "You need to enter valid Highrise credentials in order for the form to integrate with your Highrise account:"
+msgstr "Vous devez entrer vos informations d'accès Highrise afin que le formulaire puisse s'intégrer à voter compte Highrise:"
+
+#: wp-highrise-contact-admin.php:96
+msgid "Your Highrise account name:"
+msgstr "Votre nom de compte Highrise:"
+
+#: wp-highrise-contact-admin.php:100
+msgid "SSL 128-bit encryption ?"
+msgstr "Encryption SSL 128-bit ?"
+
+#: wp-highrise-contact-admin.php:102
+#: wp-highrise-contact-admin.php:118
+msgid "Yes"
+msgstr "Oui"
+
+#: wp-highrise-contact-admin.php:103
+#: wp-highrise-contact-admin.php:119
+msgid "No"
+msgstr "Non"
+
+#: wp-highrise-contact-admin.php:107
+msgid "Highrise API Token:"
+msgstr "Jeton API de Highrise:"
+
+#: wp-highrise-contact-admin.php:112
+msgid "Highrise Contact Creation Options"
+msgstr "Options pour la création du contact Highrise"
+
+#: wp-highrise-contact-admin.php:113
+msgid "When a visitor fills out the form, a contact will be created on your Highrise account, as well as a note and a task."
+msgstr "Lorsqu'un visiteur rempli le formulaire, un contact sera créé dans votre compte Highrise, de même qu'une note et une tâche."
+
+#: wp-highrise-contact-admin.php:116
+msgid "Create a task associated with the contact:"
+msgstr "Créer une tâche associée au contact:"
+
+#: wp-highrise-contact-admin.php:123
+msgid "Task due date (in hours):"
+msgstr "Date de la tâche (en heures):"
+
+#: wp-highrise-contact-admin.php:128
+msgid "Task category:"
+msgstr "Catégorie de la tâche:"
+
+#: wp-highrise-contact-admin.php:139
+msgid "Other Options"
+msgstr "Autres options"
+
+#: wp-highrise-contact-admin.php:142
+msgid "Message to display to the user after submission of the form:"
+msgstr "Message à afficher à l'utilisateur après l'envoie du formulaire:"
+
+#: wp-highrise-contact-admin.php:148
+msgid "Update Options"
+msgstr "Options de mise à jour"
+
+#: wp-highrise-contact.php:116
+msgid "First name: "
+msgstr "Prénom:"
+
+#: wp-highrise-contact.php:156
+msgid "Contact Form Options"
+msgstr "Options du formulaire de contact"
+
+#: wp-highrise-contact.php:156
+msgid "WP Highrise Contact"
+msgstr "WP Highrise Contact"
+

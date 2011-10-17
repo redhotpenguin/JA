@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document 
+Author:Tejaswini
+Website:http://www.clickonf5.org
+IMPORTANT!! Change the name of this file, to avoid losing your changes in future upgrades
+*/
+/*This is the CSS always needed for Smooth Slider, you would not need to change it */
+#smooth_sldr div,#smooth_sldr p,#smooth_sldr li,#smooth_sldr span,#smooth_sldr img,#smooth_sldr h2,#smooth_sldr ul{list-style:none;background:transparent;vertical-align:baseline;}
+#smooth_sldr div{display:block;}
+#smooth_sldr span{display:inline;}
+#smooth_sldr{overflow:hidden;margin: 10px auto;line-height:18px;}
+#smooth_sldr a{text-decoration:none;}
+#smooth_sldr_items{width:100%;}
+#smooth_sldr_body{width:100%;}
+#smooth_sliderc{position:relative;text-align:justify;}
+#smooth_sliderc .smooth_sliderb{position:absolute;/*dont change this value*/left:0;top:0;}
+.smooth_slideri{padding-right:10px;overflow:hidden;line-height:18px;}
+.sldr_title{margin:0;}
+#smooth_sldr_body h2{clear:none;display:block;padding:0px;}
+.slider_item {padding-left:1px;}
+#smooth_sldr_body p.more a{text-decoration:underline;float:right;}
+#smooth_sldr_body p.more a:hover{text-decoration:none;}
+#smooth_sliderc_nav{float:left;width:70%;overflow:hidden;padding:0;margin:2px 0 0 0;}
+a.smooth_sliderc_nav{margin:0 5px 0 0;display:block;float:left;background-repeat:no-repeat;background-position:center;}
+#smooth_sliderc_nav li{float:left;margin:0 5px 0 0;display:block;background-color:transparent;line-height:14px;}
+#smooth_sliderc_nav li a{display:block;padding:1px 5px 1px 5px;outline:none;}
+.sldrbr{line-height:1px;}
+.sldrlink{clear:both;display:block;font-size:8px;float:right;margin-top:-8px;font-family:Verdana, Helvetica, sans-serif;}
+.sldrlink a{color:#333333;}
+
+/*This is the CSS that needs to be changed to enter custom settings (Similar to settings panel)
+  To create these settings, I would suggest you to make changes to Smooth Slider settings, to get the slider as you wish, then go to the head of the page where the slider is displayed, you would get the below kind of css, you just need to paste it here. Then again you can revert back the Smooth Slider default settings on the settings page. Just a trick :)
+*/
+#smooth_sldr{width:495px;height:185px;background-color:#ccc;border:0px solid #999999;} /* Change the width and height of the slider here*/
+#smooth_sldr_items{padding:10px 18px 0px 26px;}
+#smooth_sliderc{width:451px;height:145px;} /* You need to alter these values retaining the difference with slider height and width*/
+.smooth_slideri{width:441px;height:145px;} /* You need to alter these values retaining the difference with slider height and width*/
+.sldr_title{font-family:Verdana, Arial, Helvetica, sans-serif;font-size:18px;font-weight:normal;font-style:normal;color:#43454c;}
+#smooth_sldr_body h2{line-height:17px;font-family:Arial, Arial, Helvetica, sans-serif;font-size:14px;font-weight:bold;font-style:normal;color:#81423f;margin:0px 0 5px 0;}#smooth_sldr_body h2 a{color:#81423f;}
+#smooth_sldr_body span{font-family:Arial, Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;font-style:normal;color:#333333;}
+.smooth_slider_thumbnail{float:left;margin:0px 5px 0 0px;max-height:130px;border:0px solid #000000;}
+#smooth_sldr_body p.more a{color:#81423f;font-family:Arial, Arial, Helvetica, sans-serif;font-size:12px;}
+#smooth_sliderc_nav li{border:1px solid #333333;font-size:12px;font-family:Arial, Arial, Helvetica, sans-serif;}
+#smooth_sliderc_nav li a{color:#81423f;}.sldrlink{padding-right:40px;}
+.sldrlink a{color:#333333;}

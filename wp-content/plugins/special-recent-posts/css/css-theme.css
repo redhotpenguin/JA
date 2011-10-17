@@ -1,0 +1,47 @@
+/*
+| --------------------------------------------------------
+| File        : css-theme.css
+| Project     : Special Recent Posts plugin for Wordpress
+| Version     : 1.9
+| Description : Specific widget stylesheet for current theme
+| Author      : Luca Grandicelli
+| Author URL  : http://www.lucagrandicelli.com
+| Plugin URL  : http://www.lucagrandicelli.com/special-recent-posts-plugin-for-wordpress/
+| --------------------------------------------------------
+*/
+
+div.srp-widget-container {
+	display: table;
+}
+
+div.srp-widget-container h3.widget-title{
+	display       : table-caption;
+	margin-bottom : 10px;
+}
+
+div.srp-widget-singlepost {
+	padding: 0px 0px 20px 0px;
+}
+
+div.srp-thumbnail-box {
+	display        : table-cell;
+	vertical-align : top;
+	padding-right  : 10px;
+}
+
+div.srp-content-box {
+	display        : table-cell;
+	vertical-align : top;
+}
+
+p.srp-widget-excerpt {
+	margin: 0px;
+}
+
+a.srp-widget-link {
+
+}
+
+img.srp-widget-thmb {
+
+}

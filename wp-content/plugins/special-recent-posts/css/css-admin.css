@@ -1,0 +1,83 @@
+/*
+| --------------------------------------------------------
+| File        : css-admin.css
+| Project     : Special Recent Posts plugin for Wordpress
+| Version     : 1.9
+| Description : Main CSS admin file.
+| Author      : Luca Grandicelli
+| Author URL  : http://www.lucagrandicelli.com
+| Plugin URL  : http://www.lucagrandicelli.com/special-recent-posts-plugin-for-wordpress/
+| --------------------------------------------------------
+*/
+
+div#srp-admin-container {
+	color: #444444;
+	font-size: 11px;
+}
+
+div#srp-admin-container h3{
+	cursor: default;
+}
+
+div#srp-admin-container ul li{
+	margin: 0px 0px 20px 0px;
+}
+
+div#srp-admin-container p,
+div#srp-admin-container span.srp-smalltext {
+	font-size: 11px;
+}
+
+div#srp-admin-container div.srp_option_header_l1 {
+	display        : table-cell;
+	vertical-align : top;
+}
+
+div#srp-admin-container div.srp_option_header_l2 {
+	display: table-cell;
+}
+
+div#srp-admin-container span.radiotext {
+	margin: 0px 5px 0px 0px;
+}
+
+div#srp-admin-container label {
+	font-size   : 11px;
+	font-weight : bold;
+	display     : block;
+	margin      : 0px 0px 5px 0px;
+	cursor      : default;
+}
+
+div#srp-admin-container select.srp-select {
+	width: 200px;
+}
+
+div#srp-admin-container div#srp-admin-leftcontent {
+	float    : left;
+    padding  : 10px;
+    position : relative;
+    width    : 28%;
+}
+
+div#srp-admin-container div#srp-admin-rightcontent {
+	border-left    : 1px solid #E6E6E6;
+    float          : left;
+    margin-bottom  : -10px;
+    margin-left    : 3%;
+    min-height     : 100px;
+	padding        : 15px 0px 10px 10px;
+    width          : 63%;
+}
+
+div#srp-admin-container div.clearer {
+	clear  : both;
+	height : 0px;
+}
+
+div#srp-admin-container div.srp-errbox {
+	background-color : #FFCC00;
+	color            : #000000;
+	font-size        : 12px;
+	padding          : 5px;
+}

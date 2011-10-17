@@ -1,0 +1,1341 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Comments Reloaded\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-28 10:14-0500\n"
+"PO-Revision-Date: 2010-12-28 10:14-0500\n"
+"Last-Translator: Camu <info@duechiacchiere.it>\n"
+"Language-Team: due chiacchiere <info@duechiacchiere.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: s\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: subscribe-to-comments-reloaded.php:34
+#: subscribe-to-comments-reloaded.php:190
+msgid "You are subscribed to this entry. <a href='[manager_link]'>Manage</a> your subscriptions."
+msgstr "Вы подписаны на эту статью. <a href='[manager_link]'>Редактировать</a> свои подписки."
+
+#: subscribe-to-comments-reloaded.php:39
+#: subscribe-to-comments-reloaded.php:191
+msgid "Your subscription to this entry needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>."
+msgstr "Ваша подписка на эту статью нуждается в подтверждении. <a href='[manager_link]'>Редактировать</a> свои подписки."
+
+#: subscribe-to-comments-reloaded.php:46
+#: subscribe-to-comments-reloaded.php:192
+msgid "You can <a href='[manager_link]'>manage the subscriptions</a> of this entry."
+msgstr "Вы можете <a href='[manager_link]'>управлять подписками</a> на эту запись."
+
+#: subscribe-to-comments-reloaded.php:52
+#: subscribe-to-comments-reloaded.php:186
+msgid "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr "Получать новые комментарии по электронной почте. Вы можете <a href='[subscribe_link]'>подписатьсяi</a> без комментирования."
+
+#: subscribe-to-comments-reloaded.php:162
+#: options/index.php:44
+msgid "Manage subscriptions"
+msgstr "Редактирование подписки"
+
+#: subscribe-to-comments-reloaded.php:163
+msgid "To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page."
+msgstr "Для управления своими подписками, пожалуйста, введите свой электронный адрес в форму ниже. Мы отправим вам сообщение со ссылкой на вашу персональную страницу управления."
+
+#: subscribe-to-comments-reloaded.php:164
+msgid "Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes."
+msgstr "Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. В течение нескольких минут вы должны получить письмо со ссылкой на страницу управления подписками."
+
+#: subscribe-to-comments-reloaded.php:165
+msgid "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set."
+msgstr "Вы можете следить за обсуждением статьи <strong>[post_title]</strong>, не оставляя своего комментария. Здорово, не правда ли? Просто введите свой электронный адрес в форму ниже, и готово!"
+
+#: subscribe-to-comments-reloaded.php:166
+msgid "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator."
+msgstr "Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. Вы будете получать уведомления каждый раз, как новый комментарий к этот статье будет одобрен и опубликован администратором сайта."
+
+#: subscribe-to-comments-reloaded.php:167
+msgid "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions."
+msgstr "Спасибо, что пользуетесь нашим сервисом подписок. Чтобы подтвердить свой запрос, пожалуйста, проверьте свою почту и следуйте инструкциям в письме о подтверждении."
+
+#: subscribe-to-comments-reloaded.php:168
+msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list."
+msgstr "Чтобы отменить или приостановить одно или более уведомлений, щелкните в соответствующем окошке выбора и нажмите на кнопку в конце списка."
+
+#: subscribe-to-comments-reloaded.php:169
+msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:"
+msgstr "Чтобы отменить или приостановить одно или более уведомлений, щелкните в соответствующем окошке выбора и нажмите на кнопку в конце списка. На данный момент вы подписаны на:"
+
+#: subscribe-to-comments-reloaded.php:184
+msgid "There is a new comment to [post_title]"
+msgstr "Появился новый комментарий к статье [post_title]"
+
+#: subscribe-to-comments-reloaded.php:185
+#, fuzzy
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"Появился новый комментарий к статье [post_title].\n"
+"Ссылка на комментарий: [comment_permalink]\n"
+"Автор: [comment_author]\n"
+"Комментарий:\n"
+"[comment_content]\n"
+"\n"
+"Ссылка на статью: [post_permalink]\n"
+"Управление подписками: [manager_link]"
+
+#: subscribe-to-comments-reloaded.php:193
+#, fuzzy
+msgid "Please confirm your subscription to [post_title]"
+msgstr "Пожалуйста, подтвердите свою подписку на статью [post_title]"
+
+#: subscribe-to-comments-reloaded.php:194
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr ""
+"Вы сделали запрос на получение новых комментариев к статье:\n"
+"[post_permalink]\n"
+"\n"
+"Пожалуйста, перейдите по следующей ссылке, чтобы подтвердить подписку:\n"
+"[confirm_link]"
+
+#: subscribe-to-comments-reloaded.php:195
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "Редактировать свои подписки на сайте [blog_name]"
+
+#: subscribe-to-comments-reloaded.php:196
+msgid ""
+"You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"Вы сделали запрос на редактирование своих подписок на комментарии к статьям на сайте [blog_name]. Вот ссылка на вашу личную страницу управления подписками:\n"
+"[manager_link]"
+
+#: subscribe-to-comments-reloaded.php:597
+msgid "Subscribed"
+msgstr "Подписано"
+
+#: subscribe-to-comments-reloaded.php:611
+#: options/panel3.php:65
+#: options/panel3.php:87
+#: options/panel3.php:94
+#: options/panel3.php:101
+#: options/panel3.php:108
+#: options/panel3.php:115
+#: options/panel3.php:122
+msgid "Yes"
+msgstr "Да"
+
+#: subscribe-to-comments-reloaded.php:613
+msgid "Awaiting confirmation"
+msgstr "Ожидает подтверждения"
+
+#: subscribe-to-comments-reloaded.php:614
+#: options/panel3.php:66
+#: options/panel3.php:88
+#: options/panel3.php:95
+#: options/panel3.php:102
+#: options/panel3.php:109
+#: options/panel3.php:116
+#: options/panel3.php:123
+msgid "No"
+msgstr "Нет"
+
+#: subscribe-to-comments-reloaded.php:624
+msgid "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:624
+#, fuzzy
+msgid "support forum"
+msgstr "Поддержка"
+
+#: subscribe-to-comments-reloaded.php:625
+msgid "Feeling generous?"
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:625
+msgid "Donate a few bucks!"
+msgstr ""
+
+#: options/index.php:45
+msgid "Stats"
+msgstr "Статистика"
+
+#: options/index.php:46
+msgid "Options"
+msgstr "Параметры"
+
+#: options/index.php:47
+msgid "Mail Messages"
+msgstr "Почтовые сообщения"
+
+#: options/index.php:48
+msgid "Other Messages"
+msgstr "Другие сообщения"
+
+#: options/index.php:49
+msgid "Support"
+msgstr "Поддержка"
+
+#: options/panel1.php:32
+#: options/panel1.php:38
+#: options/panel1.php:45
+#: options/panel1.php:63
+msgid "The status has been successfully updated. Rows affected:"
+msgstr "Статус успешно обновлен. Изменены строки:"
+
+#: options/panel1.php:68
+#, fuzzy
+msgid "Update subscription"
+msgstr "Обновить подписки"
+
+#: options/panel1.php:69
+msgid "Update the email address associated to a specific subscription (by post ID)."
+msgstr ""
+
+#: options/panel1.php:71
+#: options/panel1.php:101
+#: options/panel1.php:173
+#: templates/author.php:39
+#: templates/user.php:41
+msgid "Please remember: this operation cannot be undone. Are you sure you want to proceed?"
+msgstr "Внимание: эту операцию нельзя отменить. Вы уверены, что хотите продолжить?"
+
+#: options/panel1.php:73
+#: options/panel1.php:103
+msgid "From"
+msgstr "С"
+
+#: options/panel1.php:74
+msgid "PID"
+msgstr ""
+
+#: options/panel1.php:75
+#: options/panel1.php:104
+msgid "To"
+msgstr "на"
+
+#: options/panel1.php:76
+#: options/panel1.php:93
+#: options/panel1.php:105
+msgid "Update"
+msgstr "Обновить"
+
+#: options/panel1.php:83
+#, fuzzy
+msgid "Change status"
+msgstr "Gestisci articoli"
+
+#: options/panel1.php:84
+msgid "Change the status of an email address or permanently delete all its subscriptions."
+msgstr "Изменить статус электронного адреса или полностью удалить все его подписки."
+
+#: options/panel1.php:87
+#, fuzzy
+msgid "Action"
+msgstr "Действие:"
+
+#: options/panel1.php:89
+#: options/panel1.php:195
+#: templates/author.php:60
+#: templates/user.php:58
+msgid "Suspend"
+msgstr "Приостановить"
+
+#: options/panel1.php:90
+#: options/panel1.php:196
+#: templates/author.php:61
+#: templates/user.php:59
+msgid "Resume"
+msgstr "Восстановить"
+
+#: options/panel1.php:91
+#: options/panel1.php:194
+msgid "Delete forever"
+msgstr "Удалить навсегда"
+
+#: options/panel1.php:98
+msgid "Update email address"
+msgstr "Обновить электронный адрес"
+
+#: options/panel1.php:99
+#, fuzzy
+msgid "You can \"mass update\" all the occurrences of a given email address (exact matches only)."
+msgstr "Вы можете изменить все использования определенного электронного адреса в базе данных на новый."
+
+#: options/panel1.php:150
+msgid "&laquo; Previous"
+msgstr "&laquo; Precedenti"
+
+#: options/panel1.php:154
+msgid "Next &raquo;"
+msgstr "Successivi &raquo;"
+
+#: options/panel1.php:157
+msgid "Search email address"
+msgstr "Искать электронный адрес"
+
+#: options/panel1.php:159
+#, fuzzy, php-format
+msgid "You can either <a href=\"%s\">list all the subscriptions</a> or find those where the <b>email</b>"
+msgstr "Найти все подписки с <b>электронным адресом</b>"
+
+#: options/panel1.php:162
+msgid "equals"
+msgstr "равнозначно"
+
+#: options/panel1.php:163
+msgid "contains"
+msgstr "содержит"
+
+#: options/panel1.php:164
+msgid "does not contain"
+msgstr "не содержит"
+
+#: options/panel1.php:167
+msgid "Search"
+msgstr "Искать"
+
+#: options/panel1.php:178
+msgid "Subscriptions for:"
+msgstr "Подписки для:"
+
+#: options/panel1.php:178
+msgid "Rows:"
+msgstr ""
+
+#: options/panel1.php:178
+msgid "of"
+msgstr ""
+
+#: options/panel1.php:179
+#: templates/author.php:45
+#: templates/user.php:47
+msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
+msgstr "(Расшифровка: Y: подписано, N: приостановлено, C: ожидает подтверждения)"
+
+#: options/panel1.php:181
+#: options/panel1.php:182
+msgid "Reverse the order by Date/Time"
+msgstr ""
+
+#: options/panel1.php:183
+msgid "Reverse the order by Post ID"
+msgstr ""
+
+#: options/panel1.php:184
+#: templates/request-management-link.php:77
+#: templates/subscribe.php:82
+#: templates/user.php:46
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: options/panel1.php:186
+msgid "Post (ID)"
+msgstr ""
+
+#: options/panel1.php:186
+#, fuzzy
+msgid "Date and Time"
+msgstr "Data e ora"
+
+#: options/panel1.php:186
+#, fuzzy
+msgid "Status"
+msgstr "Статистика"
+
+#: options/panel1.php:194
+#: templates/author.php:59
+#: templates/user.php:57
+msgid "Action:"
+msgstr "Действие:"
+
+#: options/panel1.php:197
+#: templates/author.php:62
+#: templates/user.php:60
+msgid "Update subscriptions"
+msgstr "Обновить подписки"
+
+#: options/panel1.php:205
+msgid "Sorry, no subscriptions found for"
+msgstr "Извините, не найдено подписок для"
+
+#: options/panel3.php:11
+msgid "Management Page ID"
+msgstr "ID страницы управления"
+
+#: options/panel3.php:12
+#: options/panel3.php:48
+msgid "Autopurge requests"
+msgstr "Автоматически удалять запросы"
+
+#: options/panel3.php:13
+#: options/panel3.php:53
+msgid "Sender name"
+msgstr "Имя отправителя"
+
+#: options/panel3.php:14
+#: options/panel3.php:58
+msgid "Sender email address"
+msgstr "Эл. адрес отправителя"
+
+#: options/panel3.php:15
+#: options/panel3.php:63
+msgid "Checked by default"
+msgstr "Выбор по умолчанию"
+
+#: options/panel3.php:16
+#: options/panel3.php:70
+msgid "Custom CSS Class"
+msgstr "Класс изменяемого CSS"
+
+#: options/panel3.php:17
+#: options/panel3.php:75
+msgid "Custom inline style"
+msgstr "Изменяемый стиль inline"
+
+#: options/panel3.php:18
+#: options/panel3.php:80
+msgid "Custom HTML"
+msgstr "Изменяемый HTML"
+
+#: options/panel3.php:19
+#: options/panel3.php:85
+msgid "Enable double check"
+msgstr "Включить двойное подтверждение"
+
+#: options/panel3.php:20
+msgid "Notify authors"
+msgstr "Уведомлять авторов"
+
+#: options/panel3.php:21
+#: options/panel3.php:99
+msgid "Enable HTML emails"
+msgstr ""
+
+#: options/panel3.php:22
+#: options/panel3.php:106
+msgid "Send trackbacks"
+msgstr "Отправлять трэкбеки"
+
+#: options/panel3.php:23
+#: options/panel3.php:92
+msgid "Notify admin"
+msgstr "Уведомить админа"
+
+#: options/panel3.php:24
+#: options/panel3.php:120
+msgid "Let admin subscribe"
+msgstr ""
+
+#: options/panel3.php:29
+#: options/panel4.php:21
+#: options/panel5.php:28
+msgid "Your settings have been successfully updated."
+msgstr "Ваши настройки успешно обновлены."
+
+#: options/panel3.php:32
+#: options/panel4.php:24
+#: options/panel5.php:31
+msgid "There was an error updating the following fields:"
+msgstr "Произошла ошибка в обновлении следующих полей:"
+
+#: options/panel3.php:43
+#: options/panel5.php:64
+msgid "Management page"
+msgstr "Страница управления"
+
+#: options/panel3.php:45
+msgid "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its permalink must follow your Wordpress' permalink settings."
+msgstr "Постоянная ссылка на вашу страницу управления (<code>/manage-subscriptions</code> или <code>/page_id=345</code>). Эта страница фактически <b>не существует</b> в системе, но постоянная ссылка на нее должна соответствовать вашим установкам постоянных ссылок в Wordpress."
+
+#: options/panel3.php:49
+msgid "days"
+msgstr "giorni"
+
+#: options/panel3.php:50
+msgid "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature."
+msgstr "Удалять ожидающие подтверждения (не подтвержденные) подписки через Х дней. Ноль отключает эту функцию."
+
+#: options/panel3.php:55
+msgid "Name to use for the \"from\" field when sending a new notification to the user."
+msgstr "Имя в поле \"От кого\" в новом уведомлении пользователю."
+
+#: options/panel3.php:60
+msgid "Email address to use for the \"from\" field when sending a new notification to the user."
+msgstr "Эл. адрес в поле \"От кого\" в новом уведомлении пользователю."
+
+#: options/panel3.php:67
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "Определите, должно ли окошко выбора быть выбранным по умолчанию."
+
+#: options/panel3.php:72
+msgid "Custom CSS class to associate to the checkbox, if you want to customize its style."
+msgstr "Класс изменяемого CSS для окошка выбора, если вы хотите изменить его стиль"
+
+#: options/panel3.php:77
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "Изменяемый Inline CSS для добавления к окошку выбора"
+
+#: options/panel3.php:82
+msgid "Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]"
+msgstr "Собственный код HTML для использования при отображении окошка выбора. Разрешенные теги: [checkbox_field], [checkbox_label]"
+
+#: options/panel3.php:89
+msgid "Send a notification email to confirm the subscription (to avoid addresses misuse)."
+msgstr "Отправлять письмо с просьбой подтвердить подписку (чтобы избежать использования эл. адреса без ведома владельца)"
+
+#: options/panel3.php:96
+msgid "Notify the administrator when a new comment is posted."
+msgstr "Уведомлять администратора о новом комментарии."
+
+#: options/panel3.php:103
+msgid "If enabled, will send email messages with content-type = text/html instead of text/plain"
+msgstr ""
+
+#: options/panel3.php:110
+msgid "Notify users when a new trackback or pingback is added to the discussion."
+msgstr "Уведомлять подписчиков о новых трэкбеках или пингбэках к обсуждению"
+
+#: options/panel3.php:113
+msgid "Track all subscriptions"
+msgstr "Отследить все подписки"
+
+#: options/panel3.php:117
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr "Уведомлять администратора, когда пользователи подписываются без комментария."
+
+#: options/panel3.php:124
+#, fuzzy
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr "Уведомлять администратора, когда пользователи подписываются без комментария."
+
+#: options/panel3.php:128
+#: options/panel4.php:86
+#: options/panel5.php:144
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: options/panel4.php:11
+#: options/panel4.php:37
+msgid "Notification subject"
+msgstr "Тема письма с уведомлением"
+
+#: options/panel4.php:12
+#: options/panel4.php:42
+msgid "Notification message"
+msgstr "Текст уведомления"
+
+#: options/panel4.php:13
+#: options/panel4.php:53
+msgid "Double check subject"
+msgstr "Тема письма о подтверждении подписки"
+
+#: options/panel4.php:14
+#: options/panel4.php:58
+msgid "Double check message"
+msgstr "Текст письма о подтверждении подписки"
+
+#: options/panel4.php:15
+#: options/panel4.php:69
+msgid "Management subject"
+msgstr "Тема письма об управлении подписками"
+
+#: options/panel4.php:16
+#: options/panel4.php:74
+msgid "Management message"
+msgstr "Текст письма об управлении подписками"
+
+#: options/panel4.php:39
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "Тема письма с уведомлением. Разрешенный тег: [post_title]"
+
+#: options/panel4.php:44
+#: options/panel4.php:60
+#: options/panel4.php:76
+#: options/panel5.php:74
+#: options/panel5.php:84
+#: options/panel5.php:94
+#: options/panel5.php:104
+#: options/panel5.php:114
+#: options/panel5.php:124
+#: options/panel5.php:134
+msgid "Bold"
+msgstr ""
+
+#: options/panel4.php:45
+#: options/panel4.php:61
+#: options/panel4.php:77
+#: options/panel5.php:75
+#: options/panel5.php:85
+#: options/panel5.php:95
+#: options/panel5.php:105
+#: options/panel5.php:115
+#: options/panel5.php:125
+#: options/panel5.php:135
+msgid "Italic"
+msgstr ""
+
+#: options/panel4.php:46
+#: options/panel4.php:62
+#: options/panel4.php:78
+#: options/panel5.php:76
+#: options/panel5.php:86
+#: options/panel5.php:96
+#: options/panel5.php:106
+#: options/panel5.php:116
+#: options/panel5.php:126
+#: options/panel5.php:136
+msgid "Link"
+msgstr ""
+
+#: options/panel4.php:47
+#: options/panel4.php:63
+#: options/panel4.php:79
+#: options/panel5.php:77
+#: options/panel5.php:87
+#: options/panel5.php:97
+#: options/panel5.php:107
+#: options/panel5.php:117
+#: options/panel5.php:127
+#: options/panel5.php:137
+msgid "Image"
+msgstr ""
+
+#: options/panel4.php:50
+msgid "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+msgstr "Текст уведомления. Разрешенные теги: [post_title],  [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+
+#: options/panel4.php:55
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
+
+#: options/panel4.php:66
+msgid "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]"
+msgstr "Текст письма о подтвеждении. Разрешенные теги: [post_permalink], [confirm_link], [post_title], [manager_link]"
+
+#: options/panel4.php:71
+msgid "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]"
+msgstr "Тема письма подписчику, сделавшему запрос на доступ к странице управления подписками. Разрешенный тег: [blog_name]"
+
+#: options/panel4.php:82
+msgid "Content of the management email. Allowed tags: [blog_name], [manager_link]"
+msgstr "Текст письма об управлении подписками. Разрешенные теги: [blog_name],[manager_link]"
+
+#: options/panel5.php:11
+#: options/panel5.php:43
+msgid "Checkbox label"
+msgstr "Ярлык окошка выбора"
+
+#: options/panel5.php:12
+#: options/panel5.php:48
+msgid "Subscribed label"
+msgstr "Ярлык оформленной подписки"
+
+#: options/panel5.php:13
+#: options/panel5.php:53
+msgid "Awaiting label"
+msgstr "Ярлык не подтвержденной подписки"
+
+#: options/panel5.php:14
+#: options/panel5.php:58
+msgid "Author label"
+msgstr "Ярлык автора"
+
+#: options/panel5.php:16
+#: options/panel5.php:68
+msgid "Page title"
+msgstr "Заголовок страницы"
+
+#: options/panel5.php:17
+#: options/panel5.php:73
+msgid "Request link"
+msgstr "Ссылка на запрос"
+
+#: options/panel5.php:18
+#: options/panel5.php:83
+msgid "Request submitted"
+msgstr "Запрос отправлен"
+
+#: options/panel5.php:19
+#: options/panel5.php:93
+msgid "Subscribe without commenting"
+msgstr "Подписка без комментирования"
+
+#: options/panel5.php:20
+#: options/panel5.php:103
+msgid "Subscription processed"
+msgstr "Подписка оформлена"
+
+#: options/panel5.php:21
+#: options/panel5.php:113
+msgid "Subscription processed (DCI)"
+msgstr "Подписка оформлена (DCI)"
+
+#: options/panel5.php:22
+#: options/panel5.php:123
+msgid "Authors"
+msgstr "Авторы"
+
+#: options/panel5.php:23
+#: options/panel5.php:133
+msgid "Users"
+msgstr "Пользователи"
+
+#: options/panel5.php:39
+msgid "Comment form"
+msgstr "Форма комментария"
+
+#: options/panel5.php:45
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr "Текст рядом с окошком выбора. Разрешенный тег: [subscribe_link]"
+
+#: options/panel5.php:50
+msgid "Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]"
+msgstr "Текст, видимый подписавшимся читателям. Разрешенный тег: [manager_link]"
+
+#: options/panel5.php:55
+msgid "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]"
+msgstr "Текст, видимый читателям, еще не подтвердившим свою подписку. Разрешенный тег: [manager_link]"
+
+#: options/panel5.php:60
+msgid "Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr "Тест, видимый авторам и администраторам. Разрешенный тег: [manager_link]"
+
+#: options/panel5.php:70
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr "Заголовок страницы, на которой пользователи будут редактировать свои подписки."
+
+#: options/panel5.php:80
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "Текст, видимый сделавшим запрос на управление подписками."
+
+#: options/panel5.php:90
+#, fuzzy
+msgid "Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]"
+msgstr "Текст благодарности, выводимый после обработки сделанного запроса."
+
+#: options/panel5.php:100
+#, fuzzy
+msgid "Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]"
+msgstr "Текст для желающих подписаться без комментирования. Разрешенный тег: [manager_link]"
+
+#: options/panel5.php:110
+#, fuzzy
+msgid "Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr "Текст благодарности, выводимый после обработки запроса на подписку (двойное подтверждение отключено)"
+
+#: options/panel5.php:120
+#, fuzzy
+msgid "Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr "Текст благодарности, выводимый после обработки запроса на подписку (двойное подтверждение включено)."
+
+#: options/panel5.php:130
+msgid "Introductory text for the authors' management page."
+msgstr "Вводный текст на странице управления подписками для авторов."
+
+#: options/panel5.php:140
+msgid "Introductory text for the users' management page."
+msgstr "Вводный текст на странице управления подписками для подписчиков."
+
+#: options/panel6.php:11
+#, fuzzy
+msgid "StCR table has been successfully optimized."
+msgstr "Статус успешно обновлен."
+
+#: options/panel6.php:15
+msgid "Database"
+msgstr ""
+
+#: options/panel6.php:35
+msgid "Engine"
+msgstr ""
+
+#: options/panel6.php:36
+#, fuzzy
+msgid "Records"
+msgstr "Parola chiave"
+
+#: options/panel6.php:37
+msgid "Average Record Length"
+msgstr ""
+
+#: options/panel6.php:38
+msgid "Created on"
+msgstr ""
+
+#: options/panel6.php:39
+msgid "Approximate Overhead"
+msgstr ""
+
+#: options/panel6.php:40
+msgid "optimize"
+msgstr ""
+
+#: options/panel6.php:44
+msgid "Support the author"
+msgstr ""
+
+#: options/panel6.php:45
+msgid "How valuable is the feature offered by this plugin to your visitors? Subscribe to Comments Reloaded is and will always be free, but consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
+msgstr "Насколько важна функция, которую предоставляет этот плагин для ваших посетителей? Плагин <b>Subscribe to Comments Reloaded</b> есть и всегда будет бесплатным, но подумайте над тем, чтобы поддержать автора, если этот плагин сделал ваш сайт немного лучше, особенно если вы зарабатываете деньги с помощью своего сайта. Все пожертвования будут использованы для развития плагина <b>Subscribe to Comments Reloaded</b> и на то, чтобы купить немного еды моей голодной семье."
+
+#: options/panel6.php:48
+msgid "Don't want to donate? You can still help"
+msgstr "Не хотите делать пожертвование? Вы все равно можете помочь"
+
+#: options/panel6.php:49
+msgid "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my plugin!"
+msgstr "Если вы не хотите помочь деньгами, пожалуйста, рассмотрите возможность написать о моем плагине в своем блоге и оставить ссылку на страницу плагина. Пожалуйста, расскажите своим читателям, что делает ваш блог лучше. Вы можете также пожертвовать свое время: не стесняйтесь отправлять мне отчеты об ошибках, свои файлы локализации, идеи по улучшению плагина <b>Subscribe to Comments Reloaded</b> и так далее. Что бы вы ни выбрали, спасибо, что пользуетесь моим плагином!"
+
+#: options/panel6.php:51
+msgid "Vote and show your appreciation"
+msgstr "Проголосуйте и покажите свою признательность"
+
+#: options/panel6.php:52
+msgid "Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr "Расскажите другим, подходит ли вам плагин <b>Subscribe to Comments Reloaded</b>, и насколько он хорош. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Оцените</a> его в разделе плагинов на сайте Wordpress."
+
+#: templates/author.php:31
+msgid "Subscriptions have been successfully updated."
+msgstr "Подписки успешно обновлены."
+
+#: templates/author.php:44
+msgid "Title"
+msgstr "Заголовок"
+
+#: templates/author.php:57
+#: templates/user.php:55
+msgid "Select all"
+msgstr "Выбрать все"
+
+#: templates/author.php:58
+#: templates/user.php:56
+msgid "Invert selection"
+msgstr "Выбрать обратное"
+
+#: templates/author.php:59
+#: templates/user.php:57
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/author.php:66
+#: templates/user.php:64
+msgid "Sorry, no subscriptions found."
+msgstr "Извините, подписки не найдены."
+
+#: templates/request-management-link.php:80
+#: templates/subscribe.php:84
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/subscribe.php:30
+#: templates/subscribe.php:31
+msgid "New subscription to"
+msgstr "Новая подписка на"
+
+#: templates/subscribe.php:31
+msgid "User:"
+msgstr "Пользователь:"
+
+#: templates/user.php:33
+#, fuzzy
+msgid "All the subscriptions have been successfully updated."
+msgstr "Подписки успешно обновлены."
+
+#~ msgid "Remove or suspend email address"
+#~ msgstr "Удалить или приостановить электронный адрес"
+
+#~ msgid ""
+#~ "Your subscription has been successfully confirmed. Thank you for using "
+#~ "our notification service. Now you will receive a message every time "
+#~ "someone posts a new comment to"
+#~ msgstr ""
+#~ "La tua iscrizione &egrave; stata confermata con successo. Grazie per aver "
+#~ "usato il nostro servizio di notifica. Da ora in poi riceverai un "
+#~ "messaggio ogni volta che qualcuno lascia un commento per:"
+
+#~ msgid ""
+#~ "The permalink for your management page. This page <b>does not</b> "
+#~ "actually exist in the system, is generated on-the-fly. It should start "
+#~ "with a / (i.e. <code>/manage-subscriptions</code>)"
+#~ msgstr ""
+#~ "Il <b>permalink</b> per la pagina di gestione. Questa pagina non esiste "
+#~ "in Wordpress, viene generata al volo dal plugin. Dovrebbe iniziare con "
+#~ "uno / (ad es. <code>/gestisci-sottoscrizioni</code)"
+
+#~ msgid ""
+#~ "The ID (<strong>not the permalink!</strong>) of the management page you "
+#~ "created."
+#~ msgstr ""
+#~ "L'ID (<strong>non il permalink!</strong>) della pagina di gestione che "
+#~ "hai creato."
+
+#~ msgid ""
+#~ "Send a notification email to confirm the subscription (to avoid addresses "
+#~ "misuse)"
+#~ msgstr ""
+#~ "Invia una email per confermare l'iscrizione ad un dato articolo (per "
+#~ "evitare l'uso scorretto di indirizzi email di terzi)"
+
+#~ msgid ""
+#~ "Oops, Huston we have a problem! Please contact the administrator of this "
+#~ "blog for further details."
+#~ msgstr ""
+#~ "Ouch, Huston abbiamo un problema! Per favore contatta l'amministratore di "
+#~ "questo blog per maggiori informazioni."
+
+#~ msgid ""
+#~ "You can manage the subscriptions to your articles on this page. In order "
+#~ "to cancel or suspend one or more notifications, select the corresponding "
+#~ "checkbox(es) and click on the button at the end of the list."
+#~ msgstr ""
+#~ "Tramite questa pagina puoi gestire le tue sottoscrizioni al mio blog. Se "
+#~ "desideri disdire o sospendere una o pi&ugrave; notifiche, spunta le "
+#~ "caselle corrispondenti agli articoli e clicca sul pusante in fondo alla "
+#~ "lista."
+
+#~ msgid ""
+#~ "You can manage your subscriptions to the article of this blog on this "
+#~ "page. In order to cancel or suspend one or more notifications, select the "
+#~ "corresponding checkbox(es) and click on the button at the end of the "
+#~ "list. You are currently subscribed to:"
+#~ msgstr ""
+#~ "Tramite questa pagina puoi gestire le tue sottoscrizioni al mio blog. Se "
+#~ "desideri disdire o sospendere una o pi&ugrave; notifiche, spunta le "
+#~ "caselle corrispondenti agli articoli e clicca sul pusante in fondo alla "
+#~ "lista. Al momento, risulti iscritto a:"
+
+#~ msgid ""
+#~ "If you know the ID of a post you want to manage, enter it in the field "
+#~ "here below to see a list of email addresses subscribed to it"
+#~ msgstr ""
+#~ "Se conosci l'ID dell'articolo che vuoi gestire, inseriscilo nel campo qui "
+#~ "di seguito per accedere alla relativa lista di indirizzi email iscritti "
+#~ "alla discussione"
+
+#~ msgid "Search post ID"
+#~ msgstr "Cerca ID"
+
+#~ msgid ""
+#~ "If you know the email address you want to manage, enter it in the field "
+#~ "here below to see a list of articles this reader is currently watching"
+#~ msgstr ""
+#~ "Se conosci l'indirizzo email che vuoi gestire, inseriscilo nel campo qui "
+#~ "di seguito per accedere alla relativa lista di articoli che sta "
+#~ "attualmente seguendo"
+
+#~ msgid "Search email"
+#~ msgstr "Cerca email"
+
+#~ msgid "Search by email address"
+#~ msgstr "Cerca per indirizzo email"
+
+#~ msgid ""
+#~ "You are the author of this entry. <a href='[manager_link]'>Manage</a> its "
+#~ "subscriptions."
+#~ msgstr ""
+#~ "Sei l'autore di quest'articolo. Gestisci gli utenti <a "
+#~ "href='[manager_link]'>iscritti</a> alla discussione."
+
+#~ msgid "Filters"
+#~ msgstr "Filtri"
+
+#~ msgid "Search by post ID"
+#~ msgstr "Cerca per ID dell'articolo"
+
+#~ msgid "Thank you"
+#~ msgstr "Grazie"
+
+#~ msgid "\"From\" name"
+#~ msgstr "Nome del mittente"
+
+#~ msgid "Dashboard"
+#~ msgstr "Bacheca"
+
+#~ msgid "Visitors"
+#~ msgstr "Visitatori"
+
+#~ msgid "Traffic Sources"
+#~ msgstr "Sorgenti di traffico"
+
+#~ msgid "Content"
+#~ msgstr "Contenuto"
+
+#~ msgid "Raw Data"
+#~ msgstr "Dati grezzi"
+
+#~ msgid "World Map"
+#~ msgstr "Mappa"
+
+#~ msgid "Custom Reports"
+#~ msgstr "Rapporti personali"
+
+#~ msgid "Current filters:"
+#~ msgstr "Filtri attivi:"
+
+#~ msgid "Filter pageviews where"
+#~ msgstr "Filtra accessi in cui:"
+
+#~ msgid "Browser"
+#~ msgstr "Browser"
+
+#~ msgid "Browser version"
+#~ msgstr "Versione Browser"
+
+#~ msgid "CSS version"
+#~ msgstr "Versione CSS"
+
+#~ msgid "Country Code"
+#~ msgstr "Codice Paese"
+
+#~ msgid "Domain"
+#~ msgstr "Dominio"
+
+#~ msgid "IP"
+#~ msgstr "IP"
+
+#~ msgid "Language Code"
+#~ msgstr "Codice Lingua"
+
+#~ msgid "Operating System"
+#~ msgstr "Sistema operativo"
+
+#~ msgid "Permalink"
+#~ msgstr "Permalink"
+
+#~ msgid "Referer"
+#~ msgstr "Riferimento"
+
+#~ msgid "Screen Resolution"
+#~ msgstr "Risoluzione schermo"
+
+#~ msgid "Is equal to"
+#~ msgstr "Uguale a"
+
+#~ msgid "Ends with"
+#~ msgstr "Finisce per"
+
+#~ msgid "Filter by date"
+#~ msgstr "Filtra per data"
+
+#~ msgid "Day"
+#~ msgstr "Giorno"
+
+#~ msgid "Month"
+#~ msgstr "Mese"
+
+#~ msgid "Year"
+#~ msgstr "Anno"
+
+#~ msgid "Go"
+#~ msgstr "Vai"
+
+#~ msgid "reset"
+#~ msgstr "annulla"
+
+#~ msgid "Pageviews by day - Click on a day for hourly metrics"
+#~ msgstr ""
+#~ "Pagine al giorno - Clicca su un giorno per vedere il dettaglio orario"
+
+#~ msgid "Pageviews by hour"
+#~ msgstr "Accessi orari"
+
+#~ msgid "No data to display"
+#~ msgstr "Nessun dato da visualizzare"
+
+#~ msgid "About WP-SlimStat"
+#~ msgstr "Informazioni su WP-SlimStat"
+
+#~ msgid "Total Hits"
+#~ msgstr "Totale accessi"
+
+#~ msgid "Data Size"
+#~ msgstr "Dimensione DB"
+
+#~ msgid "Tracking Active"
+#~ msgstr "Tracciamento attivo"
+
+#~ msgid "Summary for"
+#~ msgstr "Panoramica del"
+
+#~ msgid "this period"
+#~ msgstr "periodo"
+
+#~ msgid "Unique IPs"
+#~ msgstr "IP unici"
+
+#~ msgid "Avg Pageviews"
+#~ msgstr "Media accessi"
+
+#~ msgid "On"
+#~ msgstr "Il"
+
+#~ msgid "Last Month"
+#~ msgstr "Mese scorso"
+
+#~ msgid "User agents"
+#~ msgstr "User agents"
+
+#~ msgid "Popular pages of all time"
+#~ msgstr "Pagine in assoluto pi&ugrave; popolari"
+
+#~ msgid "Open %s in a new window"
+#~ msgstr "Apri %s in una nuova finestra"
+
+#~ msgid "More"
+#~ msgstr "Dettagli"
+
+#~ msgid "Recent Keywords"
+#~ msgstr "Parole chiave recenti"
+
+#~ msgid "Recent Countries"
+#~ msgstr "Paesi recenti"
+
+#~ msgid "c-"
+#~ msgstr "c-"
+
+#~ msgid "Traffic Sources Overview"
+#~ msgstr "Panoramica sorgenti di traffico"
+
+#~ msgid "Human Visits by day - Click on a day for hourly metrics"
+#~ msgstr ""
+#~ "Visite umane al giorno - Clicca su un giorno per vedere il dettaglio "
+#~ "orario"
+
+#~ msgid "Human Visits by hour"
+#~ msgstr "Visite umane per ogni ora"
+
+#~ msgid "Human visits"
+#~ msgstr "Visitatori umani"
+
+#~ msgid "One time visitors"
+#~ msgstr "Una sola visita"
+
+#~ msgid "Bounce rate"
+#~ msgstr "Tasso di rimbalzo"
+
+#~ msgid "Bots"
+#~ msgstr "Bot"
+
+#~ msgid "Pages per visit"
+#~ msgstr "Pagine per visita"
+
+#~ msgid "Longest visit"
+#~ msgstr "Visita pi&ugrave; lunga"
+
+#~ msgid "Languages"
+#~ msgstr "Lingue"
+
+#~ msgid "l-"
+#~ msgstr "l-"
+
+#~ msgid "Languages - Just Visitors"
+#~ msgstr "Lingue - Solo visitatori"
+
+#~ msgid "IP Addresses and Domains"
+#~ msgstr "Indirizzi IP e Domini"
+
+#~ msgid "Recent Browsers"
+#~ msgstr "Browser recenti"
+
+#~ msgid "Operating Systems"
+#~ msgstr "Sistemi operativi"
+
+#~ msgid "Browsers and Operating Systems"
+#~ msgstr "Browser e Sistemi operativi"
+
+#~ msgid "Screen Resolutions"
+#~ msgstr "Risoluzioni schermo"
+
+#~ msgid "Screen Resolutions with colordepth"
+#~ msgstr "Risoluzioni schermo e colori"
+
+#~ msgid "Plugins"
+#~ msgstr "Plugin"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "Silverlight"
+#~ msgstr "Silverlight"
+
+#~ msgid "Acrobat"
+#~ msgstr "Acrobat"
+
+#~ msgid "Java"
+#~ msgstr "Java"
+
+#~ msgid "Media Player"
+#~ msgstr "Media Player"
+
+#~ msgid "Real Player"
+#~ msgstr "Real Player"
+
+#~ msgid "Top Countries"
+#~ msgstr "Panoramica dei Paesi"
+
+#~ msgid "Details about Recent Visits"
+#~ msgstr "Dettagli sulle visite recenti"
+
+#~ msgid "Direct visit to"
+#~ msgstr "Visita diretta a"
+
+#~ msgid "Traffic Sources by day - Click on a day for hourly metrics"
+#~ msgstr ""
+#~ "Sorgenti di traffico al giorno - Clicca su un giorno per vedere il "
+#~ "dettaglio orario"
+
+#~ msgid "Traffic Sources by hour"
+#~ msgstr "Sorgenti di traffico orarie"
+
+#~ msgid "Unique Referers"
+#~ msgstr "Sorgenti uniche"
+
+#~ msgid "Direct Visits"
+#~ msgstr "Visite dirette"
+
+#~ msgid "Unique Pages Referred"
+#~ msgstr "Pagine uniche riferite"
+
+#~ msgid "Recent bouncing pages"
+#~ msgstr "Pagine di rimbalzo"
+
+#~ msgid "Unique Internal"
+#~ msgstr "Ricerche interne"
+
+#~ msgid "Top Keywords"
+#~ msgstr "Parole chiave principali"
+
+#~ msgid "Traffic Sources for"
+#~ msgstr "Sorgenti di traffico del"
+
+#~ msgid "Sites for"
+#~ msgstr "Siti del"
+
+#~ msgid "Recent Keywords &raquo; Pages"
+#~ msgstr "Parole chiave &raquo; Pagine"
+
+#~ msgid "Open referer in a new window"
+#~ msgstr "Apri il riferimento in una nuova finestra"
+
+#~ msgid ""
+#~ "Average pageviews per visit by day - Click on a day for hourly metrics"
+#~ msgstr ""
+#~ "Pagine al giorno - Clicca su un giorno per vedere il dettaglio orario"
+
+#~ msgid "Average pageviews per visit by hour"
+#~ msgstr "Media oraria delle pagine per visita"
+
+#~ msgid "Recent Contents"
+#~ msgstr "Contenuti recenti"
+
+#~ msgid "Recent Feeds"
+#~ msgstr "Feed recenti"
+
+#~ msgid "Popular pages for"
+#~ msgstr "Pagine popolari del"
+
+#~ msgid "Recent 404 pages"
+#~ msgstr "Pagine 404 recenti"
+
+#~ msgid "Recent Internal Searches"
+#~ msgstr "Ricerche interne"
+
+#~ msgid "Top Exit Pages for"
+#~ msgstr "Pagine d'uscita del"
+
+#~ msgid "Recent Outbound Links"
+#~ msgstr "Link in uscita"
+
+#~ msgid "Recent Downloads"
+#~ msgstr "Download recenti"
+
+#~ msgid "Order by"
+#~ msgstr "Ordina per"
+
+#~ msgid "Country"
+#~ msgstr "Paese"
+
+#~ msgid "Date/Time"
+#~ msgstr "Data/Ora"
+
+#~ msgid "Language"
+#~ msgstr "Lingua"
+
+#~ msgid "Select sorting"
+#~ msgstr "Scegli ordine"
+
+#~ msgid "Ascending"
+#~ msgstr "Crescente"
+
+#~ msgid "Descending"
+#~ msgstr "Decrescente"
+
+#~ msgid "Starting from record #"
+#~ msgstr "A partire dalla riga n."
+
+#~ msgid "No records found"
+#~ msgstr "Nessun record trovato"
+
+#~ msgid "Records: %d - %d. Order by: %s %s"
+#~ msgstr "Righe: %d - %d. Ordinamento: %s %s"
+
+#~ msgid "N/A"
+#~ msgstr "N/D"
+
+#~ msgid "Direct visit"
+#~ msgstr "Visita diretta"
+
+#~ msgid ""
+#~ "World Map - Values represent the percentage of hits coming from that "
+#~ "Country"
+#~ msgstr ""
+#~ "Mappa del mondo - I valori rappresentano le visite in percentuale "
+#~ "provenienti da ogni Paese"
+
+#~ msgid "Pluggable custom reports"
+#~ msgstr "Rapporti personalizzati"
+
+#~ msgid ""
+#~ "Yes, you can! Create and view your personalized analytics for WP "
+#~ "SlimStat. In order to do this, just write a new plugin that fetches the "
+#~ "desired information from the database and then hook it to the action "
+#~ "<code>wp_slimstat_custom_report</code>. A demo plugin comes with the "
+#~ "package. It shows how to write custom reports in 5 minutes. You can find "
+#~ "it inside the plugin&apos;s folder: <code>wp-slimstat-custom-report-demo."
+#~ "php</code>. For more information, visit my <a href=\"http://lab."
+#~ "duechiacchiere.it/\" target=\"_blank\">support forum</a>."
+#~ msgstr ""
+#~ "Si, si pu&ograve;! Creare e vedere le proprie statistiche personalizzate "
+#~ "per WP SlimStat. Per far questo, ti basta scrivere un nuovo plugin che "
+#~ "preleva le informazioni desiderate dal database, per poi agganciarlo al "
+#~ "codice <code>wp_slimstat_custom_report</code>. Un esempio &egrave; "
+#~ "incluso con la distribuzione. Mostra come scrivere rapporti "
+#~ "personalizzati in 5 minuti. Lo trovi nella cartella del plugin: <code>wp-"
+#~ "slimstat-custom-report-demo.php</code>. Per ulteriori informazioni, "
+#~ "visita il mio <a href=\"http://lab.duechiacchiere.it/\" target=\"_blank"
+#~ "\">forum di supporto</a>."
+
+#~ msgid "Domains"
+#~ msgstr "Domini"
+
+#~ msgid "Visits"
+#~ msgstr "Visite"
+
+#~ msgid "Unique Visits"
+#~ msgstr "Visite uniche"

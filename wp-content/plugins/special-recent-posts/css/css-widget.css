@@ -1,0 +1,54 @@
+/*
+| --------------------------------------------------------
+| File        : css-admin-widget.css
+| Description : Plugin widget page stylesheet.
+| Version     : 1.9
+| Project     : Special Recent Posts plugin for wordpress
+| Author      : Luca Grandicelli
+| Plugin URL  : http://www.lucagrandicelli.com/special-recent-posts-plugin-for-wordpress/
+| --------------------------------------------------------
+*/
+
+ul.srp-widget-optionlist-advanced {
+	display: none;
+}
+
+ul#srp_widget_tabs {
+	list-style : none;
+	margin     : 0px 0px 10px 0px;
+	padding    : 0px;
+}
+
+ul#srp_widget_tabs li {
+	display: inline
+}
+
+ul#srp_widget_tabs li a{
+	text-decoration  : none;
+	background-color : #DFDFDF;
+	border-top       : 1px solid #666666;
+	border-left      : 1px solid #666666;
+	border-right     : 1px solid #666666;
+	padding          : 4px;
+	color            : #000000;
+}
+
+ul#srp_widget_tabs li a:hover{
+	background-color: #FFFFFF;
+}
+
+ul#srp_widget_tabs li a.active{
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+label.srp-widget-label {
+	display : block;
+	clear   : both;
+}
+
+label.srp-widget-label-inline {
+	clear   : both;
+	display : inline;
+	margin  : 0px 5px 0px 0px;
+}

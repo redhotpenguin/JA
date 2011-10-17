@@ -1,0 +1,23 @@
+/*
+Part of the Qwerty Admin Panel Theme Plugin css 0.3
+
+Rather than editing this file, you could make a file named "qwerty-admin-imports.css" and place it in the plugin dir.
+This way your customizations won't be lost if you upgrade the plugin automatically.
+*/
+
+@import url('/wp-admin/css/colors-fresh.css');
+@import url('qwerty-admin-imports.css');
+
+.qwerty_fieldnametd {
+	border: 0;
+	width: 35em;
+	overflow: auto;
+}
+
+div.color-option {
+	display: none !important;
+	}
+
+table.color-palette {
+	display: none;
+	}

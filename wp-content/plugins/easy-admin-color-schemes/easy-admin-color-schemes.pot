@@ -1,0 +1,355 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Admin Color Schemes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-25 00:48-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: James Dimick <mail@jamesdimick.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: easy-admin-color-schemes.php:103
+#: easy-admin-color-schemes.php:731
+msgid "Settings"
+msgstr ""
+
+#: easy-admin-color-schemes.php:122
+msgid "A fatal error occurred while trying to interact with needed files and directories. This could mean your server is not configured properly and/or the files and directories are not writable&hellip;"
+msgstr ""
+
+#: easy-admin-color-schemes.php:124
+msgid "The specified action/method is invalid!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:126
+msgid "The specified admin color scheme does not exist!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:128
+msgid "A fatal error occurred while trying to set the current admin color scheme on the specified profile."
+msgstr ""
+
+#: easy-admin-color-schemes.php:130
+msgid "A fatal error occurred while trying to delete the specified admin color scheme."
+msgstr ""
+
+#: easy-admin-color-schemes.php:132
+msgid "An unknown fatal error occurred!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:136
+#, php-format
+msgid "<big>Fatal Error!</big><br />%1$s<br /><code>&mdash; Easy Admin Color Schemes [Error Code: %2$d]</code>"
+msgstr ""
+
+#: easy-admin-color-schemes.php:475
+msgid "Are you sure you want to delete the"
+msgstr ""
+
+#: easy-admin-color-schemes.php:475
+msgid "scheme?"
+msgstr ""
+
+#: easy-admin-color-schemes.php:475
+msgid "This action cannot be undone!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:493
+msgid "Toggle&nbsp;Live&nbsp;Preview"
+msgstr ""
+
+#: easy-admin-color-schemes.php:493
+msgid "Click to toggle the live preview"
+msgstr ""
+
+#: easy-admin-color-schemes.php:494
+msgid "Live Preview"
+msgstr ""
+
+#: easy-admin-color-schemes.php:494
+msgid "&darr;&nbsp;Update"
+msgstr ""
+
+#: easy-admin-color-schemes.php:494
+msgid "Click to update the live preview below"
+msgstr ""
+
+#: easy-admin-color-schemes.php:494
+msgid "Scheme Preview"
+msgstr ""
+
+#: easy-admin-color-schemes.php:494
+msgid "In some cases images in the live preview may not appear correctly&hellip;"
+msgstr ""
+
+#: easy-admin-color-schemes.php:542
+msgid "Edit Color Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:542
+msgid "Create a Color Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:543
+msgid "Use the form below to edit the currently selected color scheme."
+msgstr ""
+
+#: easy-admin-color-schemes.php:543
+msgid "Use this form to create a new color scheme."
+msgstr ""
+
+#: easy-admin-color-schemes.php:553
+msgid "Save Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:553
+msgid "Create Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:554
+msgid "Export Color Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:554
+msgid "Import a Color Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:555
+#, php-format
+msgid "Choose the method you would like to use to export the <strong>%s</strong> color scheme."
+msgstr ""
+
+#: easy-admin-color-schemes.php:555
+msgid "Use this form to import a pre-existing color scheme for use with this plugin."
+msgstr ""
+
+#: easy-admin-color-schemes.php:560
+msgid "Export Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:560
+msgid "Import Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:600
+msgid "Your new color scheme has been added!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:602
+msgid "Your changes to the color scheme have been saved!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:604
+msgid "You have successfully deleted the color scheme!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:606
+msgid "The color scheme you were trying to add already exists!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:608
+msgid "The provided scheme is not a valid color scheme!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:610
+msgid "The action provided is incorrect!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:612
+msgid "Your submission had missing required items!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:614
+msgid "Your current color scheme has been changed!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:616
+msgid "Your submission had invalid required items!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:618
+msgid "Your color scheme has been successfully imported!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:620
+msgid "The color scheme could not be imported!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:622
+msgid "The color scheme you were trying to import does not have the proper header!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:624
+msgid "The color scheme you were trying to import already exists!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:626
+#, php-format
+msgid "Imported color schemes can only be .CSS files smaller than %s!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:628
+msgid "No file was uploaded!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:630
+msgid "same"
+msgstr ""
+
+#: easy-admin-color-schemes.php:631
+msgid "Your current color scheme has been updated!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:631
+#, php-format
+msgid "However, the administrator has chosen to restrict all users to use the %s color scheme. You will not be able to use your chosen color scheme until this restriction has been lifted."
+msgstr ""
+
+#: easy-admin-color-schemes.php:636
+#: easy-admin-color-schemes.php:781
+msgid "Color Schemes"
+msgstr ""
+
+#: easy-admin-color-schemes.php:638
+#, php-format
+msgid "Below is a list of all currently existing color schemes. You can add more by going down to the <a href=\"%1$s\" title=\"Create a color scheme\">Create a Color Scheme</a> area. Also, use the <a href=\"%2$s\" title=\"Import a color scheme\">Import a Color Scheme</a> area to import a pre-existing scheme."
+msgstr ""
+
+#: easy-admin-color-schemes.php:642
+msgid "Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:643
+msgid "Last Modified"
+msgstr ""
+
+#: easy-admin-color-schemes.php:644
+msgid "Actions"
+msgstr ""
+
+#: easy-admin-color-schemes.php:661
+msgid "Preview this color scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:661
+msgid "Preview"
+msgstr ""
+
+#: easy-admin-color-schemes.php:662
+msgid "Use this color scheme now"
+msgstr ""
+
+#: easy-admin-color-schemes.php:662
+msgid "Use"
+msgstr ""
+
+#: easy-admin-color-schemes.php:663
+msgid "Copy this color scheme to the Create a Color Scheme area below"
+msgstr ""
+
+#: easy-admin-color-schemes.php:663
+msgid "Copy"
+msgstr ""
+
+#: easy-admin-color-schemes.php:664
+msgid "Export"
+msgstr ""
+
+#: easy-admin-color-schemes.php:664
+msgid "Export this color scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:667
+#: easy-admin-color-schemes.php:670
+msgid "Edit"
+msgstr ""
+
+#: easy-admin-color-schemes.php:667
+msgid "Edit this color scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:668
+msgid "Delete this color scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:668
+#: easy-admin-color-schemes.php:671
+msgid "Delete"
+msgstr ""
+
+#: easy-admin-color-schemes.php:680
+msgid "There are currently no color schemes! Add some below&hellip;"
+msgstr ""
+
+#: easy-admin-color-schemes.php:693
+msgid " Also, if JavaScript is enabled in your browser, there is a live preview. Click on the Toggle Live Preview button below to toggle the live preview on and off."
+msgstr ""
+
+#: easy-admin-color-schemes.php:696
+msgid "Scheme Details"
+msgstr ""
+
+#: easy-admin-color-schemes.php:697
+msgid "The Name"
+msgstr ""
+
+#: easy-admin-color-schemes.php:697
+msgid "The color scheme name can contain alphanumeric characters, spaces, and special characters. It can be between 3 and 200 characters in length&hellip;"
+msgstr ""
+
+#: easy-admin-color-schemes.php:698
+msgid "Primary Colors"
+msgstr ""
+
+#: easy-admin-color-schemes.php:699
+msgid "Scheme CSS"
+msgstr ""
+
+#: easy-admin-color-schemes.php:699
+#, php-format
+msgid "(Copied from %s)"
+msgstr ""
+
+#: easy-admin-color-schemes.php:716
+msgid "This method exports the currently selected color scheme as a special CSS file with special header text at the beginning of the file which allows it to be imported back into this plugin."
+msgstr ""
+
+#: easy-admin-color-schemes.php:717
+msgid "This method exports the currently selected color scheme as its own WordPress plugin so it can be used by itself on any WordPress site without requiring the Easy Admin Color Schemes plugin."
+msgstr ""
+
+#: easy-admin-color-schemes.php:719
+#, php-format
+msgid "<strong>Please Note:</strong> Only files with the <strong><a href=\"http://www.wikipedia.org/wiki/Cascading_Style_Sheets\" class=\"nonessential\" title=\"Cascading Style Sheets\">.CSS</a></strong> extension can be imported. Files bigger than <strong>%s</strong> cannot be imported!<br />Imported files <strong>MUST</strong> have the proper header at the beginning of the file in order to be recognized!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:720
+msgid "A proper header looks like this:"
+msgstr ""
+
+#: easy-admin-color-schemes.php:756
+msgid "Save Changes"
+msgstr ""
+
+#: easy-admin-color-schemes.php:763
+msgid "More Information"
+msgstr ""
+
+#: easy-admin-color-schemes.php:765
+msgid "This plugin allows you to manage the color schemes for the administration interface of this site. You can add, edit, import, export, and delete any scheme that is compatible with this plugin. The interface is fairly straightforward but, if you have any issues please <a href=\"http://www.jamesdimick.com/contact/\">get in contact with the author</a>. You can also report any bugs, errors, or anything else you would like at <a href=\"http://www.jamesdimick.com/creations/easy-admin-color-schemes/\">the official plugin page</a>. Finally, if you would like to help support this plugin, you can donate to the author by clicking the Donate button below. Donations are <strong>very</strong> much appreciated and they will all go to making this plugin better!"
+msgstr ""
+
+#: easy-admin-color-schemes.php:788
+msgid "Change Scheme"
+msgstr ""
+
+#: easy-admin-color-schemes.php:788
+#, php-format
+msgid "Admin Color Scheme %1$s"
+msgstr ""
+

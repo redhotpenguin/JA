@@ -1,0 +1,155 @@
+.eacs-schemes-colors span {
+	display: block;
+	float: left;
+	background: transparent url(../../../../wp-admin/images/mask.png) 35% 35% no-repeat;
+	height: 25px;
+	width: 20px;
+	border: 1px solid #464646;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	margin-right: 3px;
+}
+.eacs-schemes-colors strong {
+	line-height: 25px;
+	margin-left: 6px;
+}
+.pointer {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.pointer .postbox {
+	margin: 1.5em 0 !important;
+}
+.pointer .postbox .handlediv, .pointer .postbox h3 {
+	cursor: pointer !important;
+}
+.pointer .postbox .handlediv {
+	background: transparent url(../../../../wp-admin/images/menu-bits.gif) no-repeat scroll left -111px;
+}
+.pointer .postbox .inside {
+	padding: 1em;
+	margin: 0;
+}
+.pointer .postbox .inside div, .pointer .postbox .inside form, .pointer .postbox .inside .submit, .pointer .postbox .inside p, .pointer .postbox .inside .nomarg {
+	padding: 0;
+	margin: 0;
+}
+.pointer .postbox .inside p {
+	margin-bottom: 1em;
+}
+.pointer .postbox .inside input {
+	margin: 0;
+}
+.pointer .postbox .inside .submit {
+	margin-top: 1em;
+}
+.fleft, .fright {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 !important;
+}
+.fleft {
+	float: left;
+	width: 60%;
+	padding: 0 15px 0 0 !important;
+}
+.fright {
+	float: right;
+	width: 40%;
+	padding: 0 0 0 15px !important;
+	border-left: 1px solid #e3e3e3;
+	border-color: rgba(0, 0, 0, 0.07);
+}
+.spechead {
+	padding: 0 0 3px 0;
+	border-bottom: 1px solid #e3e3e3;
+	border-color: rgba(0, 0, 0, 0.08);
+	margin: 0 0 10px 0;
+}
+.spechead2 {
+	clear: both;
+	padding: 20px 0 0 0;
+	margin: 0 0 3px 0;
+}
+.specindent {
+	display: block;
+	margin-left: 2.3em;
+}
+.note {
+	line-height: 1em;
+	color: #999239;
+	background-color: #ffffe0;
+	width: 50%;
+	padding: 0.4em 0.6em !important;
+	border: 1px solid #e6db55;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.note * {
+	font-size: smaller;
+	margin: 0 !important;
+}
+.note pre {
+	font-weight: bold;
+}
+#schemename, #schemecss, #importcssfile {
+	width: 100%;
+}
+#priclrtxt1, #priclrtxt2, #priclrtxt3, #priclrtxt4, #schemeprevtog, #schemeprevupd, #exportmethod1, #exportmethod2 {
+	width: auto;
+}
+#eacsubmit {
+	float: left;
+}
+#schemeprevtog {
+	float: right;
+}
+#schemeprevupd {
+	padding: 0 0.4em;
+	margin: 0 0 0 1em;
+}
+#eacs-live-preview {
+	clear: both;
+	padding-top: 10px;
+}
+#schemepreview {
+	background-color: #fff;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 400px;
+	width: 100%;
+	padding: 3px;
+	border: 1px solid #dfdfdf;
+}
+#donatebtn, #donatebtn p {
+	padding: 0;
+	margin: 0;
+}
+.eacsform tr th {
+	text-align: right;
+	width: 10%;
+}
+.eacsform tr th small {
+	line-height: 1.8em;
+	margin-right: 1em;
+}
+.eacsform tr td {
+	width: 90%;
+}
+.eacsform tr td select {
+	width: 100%;
+}
+.eacsautoh {
+	height: auto !important;
+}
+.bold {
+	font-weight: bold;
+}

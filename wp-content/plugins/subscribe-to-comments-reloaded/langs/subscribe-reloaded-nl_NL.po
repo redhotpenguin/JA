@@ -1,0 +1,838 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe to Comments Reloaded\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-10 10:09-0500\n"
+"PO-Revision-Date: 2011-01-10 10:09-0500\n"
+"Last-Translator: Camu <info@duechiacchiere.it>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: er\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: subscribe-to-comments-reloaded.php:34
+#: subscribe-to-comments-reloaded.php:190
+msgid "You are subscribed to this entry. <a href='[manager_link]'>Manage</a> your subscriptions."
+msgstr "Je hebt een abonnement op dit bericht. Beheer je abonnementen <a href='[manager_link]'>op deze pagina</a>. "
+
+#: subscribe-to-comments-reloaded.php:39
+#: subscribe-to-comments-reloaded.php:191
+msgid "Your subscription to this entry needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>."
+msgstr "Je abonnement op dit bericht moet eerst worden bevestigd. <a href='[manager_link]'>Beheer je abonnementen</a>."
+
+#: subscribe-to-comments-reloaded.php:46
+#: subscribe-to-comments-reloaded.php:192
+msgid "You can <a href='[manager_link]'>manage the subscriptions</a> of this entry."
+msgstr "Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit bericht beheren."
+
+#: subscribe-to-comments-reloaded.php:52
+#: subscribe-to-comments-reloaded.php:186
+msgid "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr "Houd mij op de hoogte van nieuwe reacties. Of <a href='[subscribe_link]'>abonneer jezelf</a> op deze discussie zonder te reageren."
+
+#: subscribe-to-comments-reloaded.php:162
+#: options/index.php:44
+msgid "Manage subscriptions"
+msgstr "Beheer Abonnementen"
+
+#: subscribe-to-comments-reloaded.php:163
+msgid "To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page."
+msgstr "Om je abonnementen te beheren moet je hieronder je e-mail adres invullen. We sturen je dan een persoonlijk link waar je je abonnementen aan kunt passen."
+
+#: subscribe-to-comments-reloaded.php:164
+msgid "Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes."
+msgstr "Bedankt voor het gebruikmaken van onze abonnementen service. Je aanvraag is voltooid en je ontvangt binnen enkele ogenblikken een e-mail met een link naar je persoonlijk beheerpagina."
+
+#: subscribe-to-comments-reloaded.php:165
+msgid "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set."
+msgstr "Je wilt je abonneren op de discussie <strong>[post_title]</strong> zonder zelf te reageren? Vul je e-mail adres hieronder in en de rest gaat vanzelf."
+
+#: subscribe-to-comments-reloaded.php:166
+msgid "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator."
+msgstr "Bedankt voor het gebruikmaken van onze abonnementen service. Je aanvraag is voltooid. Je ontvangt iedere keer een e-mail als er een nieuwe reactie is geplaatst."
+
+#: subscribe-to-comments-reloaded.php:167
+msgid "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions."
+msgstr "Bedankt voor het gebruikmaken van onze abonnementen service. Om je aanvraag te voltooien moet je deze eerst bevestigen. Je ontvangt hierover binnen enkele ogenblikken een e-mail bericht."
+
+#: subscribe-to-comments-reloaded.php:168
+msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list."
+msgstr "Om je abonnementenen aan te passen vink je het gewenste abonnement aan en klik je op de desgewenste actie."
+
+#: subscribe-to-comments-reloaded.php:169
+msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:"
+msgstr "Om je abonnementenen aan te passen vink je het gewenste abonnement aan en klik je op de desgewenste actie. Momenteel ben je geabonneerd op de volgende berichten:"
+
+#: subscribe-to-comments-reloaded.php:184
+msgid "There is a new comment to [post_title]"
+msgstr "Er is een nieuwe reactie geplaatst bij [post_title]"
+
+#: subscribe-to-comments-reloaded.php:185
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"Er is een nieuwe reactie op [post_title].\n"
+"Link naar de reactie: [comment_permalink]\n"
+"Auteur: [comment_author]\n"
+"Reactie:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Beheer je abonnementen: [manager_link]"
+
+#: subscribe-to-comments-reloaded.php:193
+msgid "Please confirm your subscription to [post_title]"
+msgstr "Bevestig je abonnement op [post_title]"
+
+#: subscribe-to-comments-reloaded.php:194
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr "Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit bericht beheren."
+
+#: subscribe-to-comments-reloaded.php:195
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "Beheer je abonnementen op [blog_name]"
+
+#: subscribe-to-comments-reloaded.php:196
+msgid ""
+"You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"Je hebt gevraagd om de link naar je abonnementen beheer pagina voor de website [blog_name]. Volg de volgende link om naar je persoonlijke beheer pagina te gaan:\n"
+"[manager_link]"
+
+#: subscribe-to-comments-reloaded.php:597
+msgid "Subscribed"
+msgstr "Geabonneerd"
+
+#: subscribe-to-comments-reloaded.php:611
+#: options/panel3.php:65
+#: options/panel3.php:87
+#: options/panel3.php:94
+#: options/panel3.php:101
+#: options/panel3.php:108
+#: options/panel3.php:115
+#: options/panel3.php:122
+msgid "Yes"
+msgstr "Ja"
+
+#: subscribe-to-comments-reloaded.php:613
+msgid "Awaiting confirmation"
+msgstr "Wachten op bevestiging"
+
+#: subscribe-to-comments-reloaded.php:614
+#: options/panel3.php:66
+#: options/panel3.php:88
+#: options/panel3.php:95
+#: options/panel3.php:102
+#: options/panel3.php:109
+#: options/panel3.php:116
+#: options/panel3.php:123
+msgid "No"
+msgstr "Nee"
+
+#: subscribe-to-comments-reloaded.php:624
+msgid "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr "Hulp nodig bij het gebruik van de Subscribe to Comments Reloaded plugin? Bezoek de officiele"
+
+#: subscribe-to-comments-reloaded.php:624
+msgid "support forum"
+msgstr "support forum"
+
+#: subscribe-to-comments-reloaded.php:625
+msgid "Feeling generous?"
+msgstr "Wees eens gul!"
+
+#: subscribe-to-comments-reloaded.php:625
+msgid "Donate a few bucks!"
+msgstr "Doneer een paar centen!"
+
+#: options/index.php:45
+msgid "Stats"
+msgstr "Statistieken"
+
+#: options/index.php:46
+msgid "Options"
+msgstr "Opties"
+
+#: options/index.php:47
+msgid "Mail Messages"
+msgstr "E-mail Berichten"
+
+#: options/index.php:48
+msgid "Other Messages"
+msgstr "Andere Berichten"
+
+#: options/index.php:49
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: options/panel1.php:32
+#: options/panel1.php:38
+#: options/panel1.php:45
+#: options/panel1.php:63
+msgid "The status has been successfully updated. Rows affected:"
+msgstr "De status is succesvol bijgewerkt. Aangepaste rijen:"
+
+#: options/panel1.php:68
+msgid "Update subscription"
+msgstr "Abonnement bijwerken"
+
+#: options/panel1.php:69
+msgid "Update the email address associated to a specific subscription (by post ID)."
+msgstr "E-mail adres aanpassen die bij een specifiek abonnement hoort (door middel van Post ID)"
+
+#: options/panel1.php:71
+#: options/panel1.php:101
+#: options/panel1.php:173
+#: templates/author.php:39
+#: templates/user.php:41
+msgid "Please remember: this operation cannot be undone. Are you sure you want to proceed?"
+msgstr "Let op! Deze handeling kan niet ongedaan worden gemaakt. Weet je zeker dat je door wilt gaan?"
+
+#: options/panel1.php:73
+#: options/panel1.php:103
+msgid "From"
+msgstr "Van"
+
+#: options/panel1.php:74
+msgid "PID"
+msgstr "PID"
+
+#: options/panel1.php:75
+#: options/panel1.php:104
+msgid "To"
+msgstr "Naar"
+
+#: options/panel1.php:76
+#: options/panel1.php:93
+#: options/panel1.php:105
+msgid "Update"
+msgstr "Bijwerken"
+
+#: options/panel1.php:83
+msgid "Change status"
+msgstr "Status aanpassen"
+
+#: options/panel1.php:84
+msgid "Change the status of an email address or permanently delete all its subscriptions."
+msgstr "Verander de status van een e-mail adres of verwijder alle bijbehorende abonnementen."
+
+#: options/panel1.php:87
+msgid "Action"
+msgstr "Actie"
+
+#: options/panel1.php:89
+#: options/panel1.php:195
+#: templates/author.php:60
+#: templates/user.php:58
+msgid "Suspend"
+msgstr "Pauzeren"
+
+#: options/panel1.php:90
+#: options/panel1.php:196
+#: templates/author.php:61
+#: templates/user.php:59
+msgid "Resume"
+msgstr "Hervatten"
+
+#: options/panel1.php:91
+#: options/panel1.php:194
+msgid "Delete forever"
+msgstr "Verwijderen"
+
+#: options/panel1.php:98
+msgid "Update email address"
+msgstr "E-mail adres bijwerken"
+
+#: options/panel1.php:99
+msgid "You can \"mass update\" all the occurrences of a given email address (exact matches only)."
+msgstr "Hieronder kun je een geabonneerd e-mail adres veranderen (Let goed op schrijffouten)."
+
+#: options/panel1.php:150
+msgid "&laquo; Previous"
+msgstr "&laquo; Vorige"
+
+#: options/panel1.php:154
+msgid "Next &raquo;"
+msgstr "Volgende &raquo;"
+
+#: options/panel1.php:157
+msgid "Search email address"
+msgstr "Zoek e-mail adres"
+
+#: options/panel1.php:159
+#, php-format
+msgid "You can either <a href=\"%s\">list all the subscriptions</a> or find those where the <b>email</b>"
+msgstr "Je kunt <a href=\"%s\">hier alle abonnementen bekijken</a> of filter hier op <b>e-mail</b>"
+
+#: options/panel1.php:162
+msgid "equals"
+msgstr "is exact"
+
+#: options/panel1.php:163
+msgid "contains"
+msgstr "bevat"
+
+#: options/panel1.php:164
+msgid "does not contain"
+msgstr "bevat niet"
+
+#: options/panel1.php:167
+msgid "Search"
+msgstr "Zoeken"
+
+#: options/panel1.php:178
+msgid "Subscriptions for:"
+msgstr "Abonnementen voor:"
+
+#: options/panel1.php:178
+msgid "Rows:"
+msgstr "Rijen:"
+
+#: options/panel1.php:178
+msgid "of"
+msgstr "van"
+
+#: options/panel1.php:179
+#: templates/author.php:45
+#: templates/user.php:47
+msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
+msgstr "Legenda: Y: geabonneerd, N: gepauzeerd, C: wachten op bevestiging"
+
+#: options/panel1.php:181
+#: options/panel1.php:182
+msgid "Reverse the order by Date/Time"
+msgstr "Keer sortering om op Datum/Tijd"
+
+#: options/panel1.php:183
+msgid "Reverse the order by Post ID"
+msgstr "Keer sortering om op Post ID"
+
+#: options/panel1.php:184
+#: templates/request-management-link.php:77
+#: templates/subscribe.php:82
+#: templates/user.php:46
+msgid "Email"
+msgstr "E-mail"
+
+#: options/panel1.php:186
+msgid "Post (ID)"
+msgstr "Post (ID)"
+
+#: options/panel1.php:186
+msgid "Date and Time"
+msgstr "Datum en Tijd"
+
+#: options/panel1.php:186
+msgid "Status"
+msgstr "Status"
+
+#: options/panel1.php:194
+#: templates/author.php:59
+#: templates/user.php:57
+msgid "Action:"
+msgstr "Actie:"
+
+#: options/panel1.php:197
+#: templates/author.php:62
+#: templates/user.php:60
+msgid "Update subscriptions"
+msgstr "Abonnementen bijwerken"
+
+#: options/panel1.php:205
+msgid "Sorry, no subscriptions found for"
+msgstr "Sorry, er zijn geen abonnementen gevonden voor"
+
+#: options/panel3.php:11
+msgid "Management Page ID"
+msgstr "Abonnenementen Beheerpagina ID"
+
+#: options/panel3.php:12
+#: options/panel3.php:48
+msgid "Autopurge requests"
+msgstr "Automatisch verwerpen van aanvragen"
+
+#: options/panel3.php:13
+#: options/panel3.php:53
+msgid "Sender name"
+msgstr "Zender"
+
+#: options/panel3.php:14
+#: options/panel3.php:58
+msgid "Sender email address"
+msgstr "E-mail adres van zender"
+
+#: options/panel3.php:15
+#: options/panel3.php:63
+msgid "Checked by default"
+msgstr "Standaard aangevinkt"
+
+#: options/panel3.php:16
+#: options/panel3.php:70
+msgid "Custom CSS Class"
+msgstr "Aangepaste CSS Class"
+
+#: options/panel3.php:17
+#: options/panel3.php:75
+msgid "Custom inline style"
+msgstr "Aangepaste stijl direct in code"
+
+#: options/panel3.php:18
+#: options/panel3.php:80
+msgid "Custom HTML"
+msgstr "Aangepaste HTML"
+
+#: options/panel3.php:19
+#: options/panel3.php:85
+msgid "Enable double check"
+msgstr "Dubbele check activeren"
+
+#: options/panel3.php:20
+msgid "Notify authors"
+msgstr "Auteurs notificatie"
+
+#: options/panel3.php:21
+#: options/panel3.php:99
+msgid "Enable HTML emails"
+msgstr "Activeer HTML in e-mails"
+
+#: options/panel3.php:22
+#: options/panel3.php:106
+msgid "Send trackbacks"
+msgstr "Verstuur trackbacks"
+
+#: options/panel3.php:23
+#: options/panel3.php:92
+msgid "Notify admin"
+msgstr "Notificeer beheerder"
+
+#: options/panel3.php:24
+#: options/panel3.php:120
+msgid "Let admin subscribe"
+msgstr "Laat beheerder abonneren"
+
+#: options/panel3.php:29
+#: options/panel4.php:21
+#: options/panel5.php:28
+msgid "Your settings have been successfully updated."
+msgstr "De instellingen zijn succesvol bijgwerkt."
+
+#: options/panel3.php:32
+#: options/panel4.php:24
+#: options/panel5.php:31
+msgid "There was an error updating the following fields:"
+msgstr "Er deed zich een probleem voor tijdens het bijwerken van de volgende velden:"
+
+#: options/panel3.php:43
+#: options/panel5.php:64
+msgid "Management page"
+msgstr "Beheerpagina"
+
+#: options/panel3.php:45
+msgid "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its permalink must follow your Wordpress' permalink settings."
+msgstr "De permalink voor je abonnementen beheer pagina (zoiets als <code>/manage-subscriptions</code> of <code>/?page_id=345</code>). Deze pagina <b>bestaat niet</b> daadwerkelijk in het systeem, maar de permalink moet wel voldoen aan je Wordpress permalink instellingen."
+
+#: options/panel3.php:49
+msgid "days"
+msgstr "dagen"
+
+#: options/panel3.php:50
+msgid "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature."
+msgstr "Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit bericht beheren."
+
+#: options/panel3.php:55
+msgid "Name to use for the \"from\" field when sending a new notification to the user."
+msgstr "Naam die voor het \"from\" veld gebruikt moet worden bij het versturen van notificaties naar de gebruiker."
+
+#: options/panel3.php:60
+msgid "Email address to use for the \"from\" field when sending a new notification to the user."
+msgstr "E-mail adres dat gebruikt moet worden voor het \"from\" veld tijdens het versturen van notificaties naar de gebruiker."
+
+#: options/panel3.php:67
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "Denk erover na of het vinkje standaard aangevinkt moet staan of niet."
+
+#: options/panel3.php:72
+msgid "Custom CSS class to associate to the checkbox, if you want to customize its style."
+msgstr "Aangepaste CSS stijlen die op de checkbox slaan, vink aan als je de stijl zelf wilt aanpassen."
+
+#: options/panel3.php:77
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "Aangepaste CSS code die je direct hier kunt invoeren."
+
+#: options/panel3.php:82
+msgid "Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]"
+msgstr "Aangepaste HTML code die gebruikt wordt tijdens het aanroepen van de checkbox. Tags die zijn toegestaan: [checkbox_field], [checkbox_label]"
+
+#: options/panel3.php:89
+msgid "Send a notification email to confirm the subscription (to avoid addresses misuse)."
+msgstr "Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit bericht beheren."
+
+#: options/panel3.php:96
+msgid "Notify the administrator when a new comment is posted."
+msgstr "Stel de beheerder op de hoogte als er nieuwe reacties worden geplaatst."
+
+#: options/panel3.php:103
+msgid "If enabled, will send email messages with content-type = text/html instead of text/plain"
+msgstr "Als dit aan staat dan zullen emails verstuurd worden met content-type text/html in plaats van text/plain."
+
+#: options/panel3.php:110
+msgid "Notify users when a new trackback or pingback is added to the discussion."
+msgstr "Stel de gebruikers op de hoogte als er nieuwe trackbacks of pingbacks bij een bericht geplaatst worden."
+
+#: options/panel3.php:113
+msgid "Track all subscriptions"
+msgstr "Bekijk alle abonnementen"
+
+#: options/panel3.php:117
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr "Stel beheerders op de hoogte als iemand een abonnement neemt zonder eerst zelf te reageren."
+
+#: options/panel3.php:124
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr "Moet de beheerder zich kunnen abonneren op berichten als deze is ingelogd?"
+
+#: options/panel3.php:128
+#: options/panel4.php:86
+#: options/panel5.php:144
+msgid "Save Changes"
+msgstr "Opslaan"
+
+#: options/panel4.php:11
+#: options/panel4.php:37
+msgid "Notification subject"
+msgstr "Notificatie onderwerp"
+
+#: options/panel4.php:12
+#: options/panel4.php:42
+msgid "Notification message"
+msgstr "Notificatie bericht"
+
+#: options/panel4.php:13
+#: options/panel4.php:53
+msgid "Double check subject"
+msgstr "Onderwerp dubbel checken"
+
+#: options/panel4.php:14
+#: options/panel4.php:58
+msgid "Double check message"
+msgstr "Bericht dubbel checken"
+
+#: options/panel4.php:15
+#: options/panel4.php:69
+msgid "Management subject"
+msgstr "Beheer onderwerp"
+
+#: options/panel4.php:16
+#: options/panel4.php:74
+msgid "Management message"
+msgstr "Beheer bericht"
+
+#: options/panel4.php:39
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "Onderwerp van de notificatie e-mail. Beschikbare tags: [post_title]"
+
+#: options/panel4.php:44
+#: options/panel4.php:60
+#: options/panel4.php:76
+#: options/panel5.php:74
+#: options/panel5.php:84
+#: options/panel5.php:94
+#: options/panel5.php:104
+#: options/panel5.php:114
+#: options/panel5.php:124
+#: options/panel5.php:134
+msgid "Bold"
+msgstr ""
+
+#: options/panel4.php:45
+#: options/panel4.php:61
+#: options/panel4.php:77
+#: options/panel5.php:75
+#: options/panel5.php:85
+#: options/panel5.php:95
+#: options/panel5.php:105
+#: options/panel5.php:115
+#: options/panel5.php:125
+#: options/panel5.php:135
+msgid "Italic"
+msgstr ""
+
+#: options/panel4.php:46
+#: options/panel4.php:62
+#: options/panel4.php:78
+#: options/panel5.php:76
+#: options/panel5.php:86
+#: options/panel5.php:96
+#: options/panel5.php:106
+#: options/panel5.php:116
+#: options/panel5.php:126
+#: options/panel5.php:136
+msgid "Link"
+msgstr ""
+
+#: options/panel4.php:47
+#: options/panel4.php:63
+#: options/panel4.php:79
+#: options/panel5.php:77
+#: options/panel5.php:87
+#: options/panel5.php:97
+#: options/panel5.php:107
+#: options/panel5.php:117
+#: options/panel5.php:127
+#: options/panel5.php:137
+msgid "Image"
+msgstr ""
+
+#: options/panel4.php:50
+msgid "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+msgstr "Inhoud van de notificatie e-mail. Beschikbare tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+
+#: options/panel4.php:55
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "Onderwerp van bevestigings e-mail. Beschikbare tag: [post_title]"
+
+#: options/panel4.php:66
+msgid "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]"
+msgstr "Inhoud van bevestigings e-mail. Beschikbare tags: [post_permalink], [confirm_link], [post_title], [manager_link]"
+
+#: options/panel4.php:71
+msgid "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]"
+msgstr "Onderwerp van de e-mail die gebruikers ontvangen met de persoonlijk link naar hun beheerpagina. Beschikbare tags: [blog_name]"
+
+#: options/panel4.php:82
+msgid "Content of the management email. Allowed tags: [blog_name], [manager_link]"
+msgstr "Inhoud van de beheer e-mail. Beschikbare tags: [blog_name], [manager_link]"
+
+#: options/panel5.php:11
+#: options/panel5.php:43
+msgid "Checkbox label"
+msgstr "Checkbox label"
+
+#: options/panel5.php:12
+#: options/panel5.php:48
+msgid "Subscribed label"
+msgstr "Geabonneerd label"
+
+#: options/panel5.php:13
+#: options/panel5.php:53
+msgid "Awaiting label"
+msgstr "Confirmatie label"
+
+#: options/panel5.php:14
+#: options/panel5.php:58
+msgid "Author label"
+msgstr "Auteur label"
+
+#: options/panel5.php:16
+#: options/panel5.php:68
+msgid "Page title"
+msgstr "Pagina titel"
+
+#: options/panel5.php:17
+#: options/panel5.php:73
+msgid "Request link"
+msgstr "Aanvraag link"
+
+#: options/panel5.php:18
+#: options/panel5.php:83
+msgid "Request submitted"
+msgstr "Aanvraag verzonden"
+
+#: options/panel5.php:19
+#: options/panel5.php:93
+msgid "Subscribe without commenting"
+msgstr "Abonneer zonder te reageren"
+
+#: options/panel5.php:20
+#: options/panel5.php:103
+msgid "Subscription processed"
+msgstr "Aanvraag verwerkt"
+
+#: options/panel5.php:21
+#: options/panel5.php:113
+msgid "Subscription processed (DCI)"
+msgstr "Aanvraag verwerkt (DCI)"
+
+#: options/panel5.php:22
+#: options/panel5.php:123
+msgid "Authors"
+msgstr "Auteurs"
+
+#: options/panel5.php:23
+#: options/panel5.php:133
+msgid "Users"
+msgstr "Gebruikers"
+
+#: options/panel5.php:39
+msgid "Comment form"
+msgstr "Reactie formulier"
+
+#: options/panel5.php:45
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr "Label dat bij de checkbox hoort. Beschikbare tag: [subscribe_link]"
+
+#: options/panel5.php:50
+msgid "Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]"
+msgstr "Label dat getoond wordt aan gebruikers die al geabonneerd zijn op een bericht. Beschikbare tag: [manager_link]"
+
+#: options/panel5.php:55
+msgid "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]"
+msgstr "Label dat wordt getoond aan gebruikers die al geabonneerd zijn, maar dit nog niet hebben bevestigd via hun e-mail. Beschikbare tag: [manager_link]"
+
+#: options/panel5.php:60
+msgid "Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr "Label dat wordt getoond aan auteurs (en beheerders). Beschikbare tag: [manager_link]"
+
+#: options/panel5.php:70
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr "Titel van de pagina waar gebruikers hun abonnementen aan kunnen passen."
+
+#: options/panel5.php:80
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "Tekst dat op het scherm verschijnt bij gebruikers die hun abonnementen willen aanpassen."
+
+#: options/panel5.php:90
+msgid "Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]"
+msgstr "Het bedanktberichtje dat wordt getoond als bovenstaande aanvragen zijn doorgevoerd. Beschikbare tags: [post_title], [post_permalink]"
+
+#: options/panel5.php:100
+msgid "Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]"
+msgstr "Tekst die wordt getoond aan gebruikers die willen abonneren zonder eerst zelf te reageren. Beschikbare tags: [post_title], [post_permalink]"
+
+#: options/panel5.php:110
+msgid "Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr "Het bedankberichtje dat wordt getoond nadat de aanvragen zijn doorgevoerd (als double check-in uit staat). Beschikbare tags: [post_title], [post_permalink]"
+
+#: options/panel5.php:120
+msgid "Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr "Een bedankberichtje dat wordt getoond als een gebruiker een abonnement heeft aangevraagd. Double check-in moet aan staan). Beschikbare tags: [post_title], [post_permalink]"
+
+#: options/panel5.php:130
+msgid "Introductory text for the authors' management page."
+msgstr "Intoductie tekst voor de beheerpagina van auteurs."
+
+#: options/panel5.php:140
+msgid "Introductory text for the users' management page."
+msgstr "Intoductie tekst voor de beheerpagina van de gebruikers."
+
+#: options/panel6.php:11
+msgid "StCR table has been successfully optimized."
+msgstr "StCR tabel is succesvol geoptimaliseerd."
+
+#: options/panel6.php:15
+msgid "Database"
+msgstr "Database"
+
+#: options/panel6.php:35
+msgid "Engine"
+msgstr "Structuur"
+
+#: options/panel6.php:36
+msgid "Records"
+msgstr "Records"
+
+#: options/panel6.php:37
+msgid "Average Record Length"
+msgstr "Gemiddelde Record Lengte"
+
+#: options/panel6.php:38
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#: options/panel6.php:39
+msgid "Approximate Overhead"
+msgstr "Gemiddelde Overhead"
+
+#: options/panel6.php:40
+msgid "optimize"
+msgstr "optimaliseren"
+
+#: options/panel6.php:44
+msgid "Support the author"
+msgstr "Help de auteur"
+
+#: options/panel6.php:45
+msgid "How valuable is the feature offered by this plugin to your visitors? Subscribe to Comments Reloaded is and will always be free, but consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
+msgstr "Hoe belangrijk is deze plugin voor jou en je gebruikers? Subscribe to Comments Reloaded is gratis en zal altijd gratis blijven, maar denk er eens over na om de auteur van deze plugin te helpen als deze plugin je echt bevalt en het jou website beter maakt, of als je er geld mee verdiend. Elke donatie zal in de plugin geïnvesteerd worden, in de ontwikkeling ervan en om er eten van te kopen voor mijn hongerige gezin."
+
+#: options/panel6.php:48
+msgid "Don't want to donate? You can still help"
+msgstr "Wil je niet doneren? Je kunt toch helpen"
+
+#: options/panel6.php:49
+msgid "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my plugin!"
+msgstr "Wil je geen geld doneren maar toch helpen? Denk er dan eens over om over mijn plugin te bloggen. Laat de lezers van je blog weten waarom deze plugin je blog beter maakt. Je kunt mij ook helpen door middel van het melden van bugs, het helpen van vertalen of door middel van het toesturen van ideeen om Subscribe to Commentes Reloaded nog beter te maken. Wat je ook doet, in ieder geval bedankt voor het gebruiken van mijn plugin!"
+
+#: options/panel6.php:51
+msgid "Vote and show your appreciation"
+msgstr "Ondersteun ons door te stemmen"
+
+#: options/panel6.php:52
+msgid "Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr "Vertel anderen dat jij Subscribe to Comments Reloaded gebruikt en hoe goed jij het vindt. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Stem hier</a> op onze plugin in de WordPress Plugin Directory."
+
+#: templates/author.php:31
+msgid "Subscriptions have been successfully updated."
+msgstr "Abonnementen zijn succesvol bijgewerkt."
+
+#: templates/author.php:44
+msgid "Title"
+msgstr "Titel"
+
+#: templates/author.php:57
+#: templates/user.php:55
+msgid "Select all"
+msgstr "Selecteer alles"
+
+#: templates/author.php:58
+#: templates/user.php:56
+msgid "Invert selection"
+msgstr "Selectie omkeren"
+
+#: templates/author.php:59
+#: templates/user.php:57
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: templates/author.php:66
+#: templates/user.php:64
+msgid "Sorry, no subscriptions found."
+msgstr "Sorry, er zijn geen abonnementen gevonden."
+
+#: templates/request-management-link.php:80
+#: templates/subscribe.php:84
+msgid "Send"
+msgstr "Verstuur"
+
+#: templates/subscribe.php:30
+#: templates/subscribe.php:31
+msgid "New subscription to"
+msgstr "Nieuw abonnement voor"
+
+#: templates/subscribe.php:31
+msgid "User:"
+msgstr "Gebruiker:"
+
+#: templates/user.php:33
+msgid "All the subscriptions have been successfully updated."
+msgstr "Alle abonnementen zijn succesvol bijgewerkt."
+
+#~ msgid "Remove or suspend email address"
+#~ msgstr "Verwijder of pauzeer e-mail adres"
