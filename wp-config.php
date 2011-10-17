@@ -20,16 +20,27 @@ define ( 'BP_DEFAULT_COMPONENT', 'profile' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'beta_journalismaccelerat');
+$env = json_decode(file_get_contents("/home/dotcloud/environment.json"), true);
+//echo "Application Name: {$env['DOTCLOUD_PROJECT']}\n";
+$dbhost = $env['DOTCLOUD_DB_MYSQL_HOST'];
+$dbuser = $env['DOTCLOUD_DB_MYSQL_LOGIN'];
+$dbpass = $env['DOTCLOUD_DB_MYSQL_PASSWORD'];
+$dbport = $env['DOTCLOUD_DB_MYSQL_PORT'];
+
+#echo "Name: $dbhost, $dbuser, $dbpass, $dbport\n";
+
+
+define('DB_NAME', 'journalismaccel');
 
 /** MySQL database username */
-define('DB_USER', 'betajournalismac');
+define('DB_USER', $dbuser);
 
 /** MySQL database password */
-define('DB_PASSWORD', 'SfRjfGtF');
+define('DB_PASSWORD', $dbpass);
 
 /** MySQL hostname */
-define('DB_HOST', 'mysqldb.redhotpenguin.com');
+define('DB_HOST', "$dbhost:$dbport");
+define('DB_PORT', $dbport);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
