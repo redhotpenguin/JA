@@ -169,7 +169,7 @@ endif; // if($has_twitter) end
 </form>
 
 
-<? else: // no activity found: ?>
+<?php else: // no activity found: ?>
 <div class="no_activity">
 <h3>Recent Activity</h3>
 <p><?php 
