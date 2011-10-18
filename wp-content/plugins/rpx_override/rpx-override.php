@@ -288,6 +288,80 @@ function update_activity_stream_from_comment_edit($comment_id){
 }
 add_filter('edit_comment', 'update_activity_stream_from_comment_edit');
 
+/*
+	Function: get_twitter_handle
+	Description: Return the twitter handle
+	Param: Any likely twitter links http://www.twitter.com/welldonejonas
+	Example:  http://www.twitter.com/welldonejonas -> welldonejonas 
+*/
+function get_twitter_handle($has_twitter){
+
+	$pieces = explode('/', $has_twitter);
+
+	if (sizeof($pieces) == 5) {
+	
+		# https://twitter.com/#!/redhotpenguin
+		$has_twitter = $pieces[4];
+
+	} else if (sizeof($pieces) == 4) { 
+
+		// http://twitter.com/redhotpenguin
+		$has_twitter=$pieces[3];
+
+	} else if (sizeof($pieces) == 2) {
+
+		// twitter.com/redhotpenguin
+		// no http:// on twitter link.
+		$has_twitter=$pieces[1];
+
+	} else {
+		$pieces = explode('@', $has_twitter);
+		if (sizeof($pieces) == 2) {
+			$has_twitter = $pieces[1];
+
+		} else {
+			// use what they entered
+		}
+	}
+	if ($has_twitter) {
+		$pieces = explode('"', $has_twitter);
+		$has_twitter=$pieces[0];
+	}
+
+	return $has_twitter;
+}
+
+
+/* 
+	* Try to steal someone's picture when they provide a twitter link 
+	* Get executed everytime someone modify its profile 
+*/
+function get_avatar_from_twitter($user_id){
+		$user_avatar =  get_user_meta($user_id, 'rpx_photo', true);
+		
+		if($user_avatar) return false; // user already has an avatar, let's not override it
+	
+		$twitter_link = bp_get_profile_field_data('field=Twitter');
+		if(!$twitter_link) return false; // no twitter found
+		
+		$twitter_handle = get_twitter_handle($twitter_link);
+		$new_avatar_url = 'http://api.twitter.com/1/users/profile_image?screen_name='.$twitter_handle.'&size=normal';
+		
+		
+		// test if $new_avatar_url is a valid link.
+		$request_headers = get_headers($new_avatar_url, 1); 
+		$request_status = $request_headers[0];
+		if($request_status == 'HTTP/1.0 404 Not Found') return false;
+		
+	    if(update_user_meta($user_id, 'rpx_photo' , $new_avatar_url)) return true;
+		else return false;
+	
+}
+add_action('xprofile_updated_profile','get_avatar_from_twitter');
+
+
+
+
 
 
 ?>
