@@ -1,0 +1,129 @@
+#jptc_box{
+	
+}
+
+.jptc_tweet{
+	clear:both;
+	min-height:115px;
+	padding-top: 2px;
+}
+
+.jptc_tweet_avatar{
+	float:left;
+
+	padding-bottom:48px;
+	margin-right:5px;
+}
+
+.jptc_tweet_avatar img{
+	width: 48px;
+	height: 48px;
+	max-width: 48px !important;
+	max-height: 48px !important;
+}
+
+.jptc_tweet .jptc_tweet_content{
+
+}
+
+.jptc_tweet .jptc_tweet_username a{
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.jptc_tweet .jptc_tweet_text{
+	margin-top:-6px;
+}
+
+.jptc_tweet .jptc_tweet_meta{
+	font-size:9px;
+}
+
+#jptc_down{
+	position: relative;
+	left: 300px;
+	color:#000;
+	cursor:pointer;
+	font-size:18px;
+	color: #10996B;
+}
+
+#jptc_up{
+	position: relative;
+	top: -118px;
+	left: 313px;
+	color:#000;
+	cursor:pointer;
+	font-size:18px;
+	color: #10996B;
+}
+
+#jptc_show_all_tweets{
+	float: right;
+	font-size: 10px;
+	color: #666;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#jptc_all_content .jptc_tweet_avatar{
+	padding-bottom:0;
+}
+
+#jptc_all_content{
+	position: fixed;
+	*position:absolute; 
+	box-shadow: 3px 3px 3px #496668;
+	-moz-box-shadow: 3px 3px 3px #496668;
+	-webkit-box-shadow: 3px 3px 3px #496668;
+	background-color: #fff;
+	width: 45%;
+
+	left: 27%;
+	top: 15%;
+	z-index: 10000;
+	display:none;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border-top:  1px solid #496668;
+	border-left: 1px solid #496668;
+	padding-bottom:25px;
+}
+
+#jptc_all_box{	
+	overflow-y:scroll;
+	height: 320px;
+	padding: 25px 25px 0 25px;
+}
+
+.jptc_all_content_header{
+	font-weight:bold;
+	padding: 5px 0 5px 5px;
+	background-color:#eee;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+}
+
+#jptc_close_popup_btn{
+	color: #469CED;
+	font-size: 11px;
+	margin-right: 5px;
+	font-weight: bolder;
+	cursor: pointer;
+	float: right;
+	margin-right: 15px;
+	z-index:10000;
+}
+
+#jptc_all_content .jptc_tweet{
+	min-height:50px;
+	margin-bottom:30px;
+}
+
+#jptc_all_content .jptc_tweet .jptc_tweet_content{
+
+}

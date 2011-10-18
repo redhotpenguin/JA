@@ -1,0 +1,100 @@
+#get_tweets_button, #get_rt_tweets_button{
+	display:inline-block;
+	border:1px solid #fff;
+	width:75px;
+	background-color:#8ec2da;
+	color:#fff;
+	padding:4px;
+	font-weight:bold;
+	text-align:center;
+	cursor:pointer;
+}
+
+label{
+	font-weight:bold;
+}
+
+#search_query_input{
+	width:76%;
+}
+
+#realtime_query_input{
+	width:60%;
+}
+
+#realtime_count_input{
+	width:40px;
+}
+
+#rt_help a{
+	margin-left: 92px;
+	margin-top: 5px;
+	color: #666;
+	font-style: italic;
+}
+
+#realtime_tweets_box{
+	padding:10px;
+	background-color:#c1deee;
+	border:1px solid #ccc;
+}
+
+#saved_tweets_wrapper{
+	overflow:hidden;
+	padding:10px 5px;
+	border:1px solid #ccc;
+	border-top:0;
+}
+
+#left_col{
+	float:left;
+	width:47%;
+	padding:10px;
+}
+
+#right_col{
+	width:47%;
+	padding:10px;
+	float:right;
+}
+
+#jptc_tweet_stream, #saved_tweets{
+	margin-top:10px;
+	height:400px;
+	overflow:scroll;
+	border:1px solid #ccc;
+	overflow-x:hidden;
+	padding:5px;
+}
+
+.tweet{
+	margin-bottom: 15px;
+	overflow: hidden;
+	border-bottom: 1px dotted #CCC;
+	padding-bottom: 5px;
+}
+
+.tweet .tweet_avatar{
+	float:left;
+	width: 48px;
+	height: 48px;
+}
+.tweet .tweet_content{
+	float:left;
+	width: 80%;
+	padding-left:15px;
+}
+
+.tweet .tweet_date{
+	font-style:italic;
+}
+
+.tweet .add_tweet_button,.delete_tweet_button{
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.query_error{
+
+}
