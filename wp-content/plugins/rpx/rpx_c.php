@@ -1,7 +1,4 @@
 <?php
-
-
-
 function rpx_bootstrap() {
   if (defined('RPX_BOOT')) {
     return true;
@@ -535,7 +532,7 @@ function rpx_process_user($action){/*Using a switch for visual clarity, this may
       break;
     case 'create':
       $create = rpx_create_wp_user();
-	  if ($create !== false) $create = rpx_signon_wp_user('edit_page');
+	  if ($create !== false) $create = rpx_signon_wp_user('current_page'); //rpx_signon_wp_user('edit_page');
 	  if ($create !== false) return true;
       rpx_message('create failure', 'debug');
       rpx_process_user('regdirect');
@@ -557,7 +554,7 @@ function rpx_process_user($action){/*Using a switch for visual clarity, this may
       $register = rpx_unlock_user();
       if ($register !== false) $register = rpx_new_session();
       if ($register !== false) $register = rpx_update_wp_user(true,true);
-      if ($register !== false) $register = rpx_signon_wp_user('edit_page');
+      if ($register !== false) $register = rpx_signon_wp_user('current_page'); //rpx_signon_wp_user('edit_page');
       if ($register !== false) return true;
       rpx_message('register failure', 'debug');
       rpx_process_user('regdirect');
@@ -938,8 +935,7 @@ function rpx_reset_session(){
 
 function rpx_register() {
   global $rpx_http_vars;
-  
-  
+
   if ($rpx_http_vars['action'] != RPX_REGISTER_FORM_ACTION){
     return true;
   }
@@ -1009,7 +1005,7 @@ function rpx_signon_wp_user($redirect=""){
     $current_user =  new WP_User($user->ID, $user->user_login && false);
     $current_user = wp_get_current_user();
     if ($user->ID == $current_user->id){
-     if (RPX_SERIAL_PROFILE == 'true') {
+     if (RPX_SERIAL_PROFILE == 'true') {;
         rpx_update_user_meta($current_user->id, RPX_META_PROFILE, $rpx_auth_info);
      }
       if (RPX_GET_CONTACTS == 'true') {
@@ -1024,26 +1020,28 @@ function rpx_signon_wp_user($redirect=""){
       do_action('wp_login', $user->user_login);
       rpx_set_redirect();
 	 
+	
+
 		if($redirect == 'edit_page'){
-			 rpx_update_profile_info($current_user->id); // update profile for twitter, facebook, linkedin and gmail accounts
-			 $site_url = get_site_url();
-			 $user_login = bp_core_get_username($current_user->id);
-			 $url = $site_url."/members/$user_login/profile/edit/group/1";
-			 rpx_send_admin_notification($current_user);
-			 rpx_send_user_notification($current_user);
-			  
-		/*
-			  $token = $rpx_http_vars['token'];
-			  $api_key = get_option(RPX_API_KEY_OPTION);
-			 $rpx_post_array = array('apiKey' => $api_key, 'token' => $token, 'extended'=>'true', 'format' => 'json');
-			 $rpx_reply = rpx_post(RPX_URL_SCHEME.RPX_SERVER.'/api/v2/auth_info', $rpx_post_array);
-		*/
-			 rpx_redirect($url);
-		
+			rpx_update_profile_info($current_user->id); // update profile for twitter, facebook, linkedin and gmail accounts
+			rpx_send_admin_notification($current_user);
+			rpx_send_user_notification($current_user);
+			$site_url = get_site_url();
+			$user_login = bp_core_get_username($current_user->id);
+			do_action('rpx_user_register', $current_user->id);
+			$url = $site_url."/members/$user_login/profile/edit/group/1/";
+			rpx_redirect($url);
 		}
+		elseif($redirect == 'current_page'){
+			rpx_update_profile_info($current_user->id); 
+			rpx_send_admin_notification($current_user);
+			rpx_send_user_notification($current_user);
+			do_action('rpx_user_register', $current_user->id);
+			rpx_redirect($rpx_http_vars['redirect_to']);
+		}
+		
 		else {
 			rpx_redirect($rpx_http_vars['redirect_to']);
-	
 		}
      
 	 return true;
