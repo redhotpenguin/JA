@@ -45,7 +45,7 @@
 		<?php if (is_home()) { ?>
 		<script type="text/javascript" src="/js/jquery.cycle.all.min.js"></script>
 		<script language="javascript" src="/js/tweet/jquery.tweet.js" type="text/javascript"></script>
-		<script type="text/javascript">jQuery(document).ready(function() {jQuery('div#featured-slider').cycle({next: '#next', prev: '#prev', fx: 'fade', timeout: 7000, speed: 350, pause: 1, random: 1});});</script>
+		<script type="text/javascript">jQuery(document).ready(function() {jQuery('div#featured-slider').cycle({next: '#next', prev: '#prev', fx: 'fade', timeout: 10000, speed: 350, pause: 1, random: 1});});</script>
 		<script type="text/javascript">
 		jQuery.fn.equalizeHeights = function(){
  			 return this.height( Math.max.apply(this, jQuery(this).map(function(i,e){ return jQuery(e).height() }).get() ) )
