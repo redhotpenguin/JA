@@ -79,13 +79,13 @@ function widget_recent_comments($no_comments = 10, $comment_len = 100) {
 }
 
 function widget_dp_recent_comments($args) {
-if (!is_category(array(25, 35, 34, 33, 26, 36, 32, 31, 30))) {
+
   extract($args);
   echo $before_widget;
-  echo $before_title;?>Recent Answers  <span class="read-more"><a href="/answers/">More</a></span><?php echo $after_title;
+  echo $before_title;?>Recent Comments<?php echo $after_title;
   widget_recent_comments();
   echo $after_widget;
-  }
+
 }
 
 function dp_recent_comments_init()
