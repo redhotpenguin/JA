@@ -1037,11 +1037,11 @@ function rpx_signon_wp_user($redirect=""){
 			rpx_send_admin_notification($current_user);
 			rpx_send_user_notification($current_user);
 			do_action('rpx_user_register', $current_user->id);
-			rpx_redirect($rpx_http_vars['redirect_to']);
+			rpx_redirect($rpx_http_vars['redirect_to'].'#reply');
 		}
 		
 		else {
-			rpx_redirect($rpx_http_vars['redirect_to']);
+			rpx_redirect($rpx_http_vars['redirect_to'].'#reply');
 		}
      
 	 return true;
