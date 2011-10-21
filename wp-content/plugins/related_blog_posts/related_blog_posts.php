@@ -27,8 +27,10 @@ function related_blog_posts()
 	$post_list = explode(',', $posts);
 	foreach ($post_list as $post) {
 		$post = trim($post);
+		echo '<div class="clearfix" style="margin-bottom: 12px;">';
 		echo '<a href="' . get_permalink($post) . '">' . get_the_post_thumbnail($post, array(50,50), array('style' => 'float:left;')) . '</a>';
 		echo '<h2 style="padding-left: 60px;"><a href="' . get_permalink($post) . '">' . get_the_title($post) . '</a></h2>';
+		echo '</div>';
 	}
 }
 
