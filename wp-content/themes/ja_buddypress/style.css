@@ -495,6 +495,8 @@ h1 a { text-decoration: none; }
 	color: #10996B !important;
 	background-color: #E7FFE5 !important;
 	font-size: 18px;
+	border-top: 1px solid #396;
+	border-bottom: 1px solid #396;
 }
 
 .custom div#sidebar div#related-resources h3.widgettitle
@@ -1269,7 +1271,7 @@ h3.respond a
 
 
 .custom .wp-caption img { margin-bottom: 1em; }
-.custom div#sidebar h3.widgettitle.expandheader { background: none !important; }
+.custom div#sidebar h3.widgettitle.expandheader { background: none !important; border: none; }
 
 .custom div#sidebar h3.widgettitle.expandheader a.expand
 {
@@ -1397,6 +1399,7 @@ div#home-tweet
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin-bottom: 1em;
+	font-size: 14px;
 }
 
 div#home-tweet img.ja-bird { float: left; }
@@ -1420,9 +1423,12 @@ div#home-tweet ul.tweet_list { padding-left: 85px; }
 
 span.tweet_text
 {
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 20px;
 }
+
+div.twitter-follow { float: right; }
+div.twitter-follow iframe { width: 140px !important; }
 
 a.comment-reply-link 
 { 
