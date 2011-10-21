@@ -170,7 +170,7 @@ h1 a { text-decoration: none; }
 }
 
 .custom #wdg_specialrecentposts-6 a, .custom #wdg_specialrecentposts-7 a,
-.custom #wdg_specialrecentposts-8 a, .custom #wdg_specialrecentposts-9 a, .custom #wdg_specialrecentposts-10 a
+.custom #wdg_specialrecentposts-8 a, .custom #wdg_specialrecentposts-9 a, .custom #wdg_specialrecentposts-10 a, .custom #related-blog-posts a
 {
 	font-size: 14px;
 	line-height: 22px;
