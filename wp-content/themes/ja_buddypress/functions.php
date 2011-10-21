@@ -361,11 +361,13 @@ function dp_recent_question_comments() {
 		
 		$commentdate = $comment->comment_date;
 		$formatdate = date("l, F j", strtotime($commentdate));
+		$email = $comment->comment_author_email;
+
 		?>
 		
 			<div class="resource answer clearfix">
 				<p class="comment-date"><?php echo $formatdate; ?></p>
-				<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
+				<a href="<?php echo get_link_to_public_profile($email); ?>" rel="nofollow">
 					
 				<?php if ( $comment->user_id ) : ?>
 						<?php 
@@ -389,7 +391,7 @@ function dp_recent_question_comments() {
 								
 
 				</a>
-	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
+	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo get_link_to_public_profile($email); ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
 	<div class="comment-text clearfix">
 <?php
 
