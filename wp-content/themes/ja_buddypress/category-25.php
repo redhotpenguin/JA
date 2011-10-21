@@ -10,7 +10,7 @@
 		
 			
 			<h1>Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all resources</a></span></h1>
-			<p>The Journalism Accelerator resource section features what other news producers have used, applications to up productivity across distribution, technology, revenue, craft, community, experiments, education and policy. We’re also collecting (and welcoming your recommended) resource listings from other industries that may help publishers gain efficiency. <a href="http://www.journalismaccelerator.com/about/suggest-a-resource/" style="font-weight: bold; text-decoration: none;">What happens when I suggest a resource?</a></p>
+			<?php echo category_description(); ?>
 			
 			<?php ja_resource_home(); ?>
 			
@@ -26,8 +26,8 @@
 					
 						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
-						<?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(', ') ?></p>
+						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 						
 						
 

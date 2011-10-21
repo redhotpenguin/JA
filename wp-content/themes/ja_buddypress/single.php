@@ -29,19 +29,19 @@
 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
 </span>
-						<?php if (!in_category(array(25, 35, 34, 33, 26, 36, 32, 31, 30, 39, 40))) { ?>
+						<?php if (in_category(28) || parent_category_is(28)) { ?>
 							<h1>Question:</h1>
-						<?php } elseif (in_category(array(25, 35, 34, 33, 26, 36, 32, 31, 30, 52))) { ?>
+						<?php } elseif (in_category(25) || parent_category_is(25)) { ?>
 							<h1>Resource:</h1>
-						<?php } elseif (in_category(array(39))) { ?>
+						<?php } elseif (in_category(39) || parent_category_is(39)) { ?>
 							<h1>Blog:</h1>
-						<?php } elseif (in_category(array(40))) { ?>
+						<?php } elseif (in_category(40) || parent_category_is(40)) { ?>
 							<h1>About:</h1>
 						<?php } ?>
 
 						<div class="entry">
 						
-						<?php if (!in_category(array(25, 35, 34, 33, 26, 36, 32, 31, 30, 39, 40))) {
+						<?php if (in_category(28) || parent_category_is(28)) {
 							the_title('<p>', '</p>');
 							?>
 							
@@ -57,15 +57,15 @@
 							<?php // the_content(); ?>
 							
 							</div>
-							<?php if (in_category('25')) : ?>
+							<?php if (in_category(25) || parent_category_is(25)) : ?>
 							<p style="font-size: 1em; line-height: 1.25em;"><em>The Journalism Accelerator is not responsible for the content we post here, as excerpts from the source, or links on those sites. The JA does not endorse these sites or their products outright but we sure are intrigued with what they’re up to.</em></p>
 							<?php endif; ?>
 							<hr />
 							<?php wp_gdsr_render_article(); ?>
 							<div class="post-info">Posted by <?php the_author_link(); ?> on <?php the_date(); ?><?php edit_post_link('Edit This Post', ' | ') ?><br />
-							<?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(', ') ?></div>
+							<span class="categories"><?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></div>
 						<?php 
-						} elseif (in_category(array(40))) {
+						} elseif (in_category(40) || parent_category_is(40)) {
 							the_title('<h2>','</h2>');
 							the_content();
 						} else {
@@ -76,15 +76,15 @@
 							?><div class="resource-content"><?php
 							the_content(); 
 							?></div>
-							<?php if (in_category('25')) : ?>
+							<?php if (in_category(25) || parent_category_is(25)) : ?>
 							<p style="font-size: 1em; line-height: 1.25em;"><em>The Journalism Accelerator is not responsible for the content we post here, as excerpts from the source, or links on those sites. The JA does not endorse these sites or their products outright but we sure are intrigued with what they’re up to.</em></p>
 							<?php endif; ?>
 							<hr />
 							<?php wp_gdsr_render_article(); ?>
-							<div class="post-info">Posted by <?php the_author_link(); ?> on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?><br />
-						<?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(', ') ?></div><?php
+							<div class="post-info">Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?><br />
+						<span class="categories"><?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></div><?php
 						} ?>
-						<?php if (!in_category(array(25, 35, 34, 33, 26, 36, 32, 31, 30))) {  } ?>
+						<?php if (in_category(28) || parent_category_is(28)) {  } ?>
 						
 							<?php wp_link_pages(array('before' => __( '<p><strong>Pages:</strong> ', 'buddypress' ), 'after' => '</p>', 'next_or_number' => 'number')); ?>
 						</div>

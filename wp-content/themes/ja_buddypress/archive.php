@@ -28,7 +28,7 @@
 						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
 						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?> (<?php comments_popup_link( __( 'No answers', 'buddypress' ), __( '1 answer', 'buddypress' ), __( '% answers', 'buddypress' ) ); ?>) &mdash; <a href="<?php the_permalink() ?>">Answer this Question</a><br />
-						<?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(', ') ?></p>
+						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 						
 					
 						

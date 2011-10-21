@@ -23,3 +23,14 @@
 <?php $mb->the_group_close(); ?>
 <?php endwhile; ?>
 <p><a href="#" class="docopy-links button">Add Link</a></p>
+<h4>People</h4>
+<?php while ($mb->have_fields_and_multi('people')) : ?>
+<?php $mb->the_group_open(); ?>
+	<?php $mb->the_field('name'); ?>
+	<p><label>Name:</label> <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /></p>
+	<?php $mb->the_field('url'); ?>
+	<p style="margin-bottom: 2em;"><label>URL:</label> <input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" /><br />
+	<small><a href="#" class="dodelete">(remove link)</a></small></p>
+<?php $mb->the_group_close(); ?>
+<?php endwhile; ?>
+<p><a href="#" class="docopy-people button">Add Person</a></p>

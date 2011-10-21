@@ -73,8 +73,22 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			<?php if (get_comment_author_url()) { ?>
 </a>
 	<?php } ?>
-				<em><?php comment_date() ?></em>
-				<p class="bio"><?php echo xprofile_get_field_data('Bio', $comment->user_id); ?>
+				<em><a href="<?php echo get_comment_link(); ?>"><?php comment_date() ?></a></em>
+				<?php
+					// retrieve the correct user ID based on the email address
+					$comment_author_email = $comment->comment_author_email;
+					$comment_author_id = get_user_id_from_string($comment_author_email);
+				?>
+				<p class="bio"><?php echo xprofile_get_field_data('One-Line Bio', $comment_author_id); ?>
+				<?php
+					global $current_user;
+					get_currentuserinfo(); // logged in user, populate $current_user
+					 
+					$current_user_id = $current_user->ID;
+					if($current_user_id ==  $comment_author_id){
+						echo '<a class="comment_edit_profile" href="'.get_edit_link($current_user_id).'">Edit Profile</a>';
+					}
+				?>
 			</div>
 
 			<?php if ( $comment->comment_approved == '0' ) : ?>
@@ -270,7 +284,7 @@ function featured_question() {
 
 function latest_listings_all() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&showposts=3&cat=-25');
+	$latest_listings->query('&showposts=3');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
@@ -284,6 +298,115 @@ function latest_listings_all() {
 			<p class="category"><?php the_category(' ', null, $post->ID); ?></p></p>
 		</div>
 		<?php
+	}
+}
+
+function ja_question_home() { ?>
+	<div class="quadrants" style="margin-bottom: 18px;">		
+	
+		<div class="home_box_left">
+		  <div class="popular_questions">
+					<div class="box_content">
+						<h2>Latest Questions</h2>
+						<?php latest_questions(); ?>
+					</div>
+				</div>
+		</div>
+		
+		<div class="home_box_right">
+		  <div class="popular_answers">
+					<div class="box_content">
+						<h2>Latest Answers</h2>
+						<?php dp_recent_question_comments(); ?>
+					</div>
+				</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div><?php
+	$wp_query->is_category = true;
+	$wp_query->is_archive = true;
+	$wp_query->is_home = false;
+}
+
+function latest_questions() {
+	$latest_listings = new WP_Query();
+	$latest_listings->query('&cat=28&showposts=3');
+	while ( $latest_listings->have_posts() ) {
+		$latest_listings->the_post();
+		global $post;
+		$postdate = $post->post_date;
+		$formatdate = date("l, F j", strtotime($postdate));
+		?>
+		<div class="resource question clearfix">
+			<p class="post-date"><?php echo $formatdate; ?></p>
+			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
+			<div class="excerpt-text"><?php the_excerpt(); ?></div>
+			<p class="category"><?php the_category(' ', null, $post->ID); ?></p></p>
+		</div>
+		<?php
+	}
+}
+
+function dp_recent_question_comments() {
+	global $wpdb;
+	$request = "SELECT * FROM $wpdb->comments";
+	$request .= " JOIN $wpdb->posts ON ID = comment_post_ID  JOIN $wpdb->term_relationships ON (ID = $wpdb->term_relationships.object_id) JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)";
+	$request .= " WHERE comment_approved = '1' AND post_status = 'publish' AND post_password ='' AND $wpdb->term_taxonomy.taxonomy = 'category' AND $wpdb->term_taxonomy.term_id IN(28)";
+	$request .= " ORDER BY comment_date DESC LIMIT 3";
+
+	$comments = $wpdb->get_results($request);
+	if ($comments) {
+		foreach ($comments as $comment) { 
+		
+		$commentdate = $comment->comment_date;
+		$formatdate = date("l, F j", strtotime($commentdate));
+		?>
+		
+			<div class="resource answer clearfix">
+				<p class="comment-date"><?php echo $formatdate; ?></p>
+				<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
+					
+				<?php if ( $comment->user_id ) : ?>
+						<?php 
+						
+						//$email =  get_comment_author_email();
+						$email = $comment->comment_author_email;
+						$id =  get_user_id_from_string($email); // retrieve id from an email, defined in /plugins/rpx_override/rpx-override.php
+						echo bp_core_fetch_avatar( array( 'item_id' => $id, 'width' => 50, 'height' => 50, 'email' => $comment->comment_author_email ) ); 
+						?>
+					<?php else : ?>
+						<?php 
+						$comment_tweet_avatar   = get_comment_meta($comment->comment_ID, 'tmac_image',true);
+						if($comment_tweet_avatar) : 
+						echo "<img class='avatar avatar-48 photo' src='$comment_tweet_avatar' />";
+						else : 
+						 $real_user_id = get_user_id_from_string($comment->comment_author_email);
+						 echo get_avatar($real_user_id,48);
+						 endif;
+						?>
+					<?php endif; ?>
+								
+
+				</a>
+	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
+	<div class="comment-text clearfix">
+<?php
+
+	 ?><p style="margin-left: 60px;"><?php
+				// trim the string
+				if (strlen($comment->comment_content) > 250) {
+					echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, 249)) . "...";
+				}
+				else {
+					echo strip_tags($comment->comment_content);
+				}
+	
+?></p>
+</div>
+<p class="category" style="margin-left: 60px;"><?php the_category(' ', null, $comment->comment_post_ID); ?></p>
+			</div><?php
+		}
 	}
 }
 
@@ -441,7 +564,9 @@ function ja_header() {
 			jQuery('#radio_people').click(function() {jQuery('#search_form').attr('action','/members/');});
 			if(!jQuery('body').attr('class').search('directory')) {
 					jQuery('#search_form').attr('action','/members/');
-				jQuery('#radio_people').attr('checked','checked');
+					jQuery('#radio_site').attr('checked','checked');
+					jQuery('#search_form').attr('action','/');
+
 			}
 			else {
 			jQuery('#search_form').attr('action','/');
@@ -539,15 +664,34 @@ function dp_recent_resource_comments() {
 		
 			<div class="resource answer clearfix">
 				<p class="comment-date"><?php echo $formatdate; ?></p>
-				<?php
 				
-	 $real_user_id = get_user_id_from_string($comment->comment_author_email);
-	 $comment_tweet_avatar   = get_comment_meta($comment->comment_ID, 'tmac_image',true);
-	 if($comment_tweet_avatar)  echo "<img class='avatar avatar-48 photo' src='$comment_tweet_avatar' />";
-	 else  echo get_avatar($real_user_id,48); 
-	 
-	 ?>
-	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
+					
+				<?php 
+					if ( $comment->user_id ) :
+						$email = $comment->comment_author_email;
+
+				?>
+				
+				<a href="<?php echo get_link_to_public_profile($email); ?>" rel="nofollow">
+						<?php 
+						$id =  get_user_id_from_string($email); // retrieve id from an email, defined in /plugins/rpx_override/rpx-override.php
+						echo bp_core_fetch_avatar( array( 'item_id' => $id, 'width' => 50, 'height' => 50, 'email' => $comment->comment_author_email ) ); 
+						?>
+					<?php else : ?>
+						<?php 
+						$comment_tweet_avatar   = get_comment_meta($comment->comment_ID, 'tmac_image',true);
+						if($comment_tweet_avatar) : 
+						echo "<img class='avatar avatar-48 photo' src='$comment_tweet_avatar' />";
+						else : 
+						 $real_user_id = get_user_id_from_string($comment->comment_author_email);
+						 echo get_avatar($real_user_id,48);
+						 endif;
+						?>
+					<?php endif; ?>
+								
+
+				</a>
+	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo  get_link_to_public_profile($email); ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
 	<div class="comment-text clearfix">
 <?php
 
@@ -585,22 +729,24 @@ function dp_recent_all_comments() {
 		
 			<div class="resource answer clearfix">
 				<p class="comment-date"><?php echo $formatdate; ?></p>
-				<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
-					
-				<?php if ( $comment->user_id ): ?>
+				<?php 
+					if ( $comment->user_id ) :
+						$email = $comment->comment_author_email;
+				?>
+				<a href="<?php echo get_link_to_public_profile($email); ?>" rel="nofollow">
 						<?php 
 						
 						//$email =  get_comment_author_email();
-						$email = $comment->comment_author_email;
+						
 						$id =  get_user_id_from_string($email); // retrieve id from an email, defined in /plugins/rpx_override/rpx-override.php
 						echo bp_core_fetch_avatar( array( 'item_id' => $id, 'width' => 50, 'height' => 50, 'email' => $comment->comment_author_email ) ); 
 						?>
 					<?php else : ?>
 						<?php 
 						$comment_tweet_avatar   = get_comment_meta($comment->comment_ID, 'tmac_image',true);
-						if($comment_tweet_avatar): 
+						if($comment_tweet_avatar) : 
 						echo "<img class='avatar avatar-48 photo' src='$comment_tweet_avatar' />";
-						else: 
+						else : 
 						 $real_user_id = get_user_id_from_string($comment->comment_author_email);
 						 echo get_avatar($real_user_id,48);
 						 endif;
@@ -609,7 +755,7 @@ function dp_recent_all_comments() {
 								
 
 				</a>
-	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo $comment->comment_author_url; ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
+	<p class="title" style="font-size: 16px; padding-left: 60px;"><a href="<?php echo get_link_to_public_profile($email); ?>"><?php echo $comment->comment_author; ?></a> on <a href="<?php echo get_permalink($comment->comment_post_ID); ?>#comment-<?php echo $comment->comment_ID; ?>"><?php echo $comment->post_title; ?></a></p>
 	<div class="comment-text clearfix">
 <?php
 
@@ -868,6 +1014,17 @@ function custom_resource_fields() {
 	}
 	echo implode(' | ', $resource_links);
 	?></span></li>
+	<?php if($resource_metabox->get_the_value('people')) { ?>
+	<li><span class="field-header"><strong>People:</strong></span> <span class="field-data"><?php
+	$people_links = Array();
+	while ($resource_metabox->have_fields('people')) {
+		$person_title = $resource_metabox->get_the_value('name');
+		$person_url = $resource_metabox->get_the_value('url');
+		array_push($people_links, "<a href=\"$person_url\">$person_title</a>");
+	}
+	echo implode(' | ', $people_links);
+	?></span></li>
+	<?php } ?>
 	<li><span class="field-header"><strong>Tags:</strong></span> <span class="field-data"><?php the_tags('', ', '); ?></span></li>
 	</div><?php } }
 }
@@ -1006,4 +1163,10 @@ function parent_category_is($cat) {
 	foreach ($categories as $category) {
 		if ( $category->category_parent == $cat ) return true;
 	}
+}
+
+function in_slug($par){
+	$tmp = explode('/', $_SERVER['REQUEST_URI']);
+	if(array_search($par, $tmp)) return true;
+	else return false;
 }

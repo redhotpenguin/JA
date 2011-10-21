@@ -593,7 +593,7 @@ h1 a { text-decoration: none; }
 
 .custom .resource p.category { line-height: 28px; }
 
-.custom .resource p.category a 
+.custom .resource p.category a, .custom span.categories a 
 { 
 	font-weight: normal;
 	text-transform: none;
@@ -601,7 +601,7 @@ h1 a { text-decoration: none; }
 	color: #396 !important;
 }
 
-.custom p.categories a, .custom .resource p.category a, .custom div#cat_nav ul a
+.custom p.categories a, .custom .resource p.category a, .custom div#cat_nav ul a, .custom span.categories a
 {
 	text-decoration: none;
 	background-color: #16a0e8;
@@ -679,6 +679,20 @@ h1 a { text-decoration: none; }
 
 .custom #get_recent_comments_wrap li img { margin-right: 10px; }
 .custom .comment-avatar-box, .custom .post .author-box { background: none; }
+
+.custom .comment-content #commentform #submit
+{ 
+	background-image:none;
+	padding: 4px 8px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background-color: #16A0E8;
+	border: 1px solid #dedede;
+	color: white;
+	text-decoration: none;
+}
+
 
 .custom .answerquestion a
 {
@@ -850,6 +864,12 @@ h1 a { text-decoration: none; }
 
 .custom #wp_page_numbers { margin-top: 0; }
 
+.custom div.post-info 
+{ 
+	line-height: 2em; 
+	margin-bottom: 26px;
+}
+
 .custom .post-info a
 {
 	text-decoration: none;
@@ -876,7 +896,7 @@ h1 a { text-decoration: none; }
 {
 	color: #999;
 	margin-bottom: 1em;
-	line-height: 15px;
+	line-height: 2em;
 	font-size: 12px;
 }
 
