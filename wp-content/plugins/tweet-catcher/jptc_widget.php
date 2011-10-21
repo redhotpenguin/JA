@@ -114,7 +114,7 @@ class Tweet_Manager_Widget extends WP_Widget {
 	
 				<div id="jptc_all_box"></div>
 			</div>
-		<?
+		<?php
 	}
 	
 	

@@ -1,7 +1,7 @@
 #get_tweets_button, #get_rt_tweets_button{
 	display:inline-block;
 	border:1px solid #fff;
-	width:75px;
+	width:10%;
 	background-color:#8ec2da;
 	color:#fff;
 	padding:4px;
@@ -15,11 +15,11 @@ label{
 }
 
 #search_query_input{
-	width:76%;
+	width:74%;
 }
 
 #realtime_query_input{
-	width:60%;
+	width:55%;
 }
 
 #realtime_count_input{
@@ -27,7 +27,7 @@ label{
 }
 
 #rt_help a{
-	margin-left: 92px;
+	margin-left: 110px;
 	margin-top: 5px;
 	color: #666;
 	font-style: italic;
