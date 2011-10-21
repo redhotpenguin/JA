@@ -16,8 +16,8 @@
 								<a href="#" id="prev">&lt;</a><a href="#" id="next">&gt;</a>
 						</div>
 			</div>
-			<div id="home-tweet" class="clearfix"><img src="http://journalismaccelerator.com/ja-bird.png" class="ja-bird" /><div id="home-tweet-container"></div>
-			<div class="twitter-follow" style="padding-left:85px;"><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
+			<div id="home-tweet" class="clearfix"><img src="http://www.journalismaccelerator.com/ja-bird.png" class="ja-bird" /><div id="home-tweet-container"></div>
+			<div class="twitter-follow"><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
 <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></div></div>
 			
 			<?php ja_home(); ?>
