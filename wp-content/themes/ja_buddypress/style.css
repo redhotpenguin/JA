@@ -1423,6 +1423,12 @@ div#home-tweet ul.tweet_list { padding-left: 85px; }
 
 span.tweet_text
 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+div#home-tweet span.tweet_text
+{
 	font-size: 18px;
 	line-height: 20px;
 }
