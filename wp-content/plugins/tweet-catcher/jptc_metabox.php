@@ -62,6 +62,7 @@ class Tweet_Manager_Metabox{
 	}
 		//update_post_meta
 		$rt_query = $_POST['realtime_query_input'];
+		$rt_query = str_replace('\'', '"', $rt_query);
 		$rt_count = $_POST['realtime_count_input'];
 	
 		update_post_meta($post_id, 'jptc_rt_query', $rt_query);
@@ -71,6 +72,8 @@ class Tweet_Manager_Metabox{
 	public function metabox_content($post){
 		 $rt_query = get_post_meta($post->ID, 'jptc_rt_query', true);
 		 $rt_count = get_post_meta($post->ID, 'jptc_rt_count', true);
+		
+		$rt_query = str_replace('\'', '"', $rt_query);
 		if(empty($rt_count) || $rt_count < 0) {
 			 update_post_meta($post->ID, 'jptc_rt_count', 10); 
 			 $rt_count = get_post_meta($post->ID, 'jptc_rt_count', true);	
@@ -80,7 +83,7 @@ class Tweet_Manager_Metabox{
 		<div id="realtime_tweets_box">
 			<form method="POST" action="">
 				<label>Real-time query</label>
-				<input type="text" name="realtime_query_input" id="realtime_query_input" value="<?php echo $rt_query; ?>" />
+				<input type="text" name="realtime_query_input" id="realtime_query_input" value='<?php echo $rt_query; ?>'/>
 				<label>get last</label>
 				<input type="text" name="realtime_count_input" id="realtime_count_input" value="<?php echo $rt_count; ?>" />
 				<label>Tweets</label>

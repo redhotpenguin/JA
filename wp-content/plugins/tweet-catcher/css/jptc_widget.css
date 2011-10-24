@@ -127,3 +127,9 @@
 #jptc_all_content .jptc_tweet .jptc_tweet_content{
 
 }
+
+
+.jptc_follow_btn{
+	position: relative;
+	top: 20px;
+}

@@ -110,9 +110,12 @@ class Tweet_Manager_Widget extends WP_Widget {
 					Tweets Related To: <?php echo '<a href="'.get_permalink().'">'.get_the_title().'</a>'; ?>
 					<span id="jptc_close_popup_btn">close</span>
 				</div>
-				
-	
 				<div id="jptc_all_box"></div>
+			</div>
+			
+			<div class="jptc_follow_btn">
+				<a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
+				<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 			</div>
 		<?php
 	}
