@@ -38,6 +38,9 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 
 	<?php if ( 'pingback' == $comment->comment_type ) return false; ?>
 
+	<div class="comment-content clearfix">
+			<div class="comment-meta clearfix">
+	
 	<li id="comment-<?php comment_ID(); ?>" class="author-id-<?php echo $comment->user_id; ?>">
 		<div class="comment-avatar-box">
 			<div class="avb">
@@ -62,9 +65,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			</div>
 		</div>
 
-		<div class="comment-content clearfix">
-
-			<div class="comment-meta">
+		
 			<?php if (get_comment_author_url()) { ?>
 	<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
 	<?php } ?>
@@ -73,7 +74,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			<?php if (get_comment_author_url()) { ?>
 </a>
 	<?php } ?>
-				<em><a href="<?php echo get_comment_link(); ?>"><?php comment_date() ?></a></em>
+				<em class="comment_date"><a href="<?php echo get_comment_link(); ?>"><?php comment_date() ?></a></em>
 				<?php
 					// retrieve the correct user ID based on the email address
 					$comment_author_email = $comment->comment_author_email;
@@ -95,7 +96,9 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			 	<em class="moderate"><?php _e('Your comment is awaiting moderation.'); ?></em><br />
 			<?php endif; ?>
 
+			<div class="comment-text">
 			<?php comment_text() ?>
+			</div>
 
 			<div class="comment-options">
 			<?php //rpx_get_comment_reply_link - defined in rpx-override.php
