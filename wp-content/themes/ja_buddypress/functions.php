@@ -85,7 +85,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 					get_currentuserinfo(); // logged in user, populate $current_user
 					 
 					$current_user_id = $current_user->ID;
-					if($current_user_id ==  $comment_author_id){
+					if(($current_user_id ==  $comment_author_id) && $current_user_id!=0 ){
 						echo '<a class="comment_edit_profile" href="'.get_edit_link($current_user_id).'">Edit Profile</a>';
 					}
 				?>
