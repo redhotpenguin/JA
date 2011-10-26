@@ -1,13 +1,17 @@
 <?php
 // Avoid direct access to this piece of code
-if (strpos($_SERVER['SCRIPT_FILENAME'], basename(__FILE__))){
+if (!function_exists('is_admin') || !is_admin()){
 	header('Location: /');
 	exit;
 }
 
+$is_html_enabled = (subscribe_reloaded_get_option('enable_html_emails', 'no') == 'yes');
+
 // Update options
 if (isset($_POST['options'])){
 	$faulty_fields = '';
+	if (isset($_POST['options']['from_name']) && !subscribe_reloaded_update_option('from_name', $_POST['options']['from_name'], 'text')) $faulty_fields = __('Sender name','subscribe-reloaded').', ';
+	if (isset($_POST['options']['from_email']) && !subscribe_reloaded_update_option('from_email', $_POST['options']['from_email'], 'text')) $faulty_fields = __('Sender email address','subscribe-reloaded').', ';
 	if (isset($_POST['options']['notification_subject']) && !subscribe_reloaded_update_option('notification_subject', $_POST['options']['notification_subject'], 'text')) $faulty_fields = __('Notification subject','subscribe-reloaded').', ';
 	if (isset($_POST['options']['notification_content']) && !subscribe_reloaded_update_option('notification_content', $_POST['options']['notification_content'], 'text')) $faulty_fields = __('Notification message','subscribe-reloaded').', ';
 	if (isset($_POST['options']['double_check_subject']) && !subscribe_reloaded_update_option('double_check_subject', $_POST['options']['double_check_subject'], 'text')) $faulty_fields = __('Double check subject','subscribe-reloaded').', ';
@@ -27,10 +31,25 @@ if (isset($_POST['options'])){
 	echo "</p></div>\n";
 }
 wp_print_scripts( 'quicktags' );
-$is_html_enabled = (get_option('subscribe_reloaded_enable_html_emails', 'no') == 'yes');
 ?>
-
 <form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<h3><?php _e('Options','subscribe-reloaded') ?></h3>
+<table class="form-table <?php echo $wp_locale->text_direction ?>">
+<tbody>
+	<tr>
+		<th scope="row"><label for="from_name"><?php _e('Sender name','subscribe-reloaded') ?></label></th>
+		<td><input type="text" name="options[from_name]" id="from_name" value="<?php echo subscribe_reloaded_get_option('from_name'); ?>" size="50">
+			<div class="description"><?php _e('Name to use for the "from" field when sending a new notification to the user.','subscribe-reloaded'); ?></div></td>
+	</tr>
+	<tr>
+		<th scope="row"><label for="from_email"><?php _e('Sender email address','subscribe-reloaded') ?></label></th>
+		<td><input type="text" name="options[from_email]" id="from_email" value="<?php echo subscribe_reloaded_get_option('from_email'); ?>" size="50">
+			<div class="description"><?php _e('Email address to use for the "from" field when sending a new notification to the user.','subscribe-reloaded'); ?></div></td>
+	</tr>
+</tbody>
+</table>
+
+<h3><?php _e('Messages','subscribe-reloaded') ?></h3>
 <table class="form-table <?php echo $wp_locale->text_direction ?>">
 <tbody>
 	<tr>

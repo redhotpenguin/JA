@@ -2,7 +2,7 @@
  background-image:url(images/subscribe-to-comments.png);
  background-position:center; 
  background-repeat:no-repeat; 
- margin-top:11px;
+ margin: 8px 6px 0 4px;
 }
 #subscribe-to-comments-icon.rtl{
  float:right;
@@ -10,7 +10,6 @@
 .wrap h2.medium{
  border-bottom:1px solid #CCCCCC;
  font-size:.9em;
- margin-bottom:15px;
  padding-bottom:0;
 }
 .wrap .nav-tab{
@@ -30,30 +29,27 @@
  font-weight:700;
  position:relative;
 }
+.wrap div.updated{
+ width:97.2%;
+}
 .postbox{
  float:left;
  margin-right:5px;
- min-height:200px;
+ overflow:auto;
+ width:98.6%;
 }
 .postbox.small{
- width:255px;
-}
-.postbox.medium{
- width:517px
-}
-.postbox.wide{
- width:780px
-}
-.postbox.one-third{
- width:32%;
+ margin-top:10px;
+ width:49%;
 }
 .postbox h3,.postbox p,.postbox ul{
  cursor:default;
+ font-size:.9em;
  margin:0;
- padding:4px 8px 8px;
+ padding:4px;
 }
-.postbox .boxline{
- border-bottom:1px solid #dfdfdf;
+.postbox p.liquid{
+ float:left;
 }
 .postbox span.right{
  float:right;
@@ -64,37 +60,38 @@
 .postbox .subscribe-list-navigation{
  float:right;
  font-size:.8em;
- margin:2px 3px 0 0;
+}
+.postbox .subscribe-list-navigation a{
+ margin-right:10px;
 }
 .postbox .subscribe-list-header{
  background-color:#dfdfdf;
 }
 .postbox .subscribe-column{
- display:block;
  float:left;
+ padding-right:6px;
 }
 .postbox .subscribe-column-1{
- width:30%;
+ min-width:35%;
 }
 .postbox .subscribe-column-2{
- width:30%;
+ min-width:25%;
 }
 .postbox .subscribe-column-3{
- width:20%;
+ min-width:20%;
 }
 .postbox .subscribe-column-4{
- width:15%;
+ min-width:5%;
  text-align:center;
 }
 .postbox ul li{
- line-height:100%;
  margin-bottom:0;
  overflow:auto;
  padding:3px 0;
 }
-#post_list_form input.checkbox{
+input.checkbox{
  float:left;
- margin:2px 10px 0 5px;
+ margin:2px 12px 0 5px;
 }
 
 .form-table th,

@@ -3,8 +3,8 @@ Contributors: coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z732JS7KQ6RRL&lc=US&item_name=Subscribe%20To%20Comments%20Reloaded&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 3.1
-Stable tag: 1.6
+Tested up to: 3.2
+Stable tag: 2.0.2
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -12,100 +12,119 @@ Subscribe to Comments Reloaded allows commenters to sign up for e-mail notificat
 Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notification of subsequent entries. The plugin includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications. It solves most of the issues that affect Mark Jaquith's version, using the latest Wordpress features and functionality. Plus, allows administrators to enable a double opt-in mechanism, requiring users to confirm their subscription clicking on a link they will receive via email.
 
 ## Requirements
-* Wordpress 2.9 or higher
-* [Proper Network Activation](http://wordpress.org/extend/plugins/proper-network-activation/), if you're planning to use it in a multiblog environment
+* Wordpress 2.9.2 or higher
 * PHP 5.1 or higher
 * MySQL 5.x or higher
 
 ## Main Features
-* It does not modify Wordpress system tables
-* You can manage all the subscription with its handy admin panel
-* It imports Mark Jaquith's Subscribe To Comments data (**copies but does not delete** the old data)
-* All the messages are fully customizable, no poEdit required (and you can use HTML!)
-* Available in multiple languages
-* It ignores Spam comments
-* It's compatible with [Fluency Admin](http://deanjrobinson.com/projects/fluency-admin/) and [QTranslate](http://wordpress.org/extend/plugins/qtranslate/)
-* It has a truckload of options to customize its behavior
+* Does not modify Wordpress core tables
+* Easily manage and search among your subscriptions
+* Imports Mark Jaquith's Subscribe To Comments (and its clones) data
+* Messages are fully customizable, no poEdit required (and you can use HTML!)
+* Disable subscriptions for specific posts
+* Compatible with [Fluency Admin](http://deanjrobinson.com/projects/fluency-admin/) and [QTranslate](http://wordpress.org/extend/plugins/qtranslate/)
 
 == Installation ==
 
 1. If you are using Subscribe To Comments by Mark Jaquith, disable it (no need to uninstall it, though)
 2. Upload the entire folder and all the subfolders to your Wordpress plugins' folder
 3. Activate it
-5. Customize the Permalink value under Settings > Subscribe to Comments > Options (first field). It **must** reflect your permalinks' structure
-5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>` somewhere to your `comments.php`
-6. If you're upgrading from a previous version, please make sure to deactivate/activate the plugin
-7. Optional: customize all the messages under Settings > Subscribe to Comments > Messages
+5. Customize the Permalink value under Settings > Subscribe to Comments > Management Page > Management URL. It **must** reflect your permalinks' structure
+5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>` somewhere in your `comments.php`
+6. If you're upgrading from a previous version, please **make sure to deactivate/activate** StCR
+
+== Frequently Asked Questions ==
+
+= Aaargh! Were did all my subscriptions go? =
+No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
+
+= How do I create a 'real' management page? =
+Please refer to [this page](http://lab.duechiacchiere.it/index.php?topic=71.0) for a detailed step-by-step description on how to do that
+
+= Can I customize the layout of the management page? =
+Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel
+
+= How do I disable subscriptions for a given post? =
+Add a custom field called `stcr_disable_subscriptions` to it, with value 'yes'
+
+= How do I add the management page URL to my posts? =
+Use the shortcode `[subscribe-url]`, or use the following code in your theme: 
+`if(function_exists('subscribe_reloaded_show')) echo '<a href="'.do_shortcode('[subscribe-url]').'">Subscribe</a>";`
+
+= Can I move the subscription checkbox to another position? =
+Yes! Just disable the corresponding option under Settings > Comment Form and then add the following code where you want to display the checkbox:
+`<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>`
 
 == Screenshots ==
 
 1. Manage your subscriptions
-2. Customize the plugin's behavior
-3. Use your own messages to interact with your users
+2. Use your own messages to interact with your users
+3. Customize the plugin's behavior
 
 == Changelog ==
 
-= 1.6 = 
-* Completed the new tab to access some useful stats about your subscribers. This will be expanded with filters and other features in the future.
-* Management links sent via email are now more secure and are valid only for the day in which they have been generated. Administrators are not affected.
-* StCR tries to detect if nice permalinks are enabled or not, and sets the corresponding option accordingly
-* Added a new custom header to the emails generated by StCR to keep track of its version
+= 2.0.2 =
+* Added: option to automatically subscribe authors to their posts (improves Wordpress' default alert system, thank you [Julius](http://wordpress.org/support/topic/plugin-subscribe-to-comments-reloaded-does-the-post-author-automatically-get-subscribed-to-comments))
+* Added: number of subscriptions per post in the Posts page
+* Added: Serbian and Indonesian localization (thank you [Anna](http://www.sneg.iz.rs/) and [The Masked Cat](http://themaskedcat.tk))
+* Fixed: bug in daily purge SQL command
+* Fixed: bug with international characters (thank you Pascal)
+* Updated: you can now edit a single subscription's status without having to change the email address
+* Updated: more localizations are now up-to-date, thank you!
 
-= 1.5.1 = 
-* Fixed a conflict between Wordpress' stylesheets and StCR's (thank you [Sahas Katta](http://en.gravatar.com/sahaskatta))
-* Fixed a bug that prevented HTML emails to be handled properly
-* If HTML emails are enabled, quicktags are added to the textareas
+= 2.0.1 =
+* Maintenance release: 2.0 shipped with a bunch of annoying bugs, sorry about that!
+* Added: option to not subscribe in 'advanced mode' (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
+* Added: subscriptions count for each post (All Posts panel)
+* Added: option to disable the virtual management page, for those [having problems](http://lab.duechiacchiere.it/index.php?topic=71.0) with their theme
+* Fixed: subscriptions to replies only were not working properly, fixed (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
+* Fixed: some warning popping up with WP_DEBUG mode enabled
+* Updated: most localizations are now up-to-date, thank you everybody!
 
-= 1.5 =
-* StCR is now compatible with QTranslate (thank you [Odd Henriksen](http://www.oddhenriksen.net/))
-* Added a few more options to customize your messages (thank you [derekbeck](http://wordpress.org/support/profile/derekbeck))
-* Added a new option under Settings > Subscribe to Comments > Support that allows you to optimize the database on-the-fly
-* You can now click on each  email address, in the 'Manage Subscriptions' panel, to view all the subscription associated to it
-* Emails' content-type can been changed to text/html (Settings > Subscribe to Comments > Options)
-* Spanish localization added (thank you [TodoWordPress team](http://www.todowp.org/))
-
-= 1.4 =
-* Fixed a problem that made the latest comments appear on the management page
-* Fixed a conflict with the Recent Posts Wordpress widget
-* Added a new option to choose if logged in administrators should be able to subscribe to comments (by default they're not, thank you [Oyvind](http://lab.duechiacchiere.it/index.php?topic=104.0))
-* Added a few HTML `<span>` tags to the lists shown in the management page, to allow owners to customize their look-an-feel via CSS
-* Admin panels have been reorganized
-* You can now browse through the list of ALL the subscriptions
-* Registered users are now recognized by the system and don't need to request the management link via email (thank you [Acaro00](http://lab.duechiacchiere.it/index.php?topic=106.0))
-* German localization added (thank you [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/))
-* Norwegian localization added (thank you [Odd Henriksen](http://www.oddhenriksen.net/))
-
-= 1.3 =
-* A new column in the Edit Comments panel will now tell you on-the-fly who's subscribed to what
-* StCR doesn't remove the other plugin's data anymore (it's none of my business, indeed!)
-* You can now use a custom CSS class, inline styles and/or HTML code to style the checkbox shown to your visitors
-* Brazilian localization added (thank you Ronaldo Richieri)
-* French localization added (thank you Li-An)
+= 2.0 =
+* StCR does not use a separate table anymore, making it fully compatible with Wordpress 'network' environments! YAY!
+* Added: option to prevent StCR from adding the subscription checkbox to the comment form (useful for those who want to display the box in different place on the page)
+* Added: you can now disable subscriptions on specific posts, by adding a custom filed `stcr_disable_subscriptions` set to 'yes'
+* Added: double opt-in is only required once, users with at least one active subscription will automatically get approved
+* Added: administrators can add new subscriptions on-the-fly
+* Added: if Akismet is detected, it will now be used to check those who subscribe without commenting
+* Added: new shortcode to add the management page URL to your posts/widgets (thank you [Greg](http://wordpress.org/support/topic/plugin-subscribe-to-comments-reloaded-plugin-does-not-create-table))
+* Added: option to enable "advanced" subscription mode, where users can choose what kind of subscription they want to activate (all, replies only)
+* Added: new localizations
+* Added: security checks when uninstalling the plugin
+* Updated: reorganized and polished the CSS classes and ID's on the management page
+* Updated: registered users are not required to confirm their subscriptions anymore (if double opt-in is enabled)
+* Fixed: a problem with Gmail addresses containing a + sign in them
+* Fixed: a bug with HTML attributes in the field "custom HTML for the checkbox" (thank you [travelvice](http://wordpress.org/support/topic/custom-html-quotes-problem-php-ecape-characters))
+* Fixed: a bug causing some themes to not display the management page
 
 == Language Localization ==
 
 Subscribe to Comments Reloaded can speak your language! If you want to provide a localized file in your
 language, use the template files (.pot) you'll find inside the `langs` folder,
-and contact me on the [support forum](http://lab.duechiacchiere.it/index.php?board=5.0) once your
+and [contact me](http://www.duechiacchiere.it/contatto) once your
 localization is ready. Currently, we support the following languages:
 
-* Dutch - Muratje
-* French - [Li-An](http://www.li-an.fr/wpplugins/mes-traductions-de-plugins/#subscribe) and [Anthony](http://imnotgeek.com/)
-* German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/)
+* Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
+* Dutch - [Muratje](http://www.muromedia.nl/)
+* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
+* German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
+* Indonesian - [The Masked Cat](http://themaskedcat.tk)
 * Italian - myself
 * Norwegian - [Odd Henriksen](http://www.oddhenriksen.net/)
-* Portuguese, Brazil - [Ronaldo Richieri](http://richieri.com) and [ClassiNoiva](http://www.classinoiva.com.br)
+* Polish - [Robert Koeseling](http://www.katalogpodkastow.pl), [Filip Cierpich](http://keepmind.eu/)
+* Portuguese, Brazil - [Ronaldo Richieri](http://richieri.com), [ClassiNoiva](http://www.classinoiva.com.br), [Luciano](http://litemind.com/)
+* Portuguese, Portugal
 * Russian - [Marika Bukvonka](http://violetnotes.com)
-* Spanish - [TodoWordPress team](http://www.todowp.org/)
+* Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
+* Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/)
+* Turkish - [MaD, Kali](http://www.dusunsel.com/)
 
 == List of donors ==
 
 Please send a donation of at least $5 in order to be included in this list. Thank you.
 
-* [Robert Eberle](http://www.gopusa.com)
-* Jason Pelletier
-* [Teresa Jordan](http://www.teresajordan.com)
-* [Pausaxn](http://pausaxn.it)
-* Francesco Fratellini
-* Mike Temporale
-* [Life as a Human, Inc](http://lifeasahuman.com/)
+[R. Eberle](http://www.gopusa.com), [T. Cerulli](http://www.tovarcerulli.com/), F. Fratellini, [T. Jordan](http://www.teresajordan.com), [T. de Haan](http://www.tomdehaan.nl),
+[Life as a Human, Inc](http://lifeasahuman.com/), H. Lisle, [Olivier](http://www.stocker-partager.fr), [Passione Maglie](http://www.passionemaglie.it/),
+L. Passuello, [Pausaxn](http://pausaxn.it), J. Pelletier, [R. Schilt](http://www.trupela.com), M. Temporale, [Vendiva](http://www.vendiva.com),
+[S. Watson](http://www.swearingdad.com/), Welcome Changes

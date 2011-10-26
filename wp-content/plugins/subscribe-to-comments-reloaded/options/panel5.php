@@ -1,6 +1,6 @@
 <?php
 // Avoid direct access to this piece of code
-if (strpos($_SERVER['SCRIPT_FILENAME'], basename(__FILE__))){
+if (!function_exists('is_admin') || !is_admin()){
 	header('Location: /');
 	exit;
 }
@@ -8,19 +8,13 @@ if (strpos($_SERVER['SCRIPT_FILENAME'], basename(__FILE__))){
 // Update options
 if (isset($_POST['options'])){
 	$faulty_fields = '';
-	if (isset($_POST['options']['checkbox_label']) && !subscribe_reloaded_update_option('checkbox_label', $_POST['options']['checkbox_label'], 'text')) $faulty_fields = __('Checkbox label','subscribe-reloaded').', ';
-	if (isset($_POST['options']['subscribed_label']) && !subscribe_reloaded_update_option('subscribed_label', $_POST['options']['subscribed_label'], 'text')) $faulty_fields = __('Subscribed label','subscribe-reloaded').', ';
-	if (isset($_POST['options']['subscribed_waiting_label']) && !subscribe_reloaded_update_option('subscribed_waiting_label', $_POST['options']['subscribed_waiting_label'], 'text')) $faulty_fields = __('Awaiting label','subscribe-reloaded').', ';
-	if (isset($_POST['options']['author_label']) && !subscribe_reloaded_update_option('author_label', $_POST['options']['author_label'], 'text')) $faulty_fields = __('Author label','subscribe-reloaded').', ';
-	
-	if (isset($_POST['options']['manager_page_title']) && !subscribe_reloaded_update_option('manager_page_title', $_POST['options']['manager_page_title'], 'text')) $faulty_fields = __('Page title','subscribe-reloaded').', ';
-	if (isset($_POST['options']['request_mgmt_link']) && !subscribe_reloaded_update_option('request_mgmt_link', $_POST['options']['request_mgmt_link'], 'text')) $faulty_fields = __('Request link','subscribe-reloaded').', ';
-	if (isset($_POST['options']['request_mgmt_link_thankyou']) && !subscribe_reloaded_update_option('request_mgmt_link_thankyou', $_POST['options']['request_mgmt_link_thankyou'], 'text')) $faulty_fields = __('Request submitted','subscribe-reloaded').', ';
-	if (isset($_POST['options']['subscribe_without_commenting']) && !subscribe_reloaded_update_option('subscribe_without_commenting', $_POST['options']['subscribe_without_commenting'], 'text')) $faulty_fields = __('Subscribe without commenting','subscribe-reloaded').', ';
-	if (isset($_POST['options']['subscription_confirmed']) && !subscribe_reloaded_update_option('subscription_confirmed', $_POST['options']['subscription_confirmed'], 'text')) $faulty_fields = __('Subscription processed','subscribe-reloaded').', ';
-	if (isset($_POST['options']['subscription_confirmed_dci']) && !subscribe_reloaded_update_option('subscription_confirmed_dci', $_POST['options']['subscription_confirmed_dci'], 'text')) $faulty_fields = __('Subscription processed (DCI)','subscribe-reloaded').', ';
-	if (isset($_POST['options']['author_text']) && !subscribe_reloaded_update_option('author_text', $_POST['options']['author_text'], 'text')) $faulty_fields = __('Authors','subscribe-reloaded').', ';
-	if (isset($_POST['options']['user_text']) && !subscribe_reloaded_update_option('user_text', $_POST['options']['user_text'], 'text')) $faulty_fields = __('Users','subscribe-reloaded').', ';
+	if (isset($_POST['options']['purge_days']) && !subscribe_reloaded_update_option('purge_days', $_POST['options']['purge_days'], 'integer')) $faulty_fields = __('Autopurge requests','subscribe-reloaded').', ';
+	if (isset($_POST['options']['enable_double_check']) && !subscribe_reloaded_update_option('enable_double_check', $_POST['options']['enable_double_check'], 'yesno')) $faulty_fields = __('Enable double check','subscribe-reloaded').', ';
+	if (isset($_POST['options']['notify_authors']) && !subscribe_reloaded_update_option('notify_authors', $_POST['options']['notify_authors'], 'yesno')) $faulty_fields = __('Subscribe authors','subscribe-reloaded').', ';
+	if (isset($_POST['options']['enable_html_emails']) && !subscribe_reloaded_update_option('enable_html_emails', $_POST['options']['enable_html_emails'], 'yesno')) $faulty_fields = __('Enable HTML emails','subscribe-reloaded').', ';
+	if (isset($_POST['options']['process_trackbacks']) && !subscribe_reloaded_update_option('process_trackbacks', $_POST['options']['process_trackbacks'], 'yesno')) $faulty_fields = __('Send trackbacks','subscribe-reloaded').', ';
+	if (isset($_POST['options']['enable_admin_messages']) && !subscribe_reloaded_update_option('enable_admin_messages', $_POST['options']['enable_admin_messages'], 'yesno')) $faulty_fields = __('Notify admin','subscribe-reloaded').', ';
+	if (isset($_POST['options']['admin_subscribe']) && !subscribe_reloaded_update_option('admin_subscribe', $_POST['options']['admin_subscribe'], 'yesno')) $faulty_fields = __('Let admin subscribe','subscribe-reloaded').', ';
 
 	// Display an alert in the admin interface if something went wrong
 	echo '<div class="updated fade"><p>';
@@ -36,108 +30,53 @@ if (isset($_POST['options'])){
 wp_print_scripts( 'quicktags' );
 ?>
 <form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
-<h3><?php _e('Comment form','subscribe-reloaded') ?></h3>
 <table class="form-table <?php echo $wp_locale->text_direction ?>">
-<tbody>
 	<tr>
-		<th scope="row"><label for="checkbox_label"><?php _e('Checkbox label','subscribe-reloaded') ?></label></th>
-		<td><input type="text" name="options[checkbox_label]" id="checkbox_label" value="<?php echo subscribe_reloaded_get_option('checkbox_label'); ?>" size="70">
-			<div class="description"><?php _e('Label associated to the checkbox. Allowed tag: [subscribe_link]','subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="purge_days"><?php _e('Autopurge requests','subscribe-reloaded') ?></label></th>
+		<td><input type="text" name="options[purge_days]" id="purge_days" value="<?php echo subscribe_reloaded_get_option('purge_days'); ?>" size="10"> <?php _e('days','subscribe-reloaded') ?>
+			<div class="description"><?php _e("Delete pending subscriptions (not confirmed) after X days. Zero disables this feature.",'subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="subscribed_label"><?php _e('Subscribed label','subscribe-reloaded') ?></label></th>
-		<td><input type="text" name="options[subscribed_label]" id="subscribed_label" value="<?php echo subscribe_reloaded_get_option('subscribed_label'); ?>" size="70">
-			<div class="description"><?php _e('Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]','subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="enable_double_check"><?php _e('Enable double check','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[enable_double_check]" id="enable_double_check" value="yes"<?php echo (subscribe_reloaded_get_option('enable_double_check') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[enable_double_check]" value="no" <?php echo (subscribe_reloaded_get_option('enable_double_check') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Send a notification email to confirm the subscription (to avoid addresses misuse).','subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="subscribed_waiting_label"><?php _e('Awaiting label','subscribe-reloaded') ?></label></th>
-		<td><input type="text" name="options[subscribed_waiting_label]" id="subscribed_waiting_label" value="<?php echo subscribe_reloaded_get_option('subscribed_waiting_label'); ?>" size="70">
-			<div class="description"><?php _e("Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]",'subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="notify_authors"><?php _e('Subscribe authors','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[notify_authors]" id="notify_authors" value="yes"<?php echo (subscribe_reloaded_get_option('notify_authors') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[notify_authors]" value="no" <?php echo (subscribe_reloaded_get_option('notify_authors') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Automatically subscribe authors to their own articles (not retroactive).','subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="author_label"><?php _e('Author label','subscribe-reloaded') ?></label></th>
-		<td><input type="text" name="options[author_label]" id="author_label" value="<?php echo subscribe_reloaded_get_option('author_label'); ?>" size="70">
-			<div class="description"><?php _e('Label shown to authors (and administrators). Allowed tag: [manager_link]','subscribe-reloaded'); ?></div></td>
-	</tr>
-</tbody>
-</table>
-<h3><?php _e('Management page','subscribe-reloaded') ?></h3>
-<table class="form-table <?php echo $wp_locale->text_direction ?>">
-<tbody>
-	<tr>
-		<th scope="row"><label for="manager_page_title"><?php _e('Page title','subscribe-reloaded') ?></label></th>
-		<td><input type="text" name="options[manager_page_title]" id="manager_page_title" value="<?php echo subscribe_reloaded_get_option('manager_page_title'); ?>" size="70">
-			<div class="description"><?php _e('Title of the page your visitors will use to manage their subscriptions.','subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="enable_html_emails"><?php _e('Enable HTML emails','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[enable_html_emails]" id="enable_html_emails" value="yes"<?php echo (subscribe_reloaded_get_option('enable_html_emails') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[enable_html_emails]" value="no" <?php echo (subscribe_reloaded_get_option('enable_html_emails') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('If enabled, will send email messages with content-type = text/html instead of text/plain','subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="request_mgmt_link"><?php _e('Request link','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold1" class="button-secondary" onclick="edInsertTag(document.getElementById('request_mgmt_link'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics1" class="button-secondary" onclick="edInsertTag(document.getElementById('request_mgmt_link'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink1" class="button-secondary" onclick="edInsertLink(document.getElementById('request_mgmt_link'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg1" class="button-secondary" onclick="edInsertImage(document.getElementById('request_mgmt_link'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[request_mgmt_link]" id="request_mgmt_link" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('request_mgmt_link'); ?></textarea>
-			<div class="description"><?php _e('Text shown to those who request to manage their subscriptions.','subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="process_trackbacks"><?php _e('Process trackbacks','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[process_trackbacks]" id="process_trackbacks" value="yes"<?php echo (subscribe_reloaded_get_option('process_trackbacks') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[process_trackbacks]" value="no" <?php echo (subscribe_reloaded_get_option('process_trackbacks') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Notify users when a new trackback or pingback is added to the discussion.','subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="request_mgmt_link_thankyou"><?php _e('Request submitted','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold2" class="button-secondary" onclick="edInsertTag(document.getElementById('request_mgmt_link_thankyou'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics2" class="button-secondary" onclick="edInsertTag(document.getElementById('request_mgmt_link_thankyou'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink2" class="button-secondary" onclick="edInsertLink(document.getElementById('request_mgmt_link_thankyou'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg2" class="button-secondary" onclick="edInsertImage(document.getElementById('request_mgmt_link_thankyou'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[request_mgmt_link_thankyou]" id="request_mgmt_link_thankyou" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('request_mgmt_link_thankyou'); ?></textarea>
-			<div class="description"><?php _e('Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]','subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="enable_admin_messages"><?php _e('Track all subscriptions','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[enable_admin_messages]" id="enable_admin_messages" value="yes"<?php echo (subscribe_reloaded_get_option('enable_admin_messages') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[enable_admin_messages]" value="no" <?php echo (subscribe_reloaded_get_option('enable_admin_messages') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Notify the administrator when users subscribe without commenting.','subscribe-reloaded'); ?></div></td>
 	</tr>
 	<tr>
-		<th scope="row"><label for="subscribe_without_commenting"><?php _e('Subscribe without commenting','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold3" class="button-secondary" onclick="edInsertTag(document.getElementById('subscribe_without_commenting'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics3" class="button-secondary" onclick="edInsertTag(document.getElementById('subscribe_without_commenting'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink3" class="button-secondary" onclick="edInsertLink(document.getElementById('subscribe_without_commenting'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg3" class="button-secondary" onclick="edInsertImage(document.getElementById('subscribe_without_commenting'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[subscribe_without_commenting]" id="subscribe_without_commenting" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('subscribe_without_commenting'); ?></textarea>
-			<div class="description"><?php _e('Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]','subscribe-reloaded'); ?></div></td>
-	</tr>
-	<tr>
-		<th scope="row"><label for="subscription_confirmed"><?php _e('Subscription processed','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold4" class="button-secondary" onclick="edInsertTag(document.getElementById('subscription_confirmed'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics4" class="button-secondary" onclick="edInsertTag(document.getElementById('subscription_confirmed'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink4" class="button-secondary" onclick="edInsertLink(document.getElementById('subscription_confirmed'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg4" class="button-secondary" onclick="edInsertImage(document.getElementById('subscription_confirmed'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[subscription_confirmed]" id="subscription_confirmed" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('subscription_confirmed'); ?></textarea>
-			<div class="description"><?php _e('Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]','subscribe-reloaded'); ?></div></td>
-	</tr>
-	<tr>
-		<th scope="row"><label for="subscription_confirmed_dci"><?php _e('Subscription processed (DCI)','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold5" class="button-secondary" onclick="edInsertTag(document.getElementById('subscription_confirmed_dci'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics5" class="button-secondary" onclick="edInsertTag(document.getElementById('subscription_confirmed_dci'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink5" class="button-secondary" onclick="edInsertLink(document.getElementById('subscription_confirmed_dci'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg5" class="button-secondary" onclick="edInsertImage(document.getElementById('subscription_confirmed_dci'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[subscription_confirmed_dci]" id="subscription_confirmed_dci" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('subscription_confirmed_dci'); ?></textarea>
-			<div class="description"><?php _e('Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]','subscribe-reloaded'); ?></div></td>
-	</tr>
-	<tr>
-		<th scope="row"><label for="author_text"><?php _e('Authors','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold6" class="button-secondary" onclick="edInsertTag(document.getElementById('author_text'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics6" class="button-secondary" onclick="edInsertTag(document.getElementById('author_text'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink6" class="button-secondary" onclick="edInsertLink(document.getElementById('author_text'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg6" class="button-secondary" onclick="edInsertImage(document.getElementById('author_text'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[author_text]" id="author_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('author_text'); ?></textarea>
-			<div class="description"><?php _e("Introductory text for the authors' management page.",'subscribe-reloaded'); ?></div></td>
-	</tr>
-		<tr>
-		<th scope="row"><label for="user_text"><?php _e('Users','subscribe-reloaded') ?></label></th>
-		<td><input type="button" id="qtbold7" class="button-secondary" onclick="edInsertTag(document.getElementById('user_text'), 0);" value="<?php _e('Bold') ?>" />
-			<input type="button" id="qtitalics7" class="button-secondary" onclick="edInsertTag(document.getElementById('user_text'), 1);" value="<?php _e('Italic') ?>" />
-			<input type="button" id="qtlink7" class="button-secondary" onclick="edInsertLink(document.getElementById('user_text'), 2);" value="<?php _e('Link') ?>" />
-			<input type="button" id="qtimg7" class="button-secondary" onclick="edInsertImage(document.getElementById('user_text'));" value="<?php _e('Image') ?>" />
-			<br/>
-			<textarea name="options[user_text]" id="user_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option('user_text'); ?></textarea>
-			<div class="description"><?php _e("Introductory text for the users' management page.",'subscribe-reloaded'); ?></div></td>
+		<th scope="row"><label for="admin_subscribe"><?php _e('Let admin subscribe','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[admin_subscribe]" id="admin_subscribe" value="yes"<?php echo (subscribe_reloaded_get_option('admin_subscribe') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[admin_subscribe]" value="no" <?php echo (subscribe_reloaded_get_option('admin_subscribe') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Let the administrator subscribe to comments when logged in.','subscribe-reloaded'); ?></div></td>
 	</tr>
 </tbody>
 </table>
