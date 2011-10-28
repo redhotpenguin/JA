@@ -74,7 +74,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			<?php if (get_comment_author_url()) { ?>
 </a>
 	<?php } ?>
-				<em class="comment_date"><a href="<?php echo get_comment_link(); ?>"><?php comment_date() ?></a></em>
+				<em class="comment_date"><a href="<?php echo get_comment_link(); ?>"><?php comment_date() ?> at <?php comment_time(); ?></a></em>
 				<?php
 					// retrieve the correct user ID based on the email address
 					$comment_author_email = $comment->comment_author_email;
