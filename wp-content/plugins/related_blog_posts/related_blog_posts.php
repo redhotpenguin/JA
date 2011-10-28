@@ -38,7 +38,7 @@ function widget_related_blog_posts($args)
 {
 	global $related_blog_posts_box;
 	extract ($args);
-	if ($related_blog_posts_box->get_the_value('posts')) {
+	if ($related_blog_posts_box->get_the_value('posts') && is_single()) {
 		echo $before_widget;
 		echo $before_title . 'Related Blog Posts' . $after_title;
 		related_blog_posts();
