@@ -1067,8 +1067,8 @@ function rpx_update_profile_info($user_id){
 	      break;
 
         case 'Facebook':
-	      include_once('facebook.php');
-          update_facebook_information($user_id);
+	     // include_once('facebook.php');
+         // update_facebook_information($user_id);
           break;
 
 	    case 'LinkedIn':
