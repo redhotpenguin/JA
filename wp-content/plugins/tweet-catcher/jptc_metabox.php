@@ -123,8 +123,4 @@ class Tweet_Manager_Metabox{
 
 
 }
-
-
-
-
 ?>

@@ -8,9 +8,12 @@
 	padding-top: 2px;
 }
 
+#jptm_controls{
+	margin-top:-8px;
+}
+
 .jptc_tweet_avatar{
 	float:left;
-
 	padding-bottom:48px;
 	margin-right:5px;
 }
@@ -46,11 +49,12 @@
 	cursor:pointer;
 	font-size:18px;
 	color: #10996B;
+	top:-4px;
 }
 
 #jptc_up{
 	position: relative;
-	top: -118px;
+	top: -133px;
 	left: 313px;
 	color:#000;
 	cursor:pointer;
@@ -131,5 +135,5 @@
 
 .jptc_follow_btn{
 	position: relative;
-	top: 20px;
+	top: 10px;
 }

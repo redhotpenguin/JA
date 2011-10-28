@@ -128,6 +128,7 @@ jptc_jq(document).ready(function($) { // let's the fun begin
 			height: 'auto',
 			autostop: 0, 
 			autostopCount: 0,
+			random:1,
 			pause: true // pause on hover
 		});
 	}
