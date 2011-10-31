@@ -206,7 +206,7 @@ h1 a { text-decoration: none; }
 	margin-left: -351px;
 	background: none;
 }
-
+.custom .widget_jptcwidget + .widget > h3{ margin-top:10px !important;}
 .custom #sidebar .padder { padding: 0 19px 19px 19px; }
 
 /* .custom #sidebar .padder { padding: 0; }
