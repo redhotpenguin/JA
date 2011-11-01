@@ -39,7 +39,7 @@
   	} else { ?>
   <link rel="image_src" href="/ja-fb.jpg" />
   <?php } ?>
-		<link rel="icon" href="http://www.journalismaccelerator.com/wp-content/uploads/2011/02/ja-favicon1.png" type="image/png"/>
+		<link rel="icon" href="/wp-content/uploads/2011/02/ja_dev_favicon.gif" type="image/gif"/>
 
 		<?php wp_head(); ?>
 		<?php if (is_home()) { ?>

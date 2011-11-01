@@ -8,14 +8,7 @@
 		<div class="page" id="blog-archives">
 			<h1>Resources Related to Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
 			<?php echo category_description(); ?>
-			<div class="navigation">
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
-
-				</div>
 
 			<?php if ( have_posts() ) : ?>
 
