@@ -881,7 +881,15 @@ h1 a { text-decoration: none; }
 	width: 180px;
 }
 
-.custom #blog-archives .post, .custom #blog-search .post { margin-bottom: 15px; }
+.custom #blog-archives .post, .custom #blog-search .post 
+{ 
+	margin-bottom: 15px; 
+	padding: 1em;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
 
 .custom #blog-archives .post p, .custom #blog-search .post p
 {
