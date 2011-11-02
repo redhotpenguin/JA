@@ -96,7 +96,7 @@
 		
 		<div id="cat_nav">
 			<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a></h2>
-			<ul class="questions <?php if (is_home()) { echo 'hidden'; } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { } else { echo 'hidden'; } ?>">
+			<ul class="questions <?php if (is_home() || in_slug('members')) { echo 'hidden'; } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { } else { echo 'hidden'; } ?>">
 				<li><a href="/topics/questions/revenue/" <?php active_tab('revenue'); ?>>Revenue</a></li>
 				<li><a href="/topics/questions/community/" <?php active_tab('community'); ?>>Community</a></li>
 				<li><a href="/topics/questions/craft/" <?php active_tab('craft'); ?>>Craft</a></li>
@@ -116,7 +116,7 @@
 				<li><a href="/topics/resources/policy-resources/" <?php active_tab('policy-resources'); ?>>Policy</a></li>
 				<li><a href="/topics/resources/technology-resources/" <?php active_tab('technology-resources'); ?>>Technology</a></li>
 			</ul>
-			<ul class="blog <?php if (is_home()) { echo 'hidden'; } elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members')) { } else { echo 'hidden'; } ?>">
+			<ul class="blog <?php if (is_home() || in_slug('members')) { echo 'hidden'; } elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members')) { } else { echo 'hidden'; } ?>">
 				<li><a href="/topics/blog/community-blog/">Community</a></li>
 				<li><a href="/topics/blog/experiments-blog/">Experiments</a></li>
 				<li><a href="/topics/blog/revenue-blog/">Revenue</a></li>
