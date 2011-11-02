@@ -64,7 +64,8 @@
 
 #jptc_show_all_tweets{
 	float: right;
-	font-size: 10px;
+	padding-top: 4px;
+	font-size: 12px;
 	color: #666;
 	font-weight: bold;
 	cursor: pointer;
