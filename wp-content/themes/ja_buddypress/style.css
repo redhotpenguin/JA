@@ -919,6 +919,10 @@ h1 a { text-decoration: none; }
 	margin-bottom: 1em;
 }
 
+.custom #blog-archives .post h2.posttitle + p.post-info { margin-top: 0; }
+
+.custom h2.blogtitle { margin-bottom: 0; }
+
 .custom div.hasimages
 {
 	position: relative;
@@ -963,10 +967,14 @@ h1 a { text-decoration: none; }
 {
 	font-size: 24px;
 	font-weight: bold;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: #222;
 	line-height: 1;
 }
+
+.custom h2 + div.post-info { margin-bottom: 0; }
+
+.custom div.resource-tout + h2 { margin-bottom: 10px; }
 
 .custom .post-info-top
 {
