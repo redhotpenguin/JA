@@ -67,7 +67,7 @@ function r_create_form() {
 
 function q_create_form() {
 	?>
-	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm question" id="fsForm1058142" style="display:none">
+	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm question" id="fsForm1058142" <?php if(!is_category(28) || is_home()) { ?>style="display:none"<?php } ?>>
     <input type="hidden" name="form" value="1058142" />
     <input type="hidden" name="viewkey" value="dcRMIPaG0P" />
     <input type="hidden" name="hidden_fields" id="hidden_fields1058142" value="" />
@@ -135,7 +135,14 @@ function widget_suggest_a_resource($args) {
 	  echo "<p style=\"margin-bottom:0\">Would you like to share a resource on the Journalism Accelerator? Make a suggestion. Tell us why others need to know.</p>";
   }
   
- if (!is_category(25)) {
+    if (is_category(28) && !is_home()) {
+	  echo $before_title;
+	  echo "Ask a Question";
+	  echo $after_title;
+	  echo "<p style=\"margin-bottom:0\">Do you have a question for the Journalism Accelerator team? Let us know the question on your mind you think the broader community should be asking.</p>";
+  }
+  
+ if (!is_category(25) && !is_category(28)) {
   echo $before_title;
 ?>
 
