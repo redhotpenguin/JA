@@ -19,16 +19,7 @@
 				<div class="post cat-<?php $category = get_the_category(); echo $category[0]->parent; ?>" id="post-<?php the_ID(); ?>">
 
 					<div class="post-content">
-						<span class="addthis_toolbox addthis_default_style sharing"><!-- AddThis Button BEGIN -->
-<a class="addthis_button_facebook"></a>
-<a class="addthis_button_tweet" tw:via="journaccel" tw:count="none"></a>
-<a class="addthis_button_email"></a>
-<a class="addthis_button_print"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
-<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
-</span>
+					
 						<?php if (in_category(28) || parent_category_is(28)) { ?>
 							<h1>Question:</h1>
 						<?php } elseif (in_category(25) || parent_category_is(25)) { ?>
@@ -44,7 +35,15 @@
 						<?php if (in_category(28) || parent_category_is(28)) {
 							the_title('<p>', '</p>');
 							?>
-							
+							<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
+<a class="addthis_button_tweet" tw:via="journaccel"></a>
+<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
+<!-- AddThis Button END -->
 							<div class="context">
 							
 							<?php if (get_post_meta($post->ID, 'underwrite')) { ?>
@@ -70,8 +69,19 @@
 							the_content();
 						} else {
 							custom_resource_tout();
-							the_title('<h2>','</h2>');
-							?><?php
+								if (in_category(39) || parent_category_is(39)) { the_title('<h2 class="blogtitle">','</h2>'); } else { the_title('<h2>','</h2>');	}
+							?>
+								<?php if (in_category(39) || parent_category_is(39)) : ?><div class="post-info">Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?></div><?php endif; ?>
+								<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
+<a class="addthis_button_tweet" tw:via="journaccel"></a>
+<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
+<!-- AddThis Button END -->
+							<?php
 							custom_resource_fields();
 							?><div class="resource-content"><?php
 							the_content(); 
@@ -81,7 +91,7 @@
 							<?php endif; ?>
 							<hr />
 							<?php wp_gdsr_render_article(); ?>
-							<div class="post-info">Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?><br />
+							<div class="post-info"><?php if (!in_category(39) && !parent_category_is(39)) : ?>Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?><br /><?php endif; ?>
 						<span class="categories"><?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></div><?php
 						} ?>
 						<?php if (in_category(28) || parent_category_is(28)) {  } ?>
