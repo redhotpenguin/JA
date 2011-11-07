@@ -11,6 +11,8 @@ class Janitor_Admin{
 			add_utility_page( 'JAnitor', 'JAnitor', 'remove_users', 'janitor', array(&$this,'admin_user_page'), $ico);
 			add_submenu_page( 'janitor', 'Janitor', 'Update User Avatar', 'remove_users', 'janitor',  array(&$this,'admin_user_page'));
 			add_submenu_page( 'janitor', 'Comment', 'Reassign Comment', 'remove_users', 'janitor_comment',  array(&$this,'admin_comment_page'));
+			add_submenu_page( 'janitor', 'Staff', 'Update Comment Color', 'remove_users', 'janitor_staff',  array(&$this,'admin_staff_page'));
+
 	}
 	
 	public function admin_comment_page(){
@@ -25,9 +27,15 @@ class Janitor_Admin{
 		echo '<div class="wrap" >';
 		$process_result =  $this->process_form();
 		if($process_result) {echo '<div class="updated">'.$process_result.'</div>';}
-		
 		$this->change_user_avatar_page();
-		
+		echo '</div>';
+	}
+	
+	public function admin_staff_page(){
+			echo '<div class="wrap" >';
+		$process_result =  $this->process_form();
+		if($process_result) {echo '<div class="updated">'.$process_result.'</div>';}
+		$this->change_staff_content();
 		echo '</div>';
 	}
 	
@@ -120,10 +128,64 @@ class Janitor_Admin{
 	<?php
 	}
 	
+	public function change_staff_content(){ ?>
+		<h3>Update Comment Color</h3>
+		<form method="post" action="#">
+		<table>	
+			<tr>
+				<td><label for="user_id">User ID</label> </td>
+				<td>  
+					<input name="user_id" type="text" /> 
+				</td>
+			</tr>
+		
+			<tr>
+				<td><label for="header_color">Comment Header Color</label> </td>
+				<td>  
+					<select name='comment_color'>
+						<option value="green" >Green</option>
+						<option value="default">Default</option>
+					</select>
+				</td>
+			</tr>
+	
+			<tr> 
+				<td colspan="2"><input type="submit" name="select_comment_color" value="Select Color"/></td>
+			</tr>
+		</table>
+		</form>
+		<hr/>
+		<h3> User Colors: </h3>
+	
+		<table class="widefat" style="width:40%; ">
+			<thead class="widefat">
+				<tr>
+					<th> User ID </th>
+					<th> Name </th>
+					<th> Color </th>
+				</tr>
+				<?php
+					$user_colors = $this->get_users_color();
+					foreach($user_colors as $user_color){
+						$tmp_user = get_userdata($user_color->user_id);
+						echo '<tr>';
+							echo "<td>$user_color->user_id</td>";
+							echo "<td>$tmp_user->display_name</td>";
+							echo "<td>$user_color->meta_value</td>";
+						echo '</tr>';
+					}
+				?>
+			</thead>
+		</table>
+			
+		
+	<?php
+	}
+	
+
 	
 	private function process_form(){ // Process $_POST requests
 	global $wpdb;
-	
 		if( isset($_POST['change_avatar']) && !empty($_POST['change_avatar'])){
 			$user_id = $_POST['user_id'];
 			$upload_avatar = $_FILES['upload_avatar'];
@@ -191,6 +253,15 @@ class Janitor_Admin{
 			else return 'Something went wrong.';
 			
 		} // change comment  end
+		elseif( isset($_POST['select_comment_color'] )){ // change staff for comments header
+			$user_id = $_POST['user_id'];
+			$user = get_userdata($user_id);
+			if( empty($user) ) { return 'Invalid User ID'; }
+			
+			$color =  $_POST['comment_color']; 
+			if(empty($user_id)) return 'User ID required';
+			if( update_user_meta($user_id, 'comment_color', $color)) return "Color $color selected for User #$user_id";
+		} // end change staff for comments header
 	}
 	
 	private function get_reassigned_comments(){ // Return an array of reassigned comments
@@ -205,6 +276,12 @@ class Janitor_Admin{
 		}
 		
 		return $comments;
+	}
+	
+	private function get_users_color(){
+		global $wpdb;
+		wp_cache_flush();
+		return $user_colors = $wpdb->get_results( " SELECT user_id, meta_value FROM $wpdb->usermeta WHERE meta_key = 'comment_color' AND meta_value != 'default' " , OBJECT );
 	}
 	
 	private function update_recent_activity($user_id, $comment_id){ // Update User Recent Activity
