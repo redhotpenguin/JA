@@ -1724,6 +1724,10 @@ font-weight: normal;
 	-webkit-border-top-right-radius: 6px;
 }
 
+.custom  div#comments ol.commentlist .comment_header_green{
+	background-color: #e7ffe5 !important;
+}
+
 .custom  div#comments ol.commentlist .comment-meta em.comment_date a{
 	text-decoration: none;
 	color: #aaa;
