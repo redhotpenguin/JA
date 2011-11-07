@@ -39,7 +39,9 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 	<?php if ( 'pingback' == $comment->comment_type ) return false; ?>
 
 	<div class="comment-content clearfix">
-			<div class="comment-meta clearfix">
+	<?php  $color_header =  get_user_meta($comment->user_id, 'comment_color', true); ?>
+		<div class="<?php if($color_header != 'default' ) echo "comment_header_$color_header";?> comment-meta clearfix ">
+	
 	
 	<li id="comment-<?php comment_ID(); ?>" class="author-id-<?php echo $comment->user_id; ?>">
 		<div class="comment-avatar-box">
@@ -638,7 +640,7 @@ function ja_resource_home() { ?>
 		<div class="home_box_right">
 		  <div class="popular_answers">
 					<div class="box_content">
-						<h2>Latest Comments</h2>
+						<h2>Latest Resource Comments</h2>
 						<?php dp_recent_resource_comments(); ?>
 					</div>
 				</div>
@@ -1175,3 +1177,9 @@ function in_slug($par){
 	if(array_search($par, $tmp)) return true;
 	else return false;
 }
+
+/* MENUS */
+
+register_nav_menu( 'questions', 'Question Categories' );
+register_nav_menu( 'resources', 'Resource Categories' );
+register_nav_menu( 'blog', 'Blog Categories' );
