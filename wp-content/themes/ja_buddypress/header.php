@@ -96,34 +96,30 @@
 		
 		<div id="cat_nav">
 			<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a></h2>
-			<ul class="questions <?php if (is_home() || in_slug('members')) { echo 'hidden'; } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { } else { echo 'hidden'; } ?>">
-				<li><a href="/topics/questions/revenue/" <?php active_tab('revenue'); ?>>Revenue</a></li>
-				<li><a href="/topics/questions/community/" <?php active_tab('community'); ?>>Community</a></li>
-				<li><a href="/topics/questions/craft/" <?php active_tab('craft'); ?>>Craft</a></li>
-				<li><a href="/topics/questions/distribution/" <?php active_tab('distribution'); ?>>Distribution</a></li>
-				<li><a href="/topics/questions/education/" <?php active_tab('education'); ?>>Education</a></li>
-				<li><a href="/topics/questions/experiments/" <?php active_tab('experiments'); ?>>Experiments</a></li>
-				<li><a href="/topics/questions/policy/" <?php active_tab('policy'); ?>>Policy</a></li>
-				<li><a href="/topics/questions/technology/" <?php active_tab('technology'); ?>>Technology</a></li>
-			</ul>
-			<ul class="resources <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25) || in_slug('members') || is_page()) { } else { echo 'hidden'; } ?>">
-				<li><a href="/topics/resources/revenue-resources/" <?php active_tab('revenue-resources'); ?>>Revenue</a></li>
-				<li><a href="/topics/resources/community-resources/" <?php active_tab('community-resources'); ?>>Community</a></li>
-				<li><a href="/topics/resources/craft-resources/" <?php active_tab('craft-resources'); ?>>Craft</a></li>
-				<li><a href="/topics/resources/distribution-resources/" <?php active_tab('distribution-resources'); ?>>Distribution</a></li>
-				<li><a href="/topics/resources/education-resources/" <?php active_tab('education-resources'); ?>>Education</a></li>
-				<li><a href="/topics/resources/experiments-resources/" <?php active_tab('experiments-resources'); ?>>Experiments</a></li>
-				<li><a href="/topics/resources/policy-resources/" <?php active_tab('policy-resources'); ?>>Policy</a></li>
-				<li><a href="/topics/resources/technology-resources/" <?php active_tab('technology-resources'); ?>>Technology</a></li>
-			</ul>
-			<ul class="blog <?php if (is_home() || in_slug('members')) { echo 'hidden'; } elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members')) { } else { echo 'hidden'; } ?>">
-				<li><a href="/topics/blog/community-blog/">Community</a></li>
-				<li><a href="/topics/blog/experiments-blog/">Experiments</a></li>
-				<li><a href="/topics/blog/revenue-blog/">Revenue</a></li>
-				<li><a href="/topics/blog/distribution-blog/">Distribution</a></li>
-				<li><a href="/topics/blog/craft-blog/">Craft</a></li>
-				<li><a href="/topics/blog/policy-blog/">Policy</a></li>
-			</ul>
+			<?php if (in_category(28) || is_category(28) || parent_category_is(28)) : ?>
+			<?php wp_nav_menu(array(
+				'theme_location' => 'questions',
+				'container' => 'none',
+				'menu_class' => 'questions',
+				'menu_id' => 'questions-menu'
+			)); ?>
+			<?php endif; ?>
+			<?php if (in_category(25) || is_category(25) || parent_category_is(25) || in_slug('members') || is_page() || is_home()) : ?>
+			<?php wp_nav_menu(array(
+				'theme_location' => 'resources',
+				'container' => 'none',
+				'menu_class' => 'resources',
+				'menu_id' => 'resource-menu'
+			)); ?>
+			<?php endif; ?>
+			<?php if (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members')) : ?>
+			<?php wp_nav_menu(array(
+				'theme_location' => 'blog',
+				'container' => 'none',
+				'menu_class' => 'blog',
+				'menu_id' => 'blog-menu'
+			)); ?>
+			<?php endif; ?>
 			<ul class="subnav">
 				<li><a href="/about/what-is-the-journalism-accelerator/" class="first">About</a></li>
 				<li><a href="/about/what-is-the-journalism-accelerator/#faq">FAQ</a></li>
