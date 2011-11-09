@@ -103,16 +103,14 @@
 				'menu_class' => 'questions',
 				'menu_id' => 'questions-menu'
 			)); ?>
-			<?php endif; ?>
-			<?php if (in_category(25) || is_category(25) || parent_category_is(25) || in_slug('members') || is_page() || is_home()) : ?>
+			<?php elseif (in_category(25) || is_category(25) || parent_category_is(25) || in_slug('members') || is_page() || is_home()) : ?>
 			<?php wp_nav_menu(array(
 				'theme_location' => 'resources',
 				'container' => 'none',
 				'menu_class' => 'resources',
 				'menu_id' => 'resource-menu'
 			)); ?>
-			<?php endif; ?>
-			<?php if (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members') && !is_home()) : ?>
+			<?php elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members') && !is_home()) : ?>
 			<?php wp_nav_menu(array(
 				'theme_location' => 'blog',
 				'container' => 'none',
