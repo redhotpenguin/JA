@@ -78,7 +78,10 @@
 		}
 		?>
 	<meta name="google-site-verification" content="ae-oLPTbPxSIDVwIxM_mf6hEqwzbSf8L2ZZX_0O2f1Y" />	
-
+			<?php if (is_single()) : ?>
+		<?php global $post; ?>
+		<meta property="og:description" content="<?php echo substr(strip_tags(strip_shortcodes($post->post_content)), 0, 200) . '...'; ?>" />
+		<?php endif; ?>
 	</head>
 
 	<body <?php body_class('custom') ?> id="bp-default">
