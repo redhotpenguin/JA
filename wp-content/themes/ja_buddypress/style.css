@@ -1712,31 +1712,45 @@ padding: 0px;
 }
 
 .custom  div#comments ol.commentlist .comment-meta{
-margin:0;
-background-color:#eee;
-padding: 10px;
-border-bottom: 1px solid #ddd;
-border-top-left-radiusaa;
+	margin:0;
+	background-color:#eee;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	border-top-left-radius	: 6px;
+	-moz-border-radius-topleft	: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-right-radius	: 6px;
+	-moz-border-radius-topright	: 6px;
+	-webkit-border-top-right-radius: 6px;
+}
+
+.custom  div#comments ol.commentlist .comment_header_green{
+	background-color: #e7ffe5 !important;
+}
+
+.custom  div#comments ol.commentlist .comment-meta em.comment_date a{
+	text-decoration: none;
+	color: #aaa;
 }
 
 .custom  div#comments ol.commentlist .comment-meta em.comment_date a:hover{text-decoration:underline;}
 
 
 .custom  div#comments ol.commentlist .comment-meta p.bio{
-margin-top:5px;
-font-size: 14px;
-font-style: italic;
-color: #777;
-line-height: 16px;
+	margin-top:5px;
+	font-size: 14px;
+	font-style: italic;
+	color: #777;
+	line-height: 16px;
 }
 
 .custom  div#comments ol.commentlist .comment-text {
-padding: 10px;
-word-wrap: break-word;
+	padding: 10px;
+	word-wrap: break-word;
 }
 
 .custom  div#comments ol.commentlist .comment-options{
-padding-right:10px;
+	padding-right:10px;
 }
 /* @GROUP COMMENT END*/
 
