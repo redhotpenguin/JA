@@ -13,6 +13,7 @@
 						<li><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
 <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></li>
 						<li><a href="/Feed/"><img src="/feed.png" alt="Feed Icon">  </a><a href="/feed/">RSS Feed</a></li>
+						<li><a href="/link-to-us/">Link to Us</li>
 					</ul>
 				</div>
 			</div>
