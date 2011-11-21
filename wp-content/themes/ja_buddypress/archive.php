@@ -180,6 +180,62 @@
 	</div><!-- #content -->
 
 	<?php // Blog Home ?>
+	
+	<?php elseif (is_category(324)) : ?>
+	
+	<div id="content">
+		<div class="padder">
+
+		<?php do_action( 'bp_before_archive' ) ?>
+
+		<div class="page" id="blog-archives">
+			<h1>Digest of Featured Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+			<?php echo category_description(); ?>
+
+				<?php if (have_posts()) : ?>
+				<?php while (have_posts()) : the_post(); ?>
+
+					<?php do_action( 'bp_before_blog_post' ) ?>
+
+					<div class="post" id="post-<?php the_ID(); ?>">
+					
+						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+						<?php the_content(); ?>
+						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
+						
+
+					</div>
+
+					<?php do_action( 'bp_after_blog_post' ) ?>
+
+				<?php endwhile; ?>
+
+				<div class="navigation">
+
+					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
+					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
+					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
+				<?php } ?>
+
+				</div>
+
+			<?php else : ?>
+
+				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
+				<?php locate_template( array( 'searchform.php' ), true ) ?>
+
+			<?php endif; ?>
+
+		</div>
+
+		<?php do_action( 'bp_after_archive' ) ?>
+
+		</div><!-- .padder -->
+	</div><!-- #content -->
+	
+	<?php // Featured ?>
+
 
 	<?php elseif (parent_category_is(28)) : ?>
 
