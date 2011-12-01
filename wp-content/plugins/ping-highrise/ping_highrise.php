@@ -91,7 +91,4 @@ function phdebug(){
 	//$hr_business->new_comment_hook(501);
 }
 */
-
-
-
 ?>
