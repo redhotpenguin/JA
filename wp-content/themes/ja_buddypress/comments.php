@@ -57,6 +57,10 @@ foreach ( (array)$comments as $comment )
 			printf( _n( 'This post has <strong>one</strong> comment so far.', 'This post has <strong>%1$s</strong> comments so far.', $numComments, 'buddypress' ),
 			num2words((int)$numComments), '<em>' . get_the_title() . '</em>' );
 		}
+		
+		if($numComments >=3)
+			 echo '<a class="comments_grid_link" href="'.get_permalink().'./participants">Who is talking about this post?</a>'; 
+		
 	?>
 	</h3>
 
