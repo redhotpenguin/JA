@@ -1,10 +1,13 @@
 <?php
+/*
 $server_addr = $_SERVER['SERVER_ADDR'];
 $client_addr = $_SERVER['REMOTE_ADDR'];
 if($client_addr != $server_addr) {
 	error_log("Ping Highrise: Server and Client Addr. don't match. $server_addr ! = $client_addr ");
 	exit;
 }
+
+*/
 
 define('WP_USE_THEMES', false);
 require($_SERVER['DOCUMENT_ROOT'].'/'.'wp-blog-header.php');
