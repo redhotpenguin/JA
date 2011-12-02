@@ -1827,6 +1827,7 @@ display:none;
 .custom #participants .participant_link_back {
 	float: left;
 	width: 100%;
+	margin-bottom: 25px;
 }
 
 .custom #participants .participant_last_comment{
