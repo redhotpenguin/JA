@@ -150,7 +150,7 @@ font-size: 18px;
 line-height: 22px;
 }
 
-.custom #related-resources a, .custom #related-questions a, .custom #wdg_specialrecentposts-4 h4 a, .custom #wdg_specialrecentposts-11 a  
+.custom #related-resources a, .custom #related-questions a, .custom #wdg_specialrecentposts-11 a  
 {
 font-size: 18px;
 line-height: 22px;
@@ -162,14 +162,14 @@ line-height: 22px;
 .custom #wdg_specialrecentposts-11 .srp-widget-singlepost p { margin-bottom: 15px; } 
 .custom #wdg_specialrecentposts-11 .srp-widget-singlepost:last-child p { margin-bottom: 0; }
 
-.custom #wdg_specialrecentposts-4 h4 { margin-bottom: 0; }
+.custom #wdg_specialrecentposts-4 h4 { margin-bottom: 0; margin-top: 0; }
 
 .custom #wdg_specialrecentposts-4 a 
 {
 text-decoration: none;
 }
 
-.custom #wdg_specialrecentposts-6 a, .custom #wdg_specialrecentposts-7 a,
+.custom #wdg_specialrecentposts-4 a, .custom #wdg_specialrecentposts-6 a, .custom #wdg_specialrecentposts-7 a,
 .custom #wdg_specialrecentposts-8 a, .custom #wdg_specialrecentposts-9 a, .custom #wdg_specialrecentposts-10 a, .custom #related-blog-posts a
 {
 font-size: 14px;
@@ -488,7 +488,7 @@ color: #ffffff;
 font-size: 18px;
 }
 
-#sidebar p.answer { padding-left: 48px; }
+#sidebar p.answer { padding-left: 62px; }
 
 .custom div#sidebar h3.widgettitle
 {
@@ -1286,7 +1286,8 @@ font-style: italic !important;
 .custom .wp-caption img { margin-bottom: 1em; }
 .custom div#sidebar h3.widgettitle.expandheader { background: none !important; border: none; }
 
-.custom div#sidebar h3.widgettitle.expandheader a.expand
+.custom div#sidebar h3.widgettitle.expandheader a.expand,
+.custom #participants .participant_link_back a
 {
 text-decoration: none;
 background-color: #16A0E8;
@@ -1758,6 +1759,78 @@ padding: 0px;
 /* HIDE GD STAR*/
 .custom .ratingblock, .custom .entry .ratingblock{
 display:none;
+}
+
+/* PARTICIPANTS GRID*/
+.custom .comments_grid_link{
+	float:right;
+	font-size:12px;
+	margin-right:23px;
+	margin-top:3px;
+}
+
+.custom #participants h2 {
+	color: #396;
+}
+
+.custom #participants .participant{
+	width: 46%;
+	float: left;
+	margin-right: 18px;
+	margin-bottom: 20px;
+}
+
+.custom #participants .participant .participant_avatar img{
+	border:none;
+}
+
+
+.custom #participants .participant .participant_avatar {
+	width:75px;
+	border:none;
+}
+
+.custom #participants .participant .participant_name{
+	font-size: 18px;
+}
+
+.custom #participants .participant .participant_bio{
+	font-style:italic;
+}
+
+.custom #participants a{
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.custom #participants  .participant_rule{
+	background-color: #eaeaea;
+	color: #eaeaea;
+}
+
+.custom #participants .participant_text{
+	float: left;
+	width: 180px;
+	margin-left: 10px;
+	margin-top:-5px;
+}
+
+.custom #participants .participant_meta{
+	margin-top:6px;
+}
+
+.custom .participant_top_link_back a {
+	text-decoration:none;
+	font-size: 12px;
+}
+
+.custom #participants .participant_link_back {
+	float: left;
+	width: 100%;
+}
+
+.custom #participants .participant_last_comment{
+	width:200px;
 }
 
 
