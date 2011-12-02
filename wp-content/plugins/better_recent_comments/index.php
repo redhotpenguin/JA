@@ -27,8 +27,8 @@ function widget_recent_comments($no_comments = 10, $comment_len = 100) {
 			$myid = get_user_id_from_string($user_email);
 			
 			$comment_tweet_avatar   = get_comment_meta($mycomment->comment_ID, 'tmac_image',true);
-			if($comment_tweet_avatar) echo "<img src='$comment_tweet_avatar'  width='32px' class='avatar' />";
-			else echo get_avatar($myid, 32)
+			if($comment_tweet_avatar) echo "<img src='$comment_tweet_avatar'  width='50px' class='avatar' />";
+			else echo get_avatar($myid, 50)
 			
 			//	echo bp_core_fetch_avatar( array( 'item_id' => $id, 'width' => 32, 'height' => 32, 'email' =>  $myid ) ); 
 
