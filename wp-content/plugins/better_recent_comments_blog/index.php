@@ -20,7 +20,7 @@ function widget_recent_comments_blog($no_comments = 10, $comment_len = 100) {
 		foreach ($comments as $mycomment) {
 			ob_start();
 			$myid = $mycomment->user_id;
-			echo get_avatar($myid, 32);
+			echo get_avatar($myid, 50);
 			?><p class="answer"><a href="<?php comment_author_url($mycomment->comment_ID); ?>">
 				<?php 
 				echo comment_author($mycomment->comment_ID); ?></a><?php
