@@ -1,9 +1,9 @@
 <?php
 class Ping_Highrise_Core{
-	private $hr_url;
+
 	
-	public function __construct($highrise_url){
-		$this->hr_url = $highrise_url;
+	public function __construct(){
+		
 	}
 	
 	public function make_request( $url, $body=array() ){ // make asynchronous HTTP POST REQUEST
@@ -17,7 +17,10 @@ class Ping_Highrise_Core{
 			);
 					
 		if($res){ return true; }
-		else{ return false; }
+		else{ 
+			ph_log("Ping Highrise Core: Posting to $url Failed");
+			return false; 
+		}
 	}
 	
 }

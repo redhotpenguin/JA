@@ -10,6 +10,9 @@ Author URI: http://www.twitter.com/welldonejonas
 include_once('src/ping_highrise_core.php');
 include_once('src/ping_highrise_business.php');
 
+global $ph_verbose;
+$ph_verbose= true;
+
 
 /**** PLUGIN INITIALIZATION ****/
 
@@ -21,7 +24,7 @@ function ph_install(){ // executed when plugin is activated
 	update_option( 'post_highrise_url', $post_highrise_url);
 	update_option( 'highrise_new_user_hook', 'rpx_user_register' );
 	update_option( 'highrise_new_comment_hook', 'comment_post' );
-	update_option( 'highrise_ping_on_new_user', true );
+	//update_option( 'highrise_ping_on_new_user', true );
 }
 
 function init_ph(){ // executed after WP has finished loading (before headers are sent)
@@ -29,8 +32,7 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 		include_once('src/ping_highrise_setup.php');
 		new Ping_Highrise_Setup();
 	}
-
-	$hr_url = get_option('highrise_url');
+	
 	$hr_user_tag = get_option('tasks_user_tag');
 	$hr_assigned_task_to = get_option('tasks_user_id');
 	
@@ -40,14 +42,21 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 		'task_category' => get_option('highrise_task_category')
 	 );
 	
-	$hr_core = new Ping_Highrise_Core($hr_url);
+	$hr_core = new Ping_Highrise_Core();
 	$hr_business = new ping_highrise_business($hr_core, $business_params);
 	
 	$new_user_hook= get_option('highrise_new_user_hook');
 	$new_comment_hook = get_option('highrise_new_comment_hook');
 	
-	add_action($new_comment_hook, array(&$hr_business, 'new_comment_hook') );
-	add_action($new_user_hook, array(&$hr_business, 'new_user_hook'));
+	
+
+
+	if ( is_user_logged_in() ){
+		ph_log('Comment hook is :'.$new_comment_hook);
+		add_action($new_comment_hook, array(&$hr_business, 'new_comment_hook') );
+	}
+	else
+		add_action($new_user_hook, array(&$hr_business, 'new_user_hook'));
 	 
 }
 
@@ -65,5 +74,14 @@ function the_link_to_hr(){
 		
 	}
 }
+
+function ph_log($message){
+	global $ph_verbose;
+	if($ph_verbose){
+		error_log("Ping Highrise: $message");
+	}
+}
+
+
 
 ?>

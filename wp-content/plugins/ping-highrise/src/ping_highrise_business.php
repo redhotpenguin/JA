@@ -19,6 +19,11 @@ class Ping_Highrise_Business{
 		$post_highrise_url = get_option('post_highrise_url');
 		$hr_url = get_option('highrise_url');
 		$hr_token= get_option('highrise_token');
+		
+		ph_log('business: new_comment_hook  comment_ID is :'.$comment_id);
+		ph_log('business: new_comment_hook  post_highrise_url is :'.$post_highrise_url);
+		ph_log('business: new_comment_hook  hr_url is :'.$hr_url);
+		ph_log('business: new_comment_hook  hr_token is :'.$hr_token);
 	
 		$post_body = array(
 			'action' => 'new_comment',

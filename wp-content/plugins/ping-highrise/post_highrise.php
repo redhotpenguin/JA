@@ -36,9 +36,14 @@ function notify_new_comment(){
 	
 	global $hr_url;
 	global $hr_token;
-	
+
 	$hr_url =  $_POST['hr_url'];
 	$hr_token =  $_POST['hr_token'];
+	
+	ph_log('Post Highrise: new comment id: '.$comment_id);
+	ph_log('Post Highrise: hr_url:  '.$hr_url);
+	ph_log('Post Highrise: hr_token '.$hr_token);
+	
 	
 	$comment_obj = get_comment($comment_id);
 	$post_obj = get_post($comment_obj->comment_post_ID);
@@ -214,7 +219,7 @@ function push_tag($hr_user_id, $tag_name){
 function push_comment($hr_user_id, $subject, $content){
 	if(empty($hr_user_id) || empty($subject) || empty($content)) return false;
 	
-	
+	ph_log('Post Highrise: push_comment');
 
 	
 	$xml_query = '<note>

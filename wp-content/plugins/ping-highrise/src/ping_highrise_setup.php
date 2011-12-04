@@ -50,7 +50,7 @@ class Ping_Highrise_Setup{
 			<tr valign="top">
 			<th scope="row">URL to post_highrise.php</th>
 			<td><input  size="70" type="text" name="post_highrise_url" value="<?php echo $post_highrise_url; ?>" /></td>
-			<td>Ex: http://www.mywebsite/wp-content/plugins/ping-highrise/post_highrise.php.</td>
+			<td>Ex: http://www.mywebsite/wp-content/plugins/ping-highrise/post_highrise.php</td>
 			</tr>
 			
 			
