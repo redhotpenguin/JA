@@ -47,7 +47,7 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 
 	if ( is_user_logged_in() ){
 		$new_comment_hook = get_option('highrise_new_comment_hook');
-		ph_log('Comment hook is :'.$new_comment_hook);
+		//ph_log('Comment hook is :'.$new_comment_hook);
 		add_action($new_comment_hook, array(&$hr_business, 'new_comment_hook') );
 	}
 	else{

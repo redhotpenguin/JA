@@ -44,7 +44,6 @@ function notify_new_comment(){
 	ph_log('Post Highrise: hr_url:  '.$hr_url);
 	ph_log('Post Highrise: hr_token '.$hr_token);
 	
-	
 	$comment_obj = get_comment($comment_id);
 	$post_obj = get_post($comment_obj->comment_post_ID);
 	
@@ -287,9 +286,9 @@ function do_push($target, $xml_query){
 		return false;
 	 }
 
-	$xml_result  = wp_remote_post( $hr_url, $post_args );
+	//$xml_result  = wp_remote_post( $hr_url, $post_args );
 	
-	return $xml_result = @simplexml_load_string($xml_result);
+	//return $xml_result = @simplexml_load_string($xml_result);
 }
 
 
