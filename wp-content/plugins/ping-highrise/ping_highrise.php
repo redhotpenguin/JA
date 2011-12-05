@@ -11,7 +11,7 @@ include_once('src/ping_highrise_core.php');
 include_once('src/ping_highrise_business.php');
 
 global $ph_verbose;
-$ph_verbose= true;
+$ph_verbose = true;
 
 
 /**** PLUGIN INITIALIZATION ****/
@@ -44,19 +44,16 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 	
 	$hr_core = new Ping_Highrise_Core();
 	$hr_business = new ping_highrise_business($hr_core, $business_params);
-	
-	$new_user_hook= get_option('highrise_new_user_hook');
-	$new_comment_hook = get_option('highrise_new_comment_hook');
-	
-	
-
 
 	if ( is_user_logged_in() ){
+		$new_comment_hook = get_option('highrise_new_comment_hook');
 		ph_log('Comment hook is :'.$new_comment_hook);
 		add_action($new_comment_hook, array(&$hr_business, 'new_comment_hook') );
 	}
-	else
+	else{
+		$new_user_hook= get_option('highrise_new_user_hook');
 		add_action($new_user_hook, array(&$hr_business, 'new_user_hook'));
+	}
 	 
 }
 

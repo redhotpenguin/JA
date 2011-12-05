@@ -29,7 +29,7 @@ class Ping_Highrise_Business{
 			'action' => 'new_comment',
 			'hr_url' =>  $hr_url,
 			'hr_token' => $hr_token,
-			'comment_id' => $comment_id,
+			'comment_id' => $comment_id
 		);
 
 		$this->hr_core->make_request($post_highrise_url, $post_body);
