@@ -1024,7 +1024,7 @@ function rpx_signon_wp_user($redirect=""){
 
 		if($redirect == 'edit_page'){
 			rpx_update_profile_info($current_user->id); // update profile for twitter, facebook, linkedin and gmail accounts
-			rpx_send_admin_notification($current_user);
+			//rpx_send_admin_notification($current_user);
 			rpx_send_user_notification($current_user);
 			$site_url = get_site_url();
 			$user_login = bp_core_get_username($current_user->id);
@@ -1034,7 +1034,7 @@ function rpx_signon_wp_user($redirect=""){
 		}
 		elseif($redirect == 'current_page'){
 			rpx_update_profile_info($current_user->id); 
-			rpx_send_admin_notification($current_user);
+		//	rpx_send_admin_notification($current_user);
 			rpx_send_user_notification($current_user);
 			do_action('rpx_user_register', $current_user->id);
 			rpx_redirect($rpx_http_vars['redirect_to'].'#reply');
@@ -1098,6 +1098,10 @@ function  rpx_send_admin_notification($user){
 	
 	$user_identifier = $user->rpx_identifier;
 	$user_id = $user->ID;
+	
+	$hr_url = get_option('highrise_url');
+	$hr_user_id = get_user_meta($user_id, 'hr_user_id', true);
+	$hr_link =  $hr_url.'/people/'.$hr_user_id;
 
 	$user_bio = xprofile_get_field_data('One-Line Bio' ,$user_id);
 	$user_twitter = xprofile_get_field_data('Twitter' ,$user_id);
@@ -1109,7 +1113,10 @@ function  rpx_send_admin_notification($user){
 	if($user_provider == 'Twitter') {
 		$user_identifier = $user_twitter;
 	}
-	else { 
+	elseif($user_provider=='LinkedIn'){ 
+		$user_identifier = get_user_meta($user_id, 'linkedin', true);
+	}
+	else{
 		$user_identifier = $user->rpx_identifier;
 	}
 	
@@ -1119,6 +1126,12 @@ function  rpx_send_admin_notification($user){
 	$message .= "Email: $user_email <br/>";
 	$message .= "JA Profile: <a href='$user_profile_url'>$user_login</a> ";
 	$message .= " <br/> <a href='$user_edit_profile'> Edit Profile</a> (admins only)<br/>";
+	
+	if( empty ($hr_user_id) ) $message .= "<br/><b>Failed to create an Highrise Profile</b>";
+	
+	else
+		$message .= "<br/><b><a href='$hr_link'>Highrise Profile</a></b>";
+	
 	$message .= "<br/><h3>Extra info:</h3>Public Profile: <a href='$user_identifier'>$user_display_name</a> ($user_provider) <br/>";
 	$message .= "Twitter: $user_twitter <br/>";
 	$message .= "Website: $user_website <br/>";
@@ -1128,8 +1141,8 @@ function  rpx_send_admin_notification($user){
 
 	$headers = array("From: Journalism Accelerator <noreply@www.journalismaccelerator.com>",  "Content-Type: text/html");
 	$h = implode("\r\n",$headers) . "\r\n";
-	
-	return wp_mail('info@journalismaccelerator.com', $subject, $message, $h);
+	$admin_email = get_option('admin_email');
+	return wp_mail($admin_email, $subject, $message, $h);
 }
 
 function rpx_send_user_notification($user){
