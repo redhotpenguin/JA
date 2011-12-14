@@ -27,26 +27,36 @@ class JPCONV_Widget extends WP_Widget {
 	}
 
 	public function widget($args, $instance){
+		global $wp_query; 
 		global $post;
-		$permalink = get_permalink($post->ID);
+		
+		$post_id =  url_to_postid( $wp_query->query_vars['participants'] );
+	
+		if( empty($post_id) )
+			$post_id = $post->ID;
 
+		$permalink = get_permalink($post_id);
+	
 		$display_n = get_option('jpconv_display_comment_number');
 		
 		$comments = get_comments(array(
-			'post_id' => $post->ID,
+			'post_id' => $post_id,
 			'number' => $display_n,
 			'order' => 'DESC',
 			'type' => 'comment'
 		));
 		
+		
+		
 		if( count ($comments) <= 3 )
 			return false;
 
-		
-		if(!is_single())
+
+		if(!is_single()  && ! $wp_query->query_vars['participants'] ){
 			return false;
+		}	
 			
-		$more = '<span class="jpconv_more"> <a href="#respond">Weigh In</a> </span>';
+		$more = '<span class="jpconv_more"> <a href="'.$permalink.'#respond">Weigh In</a> </span>';
 			
 		extract( $args );
 		$title = apply_filters( 'widget_title', $instance['title'] );
@@ -79,7 +89,9 @@ class JPCONV_Widget extends WP_Widget {
 			</div>
 			<?php
 		}
-		echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is talking?</a></span>';
+		if(! $wp_query->query_vars['participants'] ) 
+			echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is talking?</a></span>';
+		
 		echo '</div>';
 		
 		echo $after_widget;
