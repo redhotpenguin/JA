@@ -16,13 +16,28 @@ get_header(); ?>
 					if( !isset( $wp_query->query_vars['participants'] )) {
 						// need redirection to homepage or something
 						} 
-					 $post_id =  url_to_postid( $wp_query->query_vars['participants'] );
-					 $permalink  = get_permalink($post_id);
-					 $title = get_the_title($post_id);
+					$post_id =  url_to_postid( $wp_query->query_vars['participants'] );
+					$permalink  = get_permalink($post_id);
+					$title = get_the_title($post_id);
+					global $participant_ids;
+	
+					$participant_number = 0;
+					$participants = array();
+					if( !empty($participant_ids) )foreach($participant_ids as $user_id){
+						$participant = get_userdata($user_id);
+						if( empty($participant) )
+							continue;
 
+						array_push($participants, $participant);
+						$participant_number++;	
+					}
+					
+					if(function_exists('num2words'))
+						$participant_number = num2words($participant_number);
+					
 				?>
 	<div id="participants">
-				<h2>People Talking About:</h2>
+				<h2><?php echo $participant_number; ?> People Talking About:</h2>
 				<div class="entry">
 				<h3><?php echo $title; ?>
 	<span  class="participant_top_link_back" ><a href="<?php echo $permalink; ?>">back to the post</a></span>				
@@ -30,13 +45,10 @@ get_header(); ?>
 					<div class="context">
 					
 							<?php
-							global $participant_ids;
-						
-								//$participant_ids = get_post_participants($post_id, '', true);
 								$i = 0;
 								
-								if( !empty($participant_ids) ) foreach($participant_ids as $user_id){
-									$participant = get_userdata($user_id);
+								if( !empty($participants) ) foreach($participants as $participant){
+									$user_id = $participant->ID;
 									if( empty($participant) )
 										continue;
 										
