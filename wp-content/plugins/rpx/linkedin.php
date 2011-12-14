@@ -32,7 +32,7 @@ function update_linkedin_information($user_id){
 			
 	 // if($_SESSION['oauth']['linkedin']['authorized'] === TRUE) { // if authorization is granted
             $OBJ_linkedin->setTokenAccess(array('oauth_token' => $user_token, 'oauth_token_secret' => $user_secret));
-			 $response = $OBJ_linkedin->profile('~:(first-name,last-name,headline,twitter-accounts,member-url-resources)');
+			 $response = $OBJ_linkedin->profile('~:(first-name,last-name,public-profile-url,headline,twitter-accounts,member-url-resources)');
 	
 
 		if($response['success'] === TRUE) { // if we receive a valid response
@@ -40,7 +40,6 @@ function update_linkedin_information($user_id){
 			$json = json_encode($xml);
 			$response_array = json_decode($json,TRUE); // xml -> array
 
-		
 			$user_bio = $response_array['headline'];
 			$user_websites = $response_array['member-url-resources']['@attributes']['total'];
 			if($user_websites > 1) $user_website = $response_array['member-url-resources']['member-url'][0]['url']; // if more than one website registered, select the first one
@@ -55,6 +54,9 @@ function update_linkedin_information($user_id){
 			if(!empty($user_bio)) xprofile_set_field_data('One-Line Bio' ,$user_id, $user_bio ); 
 			if(!empty($user_twitter_url)) xprofile_set_field_data('Twitter' ,$user_id, $user_twitter_url);
 			if(!empty($user_website)) xprofile_set_field_data('Website' ,$user_id, $user_website);	
+	
+			$public_linkedin = $response_array['public-profile-url'];
+			update_user_meta( $user_id, 'linkedin', $public_linkedin);
 	
 		   } // if $response['success'] end
 			 
