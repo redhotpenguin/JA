@@ -53,8 +53,11 @@ class Tweet_Manager_Widget extends WP_Widget {
 	$permalink =  get_permalink();
 	$request =  'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	// make sure we load the widget in the right page
-
-		if((is_single() || is_page() & ($permalink == $request))){
+ 
+	global $wp_query; // look for the participant grid
+ 
+	
+		if((is_single() || is_page() & ($permalink == $request)) || $wp_query->query_vars['participants']){
 			$this->load_widget($args, $instance);
 		} 
 		else {return false;}
@@ -62,8 +65,14 @@ class Tweet_Manager_Widget extends WP_Widget {
 	}
 	
 	function load_widget($args, $instance){
+
 	global $post;
-	 $post_id = $post->ID;
+	global $wp_query; 
+	
+	$post_id =  url_to_postid( $wp_query->query_vars['participants'] );
+	if(  empty($post_id) )
+		$post_id = $post->ID;
+		
     $this->rt_query = get_post_meta($post_id, 'jptc_rt_query', true);
 	$this->rt_count = get_post_meta($post_id, 'jptc_rt_count', true);
 	$this->tweets = $this->jptc_model->get_json_saved_tweets($post_id);
