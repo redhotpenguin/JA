@@ -2,18 +2,11 @@
 
 class Ping_Highrise_Business{
 	private $hr_core;
-	private $user_tag;
-	private $assigned_task_to;
-	private $task_category;
+
 	
-	public function __construct($hr_core, $params){
+	public function __construct($hr_core){
 		$this->hr_core = $hr_core;
-	 
-		$this->user_tag = $params['user_tag'];
-		$this->assigned_task_to = $params['assigned_task_to'];
-		$this->task_category = $params['task_category'];
 	}
-	
 	
 	public function new_comment_hook($comment_id, $approved = true){ // executed when a new comment is posted
 		$post_highrise_url = get_option('post_highrise_url');
@@ -44,10 +37,7 @@ class Ping_Highrise_Business{
 			'action' => 'new_user',
 			'hr_url' =>  $hr_url,
 			'hr_token' => $hr_token,
-			'user_id' => $user_id,
-			'user_tag' => $this->user_tag,
-			'assign_tasks_to' => $this->assigned_task_to,
-			'task_category' => $this->task_category
+			'user_id' => $user_id
 		);
 		$this->hr_core->make_request($post_highrise_url, $post_body);
 	}

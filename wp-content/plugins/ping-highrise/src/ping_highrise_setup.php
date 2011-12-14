@@ -23,6 +23,7 @@ class Ping_Highrise_Setup{
 		register_setting( 'ph-settings-group', 'tasks_user_id');
 		register_setting( 'ph-settings-group', 'tasks_user_tag' );
 		register_setting( 'ph-settings-group', 'highrise_task_category' );
+		register_setting( 'ph-settings-group', 'highrise_task_category_updated_contact' );
 		register_setting( 'ph-settings-group', 'highrise_new_user_hook' );
 		register_setting( 'ph-settings-group', 'highrise_new_comment_hook' );
 		register_setting( 'ph-settings-group', 'highrise_new_comment_hook' );
@@ -73,8 +74,14 @@ class Ping_Highrise_Setup{
 			</tr>
 			
 			<tr valign="top">
-			<th scope="row">Task Category</th>
+			<th scope="row">Task Category (for new contacts)</th>
 			<td><input size="70" type="text" name="highrise_task_category" value="<?php echo get_option('highrise_task_category'); ?>" /></td>
+			<td>Ex: 3239887.  See mysite.highrisehq.com/task_categories.xml &lt;id type="integer"&gt;3239887&lt;/id&gt;</td>
+			</tr>
+			
+			<tr valign="top">
+			<th scope="row">Task Category (for existing contacts)</th>
+			<td><input size="70" type="text" name="highrise_task_category_updated_contact" value="<?php echo get_option('highrise_task_category_updated_contact'); ?>" /></td>
 			<td>Ex: 3239887.  See mysite.highrisehq.com/task_categories.xml &lt;id type="integer"&gt;3239887&lt;/id&gt;</td>
 			</tr>
 			

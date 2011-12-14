@@ -24,7 +24,6 @@ function ph_install(){ // executed when plugin is activated
 	update_option( 'post_highrise_url', $post_highrise_url);
 	update_option( 'highrise_new_user_hook', 'rpx_user_register' );
 	update_option( 'highrise_new_comment_hook', 'comment_post' );
-	//update_option( 'highrise_ping_on_new_user', true );
 }
 
 function init_ph(){ // executed after WP has finished loading (before headers are sent)
@@ -33,21 +32,11 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 		new Ping_Highrise_Setup();
 	}
 	
-	$hr_user_tag = get_option('tasks_user_tag');
-	$hr_assigned_task_to = get_option('tasks_user_id');
-	
-	 $business_params= array(
-		'user_tag' => $hr_user_tag,
-		'assigned_task_to' => $hr_assigned_task_to,
-		'task_category' => get_option('highrise_task_category')
-	 );
-	
 	$hr_core = new Ping_Highrise_Core();
-	$hr_business = new ping_highrise_business($hr_core, $business_params);
+	$hr_business = new ping_highrise_business($hr_core);
 
 	if ( is_user_logged_in() ){
 		$new_comment_hook = get_option('highrise_new_comment_hook');
-		//ph_log('Comment hook is :'.$new_comment_hook);
 		add_action($new_comment_hook, array(&$hr_business, 'new_comment_hook') );
 	}
 	else{
@@ -79,6 +68,20 @@ function ph_log($message){
 	}
 }
 
+/*
+add_action('wp_footer', 'phdebug');
+function phdebug(){
+
+if(empty($_GET['debug']))
+	return false;
+
+	 $hr_core = new Ping_Highrise_Core();
+	 $new_user_hook= get_option('highrise_new_user_hook');
+	 $hr_business = new ping_highrise_business($hr_core, $business_params);
+	 // $hr_business->new_user_hook(485);
+	    $hr_business->new_comment_hook(551);
+}
+*/
 
 
 ?>
