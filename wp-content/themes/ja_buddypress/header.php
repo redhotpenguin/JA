@@ -39,7 +39,7 @@
   	} else { ?>
   <link rel="image_src" href="/ja-fb.jpg" />
   <?php } ?>
-		<link rel="icon" href="/wp-content/uploads/2011/02/ja_dev_favicon.gif" type="image/gif"/>
+		<link rel="icon" href="<?php echo get_site_url();?>/favicon.gif" type="image/gif"/>
 
 		<?php wp_head(); ?>
 		<?php if (is_home()) { ?>
@@ -132,7 +132,8 @@
 			)); ?>
 			<?php endif; ?>
 			<ul class="subnav">
-				<li><a href="/about/what-is-the-journalism-accelerator/" class="first">About</a></li>
+				<li><a href="/" class="first">Home</a></li>
+				<li><a href="/about/what-is-the-journalism-accelerator/">About</a></li>
 				<li><a href="/about/what-is-the-journalism-accelerator/#faq">FAQ</a></li>
 				<li><a href="/members/">People</a></li>
 				<?php if (current_user_can('publish_posts')) { ?> <li><a href="/wp-admin/">Dashboard</a></li><?php } ?>
