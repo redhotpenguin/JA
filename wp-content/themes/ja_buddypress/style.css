@@ -1771,6 +1771,7 @@ display:none;
 
 .custom #participants h2 {
 	color: #396;
+	text-transform: capitalize;
 }
 
 .custom #participants .participant{
