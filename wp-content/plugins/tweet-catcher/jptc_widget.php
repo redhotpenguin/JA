@@ -65,7 +65,7 @@ class Tweet_Manager_Widget extends WP_Widget {
 	}
 	
 	function load_widget($args, $instance){
-
+	global $post_id;
 	global $post;
 	global $wp_query; 
 	
@@ -91,6 +91,7 @@ class Tweet_Manager_Widget extends WP_Widget {
 	}
 	
 	private function widget_content(){
+		global $post_id;
 		wp_print_scripts( 'jquery-cycle' );
 		wp_print_scripts( 'jptc-widget' );
 		wp_print_styles('jptc-widget-style');
@@ -116,7 +117,7 @@ class Tweet_Manager_Widget extends WP_Widget {
 			<div id="jptc_box"></div>
 			<div id="jptc_all_content">
 				<div class="jptc_all_content_header">
-					Tweets Related To: <?php echo '<a href="'.get_permalink().'">'.get_the_title().'</a>'; ?>
+					Tweets Related To: <?php echo '<a href="'.get_permalink($post_id).'">'.get_the_title($post_id).'</a>'; ?>
 					<span id="jptc_close_popup_btn">close</span>
 				</div>
 				<div id="jptc_all_box"></div>
