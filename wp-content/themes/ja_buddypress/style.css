@@ -1835,4 +1835,8 @@ display:none;
 	width:200px;
 }
 
+/* TWITTER */
 
+.custom .twp-container { max-width: 815px !important; }
+.custom .twt-border { max-width: 815px !important; }
+.custom .twt-tweet .entry-title, .custom .twt-o .entry-title a, .custom .twt-o .entry-title b { font-size: 14px !important; font-family: Arial, sans-serif !important; }
