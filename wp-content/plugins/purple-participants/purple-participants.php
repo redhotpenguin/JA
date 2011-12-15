@@ -32,8 +32,7 @@ function purple_p_rewrite( $wp_rewrite ) {
 add_action( 'wp_loaded','purple_p_flush_rules' );
 function purple_p_flush_rules(){
 	$rules = get_option( 'rewrite_rules' );
-
-	if ( ! isset( $rules['(participants)/(\d*)$'] ) ) {
+	if ( ! isset( $rules['(.+)/(participants)'] ) ) {
 		global $wp_rewrite;
 	   	$wp_rewrite->flush_rules();
 	}
