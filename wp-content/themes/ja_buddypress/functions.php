@@ -300,7 +300,6 @@ function latest_listings_all() {
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php the_excerpt(); ?></div>
-			<p class="category"><?php the_category(' ', null, $post->ID); ?></p></p>
 		</div>
 		<?php
 	}
@@ -347,7 +346,6 @@ function latest_questions() {
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php the_excerpt(); ?></div>
-			<p class="category"><?php the_category(' ', null, $post->ID); ?></p></p>
 		</div>
 		<?php
 	}
@@ -411,7 +409,6 @@ function dp_recent_question_comments() {
 	
 ?></p>
 </div>
-<p class="category" style="margin-left: 60px;"><?php the_category(' ', null, $comment->comment_post_ID); ?></p>
 			</div><?php
 		}
 	}
@@ -713,7 +710,6 @@ function dp_recent_resource_comments() {
 	
 ?></p>
 </div>
-<p class="category" style="margin-left: 60px;"><?php the_category(' ', null, $comment->comment_post_ID); ?></p>
 			</div><?php
 		}
 	}
@@ -777,7 +773,6 @@ function dp_recent_all_comments() {
 	
 ?></p>
 </div>
-<p class="category" style="margin-left: 60px;"><?php the_category(' ', null, $comment->comment_post_ID); ?></p>
 			</div><?php
 		}
 	}
@@ -796,7 +791,6 @@ function latest_listings() {
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php the_excerpt(); ?></div>
-			<p class="category"><?php the_category(' ', null, $post->ID); ?></p></p>
 		</div>
 		<?php
 	}
