@@ -1,11 +1,11 @@
 <?php
 
 class Ping_Highrise_Business{
-	private $hr_core;
+
 
 	
-	public function __construct($hr_core){
-		$this->hr_core = $hr_core;
+	public function __construct(){
+	
 	}
 	
 	public function new_comment_hook($comment_id, $approved = true){ // executed when a new comment is posted
@@ -25,7 +25,7 @@ class Ping_Highrise_Business{
 			'comment_id' => $comment_id
 		);
 
-		$this->hr_core->make_request($post_highrise_url, $post_body);
+		$this->make_request($post_highrise_url, $post_body);
 	}
 
 	public function new_user_hook($user_id){ // executed when a user registers
@@ -39,7 +39,25 @@ class Ping_Highrise_Business{
 			'hr_token' => $hr_token,
 			'user_id' => $user_id
 		);
-		$this->hr_core->make_request($post_highrise_url, $post_body);
+		$this->make_request($post_highrise_url, $post_body);
+	}
+	
+	
+	public function make_request( $url, $body=array() ){ // make asynchronous HTTP POST REQUEST
+		$res = @wp_remote_post($url,
+			array(
+					'method' => 'POST',
+					'timeout' => '0.5',
+					'blocking' => false,
+					'body' => $body
+				)
+			);
+			
+		if( is_array($res) ){ return true; } // callback required to actually test the response
+		else{ 
+			ph_log("Ping Highrise Business: Posting to $url Failed");
+			return false; 
+		}
 	}
 
 }

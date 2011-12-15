@@ -7,7 +7,6 @@ Version: 0.1
 Author: Jonas Palmero
 Author URI: http://www.twitter.com/welldonejonas
 */
-include_once('src/ping_highrise_core.php');
 include_once('src/ping_highrise_business.php');
 
 global $ph_verbose;
@@ -32,8 +31,7 @@ function init_ph(){ // executed after WP has finished loading (before headers ar
 		new Ping_Highrise_Setup();
 	}
 	
-	$hr_core = new Ping_Highrise_Core();
-	$hr_business = new ping_highrise_business($hr_core);
+	$hr_business = new ping_highrise_business();
 
 	if ( is_user_logged_in() ){
 		$new_comment_hook = get_option('highrise_new_comment_hook');
@@ -75,9 +73,9 @@ function phdebug(){
 if(empty($_GET['debug']))
 	return false;
 
-	 $hr_core = new Ping_Highrise_Core();
+
 	 $new_user_hook= get_option('highrise_new_user_hook');
-	 $hr_business = new ping_highrise_business($hr_core, $business_params);
+	 $hr_business = new ping_highrise_business( );
 	 // $hr_business->new_user_hook(485);
 	    $hr_business->new_comment_hook(551);
 }
