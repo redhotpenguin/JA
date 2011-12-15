@@ -9,6 +9,44 @@ Author URI:
 */
 require_once(RPX_PATH_ROOT . '/rpx_c.php');
 
+function custom_get_avatar($user_id, $params){
+	$avatar_url = get_usermeta($user_id, 'rpx_photo');
+	if(empty($avatar_url))
+		$avatar_url = 'http://1.gravatar.com/avatar/f272a071bda1c80e031432e4caf517ac?s=100';
+
+	$width = $params['width'];
+	$height = $params['height'];
+	$class = $params['class'];
+	$alt = $params['alt'];
+	$title = $params['title'];
+
+	if(is_numeric($width))
+		$width = 'width:'.$width.'px;';
+	else 
+		$width = 'width:auto;';
+		
+	if(is_numeric($height))
+		$height = 'height:'.$height.'px;';
+	else 
+		$height = 'height:auto;';
+		
+	$style = $width.$height;
+	
+	if( !empty($class) )
+		$class = 'class= "'.$class.'"';
+		
+	if( !empty($title) )
+		$title = 'title= "'.$title.'"';
+		if( !empty($alt) )
+		$alt = 'alt= "'.$alt.'"';
+	
+		
+	$img_meta = "{$class} {$title} {$alt} ";
+	$avatar = "<img src={$avatar_url} style={$style} $img_meta/>";
+	
+	
+	return $avatar;
+}
 
 if ( !function_exists( 'get_avatar' ) ) :
 /**
