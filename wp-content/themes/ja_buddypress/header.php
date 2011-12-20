@@ -53,7 +53,7 @@
 				timeout: 10000,
 				speed: 350,
 				pause: 1,
-				//random: 1
+				random: 1
 			});});</script>
 			
 		<script type="text/javascript">
