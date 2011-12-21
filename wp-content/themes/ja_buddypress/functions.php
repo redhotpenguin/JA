@@ -289,7 +289,7 @@ function featured_question() {
 
 function latest_listings_all() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&showposts=3');
+	$latest_listings->query('&showposts=4');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
@@ -780,7 +780,7 @@ function dp_recent_all_comments() {
 
 function latest_listings() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&cat=25&showposts=3');
+	$latest_listings->query('&cat=25&showposts=4');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
