@@ -43,7 +43,8 @@ class JPCONV_Widget extends WP_Widget {
 			'post_id' => $post_id,
 			'number' => $display_n,
 			'order' => 'DESC',
-			'type' => 'comment'
+			'type' => 'comment',
+			'status' => 'approve'
 		));
 		
 		
@@ -71,7 +72,7 @@ class JPCONV_Widget extends WP_Widget {
 			$user_name = $comment->comment_author;
 			$profile_url = get_link_to_public_profile($user_id);
 			$comment_content = $comment->comment_content;
-			$comment_content = strip_tags(substr($comment_content, 0, 100));
+			$comment_content = substr( strip_tags( $comment_content) , 0, 100 );
 			?>
 			<div class="jpconv clearfix">
 				<div class="jpconv_avatar">
