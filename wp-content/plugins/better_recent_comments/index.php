@@ -62,7 +62,7 @@ function widget_recent_comments($no_comments = 10, $comment_len = 100) {
 				?>
 				<a href="<?php echo get_permalink($mycomment->comment_post_ID); ?>#comment-<?php echo $mycomment->comment_ID; ?>"><?php echo $category[0]->cat_name; ?></a>: <?php
 				if (strlen($mycomment->comment_content) > 100) {
-					echo strip_tags(substr(apply_filters('get_comment_text', $mycomment->comment_content), 0, 99)) . "...";
+					echo substr( strip_tags( $mycomment->comment_content ), 0, 99  ).'...';
 				}
 				else {
 					echo strip_tags($mycomment->comment_content);
