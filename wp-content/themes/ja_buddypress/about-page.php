@@ -23,14 +23,20 @@ get_header() ?>
 
 
 					<div class="post-content">
+					<?php $bitly = get_post_bitly( $post->ID ); ?>
 						<span class="addthis_toolbox addthis_default_style sharing"><!-- AddThis Button BEGIN -->
 <a class="addthis_button_facebook"></a>
-<a class="addthis_button_tweet" tw:via="journaccel" tw:count="none"></a>
+<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:via="journaccel" tw:count="none"></a>
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_compact"></a>
 <a class="addthis_counter addthis_bubble_style"></a>
-<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript">
+	var addthis_config = {
+		data_track_clickback: false
+	};
+</script>
+
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
 </span>
 
