@@ -401,7 +401,7 @@ function dp_recent_question_comments() {
 	 ?><p style="margin-left: 60px;"><?php
 				// trim the string
 				if (strlen($comment->comment_content) > 250) {
-					echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, 249)) . "...";
+					echo substr( strip_tags( $comment->comment_content ), 0, 250  )."...";
 				}
 				else {
 					echo strip_tags($comment->comment_content);
@@ -466,7 +466,7 @@ function ja_slider () {
 }
 
 
-function useful_answers() {
+/* function useful_answers() {
 
 	global $wpdb;
 	$request = "SELECT wp_comments.* FROM $wpdb->comments";
@@ -499,10 +499,10 @@ function useful_answers() {
 			</div><?php
 		}
 	}
-}
+} */
 
 
-function useful_questions() {
+/* function useful_questions() {
 
 	global $wpdb;
 	$request = "SELECT wp_posts.* FROM $wpdb->posts";
@@ -529,7 +529,7 @@ function useful_questions() {
 			</div><?php
 		}
 	}
-} 
+} */ 
 
 function ja_header() {
 		?>
@@ -606,7 +606,7 @@ function dp_recent_comments($no_comments = 10, $comment_len = 100) {
 
 		// trim the string
 				if (strlen($comment->comment_content) > 100) {
-					echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, 99)) . "...";
+					echo substr( strip_tags( $comment->comment_content ), 0, 100  )."...";
 				}
 				else {
 					echo strip_tags($comment->comment_content);
@@ -702,7 +702,7 @@ function dp_recent_resource_comments() {
 	 ?><p style="margin-left: 60px;"><?php
 				// trim the string
 				if (strlen($comment->comment_content) > 250) {
-					echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, 249)) . "...";
+					echo substr( strip_tags( $comment->comment_content ), 0, 250  )."...";
 				}
 				else {
 					echo strip_tags($comment->comment_content);
@@ -765,7 +765,7 @@ function dp_recent_all_comments() {
 	 ?><p style="margin-left: 60px;"><?php
 				// trim the string
 				if (strlen($comment->comment_content) > 250) {
-					echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, 249)) . "...";
+					echo substr( strip_tags( $comment->comment_content ), 0, 250  )."...";
 				}
 				else {
 					echo strip_tags($comment->comment_content);
@@ -796,7 +796,7 @@ function latest_listings() {
 	}
 }
 
-function all_comments($no_comments = 10, $comment_len = 100) {
+/* function all_comments($no_comments = 10, $comment_len = 100) {
     global $wpdb;
     $request = "SELECT * FROM wp_comments JOIN wp_posts ON ID = comment_post_ID WHERE comment_approved = '1' AND post_status = 'publish' AND post_password ='' ORDER BY comment_date DESC LIMIT 1000";
 
@@ -820,7 +820,7 @@ function all_comments($no_comments = 10, $comment_len = 100) {
         echo '<p>Comments not found.</p>';
      endif;
 
-}
+} */
 
 function user_page() {
 	global $bp;
@@ -1177,3 +1177,28 @@ function in_slug($par){
 register_nav_menu( 'questions', 'Question Categories' );
 register_nav_menu( 'resources', 'Resource Categories' );
 register_nav_menu( 'blog', 'Blog Categories' );
+
+
+function get_post_bitly( $post_id ){
+	$bitly = get_post_meta( $post_id, 'bitly_url', true);
+	if( empty($bitly) ){
+		$bitly = make_bitly_url( get_permalink( $post_id ) , 'thejabitly', 'R_dad370cd7d098deaf876974d13b49cf4'  );
+		update_post_meta( $post_id, 'bitly_url', $bitly);
+	}
+	return $bitly;
+}
+
+
+
+function make_bitly_url($url,$login, $appkey, $format = 'xml', $version = '2.0.1') {
+  $bitly = 'http://api.bit.ly/shorten?version='.$version.'&longUrl='.urlencode($url).'&login='.$login.'&apiKey='.$appkey.'&format='.$format;
+  $response = @file_get_contents($bitly);
+  if(strtolower($format) == 'json') {
+    $json = @json_decode($response,true);
+    return $json['results'][$url]['shortUrl'];
+  }
+  else {
+    $xml = simplexml_load_string($response);
+    return 'http://bit.ly/'.$xml->results->nodeKeyVal->hash;
+  }
+}	
