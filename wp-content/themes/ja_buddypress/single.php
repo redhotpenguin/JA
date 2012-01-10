@@ -34,15 +34,22 @@
 						
 						<?php if (in_category(28) || parent_category_is(28)) {
 							the_title('<p>', '</p>');
+							$bitly = get_post_bitly( $post->ID );
 							?>
 							<!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:via="journaccel"></a>
+<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:via="journaccel"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
+<script type="text/javascript">
+	var addthis_config = {
+		data_track_clickback: false
+	};
+</script>
+
 <!-- AddThis Button END -->
 							<div class="context">
 							
@@ -60,7 +67,6 @@
 							<p style="font-size: 1em; line-height: 1.25em;"><em>The Journalism Accelerator is not responsible for the content we post here, as excerpts from the source, or links on those sites. The JA does not endorse these sites or their products outright but we sure are intrigued with what they’re up to.</em></p>
 							<?php endif; ?>
 							<hr />
-							<?php wp_gdsr_render_article(); ?>
 							<div class="post-info">Posted by <?php the_author_link(); ?> on <?php the_date(); ?><?php edit_post_link('Edit This Post', ' | ') ?><br />
 							<span class="categories"><?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></div>
 						<?php 
@@ -73,13 +79,19 @@
 							?>
 								<?php if (in_category(39) || parent_category_is(39)) : ?><div class="post-info">Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?></div><?php endif; ?>
 								<!-- AddThis Button BEGIN -->
+								<?php $bitly = get_post_bitly( $post->ID ); ?>
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:via="journaccel"></a>
+<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:via="journaccel"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
+<script type="text/javascript">
+	var addthis_config = {
+		data_track_clickback: false
+	};
+</script>
 <!-- AddThis Button END -->
 							<?php
 							custom_resource_fields();
@@ -90,7 +102,6 @@
 							<p style="font-size: 1em; line-height: 1.25em;"><em>The Journalism Accelerator is not responsible for the content we post here, as excerpts from the source, or links on those sites. The JA does not endorse these sites or their products outright but we sure are intrigued with what they’re up to.</em></p>
 							<?php endif; ?>
 							<hr />
-							<?php wp_gdsr_render_article(); ?>
 							<div class="post-info"><?php if (!in_category(39) && !parent_category_is(39)) : ?>Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?><br /><?php endif; ?>
 						<span class="categories"><?php $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></div><?php
 						} ?>
