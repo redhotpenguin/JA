@@ -1,0 +1,50 @@
+.cflow_more{
+	cursor: pointer;
+	font-weight: bold;
+	border: 1px solid #ccc;
+	padding-bottom: 13px;
+	display: block;
+	margin-left: 12px;
+	border-radius: 7px;
+	margin-bottom:10px;
+	padding-top: 15px;
+	position:relative;
+	padding-left:46%;
+}
+
+.cflow_more_wheel{
+	display: block;
+	text-align: center;
+}
+
+.cflow_more_msg{
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #ccc;
+	padding: 5px;
+	width: 96%;
+	margin-left: 15px;
+}
+
+#cflow-info img{
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+#cflow-error{
+	margin-top: 9px;
+	color: red;
+	margin-left: 68px;
+	display: block;
+	width: 154px;
+}
+
+#bottom_reply_link{
+	cursor: pointer;
+	font-weight: bold;
+	float: right;
+	margin-bottom: 14px;
+	display: block;
+	margin-top: 15px;
+}
