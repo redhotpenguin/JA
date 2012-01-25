@@ -33,20 +33,21 @@ function is_child( $parent = '' ) {
 }
 
 
-function bp_dtheme_blog_comments( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment; ?>
-
+function bp_dtheme_blog_comments( $comment, $args = '', $depth = '') {
+	$GLOBALS['comment'] = $comment; 
+	?>
+	
 	<?php if ( 'pingback' == $comment->comment_type ) return false; ?>
+	<li name="comment-<?php comment_ID(); ?>" id="comment-<?php comment_ID(); ?>" class="comment author-id-<?php echo $comment->user_id; ?>">
 
+	
 	<div class="comment-content clearfix">
 	<?php  $color_header =  get_user_meta($comment->user_id, 'comment_color', true); ?>
-		<div class="<?php if($color_header != 'default' ) echo "comment_header_$color_header";?> comment-meta clearfix ">
+			<div class="<?php if($color_header != 'default' ) echo "comment_header_$color_header";?> comment-meta clearfix ">
 	
-	
-	<li id="comment-<?php comment_ID(); ?>" class="author-id-<?php echo $comment->user_id; ?>">
 		<div class="comment-avatar-box">
 			<div class="avb">
-				<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
+				<a href="<?php echo get_link_to_public_profile($comment->user_id) ?>" rel="nofollow">
 					<?php if ( $comment->user_id ) : ?>
 						<?php 
 						$email =  get_comment_author_email();
@@ -67,9 +68,9 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 			</div>
 		</div>
 
-		
+		<div class="comment_header_text">
 			<?php if (get_comment_author_url()) { ?>
-	<a href="<?php echo get_comment_author_url() ?>" rel="nofollow">
+	<a id="author_link_comment-<?php echo $comment->comment_ID;?>" href="<?php echo get_link_to_public_profile($comment->user_id) ?>" rel="nofollow">
 	<?php } ?>
 <?php echo get_comment_author(); ?>
 
@@ -93,6 +94,7 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 					}
 				?>
 			</div>
+			</div>
 
 			<?php if ( $comment->comment_approved == '0' ) : ?>
 			 	<em class="moderate"><?php _e('Your comment is awaiting moderation.'); ?></em><br />
@@ -104,7 +106,9 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 
 			<div class="comment-options">
 			<?php //rpx_get_comment_reply_link - defined in rpx-override.php
-			echo rpx_get_comment_reply_link( array('depth' => $depth, 'max_depth' => $args['max_depth'], 'login_text'  => 'Log in to Reply') ) ?>
+		//	do_action('thumbs_up_comment', get_comment_ID());
+		
+			echo rpx_get_comment_reply_link( array('depth' => $depth, 'max_depth' => 2, 'login_text'  => 'Log in to Reply') ) ?>
 			
 			
 				<?php edit_comment_link( __( 'Edit' ),'','' ); ?>
@@ -287,19 +291,30 @@ function featured_question() {
 		endif;
 }
 
-function latest_listings_all() {
+function latest_listings_all( $category ) {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&showposts=4');
+	
+	if( isset( $category ) && $category == 'blog'){
+		$latest_listings->query('category_name=blog&showposts=4');
+	}
+	
+	else	
+		$latest_listings->query('&showposts=4');
+	
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
 		$postdate = $post->post_date;
 		$formatdate = date("l, F j", strtotime($postdate));
+		
 		?>
 		<div class="resource question clearfix">
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php the_excerpt(); ?></div>
+			<?php do_action('thumbs_up_post', $post->ID ); ?>
+			</p>
+			
 		</div>
 		<?php
 	}
@@ -421,8 +436,8 @@ function ja_home() {
 		<div class="home_box_left">
 		  <div class="popular_questions">
 					<div class="box_content">
-						<h2>Recent Posts</h2>
-						<?php latest_listings_all(); ?>
+						<h2>Recent Blog Posts</h2>
+						<?php latest_listings_all('blog'); ?>
 					</div>
 				</div>
 		</div>
@@ -720,7 +735,7 @@ function dp_recent_all_comments() {
 	$request = "SELECT * FROM $wpdb->comments";
 	$request .= " JOIN $wpdb->posts ON ID = comment_post_ID";
 	$request .= " WHERE comment_approved = '1' AND post_status = 'publish' AND post_password =''";
-	$request .= " ORDER BY comment_date DESC LIMIT 3";
+	$request .= " ORDER BY comment_date DESC LIMIT 4";
 
 	$comments = $wpdb->get_results($request);
 	if ($comments) {
@@ -1202,3 +1217,26 @@ function make_bitly_url($url,$login, $appkey, $format = 'xml', $version = '2.0.1
     return 'http://bit.ly/'.$xml->results->nodeKeyVal->hash;
   }
 }	
+
+
+//.............................................................................
+// 									ADD IF IE CLASS 					     //
+//.............................................................................
+
+function ie_open() {
+	?>
+	<!--[if lte IE 8]><div class="ie"><![endif]-->
+	<!--[if IE 9]><div class="ie9"><![endif]-->
+	<?php
+}
+
+function ie_close() {
+	?>
+	<!--[if lte IE 8]></div><![endif]-->
+	<!--[if IE 9]></div><![endif]-->
+	<?php
+}
+
+add_action('bp_before_header','ie_open', 1);
+add_action('bp_after_footer','ie_close', 1);
+
