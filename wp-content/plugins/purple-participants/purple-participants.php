@@ -53,7 +53,7 @@ function purple_p_template_redirect() {
 	$participants_n = count($participant_ids);
 	
 	// could be better, we want to make sure we are only loading the template for posts
-	if( !empty($thumbs_var) && $post_id > 0  &&  get_post_type($post_id) == 'post'  && $participants_n >= 3){
+	if( !empty($thumbs_var) && $post_id > 0  &&  get_post_type($post_id) == 'post'  && $participants_n >= 1){
 		locate_template( array( 'participants.php' ), true ) ;
 		exit;
 	}	
