@@ -159,7 +159,7 @@ function rpx_get_comment_reply_link($args = array(), $comment = null, $post = nu
 	$link = '';
 
 	if ( get_option('comment_registration') && !$user_ID ){
-		$link = '<a href="#" onclick="showRPX(\'rpxlogin\')">'.$login_text.'</a>';
+		$link = '<a class="login-reply-link" href="#" onclick="showRPX(\'rpxlogin\', '.$comment->comment_ID.' )">'.$login_text.'</a>';
 		}
 	else
 		$link = "<a class='comment-reply-link' href='" . esc_url( add_query_arg( 'replytocom', $comment->comment_ID ) ) . "#" . $respond_id . "' onclick='return addComment.moveForm(\"$add_below-$comment->comment_ID\", \"$comment->comment_ID\", \"$respond_id\", \"$post->ID\")'>$reply_text</a>";
@@ -396,10 +396,5 @@ function get_avatar_from_twitter($user_id){
 	
 }
 add_action('xprofile_updated_profile','get_avatar_from_twitter');
-
-
-
-
-
 
 ?>
