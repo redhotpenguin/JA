@@ -66,7 +66,7 @@ class JPCONV_Widget extends WP_Widget {
 			echo $before_title . $title . $more. $after_title; 
 	
 		echo '<div id="jpconv">';
-		foreach($comments as $comment){
+		foreach($comments as $comment){	
 			$user_id = $comment->user_id;
 			$avatar = get_avatar($user_id, 50);
 			$user_name = $comment->comment_author;
@@ -81,8 +81,23 @@ class JPCONV_Widget extends WP_Widget {
 				
 				<div class="jpconv_content">
 				<?php 
-					echo "<a href='$profile_url'>$user_name</a> ";
-					echo "<span class='jpconv_said'><a href='#comment-$comment->comment_ID'>said</a>:</span> ";
+					echo "<a class='jpconv_name' href='$profile_url'>$user_name</a> ";
+					if( $comment->comment_parent ){
+						 $parent_comment = get_comment( $comment->comment_parent );
+						// print_r($parent_comment);
+						 $parent_user_id = $parent_comment->user_id;
+						 $parent_author =  $parent_comment->comment_author;
+						 $parent_profile_url = get_link_to_public_profile( $parent_user_id );
+						 
+						 
+						echo "<span class='jpconv_said'><a href='#comment-$comment->comment_ID' class='jpconv_link_reply'>replied</a> to <a class='jpconv_name' href='$parent_profile_url'>$parent_author</a>:</span> ";
+
+					}
+					
+					else{
+						echo "<span class='jpconv_said'><a href='#comment-$comment->comment_ID' class='jpconv_link_said' >said</a>:</span> ";
+					}
+					
 					echo "$comment_content ";
 					?>
 				</div>
