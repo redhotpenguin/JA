@@ -40,7 +40,7 @@ get_header(); ?>
 				<h2><?php echo $participant_number; ?> People Talking About:</h2>
 				<div class="entry">
 				<h3><?php echo $title; ?>
-	<span  class="participant_top_link_back" ><a href="<?php echo $permalink; ?>">back to the post</a></span>				
+	<span  class="participant_top_link_back" ><a href="<?php echo $permalink; ?>">Back to the Post</a></span>				
 			</h3>			
 					<div class="context">
 					
@@ -71,7 +71,7 @@ get_header(); ?>
 										<div class="participant_avatar"> <?php echo "<a title='".$participant->display_name."' href='$participant_profile_url'>".get_avatar($user_id, 75)."</a>"; ?>  </div>
 										<div class="participant_text">
 										<div class="participant_name"> <?php echo "<a href='$participant_profile_url' title='View Profile'>".$participant->display_name."</a>"; ?> </div>
-										<div class="participant_last_comment"><?php echo "Commented <a href='$comment_link'>$comment_date</a>";?></div>
+										<div class="participant_last_comment"><?php echo "Last commented on: <br/><a href='$comment_link'>$comment_date</a>";?></div>
 										<div class="participant_meta">
 										<?php
 										if(!empty($twitter_handle))
@@ -86,8 +86,11 @@ get_header(); ?>
 									<?php
 								}//foreach end	
 							?>
+							<div class="clearfix"> </div>
+	
+							<span ><a  href="<?php echo $permalink; ?>">Back to the Post</a> |
 							
-							<span class="participant_link_back" ><a  href="<?php echo $permalink; ?>">Back to the Post</a></span>
+							 <a  href="<?php echo $permalink;?>#comments">Write a Comment</a></span>
 							
 							</div>	  <!-- #participants --> 
 							</div> <!-- .context --> 
