@@ -63,12 +63,44 @@ function subscribe_reloaded_show(){
 			$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='yes'".((get_option('subscribe_reloaded_checked_by_default', 'no') == 'yes')?" checked='checked'":'')." />";
 		}
 		else{
+			
+		/*
 			$checkbox_field = "<select name='subscribe-reloaded' id='subscribe-reloaded'>
 				<option value='none'>".__("Don't subscribe",'subscribe-reloaded')."</option>
 				<option value='yes'".((get_option('subscribe_reloaded_checked_by_default', 'no') == 'yes')?" selected='selected'":'').">".__('All','subscribe-reloaded')."</option>
 				<option value='replies'>".__('Replies to my comments','subscribe-reloaded')."</option>
 				<!-- option value='digest'>".__('Daily digest','subscribe-reloaded')."</option -->
 			</select>";
+		*/
+			
+		
+			$checkbox_field .= "
+			<div class='custom_inline_subscribe'>
+				<p>Would you like to be alerted of follow up comments via email?</p>
+			<div class='custom_inline_radios' >
+			
+			<span class='custom_subscribe_replies_only' >
+				<input name='subscribe-reloaded' type='radio' value='replies' />
+				<span>".__('Only replies to my comments','subscribe-reloaded')."</span>
+			</span>
+			
+			<span >			
+				<input name='subscribe-reloaded' type='radio' value='yes' ".((get_option('subscribe_reloaded_checked_by_default', 'no') == 'yes')?" checked='checked'":'')." />
+				<span>".__('All comments','subscribe-reloaded')."</span>
+			</span>
+			
+			<span>
+				<input name='subscribe-reloaded' type='radio' value='none'/>
+				<span>".__("No alerts please",'subscribe-reloaded')."</span>
+			</span>
+			
+			
+			
+		
+			
+			</div></div>";
+			
+			
 		}
 		if (empty($checkbox_html_wrap)){
 			$html_to_show = "$checkbox_field <label for='subscribe-reloaded'>$checkbox_label</label>" . $html_to_show;
@@ -79,7 +111,7 @@ function subscribe_reloaded_show(){
 		}
 	}
 	if(function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')) $html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($html_to_show);
-	echo "<!-- BEGIN: subscribe to comments reloaded -->$html_to_show<!-- END: subscribe to comments reloaded -->";
+	echo "<!-- BEGIN: subscribe to comments reloaded --><div class='custom_comments_reloaded'>$html_to_show</div><!-- END: subscribe to comments reloaded -->";
 }
 
 // Show the checkbox - You can manually override this by adding the corresponding function in your template
@@ -756,6 +788,7 @@ class wp_subscribe_reloaded{
 				FROM $wpdb->postmeta pm INNER JOIN $wpdb->comments c ON pm.post_id = c.comment_post_ID
 				WHERE pm.meta_key LIKE '\_stcr@\_%%'
 					AND pm.meta_value LIKE '%%R'
+					AND c.comment_author_email = REPLACE(pm.meta_key, '_stcr@_', '')
 					AND c.comment_ID = %d", $search_values[0]), OBJECT);
 		}
 		else{
