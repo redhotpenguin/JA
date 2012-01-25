@@ -96,14 +96,10 @@
 
 <div class="twitter_container">
   <h3>Recent Tweets from <br /><?php echo $has_twitter;?></h3>
+     <?php  echo "<a href='https://twitter.com/$has_twitter' class='twitter-follow-button' data-show-count='false'>Follow @ $twitter_handle</a><script src='//platform.twitter.com/widgets.js' type='text/javascript'></script>"; ?>
+
    <div id="twitter-follow"></div>
-  <script type="text/javascript">
 
-  twttr.anywhere(function (T) {
-    T('#twitter-follow').followButton("<?php echo $has_twitter; ?>");
-  });
-
-</script>
   <div class="tweet"></div>
   
 </div>
