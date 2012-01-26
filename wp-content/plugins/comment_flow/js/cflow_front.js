@@ -1,6 +1,6 @@
 jQuery(document).ready( function($) {
 	var DUPE_MSG = '<b>You have already said that.</b>';
-	var ERROR_MSG = '<b>An error has occured.</b>';
+	var ERROR_MSG = '<b>An error has occured. Please refresh your browser.</b>';
 	var NO_MORE_COMMENTS_MSG = 'No More Comments';
 	var WRITE_COMMENT_MSG = 'Write a comment...';
 	var LOADING_ICON = '<img src="/wp-content/plugins/comment_flow/img/ajax-loader.gif" />';
