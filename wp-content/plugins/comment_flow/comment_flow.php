@@ -81,6 +81,7 @@ function cflow_more_callback(){
 add_action('comment_duplicate_trigger', 'cflow_handle_dupe');
 
 function cflow_handle_dupe(){ 
+	error_log('CFLOW: DUPE');
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
 		echo 'dup';
 		die();
@@ -89,8 +90,9 @@ function cflow_handle_dupe(){
 
 add_action('comment_post', 'cflow_post_comment', 100, 2);
 function cflow_post_comment( $comment_ID, $comment_status ){
+	error_log("CFLOW: POST COMMENT ID: $comment_ID, status: $comment_status");
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-
+		error_log("CFLOW: ajax");
 		if ($comment_status == 1 ){
 		
 			$comment = get_comment($comment_ID);
@@ -115,9 +117,10 @@ function cflow_post_comment( $comment_ID, $comment_status ){
 		}
 		
 		else{
-			echo 'error';
+			error_log('CFLOW ERROR status: $comment_status');
+			echo 'CFLOW: ERROR';
 		}
-		
+		error_log('CFLOW END, about to die()');
 		die();
 	}
 }
