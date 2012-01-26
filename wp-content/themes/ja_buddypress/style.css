@@ -1547,8 +1547,10 @@ color:red;
 
 .custom .edit_profile{margin-left:4px;}
 .custom .comment_connect_text{
-margin-right:5px;
-float:left;
+	margin-right:5px;
+	float:left;
+	font-weight: bold;
+	font-size: 14px;
 }
 
 .custom h3#reply.comments-header{padding-top:8px}
