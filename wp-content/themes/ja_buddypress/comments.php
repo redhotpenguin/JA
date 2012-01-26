@@ -91,7 +91,7 @@ foreach ( (array)$comments as $comment )
 	<h3 id="reply" class="comments-header"> </h3>
 	
 	<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
-
+<div class="clearfix"></div>
 
 					<div class="rpx_button" id="rpx_button_1">
 						<div class='comment_connect_text'>To weigh in, connect via</div>
