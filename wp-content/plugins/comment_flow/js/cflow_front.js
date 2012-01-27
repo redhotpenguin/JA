@@ -52,8 +52,15 @@ jQuery(document).ready( function($) {
 	}
 	
 	function submit_comment( ev ){
+		console.log( $('#comment').val() );
+		if( $('#comment').val() ==  WRITE_COMMENT_MSG || $('#comment').val() == '' ){
+			comment_form_textarea.val( WRITE_COMMENT_MSG );
+			return false;
+		}
+		
 		infoBox.show();
 		errorBox.html('');
+
 		var formUrl=commentForm.attr('action');
 		
 		post = $.ajax({
@@ -126,7 +133,6 @@ jQuery(document).ready( function($) {
 			mutex_comment_is_loading = true;
 			more_comments();
 		}
-
 	}
 	
 	function unbind_comments_on_scroll(){
