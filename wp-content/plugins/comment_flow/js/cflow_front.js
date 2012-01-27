@@ -52,7 +52,6 @@ jQuery(document).ready( function($) {
 	}
 	
 	function submit_comment( ev ){
-		console.log( $('#comment').val() );
 		if( $('#comment').val() ==  WRITE_COMMENT_MSG || $('#comment').val() == '' ){
 			comment_form_textarea.val( WRITE_COMMENT_MSG );
 			return false;
