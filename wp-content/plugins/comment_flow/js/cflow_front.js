@@ -152,8 +152,12 @@ jQuery(document).ready( function($) {
 			
 		if( is_async != false)
 			is_async = true;
+		
+		var lastComment = $('.commentlist > li.comment').last().attr('id');
+		if( lastComment == undefined )
+			return false;
 			
-		var lastTopCommentId =  parseInt( $('.commentlist > li.comment').last().attr('id').replace('comment-','') );
+		var lastTopCommentId =  parseInt( lastComment.replace('comment-','') );
 		$.ajaxSetup( { async: is_async } )	
 		
 		var data = {
