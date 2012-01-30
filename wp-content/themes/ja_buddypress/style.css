@@ -791,7 +791,7 @@ margin-bottom: 1em;
 font-size: 14px;
 }
 
-.custom .entry ul li { margin-bottom: .5em; }
+.custom .entry ul li , .custom .entry ol li { margin-bottom: .5em; }
 
 .custom .entry ol { 
 	margin-left: 45px;
