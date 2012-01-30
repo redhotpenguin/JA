@@ -1,4 +1,4 @@
-/* HELPERS*/
+/* HELPERS */
 String.prototype.parseHashtag = function() {
 		return this.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
 			var tag = t.replace("#","%23")
@@ -75,7 +75,7 @@ function printTweet(tweet, target){
 }	
 
 var jptc_jq = jQuery;
-jptc_jq(document).ready(function($) { // let's the fun begin
+jptc_jq(document).ready(function($) {
 	// var jptc_rt_query, var jptc_saved_tweets, var jptc_jptc_rt_count are defined by jptc_widget.php
 	var api_url = 'http://search.twitter.com/search.json?q=';
 	var rt_tweets; // contains tweets fetched by the realtime (rt) query (client side, JSON FORMAT)
@@ -85,7 +85,7 @@ jptc_jq(document).ready(function($) { // let's the fun begin
 	var all_tweets_content = $("#jptc_all_content");
 	var all_tweets_box = $("#jptc_all_box");
 	
-	// Insert saved tweets in the widget && in the all tweets popup
+	// Insert saved tweets in the widget and in the More popup
 	if(jptc_saved_tweets){
 		$.each(jptc_saved_tweets.results, function(i, item) {
 			printTweet(item, widget );
@@ -116,19 +116,19 @@ jptc_jq(document).ready(function($) { // let's the fun begin
 	function startAnimation(){
 		widget.parent().append('<div id="jptm_controls"></div>');
 		widget_controls = $("#jptm_controls");
-		widget_controls.append('<span id="jptc_up"> &uarr; </span>');
-		widget_controls.append('<span id="jptc_down"> &darr; </span>');
+		widget_controls.append('<span id="jptc_left_btn"> <img src="/wp-content/plugins/tweet-catcher/img/tc_left.png" /> </span>');
+		widget_controls.append('<span id="jptc_right_btn"> <img src="/wp-content/plugins/tweet-catcher/img/tc_right.png" /> </span>');
 		
 		widget.cycle({ 
-			fx:      'scrollVert', 
-			speed:    1500, // speed of the transition
+			fx:      'fade', 
+			speed:    1000, // speed of the transition
 			timeout:  7000, // milliseconds between slide transitions
-			prev:   '#jptc_up', 
-			next:   '#jptc_down',
+			prev:   '#jptc_left_btn', 
+			next:   '#jptc_right_btn',
 			height: 'auto',
 			autostop: 0, 
 			autostopCount: 0,
-			random:1,
+			random: 1, 
 			pause: true // pause on hover
 		});
 	}
@@ -160,7 +160,6 @@ jptc_jq(document).ready(function($) { // let's the fun begin
 			if( target.is('a') ) {
 			return true; 
 		}
-		//disablePopup();
 	});
 	
 }); // end jquery(document)

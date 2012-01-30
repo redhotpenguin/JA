@@ -1,7 +1,7 @@
 #get_tweets_button, #get_rt_tweets_button{
 	display:inline-block;
 	border:1px solid #fff;
-	width:10%;
+	width:12%;
 	background-color:#8ec2da;
 	color:#fff;
 	padding:4px;
@@ -42,7 +42,6 @@ label{
 #saved_tweets_wrapper{
 	overflow:hidden;
 	padding:10px 5px;
-	border:1px solid #ccc;
 	border-top:0;
 }
 
@@ -96,5 +95,90 @@ label{
 }
 
 .query_error{
+
+}
+
+
+#jptc_settings .jptc_submit_row{
+	text-align:center;
+}
+
+#jptc_settings .jptc_submit_row input{
+	margin: 5px;
+	padding: 5px;
+}
+
+#last_tweets{ 
+	margin:15px auto; 
+	padding:10px; 
+	/*width: 70%;*/
+	overflow:hidden;
+}
+
+
+
+
+#last_tweets .editlink{
+	float:right;
+	margin-right:15px;
+}
+
+.model_tweet{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	background-color:#fff;
+	padding:10px;
+	/*height:48px;*/
+	height:75px;
+}
+
+
+#last_tweets .last_tweet{
+	margin-bottom: 25px;
+	
+	width: 46%;
+	float: left;
+	margin-left: 15px;
+}
+
+.new .model_tweet{
+	background-color: #64FF3D;
+}
+
+#jptc_tweet_stream a, #saved_tweets a, .model_tweet a{
+	text-decoration:none;
+}
+
+.model_tweet img{
+	width:48px; 
+	height:48px; 
+	float:left; 
+	margin-right:3px;
+	padding-bottom:25px;
+}
+
+.admin_delete_tweet{
+	float:right;
+}
+
+#jptc_more{
+	text-align:center;
+}
+
+#jptc_more span#jptc_more_tweets_btn, .admin_delete_tweet{
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.jptc_no_more{
+	font-weight:bold;
+	float:left;
+	border:1px solid #000;
+	padding:5px;
+}
+
+.jptc_spin_wheel{
 
 }

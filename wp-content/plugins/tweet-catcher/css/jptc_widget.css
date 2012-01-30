@@ -4,13 +4,10 @@
 
 .jptc_tweet{
 	clear:both;
-	min-height:115px;
 	padding-top: 2px;
 }
 
-#jptm_controls{
-	margin-top:-8px;
-}
+
 
 .jptc_tweet_avatar{
 	float:left;
@@ -42,24 +39,20 @@
 	font-size:9px;
 }
 
-#jptc_down{
+
+#jptm_controls{
 	position: relative;
-	left: 300px;
-	color:#000;
-	cursor:pointer;
-	font-size:18px;
-	color: #10996B;
-	top:-4px;
+	left: 87%;
 }
 
-#jptc_up{
-	position: relative;
-	top: -133px;
-	left: 313px;
-	color:#000;
+#jptm_controls span{
 	cursor:pointer;
-	font-size:18px;
-	color: #10996B;
+}
+
+#jptm_controls span:active, #jptm_controls span:hover{ opacity:1;}
+
+#jptc_left_btn{
+	margin-right:5px;
 }
 
 #jptc_show_all_tweets{
@@ -70,6 +63,11 @@
 	font-weight: bold;
 	cursor: pointer;
 }
+
+#jptc_show_all_tweets:hover {
+	text-decoration: underline;
+}
+
 
 #jptc_all_content .jptc_tweet_avatar{
 	padding-bottom:0;
@@ -136,5 +134,22 @@
 
 .jptc_follow_btn{
 	position: relative;
-	top: 10px;
+	top: 20px;
+}
+
+/*IE 8 Fixes*/
+.ie #jptc_show_all_tweets{
+	
+}
+
+.ie #jptm_controls{
+	left:76%;
+}
+
+.ie #jptm_controls span{
+	cursor:pointer;
+	font-weight:bold;
+	background-color: #fff;
+	color: #666;
+	padding: 3px 1px;
 }
