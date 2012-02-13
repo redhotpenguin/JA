@@ -19,7 +19,7 @@ add_action('template_redirect', 'cflow_loads_scripts');
 function cflow_loads_scripts(){
 	if( is_single() ){
 		global $post;
-		wp_enqueue_script('cflow_front', plugins_url('js/cflow_front.js', __FILE__), array('jquery'));
+		wp_enqueue_script('cflow_front', plugins_url('js/cflow_front.js', __FILE__), array('jquery'), 4);
 		wp_enqueue_script('jtextarea_expander', plugins_url('js/jquery.textarea-expander.js', __FILE__), array('jquery'));
 		wp_enqueue_style('cflow_style', plugins_url('css/cflow_comment.css', __FILE__) );
 
@@ -77,7 +77,6 @@ function cflow_more_callback(){
 
 
 /* AJAX COMMENT POSTING */
-//todo: use check_ajax_referer
 add_action('comment_duplicate_trigger', 'cflow_handle_dupe');
 
 function cflow_handle_dupe(){ 
@@ -88,41 +87,45 @@ function cflow_handle_dupe(){
 	}
 }
 
-add_action('comment_post', 'cflow_post_comment', 100, 2);
-function cflow_post_comment( $comment_ID, $comment_status ){
-	error_log("CFLOW: POST COMMENT ID: $comment_ID, status: $comment_status");
+add_action('comment_post', 'cflow_post_comment', 100);
+function cflow_post_comment( $comment_ID ){
+	error_log("CFLOW BEGIN: POST COMMENT ID: $comment_ID X_REQUESTED: ".$_SERVER['HTTP_X_REQUESTED_WITH']);
+
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-		error_log("CFLOW: ajax");
-		if ($comment_status == 1 ){
+			error_log("CFLOW: ajax");
 		
 			$comment = get_comment($comment_ID);
 			$comment_parent = $comment->comment_parent;
+			error_log("CFLOW CPARENT: $comment_parent");
 			
 			$args['max_depth'] = 2;
 			
 			if($comment_parent > 0)
-				$comment_depth = 2;
+				@$comment_depth = 2;
 				
 			else
 				$comment_depth = 1;
+				
+			error_log("CFLOW parameters: $comment->comment_author, args: ".print_r($args, true).", depth: $comment_depth");
 				
 			ob_start();
 			bp_dtheme_blog_comments($comment, $args, $comment_depth);
 			$html_comment = ob_get_contents(); 
 			ob_end_clean();
+			
+			if( empty($html_comment) )
+				error_log("CFLOW BUG: EMPTY HTML");
 	
 			$json = json_encode( array( "cpid" => $comment_parent, "comment" => $html_comment)  );
 			header('Content-type: application/json');
 			echo $json;
+			
+			error_log('CFLOW END, about to die()');
+			die();
 		}
-		
 		else{
-			error_log('CFLOW ERROR status: $comment_status');
-			echo 'CFLOW: ERROR';
+			error_log('CFLOW BUG: Not an AJAX REQUEST');
 		}
-		error_log('CFLOW END, about to die()');
-		die();
-	}
 }
 
 function cflow_get_post_top_comment_ids($post_id, $limit, $from_cid = null){
