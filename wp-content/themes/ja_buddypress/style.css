@@ -481,6 +481,13 @@ background: url('/bar.gif') no-repeat left;
 color: #396;
 }
 
+.custom #cat_nav .global_follow_btn {
+	position: relative;
+	left: 1029px;
+	top: -38px;
+	width: 224px;
+}
+
 .custom #better-recent-comments h3.widgettitle
 {
 background-color: #e7ffe5;
