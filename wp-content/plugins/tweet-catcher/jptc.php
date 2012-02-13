@@ -121,6 +121,7 @@ function jptc_catch_tweets(){
 			$email_to = get_option('admin_email');
 		
 		$email_body .= '<a href="'.admin_url('options-general.php?page=tweet-catcher').'"> Go to Tweet Catcher </a>';
+		error_log('Tweet Catcher: email to $email_to');
 		wp_mail($email_to, "Tweet Catcher: $tweets_found_number new $tweet_s Added", $email_body, $email_headers);
 	}
 	
