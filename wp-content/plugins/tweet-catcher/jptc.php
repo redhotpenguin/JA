@@ -71,10 +71,14 @@ function jptc_catch_tweets(){
 		
 	foreach($post_ids as $post_id){
 		$permalink = get_permalink($post_id);
+		
 		$search_query = parse_url( $permalink);
-		$search_query = $search_query['host'].$search_query['path']; 
+		
+		$host = $search_query['host'];
 
-		//$search_query = 'journalismaccelerator.com';
+		$host = str_replace('www.', '', $host);
+
+		$search_query = $host.$search_query['path']; 
 			
 		$new_tweets = $jptc_model->actually_search_twitter($search_query, get_option('jptc_tweet_search_number') );
 		if($new_tweets == -1 || $new_tweets == false){ // no tweets found for this post, skip
