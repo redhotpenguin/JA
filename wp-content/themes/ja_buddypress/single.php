@@ -39,7 +39,7 @@
 							<!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:via="journaccel"></a>
+<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo $bitly; ?>" tw:via="journaccel"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 </div>
@@ -81,7 +81,7 @@
 								<?php $bitly = get_post_bitly( $post->ID ); ?>
 <div class="addthis_toolbox addthis_default_style ">
 <a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:via="journaccel"></a>
+<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo $bitly; ?>" tw:via="journaccel"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 </div>
