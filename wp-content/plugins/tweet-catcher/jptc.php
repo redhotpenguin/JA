@@ -111,6 +111,7 @@ function jptc_catch_tweets(){
 			
 	}
 	
+	error_log("Tweets found: tweets_found_number. Email notification: ".get_option('jptc_email_notification')  );
 	if( $tweets_found_number >= 1 && get_option('jptc_email_notification') ){
 		$email_headers = array("From: Journalism Accelerator <$admin_email>", "Content-Type: text/html");
 		$email_to = get_option('jptc_email');
