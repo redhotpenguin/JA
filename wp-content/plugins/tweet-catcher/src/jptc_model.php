@@ -13,7 +13,6 @@ class Tweet_Manager_Model{
 	public function actually_search_twitter($search_query){
 		$search_query = urlencode($search_query);
 		$search_request = "http://search.twitter.com/search.json?q=$search_query&rpp=100";
-		error_log('Tweet Catcher: '. $search_request);
 		$stream = @wp_remote_get($search_request);
 			
 		if(!empty($stream)) {
@@ -139,6 +138,10 @@ class Tweet_Manager_Model{
 			$saved_tweets = $this->get_saved_tweets($post_id);
 			if(empty($saved_tweets)) return false;
 				foreach($saved_tweets as $tweet){
+		
+				if(!is_object($tweet))
+					continue;
+				
 					$tmp_tweet = array( // 
 						'id_str' => $tweet->get_tweet_id(),
 						'from_user' => $tweet->get_tweet_username(),
