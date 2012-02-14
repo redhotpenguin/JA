@@ -57,7 +57,7 @@ else{
 function jptc_catch_tweets(){
 	error_log('Scheduled Tweet Search');
 	$jptc_model = new Tweet_Manager_Model();
-	$tweets_found = 0;
+	$tweets_found_number = 0;
 	$email_body = "";
 	
 	$exluded_users =  get_option('jptc_exluded_users') ;
