@@ -1002,7 +1002,7 @@ function rpx_register_form($collect='email') {
 ?>
 <input id="rpxsubmit" class="rpxsubmit" type="submit" value="Submit" />
 </form>
-<p style='margin-top: 50px;'>Contact <a href='mailto:kelsey@journalismaccelerator.com?subject=Authentification Problem'>Kelsey</a> for more information.</p>
+<p style='margin-top: 50px;'><a href='mailto:support@journalismaccelerator.com?subject=Authentification Problem'>Contact us</a> for more information.</p>
 </div>
 
 </span></td></tr></table>
@@ -1346,7 +1346,17 @@ class RPX_Widget extends WP_Widget {
   
   <?php
       }elseif ($user_data != false && empty($user_data->rpx_provider) ){
-        echo rpx_small_buttons(RPX_CONNECT_PROMPT);
+       // echo rpx_small_buttons(RPX_CONNECT_PROMPT);
+	   
+	 echo '<div id="rpxwidget"><div id="rpx_sidebar-me">';
+	 
+	 if( is_super_admin() )
+		echo '<h3>Logged in as: Admin</h3>';
+	 
+	 echo '<p><a href="'.wp_logout_url( home_url() ).' " title="Log Out" class="button logout">Log out</a></p></div></div>';
+
+	   
+	   //debug 
       }else{
         echo rpx_small_buttons(RPX_LOGIN_PROMPT);
       }
