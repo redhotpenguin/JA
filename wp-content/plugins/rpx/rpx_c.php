@@ -1037,11 +1037,11 @@ function rpx_signon_wp_user($redirect=""){
 		//	rpx_send_admin_notification($current_user);
 			rpx_send_user_notification($current_user);
 			do_action('rpx_user_register', $current_user->id);
-			rpx_redirect($rpx_http_vars['redirect_to']);
+			rpx_redirect($rpx_http_vars['redirect_to'].'');
 		}
 		
 		else {
-			rpx_redirect($rpx_http_vars['redirect_to']);
+			rpx_redirect($rpx_http_vars['redirect_to'].'');
 		}
      
 	 return true;
@@ -1142,6 +1142,7 @@ function  rpx_send_admin_notification($user){
 	$headers = array("From: Journalism Accelerator <noreply@www.journalismaccelerator.com>",  "Content-Type: text/html");
 	$h = implode("\r\n",$headers) . "\r\n";
 	$admin_email = get_option('admin_email');
+
 	return wp_mail($admin_email, $subject, $message, $h);
 }
 
@@ -1174,9 +1175,9 @@ function rpx_send_user_notification($user){
 	if($user_twitter) $message .= "Website: $user_website <br/>";
 	if($user_website) $message .= "Bio: $user_bio <br/><br/><br/>";
 	
-	$message.= "<br/><br/>For any information, please contact <a href='mailto:kelsey@journalismaccelerator.com'>Kelsey</a>.</p>";
+	$message.= "<br/><br/>For any information, please <a href='mailto:support@journalismaccelerator.com'>contact us</a>.</p>";
 	
-	$headers = array("From: Journalism Accelerator <noreply@www.journalismaccelerator.com>",  "Content-Type: text/html");
+	$headers = array("From: Journalism Accelerator <dev@www.journalismaccelerator.com>",  "Content-Type: text/html");
 	$h = implode("\r\n",$headers) . "\r\n";
 	
 	return wp_mail($user_email, $subject, $message, $h);
@@ -1568,7 +1569,7 @@ function rpx_debugme($msg){
 	 $date = date("Y-m-d H:i:s");
 	$msg = '<b> '.$date.'</b> '.$msg.'<br/>';
 
-	$filename = '/home/journalismaccel/jadev.redhotpenguin.com/debug123.htm'; 
+	$filename = '/var/www/html/debug123.htm'; 
 
 	if (is_writable($filename)) {
 		if (!$handle = fopen($filename, 'a')) { exit;}
