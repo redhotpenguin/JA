@@ -31,10 +31,6 @@ get_header(); ?>
 						array_push($participants, $participant);
 						$participant_number++;	
 					}
-					
-					if(function_exists('num2words'))
-						$participant_number = num2words($participant_number);
-					
 				?>
 	<div id="participants">
 				<h2><?php echo $participant_number; ?> People Talking About:</h2>
