@@ -57,9 +57,7 @@
 							<div class="underwrite clearfix"><?php echo get_post_meta($post->ID, 'underwrite', true); ?></div>
 							<?php } ?>
 							<?php the_content(); ?>
-							<h3 class="respond"><a href="#respond">Answer This</a> <span class="numcomments">(<a href="#comments"><?php 
-							comments_number('No answers','One answer','% answers'); ?></a>)</span></h3>
-							<?php // the_content(); ?>
+						
 							
 							</div>
 							<?php if (in_category(25) || parent_category_is(25)) : ?>
