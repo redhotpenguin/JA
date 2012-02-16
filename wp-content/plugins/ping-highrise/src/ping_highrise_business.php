@@ -9,23 +9,29 @@ class Ping_Highrise_Business{
 	}
 	
 	public function new_comment_hook($comment_id, $approved = true){ // executed when a new comment is posted
-		$post_highrise_url = get_option('post_highrise_url');
-		$hr_url = get_option('highrise_url');
-		$hr_token= get_option('highrise_token');
-		
-		ph_log('business: new_comment_hook  comment_ID is :'.$comment_id);
-		ph_log('business: new_comment_hook  post_highrise_url is :'.$post_highrise_url);
-		ph_log('business: new_comment_hook  hr_url is :'.$hr_url);
-		ph_log('business: new_comment_hook  hr_token is :'.$hr_token);
 	
-		$post_body = array(
-			'action' => 'new_comment',
-			'hr_url' =>  $hr_url,
-			'hr_token' => $hr_token,
-			'comment_id' => $comment_id
-		);
+		if( empty( $comment_id ) || !is_numeric( $comment_id ) ){
+			ph_log('New Comment Hook - no ID');
+			return false;
+		}
+		
+		global $wpdb;
 
-		$this->make_request($post_highrise_url, $post_body);
+		
+	 if( $wpdb->insert('wp_phighrise', 
+			array(
+				'uc_id' => $comment_id,
+				'type'=> 'comment',
+				'status' => 'not_processed',
+				'code' => 0,
+				'time' => current_time('mysql')	
+			)
+		) )
+			return true;
+			
+		else
+			return false;
+		
 	}
 
 	public function new_user_hook($user_id){ // executed when a user registers

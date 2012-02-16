@@ -27,6 +27,7 @@ class Ping_Highrise_Setup{
 		register_setting( 'ph-settings-group', 'highrise_new_user_hook' );
 		register_setting( 'ph-settings-group', 'highrise_new_comment_hook' );
 		register_setting( 'ph-settings-group', 'highrise_new_comment_hook' );
+		register_setting( 'ph-settings-group', 'highrise_cron_key' );
 	}
 	
 	
@@ -105,14 +106,51 @@ class Ping_Highrise_Setup{
 			<td>Default: comment_post</td>
 			</tr>
 			
+			<tr valign="top">
+			<th scope="row">Cron Key</th>
+			<td><input size="70" type="text" name="highrise_cron_key" value="<?php echo  get_option('highrise_cron_key'); ?>" /></td>
+			<td>Secret key to execute the cron script</td>
+			</tr>
+			
 		</table>
 		
 		<p class="submit">
 		<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 		</p>
-		<?php
-			echo '</form></div>';
-
+		</form>
+                    
+            <h2>Queue:</h2>
+            <table class="widefat">
+                <tr style="font-weight: bold;">
+                    <td>User/Comment ID</td>
+                    <td>Type</td>
+                    <td>Status</td>
+                    <td>Code</td>
+                    <td>Date</td>
+                </tr>
+               
+                <?php
+                  $comments_status = ph_get_comment_status();
+                  if( empty( $comments_status)  )
+                      echo '<p>Nothing to Process.</p>';
+                  else
+                    foreach($comments_status as $comment_status){
+                        echo '<tr>';
+                        $comment_status;
+                            echo '<td> '.$comment_status['uc_id'].' </td>';
+                            echo '<td> '.$comment_status['type'].' </td>';
+                            echo '<td> '.$comment_status['status'].' </td>';
+                            echo '<td> '.$comment_status['code'].' </td>';
+                            echo '<td> '.$comment_status['time'].' </td>';
+                        echo '</tr>';
+                    }
+                  
+                  
+                  ?>
+                
+            </table>
+            </div>
+             <?php
 	}
 	
 }

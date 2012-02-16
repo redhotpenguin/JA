@@ -1,3 +1,4 @@
+
 <?php
 ignore_user_abort(true);
 
@@ -8,10 +9,20 @@ define('WP_USE_THEMES', false);
 require($_SERVER['DOCUMENT_ROOT'].'/'.'wp-blog-header.php');
 $_POST = stripslashes_deep($_POST);
 
-if(!isset($_POST['action'])) exit;
-switch( $_POST['action'] ){
-	case 'new_comment': 
-		notify_new_comment(); 
+if( !isset($_REQUEST['action']) ) 
+	exit;
+
+switch( $_REQUEST['action'] ){
+	case 'process_comments': 
+		$_key = $_REQUEST['k'];
+		if( $_key === get_option('highrise_cron_key') ){
+			ph_log('CRON JOB Starting');
+			process_comments(); 
+		}
+		else{
+                    echo 'Wrong Key: '.$_key.'. This incident was <b>reported</b>.';
+                    error_log('Ping Highrise CRON: Wrong Key '.$_key);
+		}
 		break;
 	
 	case 'new_user':
@@ -20,28 +31,74 @@ switch( $_POST['action'] ){
 	
 	default: exit;
 }
+ 
+
+
+/****************************************************************************************/
+//							CRON																		//
+/****************************************************************************************/
+function process_comments(){
+	global $wpdb;
+	global $hr_url;
+	global $hr_token;
+	
+	
+	 $hr_url = get_option('highrise_url');
+	 $hr_token = get_option('highrise_token');
+
+
+	$comment_ids = get_comment_ids_for_processing();
+
+	if( empty( $comment_ids ) ){ 
+		ph_log('Nothing to Process.');
+		return false;
+	}
+	
+	ph_log('Start Processing Comments');
+
+	foreach ( $comment_ids as $comment_id  ){
+		 $comment_id =  $comment_id[0];
+		
+		if(  notify_new_comment( $comment_id ) ){
+			ph_log("Comment $comment_id Pushed to Highrise ");
+			update_phighrise( $comment_id, 'comment', 'processed', 2 );
+		}
+		else{
+			ph_log("Could'not Push Comment $comment_id to Highrise");
+			update_phighrise( $comment_id, 'comment', 'failed', 1 );
+		}
+	}
+
+	ph_log('Done Processing.');
+	return true;
+	
+}
+
+function update_phighrise( $uc_id, $type, $status, $code ){
+
+	global $wpdb;
+
+	return $wpdb->update('wp_phighrise', 
+			array(
+				'type'=> $type,
+				'status' => $status,
+				'code' => $code,
+				'time' => current_time('mysql')	
+			),
+			
+			array( 	'uc_id' => $uc_id )
+		);
+}
 
 
 /****************************************************************************************/
 //											WP INTEGRATION 								//
 /****************************************************************************************/
 
-function notify_new_comment(){
-	global $hr_url;
-	global $hr_token;
-	
-	$comment_id = $_POST['comment_id'];
-	if( empty($comment_id) or !is_numeric($comment_id) ){
-			error_log("Post Highrise: invalid comment_id: $comment_id");
-			return false;
-	}
-			
-	$hr_url =  $_POST['hr_url'];
-	$hr_token =  $_POST['hr_token'];
-	
+function notify_new_comment( $comment_id ){
+
 	ph_log('Post Highrise: new comment id: '.$comment_id);
-	ph_log('Post Highrise: hr_url:  '.$hr_url);
-	ph_log('Post Highrise: hr_token '.$hr_token);
+	
 	
 	$comment_obj = get_comment($comment_id);
 	if( empty($comment_obj->comment_content) )
@@ -114,7 +171,7 @@ function notify_new_user(){
 	
 	
 	if( function_exists('rpx_send_admin_notification') ){
-		$res = rpx_send_admin_notification($user_obj);
+	$res = rpx_send_admin_notification($user_obj);
 	}
 }
 
