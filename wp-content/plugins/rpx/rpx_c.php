@@ -1177,7 +1177,7 @@ function rpx_send_user_notification($user){
 	
 	$message.= "<br/><br/>For any information, please <a href='mailto:support@journalismaccelerator.com'>contact us</a>.</p>";
 	
-	$headers = array("From: Journalism Accelerator <dev@www.journalismaccelerator.com>",  "Content-Type: text/html");
+	$headers = array("From: Journalism Accelerator <noreply@www.journalismaccelerator.com>",  "Content-Type: text/html");
 	$h = implode("\r\n",$headers) . "\r\n";
 	
 	return wp_mail($user_email, $subject, $message, $h);
