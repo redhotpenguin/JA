@@ -3,7 +3,7 @@
 Plugin Name: Conversations
 Plugin URI: 
 Description: Add a Conversation widget in the sidebar
-Version: 0.1
+Version: 0.2
 Author: Jonas Palmero
 Author URI: http://www.twitter.com/welldonejonas
 */

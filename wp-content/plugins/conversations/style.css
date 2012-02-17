@@ -4,7 +4,7 @@
 
 
 .jpconv a{
-	text-decoration:none;
+
 	font-weight:bold;
 }
 
@@ -20,16 +20,44 @@
 
 }
 
-.jpconv_more a{
+.jpconv_more{
+/*
+	padding-top:1px;
+	margin-left:33px;
+	*/
 	float: right;
-	font-size: 12px !important;
-	bottom: 0;
-	margin-top: 2px;
+font-weight: bold;
+padding-bottom:19px;
+	
+}
+.jpconv_more a {
+
+	font-size: 14px !important;
+
 	color: #555;
 	text-decoration:none;
-	padding-top:1px;
 }
 
+.jpconv_rss {
+	display: block;
+	float: right;
+}
+
+.jpconv_rss a img{
+	padding-top: 2px;
+	padding-left: 2px;
+
+}
+
+.jpconv_rss a {
+	padding-top:2px;
+	text-decoration:none;
+	font-weight:normal;
+	color: #555;
+	font-size:14px;
+	font-weight:bold;
+	vertical-align: top;
+}
 .jpconv_more a:hover{
 	text-decoration:underline;
 }
@@ -40,11 +68,24 @@
 }
 
 .jpconv_involved{
+/*
 	display: block;
 	position: relative;
-	left: 181px;
-}
+	left: 70px;
 
+	text-align: right;
+
+	display: block;
+	width: 199px;
+
+	float: right;
+	*/
+}
+/*
+.jpconv_footer {
+	padding-bottom:19px;
+}
+*/
 .jpconv_involved a{
 	text-decoration: none;
 	font-weight: bold;
@@ -55,4 +96,13 @@
 
 .jpconv_involved a:hover{
 	text-decoration: underline;
+}
+
+
+.jpconv_link_reply, .jpconv_link_said{
+	text-decoration:underline;
+}
+
+.jpconv_name{
+	text-decoration:none;
 }
