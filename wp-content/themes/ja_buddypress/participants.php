@@ -33,7 +33,7 @@ get_header(); ?>
 					}
 				?>
 	<div id="participants">
-				<h2><?php echo $participant_number; ?> People Talking About:</h2>
+				<h2><?php echo $participant_number; ?> people talking about:</h2>
 				<div class="entry">
 				<h3><?php echo $title; ?>
 	<span  class="participant_top_link_back" ><a href="<?php echo $permalink; ?>">Back to the Post</a></span>				
