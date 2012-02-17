@@ -114,7 +114,16 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</div>
 			
-		<?php if (in_category(28) || is_category(28) || parent_category_is(28)) : ?>
+		<?php 
+		if( is_home() ):
+			wp_nav_menu(array(
+				'theme_location' => 'resources',
+				'container' => 'none',
+				'menu_class' => 'resources',
+				'menu_id' => 'resource-menu'
+			));
+
+		elseif (in_category(28) || is_category(28) || parent_category_is(28)) : ?>
 			<?php wp_nav_menu(array(
 				'theme_location' => 'questions',
 				'container' => 'none',
