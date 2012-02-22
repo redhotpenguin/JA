@@ -107,13 +107,14 @@
 
 		<?php do_action( 'bp_after_header' ) ?>
 		
-		<div id="cat_nav">
-			<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a></h2>
-	<div class="global_follow_btn">
+			<div class="global_follow_btn">
 				<a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @journaccel</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</div>
-			
+		
+		<div id="cat_nav">
+			<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a></h2>
+
 		<?php 
 		if( is_home() ):
 			wp_nav_menu(array(
