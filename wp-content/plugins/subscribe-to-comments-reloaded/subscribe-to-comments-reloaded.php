@@ -321,8 +321,6 @@ class wp_subscribe_reloaded{
 	 * Takes the appropriate action, when a new comment is posted
 	 */
 	public function new_comment_posted($_comment_ID = 0, $_comment_status = 0){
-		$t1 = time();
-
 		// Retrieve the information about the new comment
 		$info = $this->_get_comment_object($_comment_ID);
 
@@ -396,8 +394,7 @@ class wp_subscribe_reloaded{
 		if (get_option('subscribe_reloaded_notify_authors', 'no') == 'yes')
 			$this->notify_user($info->comment_post_ID, get_bloginfo('admin_email'), $_comment_ID);
 		
-		$t = time() - $t1;
-		rpx_debugme("executed in: ". $t);
+
 		return $_comment_ID;
 	}
 	// end new_comment_posted
