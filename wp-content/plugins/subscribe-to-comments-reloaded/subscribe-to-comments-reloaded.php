@@ -13,7 +13,7 @@ if (!function_exists('add_action')){
 	header('Location: /');
 	exit;
 }
-
+include_once('sendgrid/SendGrid_loader.php');
 /**
  * Displays the checkbox to allow visitors to subscribe
  */
@@ -93,11 +93,7 @@ function subscribe_reloaded_show(){
 				<input name='subscribe-reloaded' type='radio' value='none'/>
 				<span>".__("No alerts please",'subscribe-reloaded')."</span>
 			</span>
-			
-			
-			
-		
-			
+
 			</div></div>";
 			
 			
@@ -325,6 +321,8 @@ class wp_subscribe_reloaded{
 	 * Takes the appropriate action, when a new comment is posted
 	 */
 	public function new_comment_posted($_comment_ID = 0, $_comment_status = 0){
+		$t1 = time();
+
 		// Retrieve the information about the new comment
 		$info = $this->_get_comment_object($_comment_ID);
 
@@ -382,21 +380,95 @@ class wp_subscribe_reloaded{
 			if (!empty($info->comment_parent))
 				$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', $info->comment_parent));
 
-			foreach($subscriptions as $a_subscription){
-				// Skip the user who posted this new comment
-				if ($a_subscription->email != $info->comment_author_email)
-					$this->notify_user($info->comment_post_ID, $a_subscription->email, $_comment_ID);
+			// Jonas's:
+			
+			$email_addresses = array();
+			foreach($subscriptions as $a_subscription)
+				array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
+			
+			if ($a_subscription->email != $info->comment_author_email){
+				$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
 			}
+			
 		}
 
 		// If the case, notify the author
 		if (get_option('subscribe_reloaded_notify_authors', 'no') == 'yes')
 			$this->notify_user($info->comment_post_ID, get_bloginfo('admin_email'), $_comment_ID);
-
+		
+		$t = time() - $t1;
+		rpx_debugme("executed in: ". $t);
 		return $_comment_ID;
 	}
 	// end new_comment_posted
 
+	 /**
+	 * Send an email notification to multiple recipients (Jonas)
+	 */
+	public function notify_users($post_id, $emails, $_comment_ID){
+		// Retrieve the options from the database
+		$from_name = html_entity_decode(stripslashes(get_option('subscribe_reloaded_from_name', 'admin')), ENT_COMPAT, 'UTF-8');
+		$from_email = get_option('subscribe_reloaded_from_email', get_bloginfo('admin_email'));
+		$subject = html_entity_decode(stripslashes(get_option('subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]')), ENT_COMPAT, 'UTF-8');
+		$message = html_entity_decode(stripslashes(get_option('subscribe_reloaded_notification_content', '')), ENT_COMPAT, 'UTF-8');
+
+
+		$headers = "MIME-Version: 1.0\n";
+		$headers .= "From: $from_name <$from_email>\n";
+		$content_type = (get_option('subscribe_reloaded_enable_html_emails', 'no') == 'yes')?'text/html':'text/plain';
+		$headers .= "Content-Type: $content_type; charset=".get_bloginfo('charset')."\n";
+
+		$post = get_post($_post_ID);
+		$comment = get_comment($_comment_ID);
+		$post_permalink = get_permalink( $_post_ID );
+		$comment_permalink = get_comment_link($_comment_ID);
+
+		// Replace tags with their actual values
+		$subject = str_replace('[post_title]', $post->post_title, $subject);
+
+		$message = str_replace('[post_permalink]', $post_permalink, $message);
+		$message = str_replace('[comment_permalink]', $comment_permalink, $message);
+		$message = str_replace('[comment_author]', $comment->comment_author, $message);
+		$message = str_replace('[comment_content]', $comment->comment_content, $message);
+
+		// QTranslate support
+		if(function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')){
+			$subject = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($subject);
+			$message = str_replace('[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($post->post_title), $message);
+			$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($message);
+		}
+		else{
+			$message = str_replace('[post_title]', $post->post_title, $message);
+		}
+		if($content_type == 'text/html') $message = $this->wrap_html_message($message, $subject);
+	
+		$smtp_user = get_option('smtp_user');
+		$smtp_pass = get_option('smtp_pass');
+		$smtp_port = get_option('smtp_port');
+	
+		$from = get_option('subscribe_reloaded_from_email');
+	
+
+		$sendgrid = new SendGrid( $smtp_user , $smtp_pass );
+		
+		$mail = new SendGrid\Mail();
+	
+		$sendgrid->smtp->setPort($smtp_port);
+				
+		$mail->setTos( $emails )->
+		setFrom( array( $from => $from_name ) )->
+		setSubject( $subject )->
+		setText( strip_tags($message) )->
+		setHtml( $message );
+				
+		try{
+			$sendgrid->smtp->send($mail);
+		}
+		catch(Exception $e){
+		
+		}
+	}
+	
 	/**
 	 * Performs the appropriate action when the status of a given comment changes
 	 */
@@ -417,9 +489,16 @@ class wp_subscribe_reloaded{
 				if (!empty($info->comment_parent))
 					$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', $info->comment_parent));
 
-				foreach($subscriptions as $a_subscription)
-					if ($a_subscription->email != $info->comment_author_email) // Skip the user who posted this new comment
-						$this->notify_user($info->comment_post_ID, $a_subscription->email, $_comment_ID);
+				// jonas:
+				$email_addresses = array();
+				foreach($subscriptions as $a_subscription){
+					if ($a_subscription->email != $info->comment_author_email){ // Skip the user who posted this new comment
+						array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
+					}
+					if ($a_subscription->email != $info->comment_author_email){
+						$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+					}
+				}
 				break;
 
 			case 'trash':
