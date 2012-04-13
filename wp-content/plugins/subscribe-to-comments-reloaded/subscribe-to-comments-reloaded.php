@@ -381,12 +381,15 @@ class wp_subscribe_reloaded{
 			// Jonas's:
 			
 			$email_addresses = array();
-			foreach($subscriptions as $a_subscription)
-				array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
-			
-			if ($a_subscription->email != $info->comment_author_email){
-				$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+			foreach($subscriptions as $a_subscription){
+				// Skip the user who posted this new comment
+				if ($a_subscription->email != $info->comment_author_email){
+					array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
+				}
 			}
+			
+		
+			$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
 			
 		}
 
@@ -403,6 +406,11 @@ class wp_subscribe_reloaded{
 	 * Send an email notification to multiple recipients (Jonas)
 	 */
 	public function notify_users($post_id, $emails, $_comment_ID){
+		error_log(' ');	error_log(' ');
+		error_log('notify users');
+		error_log( print_r($emails, true) );
+		error_log(' ');	error_log(' ');
+		
 		// Retrieve the options from the database
 		$from_name = html_entity_decode(stripslashes(get_option('subscribe_reloaded_from_name', 'admin')), ENT_COMPAT, 'UTF-8');
 		$from_email = get_option('subscribe_reloaded_from_email', get_bloginfo('admin_email'));
@@ -492,9 +500,9 @@ class wp_subscribe_reloaded{
 					if ($a_subscription->email != $info->comment_author_email){ // Skip the user who posted this new comment
 						array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
 					}
-					if ($a_subscription->email != $info->comment_author_email){
-						$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
-					}
+					
+					$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+					
 				}
 				break;
 
