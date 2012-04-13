@@ -406,11 +406,7 @@ class wp_subscribe_reloaded{
 	 * Send an email notification to multiple recipients (Jonas)
 	 */
 	public function notify_users($post_id, $emails, $_comment_ID){
-		error_log(' ');	error_log(' ');
-		error_log('notify users');
-		error_log( print_r($emails, true) );
-		error_log(' ');	error_log(' ');
-		
+	
 		// Retrieve the options from the database
 		$from_name = html_entity_decode(stripslashes(get_option('subscribe_reloaded_from_name', 'admin')), ENT_COMPAT, 'UTF-8');
 		$from_email = get_option('subscribe_reloaded_from_email', get_bloginfo('admin_email'));
