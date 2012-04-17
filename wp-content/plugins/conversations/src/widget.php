@@ -151,12 +151,12 @@ class JPCONV_Widget extends WP_Widget {
 						 $parent_profile_url = get_link_to_public_profile( $parent_user_id );
 						 
 						 
-						echo "<span class='jpconv_said'><a href='./?/#comment-$comment->comment_ID' class='jpconv_link_reply'>replied</a> to <a class='jpconv_name' href='$parent_profile_url'>$parent_author</a>:</span> ";
+						echo "<span class='jpconv_said'><a href='$permalink?/#comment-$comment->comment_ID' class='jpconv_link_reply'>replied</a> to <a class='jpconv_name' href='$parent_profile_url'>$parent_author</a>:</span> ";
 
 					}
 					
 					else{
-						echo "<span class='jpconv_said'><a href='#comment-$comment->comment_ID' class='jpconv_link_said' >said</a>:</span> ";
+						echo "<span class='jpconv_said'><a href='$permalink#comment-$comment->comment_ID' class='jpconv_link_said' >said</a>:</span> ";
 					}
 					
 					echo "$comment_content ";
