@@ -55,8 +55,8 @@
 	
 	$expertise = unserialize( bp_get_profile_field_data('field=Areas of Expertise') );
     
-    $looking_for = unserialize( bp_get_profile_field_data('field=What areas of expertise are you looking for?') );
-    
+    $looking_for = unserialize( bp_get_profile_field_data("field=I\'m looking for") );
+
     ?>
 
     <?php
@@ -80,7 +80,7 @@
         }
 
         if (!empty($looking_for)) {
-            echo '<p class="expertise"><b>Looking for: </b>' . implode(', ', $looking_for) . '</p>';
+            echo '<p class="expertise"><b>I\'m looking for: </b>' . implode(', ', $looking_for) . '</p>';
         }
         ?>
 
