@@ -19,6 +19,7 @@ function get_post_participants($post_id, $limit = "", $unique = false, $random =
 	FROM $wpdb->comments 
 	WHERE comment_post_ID = $post_id
 	AND comment_type = ''
+	AND comment_approved = 1
 	ORDER BY $order $limit";
 	
 	$participant_ids = $wpdb->get_results($post_participants_query, ARRAY_N);

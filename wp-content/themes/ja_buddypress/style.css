@@ -666,17 +666,12 @@ padding: 5px 8px;
 background-color: #ededed;
 }
 
-.custom div.ja_header div#site_people{
-color:#666;
-font-size:12px;
-position: relative;
-top: -44px;
-left: 377px;
-}
-
-.custom div.ja_header div#site_people label{
-position: relative;
-top: -2px;
+.custom div.ja_header a.find_people {
+	font-weight:normal;
+	color: #469ced;
+	text-decoration: underline;
+	font-size: 18px;
+	padding-left: 10px;
 }
 
 .custom #get_recent_comments_wrap li
@@ -1447,10 +1442,9 @@ width:90%;
 
 .custom form.standard-form div.checkbox label
 {
-margin-right: 12px;
-display: inline-block !important;
-min-width:150px;
-max-width:150px;
+	margin-right: 12px;
+	display: inline-block !important;
+	min-width:200px;
 }
 
 .custom div#blog-single div.post { margin-bottom: 10px; }
@@ -2006,3 +2000,46 @@ float:right;
 .custom .twp-container { max-width: 815px !important; }
 .custom .twt-border { max-width: 815px !important; }
 .custom .twt-tweet .entry-title, .custom .twt-o .entry-title a, .custom .twt-o .entry-title b { font-size: 14px !important; font-family: Arial, sans-serif !important; }
+
+/* Support - retrieve account */
+.custom #provider_recovery{
+	margin-top:25px
+}
+
+.custom #provider_recovery table{
+	width:80%;
+}
+
+.custom #provider_recovery table .recovery_row{
+	width:140px;
+}
+
+.custom #provider_recovery label{
+	font-weight:bold;
+	font-size:14px;
+}
+
+.custom #provider_recovery input[type="text"]{
+	margin-left:15px;
+	font-size:18px;
+	height:25px;
+	padding:5px;
+	color:#555;
+}
+
+.custom #provider_recovery #provider_username_recovery_message,
+.custom #provider_recovery #provider_email_recovery_message{
+	margin-top: 15px;
+	font-weight:bold;
+	font-size: 15px;
+}
+.custom #provider_recovery .support_success{
+	color:#469CED ;
+}
+.custom #provider_recovery  .support_warning{
+	color:#ff9b00;
+}
+.custom #provider_recovery .support_fail{
+	color:#ff9b00;
+}
+/* Support -  retrieve account end */

@@ -1002,7 +1002,7 @@ function rpx_register_form($collect='email') {
 ?>
 <input id="rpxsubmit" class="rpxsubmit" type="submit" value="Submit" />
 </form>
-<p style='margin-top: 50px;'><a href='mailto:support@journalismaccelerator.com?subject=Authentification Problem'>Contact us</a> for more information.</p>
+<p style='margin-top: 30px; margin-bottom:5px;'>  <a href="/support/my-account-information/">Retrieve your account information.</a></p><p>  <a href='mailto:support@journalismaccelerator.com?subject=Authentification Problem'>Contact us</a> for more information.</p>
 </div>
 
 </span></td></tr></table>

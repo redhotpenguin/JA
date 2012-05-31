@@ -1,466 +1,587 @@
 <?php get_header(); ?>
 
-	<?php if (is_category(25)) : ?>
-	
-		<div id="content">
-		<div class="padder">
+<?php if (is_category(25)) : // RESOURCE HOME PAGE  ?>
 
-		<?php do_action( 'bp_before_archive' ) ?>
-
-		<div class="page" id="blog-archives">
-		
-		
-			
-			<h1>Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all resources</a></span></h1>
-			<?php echo category_description(); ?>
-			
-			<?php ja_resource_home(); ?>
-			
-			<h2>More Resources</h2>
-			
-			<?php if ( have_posts() ) : ?>
 
-				<?php while (have_posts()) : the_post(); ?>
+    <div id="content">
+        <div class="padder">
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+            <?php do_action('bp_before_archive') ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
-						
+            <div class="page" id="blog-archives">
 
-					</div>
+                <h1>Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all resources</a></span></h1>
+                <?php echo category_description(); 
+                
+                ja_resource_home(); ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                <h2>More Resources</h2>
 
-				<?php endwhile; ?>
+                <?php
+                $current_page = get_query_var('paged');
+                $offset = 4;
+                $args = array(
+                    'cat' => 25,
+                    'post_status' => 'publish',
+                );
 
-				<div class="navigation">
+                if ($current_page == 0) {
+                    $args['offset'] = $offset;
+                    $args['paged'] = 0;
+                } else {
+                    $args['offset'] = $offset + ( 10 * --$current_page );
+                    //$args['paged'] = $current_page;
+                }
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+                $resource_post_query = new WP_Query($args);
 
-				</div>
+                global $max_page;
+                // update global $max_page to take into parameter the offset
 
-			<?php else : ?>
+                if ($resource_post_query->found_posts < 10) {
+                    $max_page = 1; // 1 => no pagination
+                } else {
+                    $max_page = ceil(( $resource_post_query->found_posts - $offset ) / 10);
+                }
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
 
-			<?php endif; ?>
-		</div>
+                if ($resource_post_query->have_posts()) :
+                    ?>
 
-		<?php do_action( 'bp_after_archive' ) ?>
+                    <?php
+                    while ($resource_post_query->have_posts()) :
+                        $resource_post_query->the_post();
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Resource Home ?>
-	
-	<?php elseif (is_category(28)) : ?>
-	
-		<div id="content">
-		<div class="padder">
+                        do_action('bp_before_blog_post')
+                        ?>
 
-		<?php do_action( 'bp_before_archive' ) ?>
+                        <div class="post" id="post-<?php the_ID(); ?>">
 
-		<div class="page" id="blog-archives">
-		
-		
-			
-			<h1>Questions <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all questions</a></span></h1>
-			<?php echo category_description(); ?>
-			
-			<?php ja_question_home(); ?>
-			
-			<h2>More Questions</h2>
-			
-			<?php if ( have_posts() ) : ?>
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php $excerpt = strip_tags(get_the_excerpt());
+            echo $excerpt; ?>
+                            <p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+                $cat_number = count($category);
+                if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 
-				<?php while (have_posts()) : the_post(); ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
-						
+                        </div>
 
-					</div>
+                        <?php do_action('bp_after_blog_post') ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+        <?php endwhile; ?>
 
-				<?php endwhile; ?>
+                    <div class="navigation">
 
-				<div class="navigation">
+        <?php if (function_exists('wp_page_numbers')) {
+            wp_page_numbers();
+        } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+                    <?php } ?>
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+                    </div>
 
-				</div>
+                <?php else : ?>
 
-			<?php else : ?>
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+            <?php endif; ?>
+            </div>
 
-			<?php endif; ?>
-		</div>
+    <?php do_action('bp_after_archive') ?>
 
-		<?php do_action( 'bp_after_archive' ) ?>
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Question Home ?>
-	
-	<?php elseif (is_category(39)) : ?>
-	
-		<div id="content">
-		<div class="padder">
+    <?php // Resource Home  END ?>
 
-		<?php do_action( 'bp_before_archive' ) ?>
+    <?php
+// QUESTION ARCHIVE
 
-		<div class="page" id="blog-archives">
-			<h1><?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
+elseif (is_category(28)) :
+    ?>
 
-			<?php if ( have_posts() ) : ?>
+    <div id="content">
+        <div class="padder">
 
-				<?php while (have_posts()) : the_post(); ?>
+    <?php do_action('bp_before_archive') ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+            <div class="page" id="blog-archives">
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						<?php the_content(); ?>
+                <h1>Questions <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> 
+                        <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all questions</a></span></h1>
 
-					</div>
+    <?php echo category_description(); ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                <?php ja_question_home(); ?>
 
-				<?php endwhile; ?>
+                <h2>More Questions</h2>
 
-				<div class="navigation">
+                <?php
+                $current_page = get_query_var('paged');
+                $offset = 4;
+                $args = array(
+                    'cat' => 28,
+                    'post_status' => 'publish',
+                );
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
 
-				</div>
+                if ($current_page == 0) {
+                    $args['offset'] = $offset;
+                    $args['paged'] = 0;
+                } else {
+                    $args['offset'] = $offset + ( 10 * --$current_page );
+                    //$args['paged'] = $current_page;
+                }
 
-			<?php else : ?>
+                $question_post_query = new WP_Query($args);
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+                global $max_page;
+                // update global $max_page to take into parameter the offset
 
-			<?php endif; ?>
 
-		</div>
+                if ($question_post_query->found_posts < 10) {
+                    $max_page = 1; // 1 => no pagination
+                } else {
+                    $max_page = ceil(( $question_post_query->found_posts - $offset ) / 10);
+                }
 
-		<?php do_action( 'bp_after_archive' ) ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
+                if ($question_post_query->have_posts()) :
+                    ?>
 
-	<?php // Blog Home ?>
-	
-		<?php elseif (is_category(445)) : ?>
-	
-	<div id="content">
-		<div class="padder">
+                    <?php
+                    while ($question_post_query->have_posts()) :
 
-		<?php do_action( 'bp_before_archive' ) ?>
+                        $question_post_query->the_post();
+                        ?>
 
-		<div class="page" id="blog-archives">
-			<h1>Tweets for Keeps <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
+            <?php do_action('bp_before_blog_post') ?>
 
-				<?php if (have_posts()) : ?>
-				<?php while (have_posts()) : the_post(); ?>
+                        <div class="post" id="post-<?php the_ID(); ?>">
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php $excerpt = strip_tags(get_the_excerpt());
+            echo $excerpt; ?>
+                            <p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+            $cat_number = count($category);
+            if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php the_content(); ?>
-						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
+                        </div>
 
-					</div>
+            <?php do_action('bp_after_blog_post') ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                        <?php endwhile; ?>
 
-				<?php endwhile; ?>
+                    <div class="navigation">
+                    <?php if (function_exists('wp_page_numbers')) {
+                        wp_page_numbers();
+                    } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+                    <?php } ?>
 
-				<div class="navigation">
+                    </div>
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+            <?php else : ?>
 
-				</div>
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
 
-			<?php else : ?>
+    <?php endif; ?>
+            </div>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+    <?php do_action('bp_after_archive') ?>
 
-			<?php endif; ?>
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
-		</div>
+            <?php // Question Home END  ?>
 
-		<?php do_action( 'bp_after_archive' ) ?>
+<?php
+elseif (is_category(39)) :
+    //STARTING BLOG HOMEPAGE
+    ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Tweets for Keeps ?>
-	
-	<?php elseif (is_category(324)) : ?>
-	
-	<div id="content">
-		<div class="padder">
+    <div id="content">
+        <div class="padder">
 
-		<?php do_action( 'bp_before_archive' ) ?>
+                <?php do_action('bp_before_archive') ?>
 
-		<div class="page" id="blog-archives">
-			<h1>Digest of Featured Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
+            <div class="page" id="blog-archives">
+                <h1><?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+    <?php echo category_description(); ?>
 
-				<?php if (have_posts()) : ?>
-				<?php while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+                                <?php while (have_posts()) : the_post(); ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php the_content(); ?>
-						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
+                                    <?php do_action('bp_before_blog_post') ?>
 
-					</div>
+                        <div class="post" id="post-<?php the_ID(); ?>">
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                            <p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
+                                <span class="categories">
+                                    <?php
+                                    $category = get_the_category();
+                                    $cat_number = count($category);
+                                    if ($cat_number > 1) {
+                                        ?>
+                                        Topics:
 
-				<?php endwhile; ?>
+                                <?php
+                            } else {
+                                ?>
 
-				<div class="navigation">
+                                        Topic:
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+                        <?php } ?>
 
-				</div>
+            <?php the_category(' ') ?></span></p>
+                            <?php the_content(); ?>
 
-			<?php else : ?>
+                        </div>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+                            <?php do_action('bp_after_blog_post') ?>
 
-			<?php endif; ?>
+        <?php endwhile; ?>
 
-		</div>
+                    <div class="navigation">
 
-		<?php do_action( 'bp_after_archive' ) ?>
+                    <?php if (function_exists('wp_page_numbers')) {
+                        wp_page_numbers();
+                    } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+        <?php } ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Featured ?>
+                    </div>
 
+    <?php else : ?>
 
-	<?php elseif (parent_category_is(28)) : ?>
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
 
-	<div id="content">
-		<div class="padder">
+    <?php endif; ?>
 
-		<?php do_action( 'bp_before_archive' ) ?>
+            </div>
 
-		<div class="page" id="blog-archives">
-			<h1>Questions About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
-		
+            <?php do_action('bp_after_archive') ?>
 
-			<?php if ( have_posts() ) : ?>
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
-				<?php while (have_posts()) : the_post(); ?>
+                <?php // Blog Home ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+            <?php elseif (is_category('tweetsforkeeps')) : ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?> (<?php comments_popup_link( __( 'No answers', 'buddypress' ), __( '1 answer', 'buddypress' ), __( '% answers', 'buddypress' ) ); ?>) &mdash; <a href="<?php the_permalink() ?>">Answer this Question</a><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-				
-				
+    <div id="content">
+        <div class="padder">
 
-					</div>
+    <?php do_action('bp_before_archive') ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+            <div class="page" id="blog-archives">
+                <h1>Tweets for Keeps <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+    <?php echo category_description(); ?>
 
-				<?php endwhile; ?>
+    <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
 
-				<div class="navigation">
+                        <?php do_action('bp_before_blog_post') ?>
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+                        <div class="post" id="post-<?php the_ID(); ?>">
 
-				</div>
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php the_content(); ?>
+                            <p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+            $cat_number = count($category);
+            if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 
-			<?php else : ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+                        </div>
 
-			<?php endif; ?>
+                        <?php do_action('bp_after_blog_post') ?>
 
-		</div>
+                    <?php endwhile; ?>
 
-		<?php do_action( 'bp_after_archive' ) ?>
+                    <div class="navigation">
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Question Sub ?>
-	
-	<?php elseif (parent_category_is(25)) : ?>
-	
-	<div id="content">
-		<div class="padder">
+        <?php if (function_exists('wp_page_numbers')) {
+            wp_page_numbers();
+        } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+        <?php } ?>
 
-		<?php do_action( 'bp_before_archive' ) ?>
+                    </div>
 
-		<div class="page" id="blog-archives">
-			<h1>Resources Related to Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
+    <?php else : ?>
 
-				<?php if (have_posts()) : ?>
-				<?php while (have_posts()) : the_post(); ?>
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+            <?php endif; ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
+            </div>
 
-					</div>
+                <?php do_action('bp_after_archive') ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
-				<?php endwhile; ?>
+                <?php // Tweets for Keeps  ?>
 
-				<div class="navigation">
+<?php elseif (is_category(324)) : ?>
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+    <div id="content">
+        <div class="padder">
 
-				</div>
+    <?php do_action('bp_before_archive') ?>
 
-			<?php else : ?>
+            <div class="page" id="blog-archives">
+                <h1>Digest of Featured Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+    <?php echo category_description(); ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : the_post(); ?>
 
-			<?php endif; ?>
+            <?php do_action('bp_before_blog_post') ?>
 
-		</div>
+                        <div class="post" id="post-<?php the_ID(); ?>">
 
-		<?php do_action( 'bp_after_archive' ) ?>
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                            <?php the_content(); ?>
+                            <p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+                $cat_number = count($category);
+                if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php // Resource Sub ?>
-	
-	<?php elseif (parent_category_is(39)) : ?>
-	
-		<div id="content">
-		<div class="padder">
 
-		<?php do_action( 'bp_before_archive' ) ?>
+                        </div>
 
-		<div class="page" id="blog-archives">
-			<h1>Blog Posts About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-			<?php echo category_description(); ?>
+                        <?php do_action('bp_after_blog_post') ?>
 
-			<?php if ( have_posts() ) : ?>
+        <?php endwhile; ?>
 
-				<?php while (have_posts()) : the_post(); ?>
+                    <div class="navigation">
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+        <?php if (function_exists('wp_page_numbers')) {
+            wp_page_numbers();
+        } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+        <?php } ?>
 
-					<div class="post" id="post-<?php the_ID(); ?>">
-					
-						<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php $excerpt = strip_tags(get_the_excerpt()); echo $excerpt; ?>
-						<p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
-						<span class="categories"><?php $category = get_the_category(); $cat_number = count($category); if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
-						
+                    </div>
 
-					</div>
+    <?php else : ?>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+                <?php locate_template(array('searchform.php'), true) ?>
 
-				<?php endwhile; ?>
+    <?php endif; ?>
 
-				<div class="navigation">
+            </div>
 
-					<?php if(function_exists('wp_page_numbers')) { wp_page_numbers(); } else { ?>
-					<div class="alignleft"><?php next_posts_link( __( '&laquo; Previous Posts', 'buddypress' ) ) ?></div>
-					<div class="alignright"><?php previous_posts_link( __( 'Next Posts &raquo;', 'buddypress' ) ) ?></div>
-				<?php } ?>
+                <?php do_action('bp_after_archive') ?>
 
-				</div>
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
-			<?php else : ?>
+                <?php // Featured ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<?php locate_template( array( 'searchform.php' ), true ) ?>
 
-			<?php endif; ?>
+<?php elseif (parent_category_is(28)) : ?>
 
-		</div>
+    <div id="content">
+        <div class="padder">
 
-		<?php do_action( 'bp_after_archive' ) ?>
+    <?php do_action('bp_before_archive') ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
-	
-	<?php endif; // Blog Sub ?>
+            <div class="page" id="blog-archives">
+                <h1>Questions About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+                <?php echo category_description(); ?>
 
-	<?php locate_template( array( 'sidebar.php' ), true ) ?>
+
+                <?php if (have_posts()) : ?>
+
+        <?php while (have_posts()) : the_post(); ?>
+
+                            <?php do_action('bp_before_blog_post') ?>
+
+                        <div class="post" id="post-<?php the_ID(); ?>">
+
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php $excerpt = strip_tags(get_the_excerpt());
+            echo $excerpt; ?>
+                            <p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?> (<?php comments_popup_link(__('No answers', 'buddypress'), __('1 answer', 'buddypress'), __('% answers', 'buddypress')); ?>) &mdash; <a href="<?php the_permalink() ?>">Answer this Question</a><br />
+                                <span class="categories"><?php $category = get_the_category();
+            $cat_number = count($category);
+            if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
+
+
+
+                        </div>
+
+                    <?php do_action('bp_after_blog_post') ?>
+
+        <?php endwhile; ?>
+
+                    <div class="navigation">
+
+        <?php if (function_exists('wp_page_numbers')) {
+            wp_page_numbers();
+        } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+                <?php } ?>
+
+                    </div>
+
+                <?php else : ?>
+
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+                    <?php locate_template(array('searchform.php'), true) ?>
+
+                <?php endif; ?>
+
+            </div>
+
+    <?php do_action('bp_after_archive') ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
+
+    <?php // Question Sub  ?>
+
+<?php elseif (parent_category_is(25)) : ?>
+
+    <div id="content">
+        <div class="padder">
+
+    <?php do_action('bp_before_archive') ?>
+
+            <div class="page" id="blog-archives">
+                <h1>Resources Related to Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+    <?php echo category_description(); ?>
+
+                    <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
+
+                        <?php do_action('bp_before_blog_post') ?>
+
+                        <div class="post" id="post-<?php the_ID(); ?>">
+
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                        <?php $excerpt = strip_tags(get_the_excerpt());
+                        echo $excerpt; ?>
+                            <p class="post-info">Posted on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+            $cat_number = count($category);
+            if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
+
+
+                        </div>
+
+            <?php do_action('bp_after_blog_post') ?>
+
+        <?php endwhile; ?>
+
+                    <div class="navigation">
+
+                <?php if (function_exists('wp_page_numbers')) {
+                    wp_page_numbers();
+                } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+                    <?php } ?>
+
+                    </div>
+
+                <?php else : ?>
+
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
+
+    <?php endif; ?>
+
+            </div>
+
+    <?php do_action('bp_after_archive') ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
+
+                <?php // Resource Sub ?>
+
+            <?php elseif (parent_category_is(39)) : ?>
+
+    <div id="content">
+        <div class="padder">
+
+    <?php do_action('bp_before_archive') ?>
+
+            <div class="page" id="blog-archives">
+                <h1>Blog Posts About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+    <?php echo category_description(); ?>
+
+                <?php if (have_posts()) : ?>
+
+                    <?php while (have_posts()) : the_post(); ?>
+
+                        <?php do_action('bp_before_blog_post') ?>
+
+                        <div class="post" id="post-<?php the_ID(); ?>">
+
+                            <h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'buddypress') ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                    <?php $excerpt = strip_tags(get_the_excerpt());
+                    echo $excerpt; ?>
+                            <p class="post-info">Posted by <?php the_author_link(); ?> on <?php echo get_the_date(); ?><br />
+                                <span class="categories"><?php $category = get_the_category();
+                    $cat_number = count($category);
+                    if ($cat_number > 1) { ?>Topics:<?php } else { ?>Topic:<?php } ?> <?php the_category(' ') ?></span></p>
+
+
+                        </div>
+
+            <?php do_action('bp_after_blog_post') ?>
+
+        <?php endwhile; ?>
+
+                    <div class="navigation">
+
+        <?php if (function_exists('wp_page_numbers')) {
+            wp_page_numbers();
+        } else { ?>
+                            <div class="alignleft"><?php next_posts_link(__('&laquo; Previous Posts', 'buddypress')) ?></div>
+                            <div class="alignright"><?php previous_posts_link(__('Next Posts &raquo;', 'buddypress')) ?></div>
+        <?php } ?>
+
+                    </div>
+
+    <?php else : ?>
+
+                    <h2 class="center"><?php _e('Not Found', 'buddypress') ?></h2>
+        <?php locate_template(array('searchform.php'), true) ?>
+
+    <?php endif; ?>
+
+            </div>
+
+    <?php do_action('bp_after_archive') ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
+
+<?php endif; // Blog Sub  ?>
+
+<?php locate_template(array('sidebar.php'), true) ?>
 
 <?php get_footer(); ?>

@@ -388,8 +388,8 @@ class wp_subscribe_reloaded{
 				}
 			}
 			
-		
-			$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+			if( !empty( $email_addresses) )
+				$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
 			
 		}
 
@@ -405,7 +405,11 @@ class wp_subscribe_reloaded{
 	 /**
 	 * Send an email notification to multiple recipients (Jonas)
 	 */
-	public function notify_users($post_id, $emails, $_comment_ID){		
+	public function notify_users($post_id, $emails, $_comment_ID){	
+		if( empty( $emails ) ){
+			return false;
+		}
+		
 		// Retrieve the options from the database
 		$from_name = html_entity_decode(stripslashes(get_option('subscribe_reloaded_from_name', 'admin')), ENT_COMPAT, 'UTF-8');
 		$from_email = get_option('subscribe_reloaded_from_email', get_bloginfo('admin_email'));
@@ -460,7 +464,7 @@ class wp_subscribe_reloaded{
 		setSubject( $subject )->
 		setText( strip_tags($message) )->
 		setHtml( $message );
-				
+		
 		try{
 			$sendgrid->smtp->send($mail);
 		}
@@ -496,7 +500,9 @@ class wp_subscribe_reloaded{
 						array_push($email_addresses, $this->clean_email( $a_subscription->email ) );
 					}
 				}
-				$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+				if( !empty( $email_addresses) )
+					$this->notify_users($info->comment_post_ID, $email_addresses,  $_comment_ID);
+				
 				break;
 
 			case 'trash':
@@ -550,7 +556,61 @@ class wp_subscribe_reloaded{
 	 */
 	public function subscribe_reloaded_manage($_posts = '', $_query = ''){
 		global $current_user;
+		global $wp_query;
+		if($current_user->id == 0){
+			//Jonas: prevent non logged in users to anonymously register for comment notification
+			// Ask them to log-in instead
 
+			// if RPX plugin is enabled (janrain), show the small provider icons
+			if(function_exists('rpx_small_buttons'))
+				$post_content = '<br/>Please log in to manage your subscriptions:<br/>'.rpx_small_buttons();
+			else 
+				$post_content = '<br/>Please <a href="'.wp_login_url().'">log in</a> to manage your subscriptions.';
+			
+			
+	
+			$posts[] =
+			(object)array(
+				'ID' => '9999999',
+				'post_author' => '1',
+				'post_date' => '2001-01-01 11:38:56',
+				'post_date_gmt' => '2001-01-01 00:38:56',
+				'post_content' => '<div style="	font-size: 18px;color: #555;line-height: 20px;">'.$post_content.'</div>',
+				'post_title' => 'Manage subscriptions',
+				'post_excerpt' => '',
+				'post_status' => 'publish',
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_password' => '',
+				'to_ping' => '',
+				'pinged' => '',
+				'post_modified' => '2001-01-01 11:00:01',
+				'post_modified_gmt' => '2001-01-01 00:00:01',
+				'post_content_filtered' => '',
+				'post_parent' => '0',
+				'menu_order' => '0',
+				'post_type' => 'page',
+				'post_mime_type' => '',
+				'post_category' => '0',
+				'comment_count' => '0',
+				'filter' => 'raw',
+				'guid' => get_bloginfo('url').'/?page_id=9999999',
+				'post_name' => get_bloginfo('url').'/?page_id=9999999',
+				'ancestors' => array()
+			);
+			
+			
+			
+			$wp_query->is_page = true;
+		$wp_query->is_single = false;
+		$wp_query->is_home = false;
+		$wp_query->comments = false;
+			
+			return $posts;
+
+			//return get_page_by_title('lovely-morning-hack');
+			
+		}
 		if (!empty($_posts))
 			return $_posts;
 
@@ -597,7 +657,7 @@ class wp_subscribe_reloaded{
 		if (empty($include_post_content))
 			$include_post_content = include(WP_PLUGIN_DIR.'/subscribe-to-comments-reloaded/templates/request-management-link.php');
 
-		global $wp_query;
+
 
 		$manager_page_title = html_entity_decode(get_option('subscribe_reloaded_manager_page_title', 'Manage subscriptions'), ENT_COMPAT, 'UTF-8');
 		if(function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage'))

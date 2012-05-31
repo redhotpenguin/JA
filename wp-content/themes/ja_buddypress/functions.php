@@ -311,7 +311,12 @@ function latest_listings_all( $category ) {
 		<div class="resource question clearfix">
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
-			<div class="excerpt-text"><?php the_excerpt(); ?></div>
+			<div class="excerpt-text"><?php 
+				if($tout = get_post_meta($post->ID, 'tout', true))
+					echo $tout;
+				else
+					the_excerpt(); 
+			?></div>
 			<?php do_action('thumbs_up_post', $post->ID ); ?>
 			</p>
 			
@@ -350,7 +355,7 @@ function ja_question_home() { ?>
 
 function latest_questions() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&cat=28&showposts=3');
+	$latest_listings->query('&cat=28&showposts=4');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
@@ -360,7 +365,14 @@ function latest_questions() {
 		<div class="resource question clearfix">
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
-			<div class="excerpt-text"><?php the_excerpt(); ?></div>
+			<div class="excerpt-text"><?php 
+			
+			if($tout = get_post_meta($post->ID, 'tout', true))
+				echo $tout;
+			else
+				the_excerpt(); 
+			
+			?></div>
 		</div>
 		<?php
 	}
@@ -371,7 +383,7 @@ function dp_recent_question_comments() {
 	$request = "SELECT * FROM $wpdb->comments";
 	$request .= " JOIN $wpdb->posts ON ID = comment_post_ID  JOIN $wpdb->term_relationships ON (ID = $wpdb->term_relationships.object_id) JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)";
 	$request .= " WHERE comment_approved = '1' AND post_status = 'publish' AND post_password ='' AND $wpdb->term_taxonomy.taxonomy = 'category' AND $wpdb->term_taxonomy.term_id IN(28)";
-	$request .= " ORDER BY comment_date DESC LIMIT 3";
+	$request .= " ORDER BY comment_date DESC LIMIT 4";
 
 	$comments = $wpdb->get_results($request);
 	if ($comments) {
@@ -553,50 +565,17 @@ function ja_header() {
 			<p><a href="/"><img src="http://www.journalismaccelerator.com/wp-content/uploads/2011/01/ja_logo_1.png"  alt="Journalism Accelerator Logo" width="450" height="46" /></a></p>
 			<p><a href="/">A forum about innovation in journalism, beyond the usual suspects</a></p>
 			</div>
-			<form method="get" class="search_form" id="search_form" action="http://www.journalismaccelerator.com/"> 
+			<form method="get" class="search_form" id="search_form" action="/"> 
 		
 	<p> 
 		<input class="text_input" type="text" name="s" id="s" value="<?php echo $_GET['s'];?>" /> 
 		<input type="submit" id="searchsubmit" value="Search" /> 
+		<a class="find_people" href="/members/">Find People</a> 
 	</p> 	
-	
-	
-		<div id="site_people">
-		
-		<span id='site_radio_span'>
-			<input type="radio" name="search_type" id="radio_site"  />
-			<label>Site </label>
-		</span>
-		
-		<span id='people_radio_span'>
-		<input type="radio" name="search_type" id="radio_people"> 
-		<label> People </label>
-		</span>
-		
-		</div>
+
 			</form>
-
-	
-
-<script type="text/javascript">
-			jQuery('#radio_site').click(function() {jQuery('#search_form').attr('action','/');});
-			jQuery('#radio_people').click(function() {jQuery('#search_form').attr('action','/members/');});
-			if(!jQuery('body').attr('class').search('directory')) {
-					jQuery('#search_form').attr('action','/members/');
-					jQuery('#radio_site').attr('checked','checked');
-					jQuery('#search_form').attr('action','/');
-
-			}
-			else {
-			jQuery('#search_form').attr('action','/');
-			jQuery('#radio_site').attr('checked','checked');
-			
-			}
-</script>
-</div>
-
+	</div>
 		<?php
-	
 }
 
 function dp_recent_comments($no_comments = 10, $comment_len = 100) {
@@ -671,7 +650,7 @@ function dp_recent_resource_comments() {
 	$request = "SELECT * FROM $wpdb->comments";
 	$request .= " JOIN $wpdb->posts ON ID = comment_post_ID  JOIN $wpdb->term_relationships ON (ID = $wpdb->term_relationships.object_id) JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)";
 	$request .= " WHERE comment_approved = '1' AND post_status = 'publish' AND post_password ='' AND $wpdb->term_taxonomy.taxonomy = 'category' AND $wpdb->term_taxonomy.term_id IN(25)";
-	$request .= " ORDER BY comment_date DESC LIMIT 3";
+	$request .= " ORDER BY comment_date DESC LIMIT 4";
 
 	$comments = $wpdb->get_results($request);
 	if ($comments) {
@@ -805,7 +784,12 @@ function latest_listings() {
 		<div class="resource question clearfix">
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
-			<div class="excerpt-text"><?php the_excerpt(); ?></div>
+			<div class="excerpt-text"><?php 
+				if($tout = get_post_meta($post->ID, 'tout', true))
+					echo $tout;
+				else
+					the_excerpt(); 
+			?></div>
 		</div>
 		<?php
 	}
@@ -1217,6 +1201,17 @@ function make_bitly_url($url,$login, $appkey, $format = 'xml', $version = '2.0.1
     return 'http://bit.ly/'.$xml->results->nodeKeyVal->hash;
   }
 }	
+
+
+//.............................................................................
+// 									Ajax Frontend Controller 			     //
+//.............................................................................
+add_action('wp_ajax_frontend', 'ajax_frontend');
+add_action('wp_ajax_nopriv_frontend', 'ajax_frontend');
+function ajax_frontend(){
+	include_once('ajax/front_end.php');
+	exit;
+}
 
 
 //.............................................................................
