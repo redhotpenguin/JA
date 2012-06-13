@@ -312,9 +312,6 @@ function latest_listings_all( $category ) {
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php 
-				if($tout = get_post_meta($post->ID, 'tout', true))
-					echo $tout;
-				else
 					the_excerpt(); 
 			?></div>
 			<?php do_action('thumbs_up_post', $post->ID ); ?>
