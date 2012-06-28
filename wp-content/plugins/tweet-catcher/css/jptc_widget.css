@@ -1,3 +1,5 @@
+/* @override http://ispkintrnt.com/wp-content/plugins/tweet-catcher/css/jptc_widget.css?ver=3.1 */
+
 #jptc_box{
 	
 }
@@ -34,7 +36,6 @@
 }
 
 .jptc_tweet .jptc_tweet_text{
-	margin-top:-6px;
 	margin-top: -5px;
 }
 
