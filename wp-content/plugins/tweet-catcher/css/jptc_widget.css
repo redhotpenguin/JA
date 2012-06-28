@@ -13,6 +13,8 @@
 	float:left;
 	padding-bottom:48px;
 	margin-right:5px;
+	display: inline-block;
+	width: 50px;
 }
 
 .jptc_tweet_avatar img{
@@ -33,6 +35,11 @@
 
 .jptc_tweet .jptc_tweet_text{
 	margin-top:-6px;
+	margin-top: -5px;
+}
+
+.jptc_tweet_text{
+	margin-left: 55px;
 }
 
 .jptc_tweet .jptc_tweet_meta{
