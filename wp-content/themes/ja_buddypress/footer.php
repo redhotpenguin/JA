@@ -13,7 +13,7 @@
 						<li><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
 <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></li>
 						<li><a href="/Feed/"><img src="/feed.png" alt="Feed Icon">  </a><a href="/feed/">RSS Feed</a></li>
-						<li><a href="/link-to-us/">Link to Us</li>
+						<li><a href="/link-to-us/">Link to Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -21,8 +21,7 @@
 		<div class="clear"></div>
 		</div>
 		<div id="footer">
-	    	<p>Journalism Accelerator | PO Box 80191 | 7805 SW 40th Avenue | Portland, OR 97280<br />
-	    	<?php printf( __( '%s is proudly powered by <a href="http://wordpress.org">WordPress</a> and <a href="http://buddypress.org">BuddyPress</a>', 'buddypress' ), get_bloginfo( 'name' ) ); ?></p>
+	    	<p><?php printf( __( '%s is proudly powered by <a href="http://wordpress.org">WordPress</a> and <a href="http://buddypress.org">BuddyPress</a>', 'buddypress' ), get_bloginfo( 'name' ) ); ?></p>
 
 			<?php do_action( 'bp_footer' ) ?>
 		</div><!-- #footer -->

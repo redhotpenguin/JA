@@ -14,6 +14,28 @@ function get_blank_avatar() { return false; }
  */
 add_theme_support( 'post-thumbnails' );
 
+
+/*for custom post type*/
+
+add_action( 'init', 'create_post_type' );
+
+function create_post_type() {
+	register_post_type( 'featured_banner',
+		array(
+			'labels' => array(
+				'name' => __( 'Homepage Banner' ),
+				'singular_name' => __( 'Homepage Banner' ),
+				'add_new_item' => 'Add New Homepage Banner'
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 20,
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+		)
+	);
+}
+/*End of custom post type*/
+
 function is_child( $parent = '' ) {
 	global $post;
  
@@ -106,10 +128,9 @@ function bp_dtheme_blog_comments( $comment, $args = '', $depth = '') {
 
 			<div class="comment-options">
 			<?php //rpx_get_comment_reply_link - defined in rpx-override.php
-		//	do_action('thumbs_up_comment', get_comment_ID());
 		
-			echo rpx_get_comment_reply_link( array('depth' => $depth, 'max_depth' => 2, 'login_text'  => 'Log in to Reply') ) ?>
-			
+			echo rpx_get_comment_reply_link( array('depth' => $depth, 'max_depth' => get_option('thread_comments_depth') , 'login_text'  => 'Log in to Reply') ) ?>
+
 			
 				<?php edit_comment_link( __( 'Edit' ),'','' ); ?>
 			</div>
@@ -117,7 +138,6 @@ function bp_dtheme_blog_comments( $comment, $args = '', $depth = '') {
 		</div>
 <?php
 }
-
 // Journalism Accelerator Functions
 
 // Limit BuddyPress Activity on Profile
@@ -312,6 +332,9 @@ function latest_listings_all( $category ) {
 			<p class="post-date"><?php echo $formatdate; ?></p>
 			<p class="title"><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></p>
 			<div class="excerpt-text"><?php 
+				if($tout = get_post_meta($post->ID, 'tout', true))
+					echo $tout;
+				else
 					the_excerpt(); 
 			?></div>
 			<?php do_action('thumbs_up_post', $post->ID ); ?>

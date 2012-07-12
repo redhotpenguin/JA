@@ -1049,6 +1049,7 @@ function rpx_wp_footer(){
 <span id="rpx_border" class="rpxborder">
 <span id="rpx_close" class="rpxclose" onclick="hideRPX('rpxlogin')"><img src="<?php echo RPX_IMAGE_URL; ?>close.png" alt="close" /></span>
 <?php echo rpx_iframe_widget(); ?>
+<p id="dont-know"><a href="http://www.journalismaccelerator.com/support/my-account-information/">Forgot your login? Click here.</a></p>
 </span></td></tr></table></div>
 <?php
   $rpx_footer_done = true;
@@ -1428,6 +1429,7 @@ function rpx_small_buttons($label = ''){
   $buttons .= "<div class='rpx_small_icons rpxsharebutton'   onclick=\"showRPX('rpxlogin')\"> <img title='Twitter' class='rpx_icon' src='".RPX_IMAGE_URL."twitter_32.png'> </div>"; 
   $buttons .= "<div class='rpx_small_icons rpxsharebutton'   onclick=\"showRPX('rpxlogin')\"> <img title='LinkedIn' class='rpx_icon' src='".RPX_IMAGE_URL."linkedin_32.png'> </div>"; 
   $buttons .= "<div class='rpx_clear'></div>";
+  $buttons .= "<div id='dont-know'><a href='http://www.journalismaccelerator.com/support/my-account-information/'>Forgot your login? Click here.</a></div>";
   $buttons .= "</div>";
   
   return $label.$buttons;
