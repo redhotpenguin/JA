@@ -58,7 +58,7 @@ function split_and_shuffle($content) {
 	$length = count($resources) - 1;
 	$picks = array();
 	$j = 0;
-	while (count($picks) < 4) {
+	while (count($picks) < 2) {
 		$x = mt_rand(0, $length);
 		if ( !in_array($x, $picks) ) { 
 			$picks[$j] = $x;
