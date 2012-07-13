@@ -91,8 +91,8 @@ foreach ( (array)$comments as $comment )
 	<h3 id="reply" class="comments-header"> </h3>
 	
 	<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
-<div class="clearfix"></div>
 
+					<div class="clearfix"></div>
 					<div class="rpx_button" id="rpx_button_1">
 						<div class='comment_connect_text'>To weigh in, connect via</div>
 						<div class="rpx_small_icons" id="rpx_small_icons_2" onclick="showRPX('rpxlogin')">
@@ -169,7 +169,7 @@ foreach ( (array)$comments as $comment )
 				'reverse_top_level' => false,
 				'reverse_children' => true, 
 				'type' => 'comment',
-				'max_depth' => 2
+				'max_depth' => get_option('thread_comments_depth')
 			), $comments_n_replies );
 			
 		} // check if cflow activated end

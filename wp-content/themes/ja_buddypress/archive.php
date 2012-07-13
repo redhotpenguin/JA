@@ -21,7 +21,8 @@
                 $current_page = get_query_var('paged');
                 $offset = 4;
                 $args = array(
-                    'cat' => 25,
+//                    'cat' => 25, -445,
+                    'category__in' => 25,
                     'post_status' => 'publish',
                 );
 
