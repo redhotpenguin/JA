@@ -1,0 +1,131 @@
+.export-to-text #donate_box h2 {
+	line-height: 12px;
+	margin: 0px;
+}	
+
+.export-to-text #export-to-text-form {
+}
+.export-to-text .submit {
+	padding:0;
+}
+.export-to-text #pre_holder pre {
+	width: 1000px;
+	height: 300px;
+	border: 1px solid #ddd;
+	overflow: auto;
+	margin:0;
+}
+.export-to-text #pre_holder {
+	padding: 10px;
+	width: 1000px;
+	height: 330px;
+	background: #fff;
+	position:fixed;
+	box-shadow: 0px 0px 25px #888;
+	top: 50%;
+	left: 50%;
+	margin-top: -165px;
+	margin-left: -500px;
+	display:none;
+	z-index: 9999;
+	text-align:right;
+}
+.export-to-text #pre_close {
+	padding: 0 0 10px 0;
+	display:inline-block;
+}
+.export-to-text .floatleft {
+	float: left;
+}
+.export-to-text .floatright {
+	float: right;
+}
+.export-to-text .marginleft {
+	margin-left: 80px;
+}
+.export-to-text .clearboth {
+	clear: both;
+}
+.export-to-text .button a {
+	color:#464646 !important;
+	text-decoration:none !important;
+}
+.export-to-text .checkbox_box {
+	height: 161px;
+	width:218px;
+	overflow: auto;
+	padding: 6px 6px 0 6px;
+	border: solid 1px #DFDFDF;
+	margin:0 0 0 1px;
+}
+.export-to-text .checkbox_box ul {
+	margin:0;
+}
+.export-to-text .checkbox_box ul.children {
+	margin:6px 0 0 15px;
+}
+.export-to-text #options_holder {
+	overflow: hidden;
+	margin-bottom:10px;
+}
+.export-to-text .option_box {
+	width:240px;
+	height:195px;
+	float:left;
+	margin:5px;
+}
+.export-to-text .option_box_short {
+	height:auto !important;
+}
+.export-to-text .option_box_submit{
+	height:auto !important;
+	width:315px;
+}
+.export-to-text .option_box label.short_label {
+	width:70px;
+	display:inline-block;
+	vertical-align:top;
+	line-height:26px;
+}
+.export-to-text .option_box label.full_label {
+	line-height:26px;
+	text-transform:capitalize;
+}
+.export-to-text .option_box li.e2t_all {
+	border-bottom:1px solid #DFDFDF;
+	padding-bottom:3px;
+	margin-bottom:2px;
+}
+.export-to-text .sidebar-description {
+	border-width: 0 1px 1px;
+	border-style: none solid solid;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background-color: #FCFCFC;
+	border-color: #DFDFDF;
+}
+.export-to-text .sidebar-description p {
+	padding:8px;
+	margin:0;
+}
+.export-to-text .info-box {
+	width:240px;
+	float:left;
+	margin:5px;
+}
+.export-to-text #donate_box {
+	border: 2px solid #007600;
+	border-radius:3px;
+}
+.export-to-text #donate_box h3 {
+	color: #007600;
+	font-weight:bold;
+}
+.export-to-text #donate_box p {
+	font-weight:bold;
+}
+.export-to-text #donate_box #donate_form {
+	text-align:center;
+}
