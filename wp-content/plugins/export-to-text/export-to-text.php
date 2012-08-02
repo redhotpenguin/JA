@@ -60,7 +60,7 @@ function sre2t_manage() { // Sre2t_manage function used to display Export To Tex
 			}
 		}
 		// Displays Export To Text Menu
-		?>
+?>
 		<div class="export-to-text">
         <div class="wrap">
         
@@ -230,7 +230,7 @@ function sre2t_manage() { // Sre2t_manage function used to display Export To Tex
             </div>
         </div>
         </div>
-<?	
+<?php	
 }
 
 add_action( 'wp_ajax_sre2t_ajax', 'sre2t_ajax' ); //adds function to WP ajax
@@ -396,3 +396,4 @@ function sre2t_ajax() { //Function used for generating results for display in PR
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+?>

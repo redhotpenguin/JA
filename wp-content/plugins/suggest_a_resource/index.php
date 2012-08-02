@@ -42,7 +42,7 @@ function r_fill_ID() {
 
 function r_create_form() {
 	?>
-	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(!is_category(25) || is_home()) { ?> style="display:none" <?php } ?>>
+	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(is_category(25) || !is_category(25) || is_home()) { ?> style="display:none" <?php } ?>>
     <input type="hidden" name="form" value="1062791" />
     <input type="hidden" name="viewkey" value="dcRMIPaG0P" />
     <input type="hidden" name="hidden_fields" id="hidden_fields1062791" value="" />
@@ -57,10 +57,9 @@ function r_create_form() {
 	<label class="fsLabel" for="field12391625">What inspires you to recommend this?</label>
     <input type="text" id="field12391625" name="field12391625" size="50" value="" class="fsField " style="width: 300px" />
     <label class="fsLabel fsRequiredLabel" for="field11086900">Email <span class="required">*</span></label>
-
- 	<div style="float: left;"><input type="text" id="field11217163" name="field11217163" size="50" value="<?php r_fill_email(); ?>" class="required email" /></div><div style="float: right; margin-top: -3px;"><input id="fsSubmitButton1062791" class="fsSubmitButton" type="submit" value="Submit" /></div>
-                <div class="clear">
-                </div>
+	<div style="float: left;"><input type="text" id="field11217163" name="field11217163" size="50" value="<?php r_fill_email(); ?>" class="required email" /></div>
+	<div style="float: right; margin-top: -3px;"><input id="fsSubmitButton1062791" class="fsSubmitButton" type="submit" value="Submit" /></div>
+    <div class="clear"></div>
 </form>
 	<?php
 }
@@ -74,18 +73,15 @@ function q_create_form() {
     <input type="hidden" name="_submit" value="1" />
     <input type="hidden" name="incomplete" id="incomplete1058142" value="" />
     <input type="hidden" id="field11086912-first" name="field11086912-first" size="20" value="<?php r_fill_first(); ?>" class="fsField fsFieldName " />
-                        <input type="hidden" id="field11086912-last" name="field11086912-last" size="20" value="<?php r_fill_last(); ?>" class="fsField" />
-                        <input type="hidden" id="field11087077" name="field11087077" size="50" value="<?php r_fill_ID(); ?>" class="fsField " />
-						<p class="explanation"><a href="/about/ask-a-question/">How does this work?</a></p>
-                        <label class="fsLabel fsRequiredLabel" for="field11086898">Your Question <span class="required">*</span>
-                    </label>
-                    <textarea id="field11086898" name="field11086898" rows="5" class="required"></textarea>
-
-                    <label class="fsLabel fsRequiredLabel" for="field11086900">Email <span class="required">*</span>
-                </label>
-                <div style="float: left;"><input type="text" id="field11086900" name="field11086900" size="50" value="<?php r_fill_email(); ?>" class="required email" /></div><div style="float: right; margin-top: -3px;"><input id="fsSubmitButton1058142" class="fsSubmitButton" type="submit" value="Submit" /></div>
-                <div class="clear">
-                </div>
+    <input type="hidden" id="field11086912-last" name="field11086912-last" size="20" value="<?php r_fill_last(); ?>" class="fsField" />
+    <input type="hidden" id="field11087077" name="field11087077" size="50" value="<?php r_fill_ID(); ?>" class="fsField " />
+	<p class="explanation"><a href="/about/ask-a-question/">How does this work?</a></p>
+    <label class="fsLabel fsRequiredLabel" for="field11086898">Your Question <span class="required">*</span></label>
+    <textarea id="field11086898" name="field11086898" rows="5" class="required"></textarea>
+	<label class="fsLabel fsRequiredLabel" for="field11086900">Email <span class="required">*</span></label>
+    <div style="float: left;"><input type="text" id="field11086900" name="field11086900" size="50" value="<?php r_fill_email(); ?>" class="required email" /></div>
+    <div style="float: right; margin-top: -3px;"><input id="fsSubmitButton1058142" class="fsSubmitButton" type="submit" value="Submit" /></div>
+    <div class="clear"></div>
 </form>
 	<?php
 }
@@ -128,6 +124,7 @@ jQuery(document).ready(function(){
 function widget_suggest_a_resource($args) {
   extract($args);
   echo $before_widget;
+ 
   if (is_category(25) || in_category(25) && !is_home()) {
 	  echo $before_title;
 	  echo "What's Missing?";
@@ -142,17 +139,22 @@ function widget_suggest_a_resource($args) {
 	  echo "<p style=\"margin-bottom:0\">Do you have a question for the Journalism Accelerator team? Let us know the question on your mind you think the broader community should be asking.</p>";
   }
   
- if (!is_category(25) && !is_category(28)) {
-  echo $before_title;
-?>
+	if (is_category(25) || !is_category(25) && !is_category(28)) {
+	echo $before_title;
 
-<?php if (!in_category(25) || is_home()) { ?><a href="#askaquestion" class="expand question"><span class="expandlink">Ask a Question</span></a><?php } ?>
-<a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>
+	if (is_category(25)):  // !in_category(25) || is_home()
+		echo '<a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>';
+	else:
+		echo '<a href="#askaquestion" class="expand question"><span class="expandlink">Ask a Question</span></a>';
+		echo '<a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>';
+	endif;
 
-<?php echo $after_title;
+
+	echo $after_title; 
 	}
-  q_create_form();
-  r_create_form();
+	
+  q_create_form();	// creates form
+  r_create_form();	// creates form
 
   echo $after_widget;
 }

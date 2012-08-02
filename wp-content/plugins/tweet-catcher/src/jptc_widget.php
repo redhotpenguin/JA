@@ -130,7 +130,7 @@ class Tweet_Manager_Widget extends WP_Widget {
 			else $handle = 'journaccel';
 			if($handle){ //display follow button ?>
 			<div class="jptc_follow_btn">
-				<a href="https://twitter.com/<?php echo $handle;?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $handle;?></a>
+				<a href="https://twitter.com/<?php echo $handle;?>" class="twitter-follow-button" data-show-count="true">Follow @<?php echo $handle;?></a>
 				<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 			</div>
 			

@@ -36,6 +36,7 @@ function create_post_type() {
 }
 /*End of custom post type*/
 
+
 function is_child( $parent = '' ) {
 	global $post;
  
@@ -1255,3 +1256,33 @@ function ie_close() {
 add_action('bp_before_header','ie_open', 1);
 add_action('bp_after_footer','ie_close', 1);
 
+//.............................................................................
+//	ADD THE ABILITY TO USE SHORTCODES IN THE WORDPRESS TEXT WIDGETS
+//.............................................................................
+
+add_filter( 'widget_text', 'shortcode_unautop');
+add_filter( 'widget_text', 'do_shortcode');
+
+
+function getPostViews($postID){
+$count_key = 'post_views_count';
+$count = get_post_meta($postID, $count_key, true);
+if($count==''){
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+    return "0 View";
+}
+return $count.' Views';
+}
+function setPostViews($postID) {
+$count_key = 'post_views_count';
+$count = get_post_meta($postID, $count_key, true);
+if($count==''){
+    $count = 0;
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+}else{
+    $count++;
+    update_post_meta($postID, $count_key, $count);
+}
+}

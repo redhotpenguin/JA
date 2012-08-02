@@ -10,8 +10,8 @@
 				<div class="textwidget">
 					<ul>
 <?php if(!is_user_logged_in()){?><li><img style=' background-color:#fff;' src='http://www.journalismaccelerator.com/wp-content/uploads/2011/09/ja_14.png'/> <a href="#" onclick="showRPX('rpxlogin');">Login</a></li><?php } ?>
-						<li><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="false">Follow @journaccel</a>
-<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></li>
+						<li><a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @journaccel</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
 						<li><a href="/Feed/"><img src="/feed.png" alt="Feed Icon">  </a><a href="/feed/">RSS Feed</a></li>
 						<li><a href="/link-to-us/">Link to Us</a></li>
 					</ul>
