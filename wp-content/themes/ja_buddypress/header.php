@@ -92,6 +92,14 @@
 		<?php global $post; ?>
 		<meta property="og:description" content="<?php echo substr(strip_tags(strip_shortcodes($post->post_content)), 0, 200) . '...'; ?>" />
 		<?php endif; ?>
+		
+<meta property="og:title" content="Journalism Accelerator" />
+<meta property="og:type" content="non_profit" />
+<meta property="og:url" content="http://www.journalismaccelerator.com" />
+<meta property="og:image" content="http://a0.twimg.com/profile_images/1596682013/ja_icon_normal.png" />
+<meta property="og:site_name" content="Journalism Accelerator" />
+<meta property="fb:admins" content="578362610" />
+		
 	</head>
 
 	<body <?php body_class('custom') ?> id="bp-default">
@@ -106,10 +114,19 @@
 		</div><!-- #header -->
 
 		<?php do_action( 'bp_after_header' ) ?>
+				
 		
 			<div class="global_follow_btn">
+<div class="linkedin">
+<a href="http://www.linkedin.com/company/journalism-accelerator/" title="JA on LinkedIn" target="_blank"><img src="/wp-content/uploads/2012/08/linkedin.png" alt="LinkedIn icon" /><span>LinkedIn</span></a>
+</div>
+<div class="facebook">
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fjournalismaccelerator&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=21&amp;appId=223081781069699" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+</div>
+<div class="twitter">
 				<a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @journaccel</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
 			</div>
 		
 		<div id="cat_nav">

@@ -256,10 +256,10 @@ padding: 0;
 
 .custom #wdg_specialrecentposts-4 a, .custom #wdg_specialrecentposts-6 a, .custom #wdg_specialrecentposts-7 a,
 .custom #wdg_specialrecentposts-8 a, .custom #wdg_specialrecentposts-9 a, .custom #wdg_specialrecentposts-10 a, .custom #related-blog-posts a {
-	font-size: 14px;
-	line-height: 22px;
 	text-decoration: none;
 	font-weight: bold;
+	font-size: 13px;
+	line-height: 16px;
 }
 
 .custom #wdg_specialrecentposts-11 a.srp-widget-stringbreak-link {
@@ -607,10 +607,34 @@ border-radius: 6px; */
 
 .custom   .global_follow_btn {
 	position: relative;
-	left: 1029px;
 	top: 20px;
-	width: 224px;
+	width: 450px;
+	right: 0;
+	left: 905px;
+	overflow: visible;
 }
+
+#bp-default div.global_follow_btn div.facebook,
+#bp-default div.global_follow_btn div.linkedin,
+#bp-default div.global_follow_btn div.twitter {
+	display: inline-block;
+	margin-right: 15px;
+	height: 14px;
+}
+
+#bp-default div.global_follow_btn div.linkedin a {
+	display: inline-block;
+	height: 12px;
+}
+
+#bp-default div.global_follow_btn div.linkedin a span {
+	font-size: 0;
+	line-height: 0;
+	text-indent: -10000px;
+	display: inline;
+}
+
+
 
 .custom #better-recent-comments h3.widgettitle {
 	background-color: #e7ffe5;
@@ -1314,7 +1338,7 @@ x;
 }
 
 .custom .column-footer .widget {
-	width: 210px;
+	width: 200px;
 	padding-right: 10px;
 	float: left;
 }
@@ -1461,7 +1485,8 @@ border-style: solid;
 }
 
 .custom div#sidebar h3.widgettitle.expandheader a.expand,
-.custom #participants .participant_link_back a {
+.custom #participants .participant_link_back a,
+.custom div#blog-archives h3.widgettitle.expandheader a.expand {
 	text-decoration: none;
 	background-color: #16A0E8;
 	color: white;
@@ -1473,7 +1498,20 @@ border-style: solid;
 	font-size: 15px;
 }
 
-.custom div#sidebar h3.widgettitle.expandheader a.expand:hover {
+#blog-archives h3.widgettitle.expandheader {
+	display: inline-block;
+	position: relative;
+	margin-top: -30px;
+	float: right;
+}
+
+div.srp-widget-singlepost div.srp-thumbnail-box a.srp-widget-thmblink img {
+	width: 48px;
+	height: 48px;
+}
+
+.custom div#sidebar h3.widgettitle.expandheader a.expand:hover,
+.custom div#blog-archives h3.widgettitle.expandheader a.expand:hover {
 	background-color: #396;
 }
 
@@ -2415,4 +2453,26 @@ div.jptc_follow_btn div.count-o {
 	color: #5e5e5e;
 	margin-top: 3px;
 	margin-left: 0;
+	line-height: 20px;
+}
+
+ul li.facebook-icon {
+	background: url(/wp-content/uploads/2012/08/facebook.png) no-repeat 0 1px;
+}
+
+ul li.linkedin-icon {
+	background: url(/wp-content/uploads/2012/08/linkedin.png) no-repeat 0 1px;
+}
+ul li.rss-icon {
+	background: url(/feed.png) no-repeat 0 2px;
+}
+
+ul li.facebook-icon a,
+ul li.linkedin-icon a,
+ul li.rss-icon a {
+	padding-left: 22px;
+}
+
+div.column-footer li{
+	margin-bottom: 3px;
 }
