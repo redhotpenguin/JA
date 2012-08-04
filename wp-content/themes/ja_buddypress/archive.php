@@ -10,7 +10,7 @@
 
             <div class="page" id="blog-archives">
 
-                <h1>Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all resources</a></span></h1> <h3 class="widgettitle"><a href="#" class="expand resource" ><span class="expandlink">Resource Index</span></a></h3>
+                <h1>Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed of all resources</a></span></h1> <!-- <h3 class="widgettitle"><a href="#" class="expand resource" ><span class="expandlink">Resource Index</span></a></h3> -->
                 <?php echo category_description(); 
                 
                 ja_resource_home(); ?>
@@ -216,7 +216,7 @@ elseif (is_category(39)) :
 
             <div class="page" id="blog-archives">
                 <h1><?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
-                <h3 class="widgettitle"><a href="#" class="expand resource" ><span class="expandlink">Blog Index</span></a></h3>
+                <!-- <h3 class="widgettitle"><a href="#" class="expand resource" ><span class="expandlink">Blog Index</span></a></h3> -->
     <?php echo category_description(); ?>
 
     <?php if (have_posts()) : ?>
