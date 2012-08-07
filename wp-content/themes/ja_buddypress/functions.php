@@ -795,7 +795,7 @@ function dp_recent_all_comments() {
 
 function latest_listings() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&cat=25&showposts=4');
+	$latest_listings->query('&cat=25,-445,-16&showposts=4');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
@@ -1287,22 +1287,15 @@ if($count==''){
 }
 }
 
-//.............................................................................
-//	Function to add Blog Index and Resource Index link buttons to Resource
-//	and Blog pages.
-//.............................................................................
+function bp_author_link($author_ID) {
 
-// function theme_slug_filter_the_title( $title ) {
-//     if ( in_category('resources') ) {
-// 		$custom_title = '<h3 class="widgettitle"><a href="/blog-index/" class="expand resource" ><span class="expandlink">Resource Index</span></a></h3>';
-// 		$title .= $custom_title;
-// 		return $title;
-//     } elseif ( in_category('blog') ) {
-// 		$custom_title = '<h3 class="widgettitle"><a href="/blog-index/" class="expand resource" ><span class="expandlink">Blog Index</span></a></h3>';
-// 		$title .= $custom_title;
-// 		return $title;
-//     } else {
-// 		return $title;
-//     }
-// }
-// add_filter( 'wp_title', 'theme_slug_filter_the_title' );
+	// Get author's data BuddyPress style
+	$author = new BP_Core_User( $author_ID );
+
+	echo '<a href="' . $author->user_url . '">';
+	echo $author->avatar_mini;
+	echo ' ' . $author->fullname;
+	echo '</a><p>';
+	echo $author->profile_data['One-Line Bio']['field_data'];
+	echo '</p><hr>';
+}

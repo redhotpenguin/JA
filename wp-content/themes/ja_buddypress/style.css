@@ -22,6 +22,7 @@ Tags: buddypress, two-column
 
 body.custom {
 	background: #e8e8e8;
+	font-family: Arial, Tahoma, Verdana, sans-serif;
 }
 
 a {
@@ -38,6 +39,7 @@ h1 a {
 
 .custom #blog-single .post-content h1 {
 	color: #349966;
+	font-size: 2em;
 }
 
 .custom blockquote p {
@@ -146,6 +148,19 @@ padding: 0;
 
 .custom div#content .padder {
 	margin-right: 350px;
+	padding-bottom: 15px;
+}
+
+#blog-archives h3.widgettitle.blog-index a.resource:hover {
+	background-image: none;
+	background-color: transparent;
+}
+
+#content div.padder div.two-columns {
+	display: inline-block;
+	width: 570px;
+	float: left;
+	margin-bottom: 20px;
 }
 
 .custom .quadrants {
@@ -252,6 +267,8 @@ padding: 0;
 
 .custom #wdg_specialrecentposts-4 a {
 	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 23px;
 }
 
 .custom #wdg_specialrecentposts-4 a, .custom #wdg_specialrecentposts-6 a, .custom #wdg_specialrecentposts-7 a,
@@ -273,9 +290,13 @@ padding: 0;
 
 .custom .srp-widget-singlepost {
 	border: none;
-	margin: 0 !important;
+	margin: 0;
 	padding: 0 !important;
 	min-height: 65px;
+}
+
+#related-blog-posts div.clearfix {
+	display: inline-block;
 }
 
 .custom #text-14 a {
@@ -610,7 +631,7 @@ border-radius: 6px; */
 	top: 20px;
 	width: 450px;
 	right: 0;
-	left: 905px;
+	left: 900px;
 	overflow: visible;
 }
 
@@ -624,14 +645,13 @@ border-radius: 6px; */
 
 #bp-default div.global_follow_btn div.linkedin a {
 	display: inline-block;
-	height: 12px;
+	height: 20px;
+	text-decoration: none;
+	border-style: none;
 }
 
 #bp-default div.global_follow_btn div.linkedin a span {
-	font-size: 0;
-	line-height: 0;
-	text-indent: -10000px;
-	display: inline;
+	display: none;
 }
 
 
@@ -1010,17 +1030,24 @@ s: 6px;
 .custom #blog-archives h1 {
 	margin-bottom: 8px;
 	font-size: 24px;
+	display: inline-block;
+	width: 720px;
 }
 
-.custom #blog-archives h1+p {
-	font-size: 18px;
+#blog-archives h3.widgettitle {
+	display: inline-block;
+	float: right;
+	margin-bottom: 4px;
+}
+
+.custom #blog-archives h1+p,
+.custom #blog-archives h3+p {
+	font-size: 15px;
 
 /* font-style: italic;
 font-weight: bold; */
 color: #555;
-	line-height: 20p
-
-x;
+	line-height: 20px;
 /* margin-bottom: 2em; */
 }
 
@@ -1088,6 +1115,7 @@ x;
 
 .custom h2.blogtitle {
 	margin-bottom: 0;
+	line-height: 1em;
 }
 
 .custom div.hasimages {
@@ -1143,7 +1171,7 @@ x;
 }
 
 .custom h2 + div.post-info {
-	margin-bottom: 0;
+	margin-bottom: 4px;
 }
 
 .custom div.resource-tout + h2 {
@@ -1482,11 +1510,12 @@ border-style: solid;
 .custom div#sidebar h3.widgettitle.expandheader {
 	background: none !important;
 	border: none;
+	margin-bottom: 0;
 }
 
 .custom div#sidebar h3.widgettitle.expandheader a.expand,
 .custom #participants .participant_link_back a,
-.custom div#blog-archives h3.widgettitle.expandheader a.expand {
+.custom div#blog-archives h3.widgettitle span.expandlink {
 	text-decoration: none;
 	background-color: #16A0E8;
 	color: white;
@@ -1496,6 +1525,11 @@ border-style: solid;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
 	font-size: 15px;
+}
+
+#blog-archives h3.widgettitle.blog-index {
+	display: inline-block;
+	position: relative;
 }
 
 #blog-archives h3.widgettitle.expandheader {
@@ -1891,6 +1925,7 @@ min-height: 40px; */
 
 .custom div.widget_suggest_a_resource h3.widgettitle {
 	margin-top: 10px !important;
+	margin-bottom: 0;
 }
 
 .custom .rpx_user_icon {
@@ -2429,7 +2464,7 @@ body.single form#subForm input#ajrhk-ajrhk {
 	background-color: white !important;
 }
 
-div.jptc_follow_btn div.count-o {
+div.count-o {
 	display: inline-block !important;
 	visibility: visible !important;
 	z-index: 100;
@@ -2476,3 +2511,333 @@ ul li.rss-icon a {
 div.column-footer li{
 	margin-bottom: 3px;
 }
+
+<!-- Blog Index Page CSS-->
+<!-- By Sarthak Patel www.pricus.com-->
+.custom .secondary-sidebar{
+	width:300px !important;
+	float:right !important;
+}
+.custom .box{
+	height:300px;
+	width:250px;
+	padding-right:10px;
+}
+
+/* @group Styles for Tabbed Index Pages */
+
+
+#example-two ul.nav li.nav-one a.current {
+	background-color: #16a0e8 !important;
+	color: white;
+	font-weight: bold;
+}
+
+
+div#content div.padder div.secondary-sidebar {
+	display: inline-block;
+	float: right;
+	width: 277px;
+}
+
+
+
+
+
+/* Specific to example two */
+
+#example-two .list-wrap { background: white; padding: 10px 0; margin: 0 0 15px 0;
+	border-right-style: none;
+	border-left-style: none;
+	border-bottom-style: none;
+	border-top: 6px solid #16a0e8;
+}
+
+#example-two ul { list-style: none; }
+
+ul#alpha.hide {
+}
+
+#topic div.boxed-blog ul li,
+#topic div.boxed-resource ul li {
+	margin-bottom: 10px;}
+
+
+#topic div.boxed-blog ul li:before,
+#topic div.boxed-resource ul li:before {
+	content: "\00BB \0020";
+	float: left;
+	display: inline-block;
+	margin-top: -1px;
+	font-size: 13px;
+	line-height: 17px;
+	margin-bottom: 10px;
+	color: #a9a9a9;
+}
+#example-two ul li a { display: block; padding: 2px 0 2px 10px;
+	font-size: 12px;
+	line-height: 14px;
+}
+#example-two ul li a:hover { background: #eaeaea; color: #000; }
+#example-two ul li:last-child a { border: none; }
+
+#example-two .nav { overflow: hidden; }
+#example-two .nav li { width: 97px; float: left; margin: 0 10px 0 0;
+ }
+#example-two .nav li.last { margin-right: 0; }
+#example-two .nav li a { display: block; padding: 5px; background: #d5d5d5; color: #5e5e5e; font-size: 13px; text-align: center; border: 0;
+	font-weight: bold;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-topright: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+	line-height: 19px;
+}
+
+#example-two li a.current,#example-two li a.current:hover { background-color: #eee !important; color: black; }
+#example-two .nav li a:hover, #example-two .nav li a:focus,
+#example-two ul.nav li.nav-two a.current { background: #16a0e8 !important;}
+#example-two ul.nav li.nav-two a.current,
+#example-two ul.nav li.nav-three a.current { background: #16a0e8 !important;
+	color: white;
+}
+
+#example-two ul.nav li.nav-three a.current {
+	
+}
+
+#topic div.boxed-blog,
+#author div.boxed-author,
+div.boxed-resource,
+#author div.boxed-author-other {
+	width: 255px;
+	padding: 10px;
+	display: inline-block;
+	float: left;
+	overflow: auto;
+	border: 1px solid #999;
+	margin-right: 8px;
+	margin-bottom: 10px;
+	height: 400px;
+}
+
+div.boxed-resource {
+	height: 390px;
+}
+
+#topic div.boxed-blog h4 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+#content div.padder div.secondary-sidebar div.item-list-tabs {
+	width: 254px;
+	margin: 0;
+	background-color: #e8e8e8;
+	padding: 8px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#content div.padder div.secondary-sidebar ul,
+div#tag-cloud-wrapper {
+	width: 238px;
+	margin: 0 0 20px;
+	padding: 10px 10px 0 20px;
+	border-bottom: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8;
+	border-left: 1px solid #e8e8e8;
+	text-align: left;
+	display: inline-block;
+}
+
+div#tag-cloud-wrapper {
+	padding: 10px;
+	width: 248px;
+}
+
+p#helptext {
+	font-size: 12px;
+	color: #a9a9a9;
+}
+
+#tag-cloud-wrapper a {
+	display: inline-block;
+	float: left;
+	line-height: .9;
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+
+#content div.padder div.secondary-sidebar ul li {
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 15px;
+	padding-left: 0;
+}
+
+#alpha p.letter-index {
+	font-size: 13px;
+	text-align: left;
+}
+
+#alpha div.letter-wrap h3.alpha-title {
+	border-bottom: 1px solid #999;
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+}
+
+#alpha div.letter-wrap p.letter-back a {
+	font-size: 10px;
+}
+#alpha div.letter-wrap p.letter-back {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#alpha div.letter-wrap {
+	display: block;
+}
+
+#content div.padder div.secondary-sidebar ul li:before,
+#author div.boxed-author-other ul li:before,
+#author div.boxed-author ul li:before {
+	content: "\00BB \0020";
+	margin-top: -1px;
+	margin-bottom: 10px;
+	margin-left: -9px;
+	color: #a9a9a9;
+}
+
+#author div.boxed-author-other ul li {
+	line-height: normal;
+	margin-bottom: 8px;
+}
+#author div.boxed-author-other ul li a,
+#author div.boxed-author ul li a {
+	margin: 0;
+	padding: 0;
+	display: inline;
+	line-height: 5px;
+}
+#commented-list li a {
+	padding: 0 0 10px;
+	margin-left: 1px;
+}
+
+p#morelink,
+p.morelink {
+	float: right;
+	display: inline-block;
+	font-size: 12px;
+}
+#date div.boxed-date ul li span.posted-date {
+	display: inline-block;
+	float: left;
+}
+
+#date div.boxed-date ul li {
+	clear: both;
+	margin-bottom: 8px;
+}
+/* @group by Author */
+
+#author div.boxed-author {
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 253px;
+	height: 400px;
+}
+
+#author div.boxed-author-other {
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 253px;
+	height: auto;
+}
+
+#author div.boxed-author-other img {
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 8px;
+}
+
+#author div.boxed-author a img {
+	margin-right: 15px;
+}
+
+#author div.boxed-author ul li a,
+#author div.boxed-author ul li a {
+	font-size: 12px;
+}
+
+p.author-lead-in {
+	clear: both;
+	margin-bottom: 3px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+#author div.boxed-author-other ul,
+#author div.boxed-author ul {
+	margin-bottom: 15px;
+	margin-left: 10px;
+}
+
+#author div.boxed-author ul li {
+	margin-bottom: 8px;
+	line-height: 15px;
+}
+
+#author div.boxed-author hr {
+	margin-top: 3px;
+	margin-bottom: 6px;
+}
+
+#author div.boxed-author a {
+	font-size: 15px;
+}
+
+p#other-authors {
+	font-size: 15px;
+}
+
+
+#author div.boxed-author-other div.other-author-wrapper p.morelink {
+	border-bottom-style: none;
+	font-size: 12px;
+	line-height: 15px;
+	margin-bottom: 10px;
+	color: #929292;
+	text-align: right;
+}
+
+#author div.boxed-author a.morelink {
+	font-size: 12px;
+	float: right;
+}
+
+#author div.boxed-author p {
+	font-size: 12px;
+	line-height: 15px;
+	margin-bottom: 10px;
+	color: #929292;
+}
+
+#author div.boxed-author p.morelink,
+#author div.boxed-author p.morelink a {
+	font-size: 12px;
+	text-align: right;
+}
+
+
+
+/* @end */
+
+
+/* @end */

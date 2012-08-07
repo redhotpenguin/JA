@@ -8,6 +8,8 @@
 		<div class="page" id="blog-single">
 			
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				
+				<?php setPostViews(get_the_ID()); ?>
 
 				<div class="item-options">
 

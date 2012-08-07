@@ -13,6 +13,12 @@
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		
+		<?php wp_enqueue_script('tabs_script', get_bloginfo('stylesheet_directory') . '/tab-includes/js/organictabs.jquery.js');?>
+		
+		<?php wp_enqueue_style('tabs', get_bloginfo('stylesheet_directory') . '/tab-includes/css/tabstyle.css');?>
 
 		<?php if ( function_exists( 'bp_sitewide_activity_feed_link' ) ) : ?>
 			<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php _e('Site Wide Activity RSS Feed', 'buddypress' ) ?>" href="<?php bp_sitewide_activity_feed_link() ?>" />

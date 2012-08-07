@@ -1,0 +1,13 @@
+/* @override http://ispkintrnt.com/wp-content/themes/ja_buddypress/tab-includes/css/tabstyle.css?ver=3.1 */
+
+/*
+	 Organic Tabs
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+html { overflow-y: scroll; }
+
+/* Generic Utility */
+.hide { position: absolute; top: -9999px; left: -9999px; }
