@@ -1,9 +1,5 @@
 
-wp-content/plugins/.DS_Store
-
-wp-content/plugins/tweet-catcher/.DS_Store
-
-.DS_Store
+*.DS_Store
 
 *.zip
 
@@ -26,8 +22,6 @@ wp-content/plugins/conversations/conversations.php
 wp-content/plugins/easy-admin-color-schemes/easy-admin-color-schemes.php
 
 wp-content/plugins/easy-admin-color-schemes/readme.txt
-
-wp-content/plugins/export-to-text/export-to-text_helpers.php
 
 wp-content/plugins/janitor/janitor.php
 
