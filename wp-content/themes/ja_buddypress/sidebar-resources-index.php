@@ -41,10 +41,13 @@
 	</ul>
 	
 
-	<!--Resources Posts by Tag-->
+<!-- Hiding until categories resolved.
+
+	Resources Posts by Tag
 	<div class="item-list-tabs">View by tags</div>
 <div id="tag-cloud-wrapper">
 	<?php if ( function_exists('wp_tag_cloud') ) : ?>
 		<?php wp_tag_cloud('smallest=7&largest=24&include=25,35,34,33,26,324,36,16,32,31,30,445'); ?>
 	<?php endif; ?>
 	</div>
+ -->
