@@ -9,8 +9,10 @@
 <div id="example-two">
 			
 	<ul class="nav">
-		<li class="nav-one"><a class="current" href="#topic">By Topic</a></li>
-		<li class="nav-two"><a href="#alpha">By Alpha</a></li>
+<!-- Commenting out author and topic for live site per Lisa
+		<li class="nav-one"><a  href="#topic">By Topic</a></li>
+ -->
+		<li class="nav-two"><a class="current" href="#alpha">By Alpha</a></li>
 <!-- 
 		<li class="nav-three"><a href="#date">By Date</a></li>
  -->
@@ -18,7 +20,7 @@
 	
 	<div class="list-wrap">
 	
-		<div id="topic">
+		<div class="hide" id="topic" style="position: relative; top: 0px; left: 0px; display: none;">
 			<?php 
 			$categories = get_categories('child_of=25');
 			//print_r($categories);exit;
@@ -48,7 +50,7 @@
 		</div>
 		
 		 
-		<div class="hide" id="alpha" style="position: relative; top: 0px; left: 0px; display: none;">
+		<div id="alpha">
 			<?php 
 			$args = array(
 				'cat' => 25,

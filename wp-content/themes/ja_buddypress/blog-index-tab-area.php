@@ -10,8 +10,10 @@
 			
 	<ul class="nav">
 		<li class="nav-three"><a class="current" href="#date">By Date</a></li>
+<!-- Commenting out author and topic for live site per Lisa
 		<li class="nav-two"><a href="#author">By Author</a></li>
 		<li class="nav-one"><a href="#topic">By Topic</a></li>
+ -->
 	</ul>
 	
 	<div class="list-wrap">
