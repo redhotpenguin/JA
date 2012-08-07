@@ -17,8 +17,6 @@ wp-content/plugins/buddypress-no-mentions/loader.php
 
 wp-content/plugins/buddypress-no-mentions/readme.txt
 
-*.txt
-
 wp-content/plugins/buddypress/bp-forums/bbpress/bb-admin/options-permalinks.php
 
 wp-content/plugins/comment_shortcode/comment_shortcode.php
@@ -41,11 +39,7 @@ wp-content/plugins/maintenance-mode/maintenance-mode_theme_default.php
 
 wp-content/plugins/wp-twitter-feed/wp-twitter-feed.php
 
-*.txt
-
 wp-content/plugins/wp-twitter-feed/magpie/scripts/smarty_plugin/modifier.rss_date_parse.php
-
-*.txt
 
 wp-content/plugins/wp-twitter-feed/readme.txt
 
