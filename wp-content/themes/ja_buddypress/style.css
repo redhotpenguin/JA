@@ -27,10 +27,12 @@ body.custom {
 
 a {
 	color: #469ced;
+	text-decoration: none;
 }
 
 a:hover, a:active {
 	color: #20486d;
+	text-decoration: none;
 }
 
 h1 a {
@@ -1034,12 +1036,6 @@ s: 6px;
 	width: 720px;
 }
 
-#blog-archives h3.widgettitle {
-	display: inline-block;
-	float: right;
-	margin-bottom: 4px;
-}
-
 .custom #blog-archives h1+p,
 .custom #blog-archives h3+p {
 	font-size: 15px;
@@ -1515,10 +1511,11 @@ border-style: solid;
 
 .custom div#sidebar h3.widgettitle.expandheader a.expand,
 .custom #participants .participant_link_back a,
-.custom div#blog-archives h3.widgettitle span.expandlink {
+.custom div#blog-archives h3.widgettitle span.expandlink,
+.custom #blog-archives h3.index_title span.expandlink {
 	text-decoration: none;
 	background-color: #16A0E8;
-	color: white;
+	color: white !important;
 	padding: 4px 8px;
 	border: 1px solid #DEDEDE;
 	-webkit-border-radius: 6px;
@@ -1527,16 +1524,12 @@ border-style: solid;
 	font-size: 15px;
 }
 
-#blog-archives h3.widgettitle.blog-index {
+#blog-archives h3.index_title {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: auto;
 	display: inline-block;
-	position: relative;
-}
-
-#blog-archives h3.widgettitle.expandheader {
-	display: inline-block;
-	position: relative;
-	margin-top: -30px;
-	float: right;
+	height: 25px;
 }
 
 div.srp-widget-singlepost div.srp-thumbnail-box a.srp-widget-thmblink img {
@@ -2524,6 +2517,13 @@ div.column-footer li{
 	padding-right:10px;
 }
 
+#alpha div.letter-wrap a.top-arrow-link {
+	display: inline-block;
+	float: right;
+	top: -25px;
+	position: relative;
+}
+
 /* @group Styles for Tabbed Index Pages */
 
 
@@ -2555,31 +2555,35 @@ div#content div.padder div.secondary-sidebar {
 
 #example-two ul { list-style: none; }
 
+#topic div.box-wrapper div.boxed-resource ul li a {
+	line-height: 14px !important;
+}
+
 ul#alpha.hide {
 }
 
 #topic div.boxed-blog ul li,
 #topic div.boxed-resource ul li {
-	margin-bottom: 10px;}
+	margin-bottom: 8px;}
 
 
 #topic div.boxed-blog ul li:before,
 #topic div.boxed-resource ul li:before {
-	content: "\00BB \0020";
 	float: left;
 	display: inline-block;
-	margin-top: -1px;
 	font-size: 13px;
 	line-height: 17px;
-	margin-bottom: 10px;
 	color: #a9a9a9;
 }
-#example-two ul li a { display: block; padding: 2px 0 2px 10px;
+#example-two ul li a { padding: 0;
 	font-size: 12px;
-	line-height: 14px;
+	line-height: 14px !important;
 }
-#example-two ul li a:hover { background: #eaeaea; color: #000; }
 #example-two ul li:last-child a { border: none; }
+
+#topic div.boxed-resource ul li a {
+	padding: 0;
+}
 
 #example-two .nav { overflow: hidden; }
 #example-two .nav li { width: 97px; float: left; margin: 0 10px 0 0;
@@ -2608,23 +2612,31 @@ border-top-right-radius: 10px;
 	
 }
 
-#topic div.boxed-blog,
 #author div.boxed-author,
-div.boxed-resource,
 #author div.boxed-author-other {
 	width: 255px;
 	padding: 10px;
 	display: inline-block;
 	float: left;
 	overflow: auto;
-	border: 1px solid #999;
 	margin-right: 8px;
 	margin-bottom: 10px;
-	height: 400px;
+	height: auto;
+	border: 1px solid #e8e8e8;
 }
 
-div.boxed-resource {
-	height: 390px;
+div#topic h4 {
+	margin-top: 0;
+}
+
+#topic div.box-wrapper {
+	display: inline-block;
+	width: 257px;
+	margin-right: 3px;
+	border: 1px solid #e8e8e8;
+	padding: 10px;
+	float: left;
+	margin-bottom: 10px;
 }
 
 #topic div.boxed-blog h4 {
@@ -2632,7 +2644,8 @@ div.boxed-resource {
 	margin-bottom: 8px;
 }
 
-#content div.padder div.secondary-sidebar div.item-list-tabs {
+#content div.padder div.secondary-sidebar div.item-list-tabs,
+#tag-cloud-wrapper h4.item-list-tabs {
 	width: 254px;
 	margin: 0;
 	background-color: #e8e8e8;
@@ -2641,11 +2654,15 @@ div.boxed-resource {
 	font-weight: bold;
 }
 
+#tag-cloud-wrapper h4.item-list-tabs {
+	
+}
+
 #content div.padder div.secondary-sidebar ul,
 div#tag-cloud-wrapper {
-	width: 238px;
+	width: 248px;
 	margin: 0 0 20px;
-	padding: 10px 10px 0 20px;
+	padding: 10px 10px 0;
 	border-bottom: 1px solid #e8e8e8;
 	border-right: 1px solid #e8e8e8;
 	border-left: 1px solid #e8e8e8;
@@ -2653,9 +2670,40 @@ div#tag-cloud-wrapper {
 	display: inline-block;
 }
 
+#content div.padder div.secondary-sidebar ul#popular-list,
+#content div.padder div.secondary-sidebar ul#commented-list {
+	margin-bottom: 0;
+}
+
+#content div.padder div.secondary-sidebar div.boxed-more-link {
+	margin-bottom: 20px;
+	padding: 5px 10px;
+	width: 250px;
+	background-color: #e8e8e8;
+	text-align: right;
+}
+
+#popular-list li img.index-card,
+#commented-list li img.tweet-bird {
+	margin-right: 10px;
+	margin-bottom: 5px;
+	float: left;
+	display: inline-block;
+}
+
+#popular-list li p {
+	position: relative;
+	top: 5px;
+}
+
 div#tag-cloud-wrapper {
+	padding: 0;
+	width: 268px;
+}
+
+#tag-cloud-wrapper div.st-tag-cloud {
+	display: inline-block;
 	padding: 10px;
-	width: 248px;
 }
 
 p#helptext {
@@ -2676,6 +2724,7 @@ p#helptext {
 	font-size: 12px;
 	line-height: 15px;
 	padding-left: 0;
+	clear: both;
 }
 
 #alpha p.letter-index {
@@ -2701,15 +2750,6 @@ p#helptext {
 	display: block;
 }
 
-#content div.padder div.secondary-sidebar ul li:before,
-#author div.boxed-author-other ul li:before,
-#author div.boxed-author ul li:before {
-	content: "\00BB \0020";
-	margin-top: -1px;
-	margin-bottom: 10px;
-	margin-left: -9px;
-	color: #a9a9a9;
-}
 
 #author div.boxed-author-other ul li {
 	line-height: normal;
@@ -2735,12 +2775,36 @@ p.morelink {
 }
 #date div.boxed-date ul li span.posted-date {
 	display: inline-block;
+	width: 120px;
+	margin-bottom: 5px;
 	float: left;
+	clear: both;
+}
+
+#topic div.box-wrapper div.boxed-blog{
+	height: 400px;
+	display: inline-block;
+	overflow: auto;
+}
+
+#topic div.box-wrapper div.boxed-resource {
+	height: 340px;
+	display: inline-block;
+	overflow: auto;
 }
 
 #date div.boxed-date ul li {
 	clear: both;
 	margin-bottom: 8px;
+}
+
+div#container div#content div.padder div.st-tag-cloud a {
+	text-decoration: none;
+	color: #469ced !important;
+}
+
+div#container div#content div.padder div.st-tag-cloud a:hover {
+	color: #20486d !important;
 }
 /* @group by Author */
 
@@ -2749,7 +2813,7 @@ p.morelink {
 	margin-bottom: 20px;
 	padding: 10px;
 	width: 253px;
-	height: 400px;
+	height: auto;
 }
 
 #author div.boxed-author-other {

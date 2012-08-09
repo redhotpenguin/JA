@@ -9,10 +9,8 @@
 <div id="example-two">
 			
 	<ul class="nav">
-<!-- Commenting out author and topic for live site per Lisa
-		<li class="nav-one"><a  href="#topic">By Topic</a></li>
- -->
-		<li class="nav-two"><a class="current" href="#alpha">By Alpha</a></li>
+		<li class="nav-one"><a class="current" href="#topic">By Topic</a></li>
+		<li class="nav-two"><a href="#alpha">By Alpha</a></li>
 <!-- 
 		<li class="nav-three"><a href="#date">By Date</a></li>
  -->
@@ -20,9 +18,9 @@
 	
 	<div class="list-wrap">
 	
-		<div class="hide" id="topic" style="position: relative; top: 0px; left: 0px; display: none;">
+		<div  id="topic">
 			<?php 
-			$categories = get_categories('child_of=25');
+			$categories = get_categories('child_of=25&&exclude=16,445');
 			//print_r($categories);exit;
 			foreach($categories as $category){
 			//echo $category->term_id;
@@ -36,8 +34,9 @@
 			
 			$the_query = new WP_Query($args);
 			?>
+<div class="box-wrapper">
+			<h4><a href="<?php echo esc_url( $category_link ); ?>"><?php echo $category->name; ?></a></h4>
 			<div class="boxed-resource">
-			<h4><?php echo $category->name; ?> <a href="<?php echo esc_url( $category_link ); ?>">&raquo;</a></h4>
 			<ul>
 <?php //the loop
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -46,11 +45,11 @@
 			</ul>
 			<p id="morelink"><a href="<?php echo esc_url( $category_link ); ?>">More &raquo;</a></p>
 			</div>
+</div>
 			<?php } ?>
 		</div>
-		
 		 
-		<div id="alpha">
+		<div id="alpha" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 			<?php 
 			$args = array(
 				'cat' => 25,
@@ -91,9 +90,9 @@ while ($the_query->have_posts()) {
    $the_query->the_post();				
    $this_letter = strtoupper(substr($post->post_title,0,1));
    if ($this_letter != $curr_letter) {
-      if ($curr_letter !== '') echo "</ul><p class='letter-back'><a href='#letter-index' >Back to Index</a></p></div>$letter_div";
+      if ($curr_letter !== '') echo "</ul></div>$letter_div";
       echo "<a name='letter-$this_letter'></a><br />";
-      echo "<h3 class='alpha-title'>$this_letter</h2><ul>";
+      echo "<h3 class='alpha-title'>$this_letter</h2><a href='#letter-index' class='top-arrow-link'><img class='top-arrow' alt='Back to top' src='/wp-content/themes/ja_buddypress/images/blue-arrow-up.png'></a><ul>";
       $curr_letter = $this_letter;
    }
    ?>

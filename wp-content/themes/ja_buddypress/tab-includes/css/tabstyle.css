@@ -6,8 +6,5 @@
 	 http://css-tricks.com
 */
 
-* { margin: 0; padding: 0; }
-html { overflow-y: scroll; }
-
 /* Generic Utility */
 .hide { position: absolute; top: -9999px; left: -9999px; }

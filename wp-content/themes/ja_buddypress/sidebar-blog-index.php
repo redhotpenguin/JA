@@ -5,7 +5,7 @@
 		'post_status' => 'publish',
 		'meta_key' => 'post_views_count',
 	    'orderby' => 'meta_value_num',
-		'order' => 'ASC',
+		'order' => 'desc',
 		'category_name' => 'blog',
 		'posts_per_page' => 7
 	);
@@ -21,12 +21,12 @@
 	
 	
 	<!--Most Commented Posts-->
-	<div class="item-list-tabs">Most Commented</div>
+	<div class="item-list-tabs">Most Comments</div>
 	<?php 
 	$args = array(
 		'post_status' => 'publish',
 		'orderby' => 'comment_count',
-		'order' => 'ASC',
+		'order' => 'desc',
 		'category_name' => 'blog',
 		'posts_per_page' => 7
 	);
@@ -42,9 +42,15 @@
 	
 
 	<!--Blog Posts by Tag-->
-	<div class="item-list-tabs">View Blog post by tags</div>
-<div id="tag-cloud-wrapper">
-	<?php if ( function_exists('wp_tag_cloud') ) : ?>
-		<?php wp_tag_cloud('smallest=8&largest=22'); ?>
+	<?php if ( function_exists('st_tag_cloud') ) : ?>
+
+	<div id="tag-cloud-wrapper">
+		<?php 
+		$tag_args = array(
+			'title' => __('<h4 class="item-list-tabs">View Blog Posts by Tags</h4>', 'simpletags'),
+			'category' => 0	);
+		
+		st_tag_cloud( $tag_args ); ?>
+	</div>
+
 	<?php endif; ?>
-</div>

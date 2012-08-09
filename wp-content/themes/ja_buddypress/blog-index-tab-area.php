@@ -10,10 +10,8 @@
 			
 	<ul class="nav">
 		<li class="nav-three"><a class="current" href="#date">By Date</a></li>
-<!-- Commenting out author and topic for live site per Lisa
 		<li class="nav-two"><a href="#author">By Author</a></li>
 		<li class="nav-one"><a href="#topic">By Topic</a></li>
- -->
 	</ul>
 	
 	<div class="list-wrap">
@@ -34,12 +32,10 @@
 			$category_link = get_category_link( $category->term_id );			
 			$the_query = new WP_Query($args);
 			
-			// Get the URL of this category
 			?>
+<div class="box-wrapper">
+			<h4><a href="<?php echo esc_url( $category_link ); ?>"><?php echo $category->name; ?></a></h4>
 			<div class="boxed-blog">
-			<h4><?php echo $category->name; ?> <a href="<?php echo esc_url( $category_link ); ?>">&raquo;</a></h4>
-			
-
 			<ul>
 <?php //the loop
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -48,6 +44,7 @@
 			</ul>
 			<p id="morelink"><a href="<?php echo esc_url( $category_link ); ?>">More &raquo;</a></p>
 			</div>
+</div>
 			<?php } ?>
 		</div>
 		
@@ -71,16 +68,20 @@
 			<div class="boxed-author">
 			<?php bp_author_link($author->ID);
 ?>
+<!-- Link removed for now
 			<p>Latest posts by <?php echo $author->display_name; ?></p>
+ -->
 			<ul>
 <?php //the loop
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 			<?php endwhile; ?>
 			</ul>
+<!-- No more link for now
 			<?php if($the_query->found_posts >5){ ?>
 			<p class="morelink">More posts by <?php the_author_posts_link(); ?></p>
 			<?php } ?>
+ -->
 			</div>
 			<?php } ?>
 
@@ -107,17 +108,19 @@
 		$the_query = new WP_Query($args);
 		?>			
 
-<p class="author-lead-in">Latest posts by <?php echo $author->display_name; ?></p>
+<p class="author-lead-in"><a href="<?php echo $author->user_url; ?>"><?php echo $author->display_name; ?></a></p>
 <ul>
 <?php //the loop
 	while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 		<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 	<?php endwhile; ?>
 </ul>
+<!-- 
 	<?php if($the_query->found_posts >5){ ?>
 	<p class="morelink">More posts by <?php the_author_posts_link(); ?></p>
 
 	<?php } ?>
+ -->
 	
 	<?php } ?>
 	</div>
@@ -144,7 +147,7 @@
 			<ul>
 			<?php //the loop
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<li><span class="posted-date"><?php the_time('F j, Y'); ?>&mdash;</span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+				<li><span class="posted-date"><?php the_time('F j, Y'); ?></span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 			<?php endwhile; ?>
 			</ul>
 </div>
