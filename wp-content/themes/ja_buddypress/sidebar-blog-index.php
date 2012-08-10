@@ -47,7 +47,7 @@
 	<div id="tag-cloud-wrapper">
 		<?php 
 		$tag_args = array(
-			'title' => __('<h4 class="item-list-tabs">View Blog Posts by Tags</h4>', 'simpletags'),
+			'title' => __('<h4 class="item-list-tabs">View by Tags</h4>', 'simpletags'),
 			'category' => 0	);
 		
 		st_tag_cloud( $tag_args ); ?>

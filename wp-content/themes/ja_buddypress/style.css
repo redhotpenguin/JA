@@ -2701,9 +2701,15 @@ div#tag-cloud-wrapper {
 	width: 268px;
 }
 
+div#tag-wrapper {
+	padding: 10px;
+	display: inline-block;
+}
+
 #tag-cloud-wrapper div.st-tag-cloud {
 	display: inline-block;
 	padding: 10px;
+	font-size: 2em;
 }
 
 p#helptext {
@@ -2717,6 +2723,7 @@ p#helptext {
 	line-height: .9;
 	margin-right: 2px;
 	margin-bottom: 2px;
+	font-size: 2em;
 }
 
 #content div.padder div.secondary-sidebar ul li {
