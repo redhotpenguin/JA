@@ -999,6 +999,7 @@ s: 6px;
 
 .custom .entry h2 {
 	color: #222;
+	clear: both;
 }
 
 .custom .entry ul {
