@@ -48,7 +48,8 @@
 		<?php 
 		$tag_args = array(
 			'title' => __('<h4 class="item-list-tabs">View by Tags</h4>', 'simpletags'),
-			'category' => 0	);
+			'category' => 0,
+			'number' => 45	);
 		
 		st_tag_cloud( $tag_args ); ?>
 	</div>
