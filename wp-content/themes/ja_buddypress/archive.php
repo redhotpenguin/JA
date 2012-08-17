@@ -532,7 +532,7 @@ elseif (is_category(39)) :
     <?php do_action('bp_before_archive') ?>
 
             <div class="page" id="blog-archives">
-                <h1>Blog Posts About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+                <h1>Blog Posts About Journalism and <?php wp_title(null); ?> <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1><h3 class="index_title blog-index"><a href="/blog-index/" class="resource" ><span class="expandlink">Blog Index</span></a></h3>
     <?php echo category_description(); ?>
 
                 <?php if (have_posts()) : ?>
