@@ -2525,8 +2525,8 @@ div.column-footer li {
 /* Blog Index Page CSS */
 
 .custom .secondary-sidebar {
-	width: 300px !important;
 	float: right !important;
+	padding-left: 10px;
 }
 
 
@@ -2554,7 +2554,7 @@ div.column-footer li {
 div#content div.padder div.secondary-sidebar {
 	display: inline-block;
 	float: right;
-	width: 277px;
+	width: 270px;
 }
 
 /* Specific to example two */
