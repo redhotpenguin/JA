@@ -35,7 +35,7 @@
 						<div class="entry">
 						
 						<?php if (in_category(28) || parent_category_is(28)) {
-							the_title('<p>', '</p>');
+							the_title('<h2>', '</h2>');
 							$bitly = get_post_bitly( $post->ID );
 							?>
 							<!-- AddThis Button BEGIN -->

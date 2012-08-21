@@ -53,12 +53,13 @@ body.page #blog-single div.post-content h1 {
 }
 
 .custom blockquote p {
+	/
 
-
-/* border-left: 4px solid #DDD; */
+* border-left: 4px solid #DDD; */
 color: #666;
+	/
 
-/* font-size: 30px; */
+* font-size: 30px; */
 padding: 0;
 	margin: 0 auto;
 }
@@ -75,8 +76,9 @@ padding: 0;
 
 .custom #header, .custom #cat_nav, .custom #container, .custom .column-footer, .custom #footer, .custom #wp-admin-bar {
 	min-width: 1250px;
+/
 
-/* 1035px; */
+* 1035px; */
 }
 
 .custom div#fs-main {
@@ -185,6 +187,8 @@ padding: 0;
 	border-radius: 1
 
 2px;
+
+
 /* behavior: url('/js/pie.htc'); */
 }
 
@@ -523,9 +527,9 @@ margin-left: 15px;
 }
 
 .custom .left-content p.content a {
+	/
 
-
-/* color: #16a0e8; */
+* color: #16a0e8; */
 text-decoration: none;
 }
 
@@ -541,10 +545,10 @@ text-decoration: none;
 
 .custom .slide a.read-more {
 	text-decoration: none;
-	font-weight: bold
+	font-weight: bold;
+/*
 
-;
-/* background-color: #396;
+background-color: #396;
 color: white;
 padding: 4px 8px;
 border: 1px solid #DEDEDE;
@@ -664,8 +668,6 @@ border-radius: 6px; */
 	display: none;
 }
 
-
-
 .custom #better-recent-comments h3.widgettitle {
 	background-color: #e7ffe5;
 	color: #ffffff;
@@ -690,10 +692,10 @@ border-radius: 6px; */
 
 .custom div#sidebar div#related-resources h3.widgettitle {
 	background-color: #eee;
-	color: #555
+	color: #555;
+/*
 
-;
-/* color: #ffffff;
+color: #ffffff;
 font-size: 18px; */
 }
 
@@ -711,15 +713,16 @@ font-size: 18px; */
 
 .custom div#sidebar div#ask-a-question h3.widgettitle {
 	color: #10996B;
-	background-color: #e7ffe5
+	background-color: #e7ffe5;
+/*
 
-;
-/* color: #ffffff;
+color: #ffffff;
 font-size: 18px; */
 }
 
 .custom #ja-login h3.widgettitle {
 	background-color: #777;
+	
 
 /* color: #fff;
 font-size: 18px; */
@@ -734,8 +737,9 @@ margin-top: -1px;
 
 .custom #better-recent-questions h3.widgettitle {
 	background-color: #e7ffe5;
+/
 
-/* color: #ffffff;
+* color: #ffffff;
 font-size: 18px; */
 }
 
@@ -761,8 +765,9 @@ font-size: 18px; */
 
 .custom .relevanssi-query-term {
 	font-weight: bold;
+/
 
-/* background-color: #396;
+* background-color: #396;
 color: #fff;
 padding: 2px 4px; */
 }
@@ -786,6 +791,7 @@ padding: 2px 4px; */
 
 .custom p.categories {
 	font-size: 12px;
+	
 
 /* font-family: Georgia, times, serif; */
 padding: 3px 0;
@@ -814,6 +820,8 @@ padding: 3px 0;
 	border-radiu
 
 s: 6px;
+
+
 /* behavior: url('/js/pie.htc'); */
 }
 
@@ -827,8 +835,9 @@ s: 6px;
 
 .custom p.categories a:hover, .custom div#cat_nav ul a:hover, .custom div#cat_nav ul.questions a.activetab {
 	background-color: #396;
+/
 
-/* #66b97a; */
+* #66b97a; */
 }
 
 .custom .resource p.category a:hover {
@@ -1044,11 +1053,14 @@ s: 6px;
 .custom #blog-archives h1+p,
 .custom #blog-archives h3+p {
 	font-size: 15px;
+	
 
 /* font-style: italic;
 font-weight: bold; */
 color: #555;
 	line-height: 20px;
+
+
 /* margin-bottom: 2em; */
 }
 
@@ -1121,8 +1133,9 @@ color: #555;
 
 .custom div.hasimages {
 	position: relative;
+/
 
-/*padding-right: 275px; */
+*padding-right: 275px; */
 }
 
 .custom div.context h3 {
@@ -1169,6 +1182,7 @@ color: #555;
 	margin-bottom: 10px;
 	color: #222;
 	line-height: 1;
+	clear: both;
 }
 
 .custom h2 + div.post-info {
@@ -1475,9 +1489,9 @@ h3.respond a {
 }
 
 .custom div.post .wp-caption {
+	/
 
-
-/*border: none;
+*border: none;
 background: none;
 text-align: left;*/
 border-style: solid;
@@ -1764,9 +1778,13 @@ div.comment-connect .rpx_button {
 	line-height: 18p
 
 x;
+
+
 /* font-weight: bold; 
 
 */
+
+
 /* color: #2E8AE6; */
 }
 
@@ -1777,6 +1795,8 @@ x;
 	line-height: 16
 
 px;
+
+
 /* font-size: 12px;
 line-height: 14px;
 font-style: italic;
@@ -2404,7 +2424,9 @@ div#home-feature-banner {
 	border: 1px solid #dd
 
 d;
-	/*-webkit-border-radius: 12px;
+	
+
+/*-webkit-border-radius: 12px;
 -moz-border-radius: 12px;
 border-radius: 12px;*/
 margin-bottom: 1em;
@@ -2501,6 +2523,7 @@ ul li.facebook-icon {
 ul li.linkedin-icon {
 	background: url(/wp-content/uploads/2012/08/linkedin.png) no-repeat 0 1px;
 }
+
 ul li.rss-icon {
 	background: url(/feed.png) no-repeat 0 2px;
 }
@@ -2511,20 +2534,21 @@ ul li.rss-icon a {
 	padding-left: 22px;
 }
 
-div.column-footer li{
+div.column-footer li {
 	margin-bottom: 3px;
 }
 
 <!-- Blog Index Page CSS-->
 <!-- By Sarthak Patel www.pricus.com-->
-.custom .secondary-sidebar{
-	width:300px !important;
-	float:right !important;
+.custom .secondary-sidebar {
+	width: 300px !important;
+	float: right !important;
 }
-.custom .box{
-	height:300px;
-	width:250px;
-	padding-right:10px;
+
+.custom .box {
+	height: 300px;
+	width: 250px;
+	padding-right: 10px;
 }
 
 #alpha div.letter-wrap a.top-arrow-link {
@@ -2536,13 +2560,11 @@ div.column-footer li{
 
 /* @group Styles for Tabbed Index Pages */
 
-
 #example-two ul.nav li.nav-one a.current {
 	background-color: #16a0e8 !important;
 	color: white;
 	font-weight: bold;
 }
-
 
 div#content div.padder div.secondary-sidebar {
 	display: inline-block;
@@ -2550,32 +2572,41 @@ div#content div.padder div.secondary-sidebar {
 	width: 277px;
 }
 
-
-
-
-
 /* Specific to example two */
 
-#example-two .list-wrap { background: white; padding: 10px 0; margin: 0 0 15px 0;
+body.page.custom div#container div#content div.two-columns div#example-two div.list-wrap {
+	background: white;
+	padding: 10px 0;
 	border-right-style: none;
 	border-left-style: none;
 	border-bottom-style: none;
 	border-top: 6px solid #16a0e8;
+	height: 1000px !important;
+	display: inline-block !important;
+	margin: 0;
 }
 
-#example-two ul { list-style: none; }
+div#example-two {
+	display: inline-block;
+	height: auto;
+}
+
+#example-two ul {
+	list-style: none;
+}
 
 #topic div.box-wrapper div.boxed-resource ul li a {
 	line-height: 14px !important;
 }
 
 ul#alpha.hide {
+	
 }
 
 #topic div.boxed-blog ul li,
 #topic div.boxed-resource ul li {
-	margin-bottom: 8px;}
-
+	margin-bottom: 8px;
+}
 
 #topic div.boxed-blog ul li:before,
 #topic div.boxed-resource ul li:before {
@@ -2585,36 +2616,66 @@ ul#alpha.hide {
 	line-height: 17px;
 	color: #a9a9a9;
 }
-#example-two ul li a { padding: 0;
+
+#example-two ul li a {
+	padding: 0;
 	font-size: 12px;
 	line-height: 14px !important;
 }
-#example-two ul li:last-child a { border: none; }
+
+#example-two ul li:last-child a {
+	border: none;
+}
 
 #topic div.boxed-resource ul li a {
 	padding: 0;
 }
 
-#example-two .nav { overflow: hidden; }
-#example-two .nav li { width: 97px; float: left; margin: 0 10px 0 0;
- }
-#example-two .nav li.last { margin-right: 0; }
-#example-two .nav li a { display: block; padding: 5px; background: #d5d5d5; color: #5e5e5e; font-size: 13px; text-align: center; border: 0;
+#example-two .nav {
+	overflow: hidden;
+}
+
+#example-two .nav li {
+	width: 97px;
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+#example-two .nav li.last {
+	margin-right: 0;
+}
+
+#example-two .nav li a {
+	display: block;
+	padding: 5px;
+	background: #d5d5d5;
+	color: #5e5e5e;
+	font-size: 13px;
+	text-align: center;
+	border: 0;
 	font-weight: bold;
--webkit-border-top-left-radius: 10px;
--webkit-border-top-right-radius: 10px;
--moz-border-radius-topleft: 10px;
--moz-border-radius-topright: 10px;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 	line-height: 19px;
 }
 
-#example-two li a.current,#example-two li a.current:hover { background-color: #eee !important; color: black; }
+#example-two li a.current,#example-two li a.current:hover {
+	background-color: #eee !important;
+	color: black;
+}
+
 #example-two .nav li a:hover, #example-two .nav li a:focus,
-#example-two ul.nav li.nav-two a.current { background: #16a0e8 !important;}
+#example-two ul.nav li.nav-two a.current {
+	background: #16a0e8 !important;
+}
+
 #example-two ul.nav li.nav-two a.current,
-#example-two ul.nav li.nav-three a.current { background: #16a0e8 !important;
+#example-two ul.nav li.nav-three a.current {
+	background: #16a0e8 !important;
 	color: white;
 }
 
@@ -2758,6 +2819,7 @@ p#helptext {
 #alpha div.letter-wrap p.letter-back a {
 	font-size: 10px;
 }
+
 #alpha div.letter-wrap p.letter-back {
 	margin-top: 10px;
 	margin-left: 10px;
@@ -2767,11 +2829,11 @@ p#helptext {
 	display: block;
 }
 
-
 #author div.boxed-author-other ul li {
 	line-height: normal;
 	margin-bottom: 8px;
 }
+
 #author div.boxed-author-other ul li a,
 #author div.boxed-author ul li a {
 	margin: 0;
@@ -2779,6 +2841,7 @@ p#helptext {
 	display: inline;
 	line-height: 5px;
 }
+
 #commented-list li a {
 	padding: 0 0 10px;
 	margin-left: 1px;
@@ -2790,6 +2853,7 @@ p.morelink {
 	display: inline-block;
 	font-size: 12px;
 }
+
 #date div.boxed-date ul li span.posted-date {
 	display: inline-block;
 	width: 120px;
@@ -2798,7 +2862,7 @@ p.morelink {
 	clear: both;
 }
 
-#topic div.box-wrapper div.boxed-blog{
+#topic div.box-wrapper div.boxed-blog {
 	height: 400px;
 	display: inline-block;
 	overflow: auto;
@@ -2823,14 +2887,19 @@ div#container div#content div.padder div.st-tag-cloud a {
 div#container div#content div.padder div.st-tag-cloud a:hover {
 	color: #20486d !important;
 }
+
 /* @group by Author */
 
 #author div.boxed-author {
 	margin-right: 10px;
 	margin-bottom: 20px;
 	padding: 10px;
-	width: 253px;
+	width: 250px;
 	height: auto;
+}
+
+div#author.hide {
+	display: inline-block;
 }
 
 #author div.boxed-author-other {
@@ -2888,7 +2957,6 @@ p#other-authors {
 	font-size: 15px;
 }
 
-
 #author div.boxed-author-other div.other-author-wrapper p.morelink {
 	border-bottom-style: none;
 	font-size: 12px;
@@ -2916,9 +2984,6 @@ p#other-authors {
 	text-align: right;
 }
 
-
-
 /* @end */
-
 
 /* @end */

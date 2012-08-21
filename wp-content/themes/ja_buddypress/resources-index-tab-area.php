@@ -20,7 +20,7 @@
 	
 		<div  id="topic">
 			<?php 
-			$categories = get_categories('child_of=25&&exclude=16,445');
+			$categories = get_categories('child_of=25&&exclude=16,445,324');
 			//print_r($categories);exit;
 			foreach($categories as $category){
 			//echo $category->term_id;
