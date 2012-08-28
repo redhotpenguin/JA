@@ -2545,6 +2545,21 @@ div.column-footer li {
 
 /* @group Styles for Tabbed Index Pages */
 
+ul.yearbook-headshot {
+	clear: both;
+	list-style-image: none;
+	list-style-type: none;
+}
+
+ul.yearbook-headshot li {
+	list-style-image: none;
+	list-style-type: none;
+	display: inline-block;
+	text-align: center;
+	margin-right: 60px;
+	margin-bottom: 40px !important;
+}
+
 #example-two ul.nav li.nav-one a.current {
 	background-color: #16a0e8 !important;
 	color: white;
@@ -2972,3 +2987,4 @@ p#other-authors {
 /* @end */
 
 /* @end */
+
