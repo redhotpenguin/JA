@@ -1,5 +1,5 @@
 	<!--Digest of Featured Resources-->
-	<div class="item-list-tabs"><a href="http://www.journalismaccelerator.com/topics/resources/digest-resources/page/2/">Digest of Featured Resources</a></div>
+	<div class="item-list-tabs"><a href="http://www.journalismaccelerator.com/topics/resources/digest-resources/">Digest of Featured Links</a></div>
 	<?php 
 	$args = array(
 		'post_status' => 'publish',
@@ -18,12 +18,12 @@
 	<?php endwhile; ?>
 	</ul>
 	<div class="boxed-more-link">
-	<a href="<?php echo site_url(); ?>/topics/resources/digest-resources/page/2/">More Digest of Featured Resources &raquo;</a>
+	<a href="<?php echo site_url(); ?>/topics/resources/digest-resources/">More Digest of Featured Links &raquo;</a>
 	</div>
 	
 	
 	<!--Tweets for Keeps-->
-	<div class="item-list-tabs"><a href="<?php echo site_url(); ?>/topics/resources/tweetsforkeeps/page/2/">Tweets for Keeps</a></div>
+	<div class="item-list-tabs"><a href="<?php echo site_url(); ?>/topics/resources/tweetsforkeeps/">Tweets for Keeps</a></div>
 	<?php 
 	$args = array(
 		'post_status' => 'publish',
@@ -44,7 +44,7 @@
 	<?php endwhile; ?>
 	</ul>
 	<div class="boxed-more-link">
-	<a href="<?php echo site_url(); ?>/topics/resources/tweetsforkeeps/page/2/">More Tweets for Keeps &raquo;</a>
+	<a href="<?php echo site_url(); ?>/topics/resources/tweetsforkeeps/">More Tweets for Keeps &raquo;</a>
 	</div>
 
 

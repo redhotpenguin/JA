@@ -97,15 +97,7 @@
 			<?php if (is_single()) : ?>
 		<?php global $post; ?>
 		<meta property="og:description" content="<?php echo substr(strip_tags(strip_shortcodes($post->post_content)), 0, 200) . '...'; ?>" />
-		<?php endif; ?>
-		
-<meta property="og:title" content="Journalism Accelerator" />
-<meta property="og:type" content="non_profit" />
-<meta property="og:url" content="http://www.journalismaccelerator.com" />
-<meta property="og:image" content="http://a0.twimg.com/profile_images/1596682013/ja_icon_normal.png" />
-<meta property="og:site_name" content="Journalism Accelerator" />
-<meta property="fb:admins" content="578362610" />
-		
+		<?php endif; ?>		
 	</head>
 
 	<body <?php body_class('custom') ?> id="bp-default">
