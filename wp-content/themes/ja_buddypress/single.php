@@ -44,6 +44,7 @@
 <a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo get_permalink($post->ID); ?>" tw:via="journaccel"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_linkedin_counter"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
 <script type="text/javascript">

@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US" prefix="og: http://ogp.me/ns#">
 
 	<head profile="http://gmpg.org/xfn/11">
 
@@ -14,7 +15,7 @@
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 		
 		<?php wp_enqueue_script('tabs_script', get_bloginfo('stylesheet_directory') . '/tab-includes/js/organictabs.jquery.js');?>
 		
@@ -45,7 +46,7 @@
   	} else { ?>
   <link rel="image_src" href="/ja-fb.jpg" />
   <?php } ?>
-		<link rel="icon" href="<?php echo get_site_url();?>/favicon.gif" type="image/gif"/>
+		<link rel="icon" href="<?php echo get_site_url();?>/favicon.gif" type="image/gif" />
 
 		<?php wp_head(); ?>
 		<?php if (is_home()) { ?>
@@ -96,7 +97,9 @@
 	<meta name="google-site-verification" content="ae-oLPTbPxSIDVwIxM_mf6hEqwzbSf8L2ZZX_0O2f1Y" />	
 			<?php if (is_single()) : ?>
 		<?php global $post; ?>
+<!-- Commenting out this og:description because of duplication with Facebook Open Graph Plugin that automatically inserts this value
 		<meta property="og:description" content="<?php echo substr(strip_tags(strip_shortcodes($post->post_content)), 0, 200) . '...'; ?>" />
+ -->
 		<?php endif; ?>		
 	</head>
 
@@ -107,70 +110,102 @@
 		<div id="header">
 
 			<?php ja_header(); ?>
+<!-- Removing Beta banner now that About is in the main navigation
 			<a href="/about/what-is-the-journalism-accelerator/" id="beta-what">What is this?</a>
+ -->
 
 		</div><!-- #header -->
 
 		<?php do_action( 'bp_after_header' ) ?>
 				
 		
-			<div class="global_follow_btn">
+<div class="global_follow_btn">
+<!-- LinkedIn -->
 <div class="linkedin">
 <a href="http://www.linkedin.com/company/journalism-accelerator/" title="JA on LinkedIn" target="_blank"><img src="/wp-content/uploads/2012/08/linkedin.png" alt="LinkedIn icon" /><span>LinkedIn</span></a>
 </div>
+<!-- Facebook  -->
 <div class="facebook">
 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fjournalismaccelerator&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=21&amp;appId=223081781069699" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
 </div>
+<!-- Twitter -->
 <div class="twitter">
 				<a href="https://twitter.com/journaccel" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @journaccel</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
-			</div>
+</div>
 		
-		<div id="cat_nav">
-			<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a></h2>
+<div id="cat_nav">
+	<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a> <a href="/projects-archive/" class="projecttab <?php if (is_home()) { } elseif (is_page('projects-archive') || 'projects' == get_post_type()) { echo 'active'; } else { } ?>">Projects</a> <a href="/about/what-is-the-journalism-accelerator/" class="abouttab <?php if (is_home()) { } elseif (is_page( 'about' ) || '2134' == $post->post_parent) { echo 'active'; } else { } ?>">About</a></h2>
 
-		<?php 
-		if( is_home() ):
-			wp_nav_menu(array(
-				'theme_location' => 'resources',
-				'container' => 'none',
-				'menu_class' => 'resources',
-				'menu_id' => 'resource-menu'
-			));
+<!-- Determine what submenu/pills to display -->
+<?php 
+if (is_page('projects-archive') || is_page( array( 2189, 2172, 9592, 2138, 10058, 2167, 2185, 2281 )) || 'projects' == get_post_type()) :
 
-		elseif (in_category(28) || is_category(28) || parent_category_is(28)) : ?>
-			<?php wp_nav_menu(array(
-				'theme_location' => 'questions',
-				'container' => 'none',
-				'menu_class' => 'questions',
-				'menu_id' => 'questions-menu'
-			)); ?>
-			<?php elseif (in_category(25) || is_category(25) || parent_category_is(25) || in_slug('members') || is_page() || is_home()) : ?>
-			<?php wp_nav_menu(array(
-				'theme_location' => 'resources',
-				'container' => 'none',
-				'menu_class' => 'resources',
-				'menu_id' => 'resource-menu'
-			)); ?>
-			<?php elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members') && !is_home()) : ?>
-			<?php wp_nav_menu(array(
-				'theme_location' => 'blog',
-				'container' => 'none',
-				'menu_class' => 'blog',
-				'menu_id' => 'blog-menu'
-			)); ?>
-			<?php endif; ?>
-			<ul class="subnav">
-				<li><a href="/" class="first">Home</a></li>
-				<li><a href="/about/what-is-the-journalism-accelerator/">About</a></li>
-				<li><a href="/about/what-is-the-journalism-accelerator/#faq">FAQ</a></li>
-				<li><a href="/members/">People</a></li>
-				<?php if (current_user_can('publish_posts')) { ?> <li><a href="/wp-admin/">Dashboard</a></li><?php } ?>
-			</ul>
-			<div class="clear"></div>
-		</div>
+echo "<div class='menu_reference'>Resources:</div>";
+wp_nav_menu(array(
+		'theme_location' => 'resources',
+		'container' => 'none',
+		'menu_class' => 'resources',
+		'menu_id' => 'resource-menu'
+	));
+
+elseif( is_home() ):
+echo "<div class='menu_reference'>Resources:</div>";
+	wp_nav_menu(array(
+		'theme_location' => 'resources',
+		'container' => 'none',
+		'menu_class' => 'resources',
+		'menu_id' => 'resource-menu'
+	));
+
+elseif (in_category(28) || is_category(28) || parent_category_is(28)) :
+
+echo "<div class='menu_reference'>Questions:</div>";
+	wp_nav_menu(array(
+		'theme_location' => 'questions',
+		'container' => 'none',
+		'menu_class' => 'questions',
+		'menu_id' => 'questions-menu'
+	)); ?>
+	<?php elseif (in_category(25) || 
+	is_category(25) || 
+	parent_category_is(25) || 
+	in_slug('members') || 
+	is_page() || 
+	is_home()) :
+
+	echo "<div class='menu_reference'>Resources:</div>";	
+	wp_nav_menu(array(
+		'theme_location' => 'resources',
+		'container' => 'none',
+		'menu_class' => 'resources',
+		'menu_id' => 'resource-menu'
+	)); ?>
+	<?php elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members') && !is_home()) :
+	
+	echo "<div class='menu_reference'>Blog:</div>";
+	wp_nav_menu(array(
+		'theme_location' => 'blog',
+		'container' => 'none',
+		'menu_class' => 'blog',
+		'menu_id' => 'blog-menu'
+	)); ?>
+	<?php endif; ?>
+
+<ul class="subnav">
+	<li><a href="/" class="first">Home</a></li>
+<!-- Commenting out because its now apart of main navigation
+	<li><a href="/about/what-is-the-journalism-accelerator/">About</a></li>
+-->
+	<li><a href="/about/what-is-the-journalism-accelerator/#faq">FAQ</a></li>
+	<li><a href="/members/">People</a></li>
+	<?php if (current_user_can('publish_posts')) { ?> 
+	<li><a href="/wp-admin/">Dashboard</a></li><?php } ?>
+</ul>
+	<div class="clear"></div>
+</div>
 		
-		<?php do_action( 'bp_before_container' ) ?>
+<?php do_action( 'bp_before_container' ) ?>
 
-		<div id="container">
+<div id="container">

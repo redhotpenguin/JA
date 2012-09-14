@@ -36,6 +36,42 @@ function create_post_type() {
 }
 /*End of custom post type*/
 
+//	Custom Post Type for Projects
+
+add_action( 'init', 'register_cpt_projects' );
+
+function register_cpt_projects() {
+
+    $labels = array( 
+        'name' => _x( 'Projects', 'projects' ),
+        'singular_name' => _x( 'Project', 'projects' ),
+        'add_new' => _x( 'Add New', 'projects' ),
+        'all_items' => _x( 'Projects', 'projects' ),
+        'add_new_item' => _x( 'Add New Project', 'projects' ),
+        'edit_item' => _x( 'Edit Project', 'projects' ),
+        'new_item' => _x( 'New Project', 'projects' ),
+        'view_item' => _x( 'View Project', 'projects' ),
+        'search_items' => _x( 'Search Projects', 'projects' ),
+        'not_found' => _x( 'No projects found', 'projects' ),
+        'not_found_in_trash' => _x( 'No projects found in Trash', 'projects' ),
+        'parent_item_colon' => _x( 'Parent Project:', 'projects' ),
+        'menu_name' => _x( 'Projects', 'projects' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'description' => 'Projects are a compilation of all assets around any major initiative the JA produces themselves or in partnership with other organizations.',
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions' ),
+        'taxonomies' => array( 'category', 'post_tag' ),
+        'menu_position' => 20
+    );
+
+    register_post_type( 'projects', $args );
+}
 
 function is_child( $parent = '' ) {
 	global $post;
