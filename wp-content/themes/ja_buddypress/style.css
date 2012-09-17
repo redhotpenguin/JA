@@ -1335,7 +1335,7 @@ color: #555;
 
 .custom #blog-single .entry p.answer {
 	margin-left: 65px;
-	margin-bottom: 20px;
+	margin-bottom: 0;
 	font-size: 13px;
 	line-height: 18px;
 }
@@ -2845,6 +2845,10 @@ div.listedproject div.project-gutter p img {
 	margin-top: 0;
 }
 
+div.project-examples-desc-box {
+	
+}
+
 div#project-calltoaction-wrapper,
 div.project-session-desc-wrapper,
 div#project-conversation-wrapper,
@@ -2867,7 +2871,11 @@ div.project-additional-content-wrapper,
 div.project-examples-desc-wrapper,
 div#project-conversation-wrapper {
 	display: inline-block;
-	width: 708px;
+	width: 791px;
+}
+
+img.alignnone.size-full.wp-image-10300 {
+	vertical-align: middle;
 }
 
 
@@ -2911,6 +2919,7 @@ div.project-session-desc-box {
 	padding-top: 0 !important;
 	margin-bottom: 0;
 	display: inline-block;
+	font-size: 1em;
 }
 
 .custom div.project-additional-content-box,
@@ -2918,11 +2927,11 @@ div.project-examples-desc-box,
 div#project-conversation-box {
 	display: inline-block;
 	clear: both;
-	width: 730px;
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 0;
+	margin-right: 0;
 	padding: 0 !important;
 	margin-bottom: 20px;
+	width: 813px;
 }
 
 div#project-conversation-box {
@@ -2932,6 +2941,7 @@ div#project-conversation-box {
 
 .custom #blog-single .entry p#quotation {
 	font-size: 13px;
+	margin-left: 10px;
 }
 
 
@@ -3485,13 +3495,29 @@ div#project-event-box h2 a {
 div.manual-comments {
 	font-size: 13px;
 	line-height: 15px;
-	clear: both;
+	display: inline-block;
+	float: left;
+	width: 370px;
+	margin-right: 40px;
+}
+
+.custom div.post-content div.entry div.resource-content div.project-examples-desc-box h2 a {
+	color: #162b4a;
+}
+
+div.manual-comments+div.manual-comments {
+	margin-right: 0;
+}
+div#better-recent-comments.widget.widget_dp_recent_comments {
+	display: inline-block;
+	width: 790px;
 }
 
 p#more-comments {
 	clear: both;
 	display: inline-block;
 	float: left;
+	margin-bottom: 0 !important;
 }
 
 #author div.boxed-author {
