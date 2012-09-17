@@ -3464,7 +3464,8 @@ div#container div#content div.padder div.st-tag-cloud a:hover {
 	display: none;
 }
 
-.postid-10217 div#comments {
+.postid-10217 div#comments,
+.postid-12965 div#comments {
 	display: none;
 }
 
