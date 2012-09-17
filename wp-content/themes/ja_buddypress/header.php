@@ -14,8 +14,16 @@
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="http://ispkintrnt.com/wp-content/themes/ja_buddypress/lightbox.css" type="text/css" media="screen">
+
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+<script src="http://ispkintrnt.com/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="http://ispkintrnt.com/js/jquery.smooth-scroll.min.js"></script>
+<script src="http://ispkintrnt.com/js/lightbox.js"></script>
+
 		
 		<?php wp_enqueue_script('tabs_script', get_bloginfo('stylesheet_directory') . '/tab-includes/js/organictabs.jquery.js');?>
 		
@@ -73,6 +81,7 @@
 		});
 		</script>
 		<?php } ?>
+
 		<?php if (is_category(25) || is_category(28)) { ?>
 		<script type="text/javascript">
 		jQuery.fn.equalizeHeights = function(){
@@ -83,6 +92,8 @@
 			});
 			</script>
 		<?php } ?>
+
+
 		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 		
 		
