@@ -155,7 +155,7 @@ Class BP_Activity_Activity {
 		}
 
 		if ( $activities && $display_comments )
-			$activities = BP_Activity_Activity::append_comments( &$activities );
+			$activities = BP_Activity_Activity::append_comments( $activities );
 
 		/* If $max is set, only return up to the max results */
 		if ( !empty( $max ) ) {
