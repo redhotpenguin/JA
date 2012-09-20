@@ -272,7 +272,7 @@ class Janitor_Admin{
 		foreach($comments_id as $comment_id){
 			$comment_id = $comment_id->comment_id;
 			$comment = get_comment($comment_id);
-			array_push( &$comments, $comment );
+			array_push( $comments, $comment );
 		}
 		
 		return $comments;
