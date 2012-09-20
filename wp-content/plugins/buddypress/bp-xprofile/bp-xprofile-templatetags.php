@@ -152,7 +152,7 @@ function bp_has_profile( $args = '' ) {
 	extract( $r, EXTR_SKIP );
 
 	$profile_template = new BP_XProfile_Data_Template( $user_id, $profile_group_id );
-	return apply_filters( 'bp_has_profile', $profile_template->has_groups(), &$profile_template );
+	return apply_filters( 'bp_has_profile', $profile_template->has_groups(), $profile_template );
 }
 
 function bp_profile_groups() {
@@ -190,7 +190,7 @@ function bp_field_css_class( $class = false ) {
 		if ( $profile_template->current_field % 2 == 1 )
 			$css_classes[] = 'alt';
 
-		$css_classes = apply_filters( 'bp_field_css_classes', &$css_classes );
+		$css_classes = apply_filters( 'bp_field_css_classes', $css_classes );
 
 		return apply_filters( 'bp_get_field_css_class', ' class="' . implode( ' ', $css_classes ) . '"' );
 	}

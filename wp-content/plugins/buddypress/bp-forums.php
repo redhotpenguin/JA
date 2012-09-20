@@ -190,7 +190,7 @@ function bp_forums_get_forum_topics( $args = '' ) {
 		break;
 	}
 
-	return apply_filters( 'bp_forums_get_forum_topics', $topics, &$r );
+	return apply_filters( 'bp_forums_get_forum_topics', $topics, $r );
 }
 
 function bp_forums_get_topic_details( $topic_id ) {

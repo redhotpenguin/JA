@@ -243,7 +243,7 @@ function bp_activity_screen_single_activity_permalink() {
 		}
 	}
 
-	$has_access = apply_filters( 'bp_activity_permalink_access', $has_access, &$activity );
+	$has_access = apply_filters( 'bp_activity_permalink_access', $has_access, $activity );
 
 	do_action( 'bp_activity_screen_single_activity_permalink', $activity, $has_access );
 
@@ -329,7 +329,7 @@ function bp_activity_action_permalink_router() {
 	} else
 		$redirect = bp_core_get_user_domain( $activity->user_id, $activity->user_nicename, $activity->user_login ) . $bp->activity->slug . '/' . $activity->id;
 
-	$redirect = apply_filters( 'bp_activity_permalink_redirect_url', $redirect, &$activity );
+	$redirect = apply_filters( 'bp_activity_permalink_redirect_url', $redirect, $activity );
 
 	if ( !$redirect )
 		bp_core_redirect( $bp->root_domain );
@@ -605,7 +605,7 @@ function bp_activity_get( $args = '' ) {
 	} else
 		$activity = BP_Activity_Activity::get( $max, $page, $per_page, $sort, $search_terms, $filter, $display_comments, $show_hidden );
 
-	return apply_filters( 'bp_activity_get', $activity, &$r );
+	return apply_filters( 'bp_activity_get', $activity, $r );
 }
 
 function bp_activity_get_specific( $args = '' ) {
