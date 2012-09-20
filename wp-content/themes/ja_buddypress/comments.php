@@ -1,4 +1,5 @@
 <?php
+
 	global $post;
 	
 	if ( post_password_required() ) :
@@ -30,8 +31,20 @@ foreach ($categories as $category) {
 
 ?>
 
+<!-- 
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$("#comments-area-tabs").organicTabs({
+		"speed": 200
+		});
+	});
+</script> 
+ -->
+<a name="standard-flow"></a><a name="sequential"></a><a name="participants"></a>
 <div id="comments">
-
+<div id="comments-area-tabs">
+<div id="commentwrapper" class="stickypanel">
+<div id="commentwrapperpad">
 <?php			
 // Only include comments
 $numTrackBacks = 0; $numComments = 0;
@@ -84,7 +97,6 @@ foreach ( (array)$comments as $comment )
 	<?php if ( comments_open() ) : ?>
 
 <div id="respond">
-	
 
 	<div class="comment-content clearfix">
 
@@ -119,6 +131,7 @@ foreach ( (array)$comments as $comment )
 
                     <form action="<?php echo site_url( 'wp-comments-post.php' ) ?>" method="post" id="commentform" class="standard-form">
 
+<div id="keepitleft">
 					<p class="form-textarea">
 						<textarea class="expand60-266" name="comment" id="comment" cols="60" rows="10" tabindex="4"></textarea>
 					</p>
@@ -130,6 +143,7 @@ foreach ( (array)$comments as $comment )
 						<?php comment_id_fields(); ?>
 					</p>
 					
+</div>
 					<p id="cancel-comment-reply">
 						<?php cancel_comment_reply_link( __( 'Cancel Answer', 'buddypress' ) ); ?>
 					</p>
@@ -141,7 +155,6 @@ foreach ( (array)$comments as $comment )
 								<span id="jp_limit_span">0</span>
 						</div>
 					</div>
-					<div id="comment_clearfix" class="clearfix"></div>	
 					<div class="comment-action">
 						<?php do_action( 'comment_form', $post->ID ); ?>
 					</div>
@@ -155,34 +168,64 @@ foreach ( (array)$comments as $comment )
 				<?php endif; ?>
 
 			</div><!-- .comment-content -->
-		</div><!-- #respond -->
+
+</div><!-- #respond -->
+</div><!-- #commentwrapperpad -->
+<!-- 
+	<ul class="nav" id="stickybar">
+		<li class="nav-one"><a class="current" href="#standard-flow">Flow</a></li>
+		<li class="nav-two"><a href="#sequential">Sequential</a></li>
+		<li class="nav-three"><a href="#participants">All Participants</a></li>
+		<li class="nav-four"><a href="<?php get_permalink(); ?>">Escape</a></li>
+	</ul>
+ -->
+
+</div> 
 
 		<?php endif; ?>
-	
-	<ol class="commentlist">
-		<?php 
-		if( function_exists('cflow_get_post_top_comment_ids') && function_exists('get_comments_n_replies') ){
-	
-			$comments_n_replies = get_comments_n_replies( $top_comment_ids );
-			wp_list_comments(
-				array( 'callback' => 'bp_dtheme_blog_comments',
-				'reverse_top_level' => false,
-				'reverse_children' => true, 
-				'type' => 'comment',
-				'max_depth' => get_option('thread_comments_depth')
-			), $comments_n_replies );
 			
-		} // check if cflow activated end
-		else{ // cflow not activated, display comments normally
-		wp_list_comments(
-			array( 'callback' => 'bp_dtheme_blog_comments', 
-			'type' => 'comment',
-		) );
-		}
+	<div class="list-wrap">
+	
+		<div  id="standard-flow">
+			<ol class="commentlist">
+				<?php 
+				if( function_exists('cflow_get_post_top_comment_ids') && function_exists('get_comments_n_replies') ){
+			
+					$comments_n_replies = get_comments_n_replies( $top_comment_ids );
+					wp_list_comments(
+						array( 'callback' => 'bp_dtheme_blog_comments',
+						'reverse_top_level' => false,
+						'reverse_children' => true, 
+						'type' => 'comment',
+						'max_depth' => get_option('thread_comments_depth')
+					), $comments_n_replies );
+					
+				} // check if cflow activated end
+				else{ // cflow not activated, display comments normally
+				wp_list_comments(
+					array( 'callback' => 'bp_dtheme_blog_comments', 
+					'type' => 'comment',
+				) );
+				}
+		
+				?>
+					
+			</ol><!-- .comment-list -->
 
-		?>
-			
-	</ol><!-- .comment-list -->
+		</div>
+		 
+		<div id="sequential" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
+<h3>This will be a sequentially ordered list of comments.</h3>
+</div>
+	 
+		<div id="participants" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
+<h3>This will be a participant grid.</h3>
+		</div>
+		 
+	 </div> <!-- END List Wrap -->
+	
+</div>
+
 
 	<?php do_action( 'bp_after_blog_comment_list' ) ?>
 
@@ -196,7 +239,7 @@ foreach ( (array)$comments as $comment )
 
 	<?php endif; ?>
 
-		</div><!-- #comments -->
+</div><!-- #comments -->
 
 
 		
@@ -225,5 +268,3 @@ foreach ( (array)$comments as $comment )
 	</div>
 
 <?php endif; ?>
-	
-
