@@ -430,7 +430,7 @@ function friends_accept_friendship( $friendship_id ) {
 		friends_record_activity( array(
 			'user_id'           => $friendship->initiator_user_id,
 			'type'              => 'friendship_created',
-			'action'            => apply_filters( 'friends_activity_friendship_accepted_action', sprintf( __( '%s and %s are now friends', 'buddypress' ), $initiator_link, $friend_link ), &$friendship ),
+			'action'            => apply_filters( 'friends_activity_friendship_accepted_action', sprintf( __( '%s and %s are now friends', 'buddypress' ), $initiator_link, $friend_link ), $friendship ),
 			'item_id'           => $friendship_id,
 			'secondary_item_id' => $friendship->friend_user_id
 		) );
@@ -439,7 +439,7 @@ function friends_accept_friendship( $friendship_id ) {
 		friends_record_activity( array(
 			'user_id'           => $friendship->friend_user_id,
 			'type'              => 'friendship_created',
-			'action'            => apply_filters( 'friends_activity_friendship_accepted_action', sprintf( __( '%s and %s are now friends', 'buddypress' ), $friend_link, $initiator_link ), &$friendship ),
+			'action'            => apply_filters( 'friends_activity_friendship_accepted_action', sprintf( __( '%s and %s are now friends', 'buddypress' ), $friend_link, $initiator_link ), $friendship ),
 			'item_id'           => $friendship_id,
 			'secondary_item_id' => $friendship->initiator_user_id,
 			'hide_sitewide'     => true // We've already got the first entry site wide
@@ -463,7 +463,7 @@ function friends_reject_friendship( $friendship_id ) {
 		// Remove the friend request notice
 		bp_core_delete_notifications_for_user_by_item_id( $friendship->friend_user_id, $friendship->initiator_user_id, $bp->friends->id, 'friendship_request' );
 
-		do_action( 'friends_friendship_rejected', $friendship_id, &$friendship );
+		do_action( 'friends_friendship_rejected', $friendship_id, $friendship );
 		return true;
 	}
 

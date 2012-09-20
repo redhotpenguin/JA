@@ -15,16 +15,41 @@
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
-<link rel="stylesheet" href="http://ispkintrnt.com/wp-content/themes/ja_buddypress/lightbox.css" type="text/css" media="screen">
+<link rel="stylesheet" href="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/wp-content/themes/ja_buddypress/lightbox.css" type="text/css" media="screen" />
 
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<script src="http://ispkintrnt.com/js/jquery-ui-1.8.18.custom.min.js"></script>
-<script src="http://ispkintrnt.com/js/jquery.smooth-scroll.min.js"></script>
-<script src="http://ispkintrnt.com/js/lightbox.js"></script>
+<script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+<script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
+<script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/lightbox.js" type="text/javascript"></script>
 
-		
+<!-- For making comment window stop -->
+
+    <script type="text/javascript" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.stickyPanel.min.js"></script>
+<!-- 
+    <script type="text/javascript">
+        $().ready(function () {
+            var stickyPanelOptions = {
+                topPadding: 0,
+                afterDetachCSSClass: "BoxGlow_Grey2",
+                savePanelSpace: true
+            };
+/*            var stickyBarOptions = {
+                topPadding: 250,
+                afterDetachCSSClass: "BoxGlow_Grey2",
+                savePanelSpace: true
+            };
+*/
+            // multiple panel example (you could also use the class ".stickypanel" to select both)
+            $("#commentwrapper").stickyPanel(stickyPanelOptions);
+
+            $("#stickybar").stickyPanel(stickyBarOptions);
+
+        });
+    </script>
+ -->
+					
 		<?php wp_enqueue_script('tabs_script', get_bloginfo('stylesheet_directory') . '/tab-includes/js/organictabs.jquery.js');?>
 		
 		<?php wp_enqueue_style('tabs', get_bloginfo('stylesheet_directory') . '/tab-includes/css/tabstyle.css');?>
@@ -95,7 +120,30 @@
 
 
 		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-		
+	
+	<script type="text/javascript">
+
+//<![CDATA[ 
+jQuery(window).load(function(){
+jQuery(function() {
+  var a = function() {
+    var b = jQuery(window).scrollTop();
+    var d = jQuery("#sticky-anchor").offset({scroll:false}).top;
+    var c=jQuery(".lockit");
+    if (b>d) {
+      c.css({position:"fixed",top:"0px"})
+    } else {
+      if (b<=d) {
+        c.css({position:"relative",top:""})
+      }
+    }
+  };
+  jQuery(window).scroll(a);a()
+});
+});//]]>  
+
+</script>
+
 		
 		<?php
 		global $bp;
@@ -108,22 +156,16 @@
 	<meta name="google-site-verification" content="ae-oLPTbPxSIDVwIxM_mf6hEqwzbSf8L2ZZX_0O2f1Y" />	
 			<?php if (is_single()) : ?>
 		<?php global $post; ?>
-<!-- Commenting out this og:description because of duplication with Facebook Open Graph Plugin that automatically inserts this value
-		<meta property="og:description" content="<?php echo substr(strip_tags(strip_shortcodes($post->post_content)), 0, 200) . '...'; ?>" />
- -->
 		<?php endif; ?>		
 	</head>
 
 	<body <?php body_class('custom') ?> id="bp-default">
-
+	<a name="topofpage" id="top-of-page"></a>
 		<?php do_action( 'bp_before_header' ) ?>
 
 		<div id="header">
 
 			<?php ja_header(); ?>
-<!-- Removing Beta banner now that About is in the main navigation
-			<a href="/about/what-is-the-journalism-accelerator/" id="beta-what">What is this?</a>
- -->
 
 		</div><!-- #header -->
 
@@ -214,7 +256,7 @@ echo "<div class='menu_reference'>Questions:</div>";
 	<?php if (current_user_can('publish_posts')) { ?> 
 	<li><a href="/wp-admin/">Dashboard</a></li><?php } ?>
 </ul>
-	<div class="clear"></div>
+<div class="clear"></div>
 </div>
 		
 <?php do_action( 'bp_before_container' ) ?>

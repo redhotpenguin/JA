@@ -79,8 +79,8 @@ class BP_Forums_Template_Forum {
 			}
 		}
 
-		$this->topic_count       = apply_filters( 'bp_forums_template_topic_count', $this->topic_count, &$topics, $type, $forum_id, $per_page, $max, $no_stickies );
-		$this->total_topic_count = apply_filters( 'bp_forums_template_total_topic_count', $this->total_topic_count, $this->topic_count, &$topics, $type, $forum_id, $per_page, $max, $no_stickies );
+		$this->topic_count       = apply_filters( 'bp_forums_template_topic_count', $this->topic_count, $topics, $type, $forum_id, $per_page, $max, $no_stickies );
+		$this->total_topic_count = apply_filters( 'bp_forums_template_total_topic_count', $this->total_topic_count, $this->topic_count, $topics, $type, $forum_id, $per_page, $max, $no_stickies );
 
 		if ( !$no_stickies ) {
 			// Place stickies at the top - not sure why bbPress doesn't do this?
@@ -215,7 +215,7 @@ function bp_has_forum_topics( $args = '' ) {
 	}
 
 	$forum_template = new BP_Forums_Template_Forum( $type, $forum_id, $user_id, $page, $per_page, $max, $no_stickies, $search_terms );
-	return apply_filters( 'bp_has_topics', $forum_template->has_topics(), &$forum_template );
+	return apply_filters( 'bp_has_topics', $forum_template->has_topics(), $forum_template );
 }
 
 function bp_forum_topics() {
@@ -843,7 +843,7 @@ function bp_has_forum_topic_posts( $args = '' ) {
 		return false;
 	}
 
-	return apply_filters( 'bp_has_topic_posts', $topic_template->has_posts(), &$topic_template );
+	return apply_filters( 'bp_has_topic_posts', $topic_template->has_posts(), $topic_template );
 }
 
 function bp_forum_topic_posts() {
