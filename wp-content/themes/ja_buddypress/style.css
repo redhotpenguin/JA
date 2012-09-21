@@ -2287,8 +2287,9 @@ span#bottom_reply_link {
 .custom_comments_reloaded {
 	color: #888;
 	line-height: 13px;
-	float: left;
+//	display: inline-block;
 	display: inline-block;
+	width: 800px;
 }
 
 
@@ -2297,11 +2298,19 @@ span#bottom_reply_link {
 }
 
 .custom .custom_inline_subscribe {
-	margin-top: -10px;
+	margin-top: 0;
+	float: left;
+	display: inline-block;
+	margin-right: 10px;
+	width: 450px;
+}
+
+div.custom_inline_radios span input {
 }
 
 .custom .ie .custom_inline_subscribe {
 	margin-top: 0px;
+	clear: both;
 }
 
 .custom .custom_inline_radios {
@@ -2334,13 +2343,13 @@ span#bottom_reply_link {
 	color: #349966;
 	margin-bottom: 0;
 }
-
+/*
 .custom #respond .form-textarea {
 	margin-bottom: 5px;
 	display: inline-block;
 	width: 360px;
 }
-
+*/
 .custom #respond div.comment-content {
 	margin-top: -17px;
 }
@@ -2420,11 +2429,13 @@ span#bottom_reply_link {
 	margin-bottom: 0;
 }
 
+/*
 div#keepitleft {
 	display: inline-block;
 	float: left;
 	margin-right: 20px;
 }
+*/
 
 .custom #respond p#cancel-comment-reply {
 	margin-bottom: 0;
@@ -2433,7 +2444,7 @@ div#keepitleft {
 
 .custom #respond .comment-action {
 	margin-left: 0;
-	width: 408px;
+//	width: 408px;
 	float: left;
 	display: inline-block !important;
 	clear: none;
@@ -3191,10 +3202,10 @@ div#comment-form-wrapper {
 div#commentwrapper,
 div#commentwrapper.stickypanel {
 	padding: 0;
-	background-color: #eaeaea;
+//	background-color: #eaeaea;
 	z-index: 100;
 	display: block;
-width: 855px;
+	width: 855px;
 	margin-bottom: 20px;
 }
 
