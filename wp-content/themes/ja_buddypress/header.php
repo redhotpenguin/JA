@@ -27,7 +27,7 @@
 <!-- For making comment window stop -->
 
     <script type="text/javascript" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.stickyPanel.min.js"></script>
-
+<!-- 
     <script type="text/javascript">
         $().ready(function () {
             var stickyPanelOptions = {
@@ -48,6 +48,7 @@
 
         });
     </script>
+ -->
 					
 		<?php wp_enqueue_script('tabs_script', get_bloginfo('stylesheet_directory') . '/tab-includes/js/organictabs.jquery.js');?>
 		

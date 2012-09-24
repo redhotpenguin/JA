@@ -2121,6 +2121,7 @@ min-height: 40px; */
 .custom .comment_post_info {
 	background-color: #d5d5d5;
 	padding: 5px;
+	margin-bottom: 1em;
 	height: 20px;
 }
 
@@ -2286,9 +2287,9 @@ span#bottom_reply_link {
 .custom_comments_reloaded {
 	color: #888;
 	line-height: 13px;
+//	display: inline-block;
 	display: inline-block;
-	width: 400px;
-	padding: 0 !important;
+	width: 800px;
 }
 
 
@@ -2298,10 +2299,10 @@ span#bottom_reply_link {
 
 .custom .custom_inline_subscribe {
 	margin-top: 0;
+	float: left;
 	display: inline-block;
 	margin-right: 10px;
 	width: 450px;
-	float: left;
 }
 
 div.custom_inline_radios span input {
@@ -2350,7 +2351,7 @@ div.custom_inline_radios span input {
 }
 */
 .custom #respond div.comment-content {
-	margin-top: 0;
+	margin-top: -17px;
 }
 
 .custom  #respond {
@@ -2428,13 +2429,13 @@ div.custom_inline_radios span input {
 	margin-bottom: 0;
 }
 
+/*
 div#keepitleft {
 	display: inline-block;
 	float: left;
 	margin-right: 20px;
-	padding-top: 15px;
 }
-
+*/
 
 .custom #respond p#cancel-comment-reply {
 	margin-bottom: 0;
@@ -3180,8 +3181,6 @@ ol.commentlist li.comment {
 
 form#commentform.standard-form {
 	width: 810px;
-	display: inline-block;
-	margin-bottom: 0;
 }
 
 div#comments-area-tabs {
@@ -3203,7 +3202,7 @@ div#comment-form-wrapper {
 div#commentwrapper,
 div#commentwrapper.stickypanel {
 	padding: 0;
-//	background-color: #eaeaea;
+	background-color: #eaeaea;
 	z-index: 100;
 	display: block;
 	width: 855px;
@@ -3211,8 +3210,7 @@ div#commentwrapper.stickypanel {
 }
 
 div#commentwrapperpad {
-	padding: 10px 25px;
-	background-color: #eaeaea;
+	padding: 10px 25px;	
 }
 
 .BoxGlow_Grey2 {
