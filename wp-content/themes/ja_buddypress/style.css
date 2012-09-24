@@ -3181,6 +3181,8 @@ ol.commentlist li.comment {
 
 form#commentform.standard-form {
 	width: 810px;
+	margin-top: 10px;
+	display: inline-block;
 }
 
 div#comments-area-tabs {
