@@ -114,7 +114,7 @@ function widget_related_resources($args)
 			echo $before_title;?>Related Resources <span class="read-more"><a href="/topics/resources/">More</a><?php echo $after_title;
 		}
 		else {
-			echo $before_title;?>Featured <span class="read-more"><a href="/topics/resources/digest-resources/">More</a><?php echo $after_title;
+			echo $before_title;?>Featured Links<span class="read-more"><a href="/topics/resources/digest-resources/">More</a><?php echo $after_title;
 		}
 		related_resources();
 		echo $after_widget;

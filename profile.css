@@ -1,0 +1,29 @@
+body#bp-default.page.page-id-10390.page-template.page-template-default.custom {
+	margin: 30px;
+	width: 100%;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+
+#bp-default h1 {
+	color: #349966;
+	font-size: 2em;
+	margin-bottom: .5em;
+}
+
+
+div.instruction-wrapper {
+	display: inline-block;
+	clear: both;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	border-bottom: 1px dotted #5e5e5e;
+	width: 75%;
+}
+
+div.instruction-wrapper img {
+	margin-left: 20px;
+	margin-bottom: 20px;
+	float: right;
+}

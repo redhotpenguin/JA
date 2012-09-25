@@ -57,9 +57,9 @@ foreach ( (array)$comments as $comment )
 ?>
 	
 	<?php if ( !$say_comments ) { ?>
-		<h1>Answers:</h1>
+		<h1>Answers: <span class="smallgrey">Remember to <a href="<?php get_permalink(); ?>" class="refresh_the_page">refresh often</a> to see latest comments!</span></h1> 
 	<?php } else { ?>
-		<h1>Weigh In:</h1>
+		<h1>Weigh In: <span class="smallgrey">Remember to <a href="<?php get_permalink(); ?>" class="refresh_the_page">refresh often</a> to see latest comments!</span></h1>
 	<?php } ?>
 	
 	<div class="comment_post_info clearfix">
@@ -75,7 +75,7 @@ foreach ( (array)$comments as $comment )
 		$default_thread_n = get_option('cflow_initial_threads_loaded');
 		
 		echo '<div class="post_info_show_all">';
-		echo "Show All: <a href='#' class='show_all_comments'>Comments</a>";
+		echo 'Show All: <a href="'.get_permalink().'" class="show_all_comments">Comments</a>';
 		
 		if($numComments >=3)
 			 echo ' | <a class="comments_grid_link" href="'.get_permalink().'./participants"> Participants</a>'; 
@@ -89,7 +89,7 @@ foreach ( (array)$comments as $comment )
 	</p>
 </div>
 	
-		<?php if ($say_resource) { ?><div class="resource-disclaimer">Check out what’s here, offer your comments on what you see. When you do post a comment, the JA team will invite the people behind the resource to connect back with you, responding in line to your comment. Conversation and connection made easy.</div>
+		<?php if ($say_resource) { ?><div class="resource-disclaimer">Check out what's here, offer your comments on what you see. When you do post a comment, the JA team will invite the people behind the resource to connect back with you, responding in line to your comment. Conversation and connection made easy.</div>
 	<?php }  ?>
 	
 	<?php do_action( 'bp_before_blog_comment_list' ) ?>
@@ -105,16 +105,29 @@ foreach ( (array)$comments as $comment )
 	<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
 
 					<div class="clearfix"></div>
+
 					<div class="rpx_button" id="rpx_button_1">
 						<div class='comment_connect_text'>To weigh in, connect via</div>
+<!-- 
 						<div class="rpx_small_icons" id="rpx_small_icons_2" onclick="showRPX('rpxlogin')">
-							<div class="rpx_icon rpx_size16 rpx_facebook" title="Facebook"></div>
-							<div class="rpx_icon rpx_size16 rpx_google" title="GoogleApps"></div>
-							<div class="rpx_icon rpx_size16 rpx_linkedin" title="LinkedIn"></div>
-							<div class="rpx_icon rpx_size16 rpx_twitter" title="Twitter"></div>
+							<div class="rpx_icon  rpx_facebook" title="Facebook"></div>
+							<div class="rpx_icon  rpx_google" title="GoogleApps"></div>
+							<div class="rpx_icon  rpx_linkedin" title="LinkedIn"></div>
+							<div class="rpx_icon  rpx_twitter" title="Twitter"></div>
 						</div>
-					</div>
-				
+ -->
+
+<div class="rpx_button">
+<div class="rpx_small_icons rpxsharebutton" onclick="showRPX('rpxlogin')"> <img title="Google" class="rpx_icon" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/wp-content/plugins/rpx/images/google_32.png"> </div>
+<div class="rpx_small_icons rpxsharebutton" onclick="showRPX('rpxlogin')"> <img title="Facebook" class="rpx_icon" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/wp-content/plugins/rpx/images/facebook_32.png"> </div>
+<div class="rpx_small_icons rpxsharebutton" onclick="showRPX('rpxlogin')"> <img title="Twitter" class="rpx_icon" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/wp-content/plugins/rpx/images/twitter_32.png"> </div>
+<div class="rpx_small_icons rpxsharebutton" onclick="showRPX('rpxlogin')"> <img title="LinkedIn" class="rpx_icon" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/wp-content/plugins/rpx/images/linkedin_32.png"> </div>
+<div class="rpx_clear"></div>
+</div>
+								<div id="profile-importance"><a class="fancybox fancybox.iframe" href="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/profile.html">How to comment & why create a JA profile!</a></div>
+			
+			
+</div>
 			
 
 			<?php else : ?>
@@ -184,7 +197,9 @@ foreach ( (array)$comments as $comment )
 
 		<?php endif; ?>
 			
+<!-- 
 	<div class="list-wrap">
+ -->
 	
 		<div  id="standard-flow">
 			<ol class="commentlist">
@@ -214,6 +229,7 @@ foreach ( (array)$comments as $comment )
 
 		</div>
 		 
+<!-- Commenting out alternative tabs for now
 		<div id="sequential" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 <h3>This will be a sequentially ordered list of comments.</h3>
 </div>
@@ -221,8 +237,9 @@ foreach ( (array)$comments as $comment )
 		<div id="participants" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 <h3>This will be a participant grid.</h3>
 		</div>
+ -->
 		 
-	 </div> <!-- END List Wrap -->
+ <!--	 </div> END List Wrap -->
 	
 </div>
 

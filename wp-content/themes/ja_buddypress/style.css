@@ -931,6 +931,13 @@ padding: 2px 4px; */
 	font-size: 22px;
 }
 
+#commentwrapperpad h1 span.smallgrey {
+	color: #424242;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 13px;
+}
+
 .custom #text-5 a, .custom #text-6 a {
 	text-decoration: none;
 	font-weight: bold;
@@ -1161,6 +1168,7 @@ padding: 3px 0;
 .custom .entry h2 {
 	color: #222;
 	clear: both;
+	margin-bottom: 11px;
 }
 
 .custom .entry ul {
@@ -1224,7 +1232,7 @@ color: #555;
 
 .custom div.post-info {
 	line-height: 2em;
-	margin-bottom: 26px;
+	margin-bottom: 15px;
 }
 
 .custom .post-info a {
@@ -2030,6 +2038,36 @@ min-height: 40px; */
 	margin-left: 4px;
 }
 
+.custom div#profile-importance {
+	margin-right: 0;
+	float: right;
+	font-weight: bold;
+	font-size: 14px;
+	margin-left: 40px;
+	display: inline-block;
+}
+
+div#rpx_button_1.rpx_button {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	width: 805px;
+}
+
+/* @group social weigh in icons */
+
+#rpx_small_icons_2 div.rpx_icon.rpx_size16.rpx_facebook {
+	
+}
+
+
+
+/* @end */
+
+div#profile-importance {
+	float: right;
+}
+
 .custom .comment_connect_text {
 	margin-right: 5px;
 	float: left;
@@ -2119,7 +2157,7 @@ min-height: 40px; */
 /* @GROUP Comment Post Info */
 
 .custom .comment_post_info {
-	background-color: #d5d5d5;
+	background-color: white;
 	padding: 5px;
 	margin-bottom: 1em;
 	height: 20px;
@@ -2156,12 +2194,25 @@ min-height: 40px; */
 	padding-right: 25px;
 }
 
-span#bottom_reply_link {
+span#bottom_reply_link,
+span#why_login {
 	margin-right: 25px;
 	width: 130px !important;
 	height: 30px !important;
 	line-height: 30px;
 	text-align: center;
+}
+
+span#why_login {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 50px;
+}
+
+span#why_login a {
+	line-height: 30px;
+	font-weight: bold;
+	color: white;
 }
 
 .custom ol.commentlist li div.comment-content {
@@ -2323,7 +2374,7 @@ div.custom_inline_radios span input {
 	padding: 5px;
 }
 
-.custom #respond .comment-content #commentform #submit, .custom #bottom_reply_link {
+.custom #respond .comment-content #commentform #submit, .custom #bottom_reply_link, .custom #why_login {
 	background-image: none;
 	padding: 4px 8px;
 	-webkit-border-radius: 6px;
@@ -2736,9 +2787,14 @@ ul li.rss-icon {
 	background: url(/feed.png) no-repeat 0 2px;
 }
 
+ul li.ja-link {
+	background: url(images/ja-bug.png) no-repeat 0 2px;
+}
+
 ul li.facebook-icon a,
 ul li.linkedin-icon a,
-ul li.rss-icon a {
+ul li.rss-icon a,
+ul li.ja-link a {
 	padding-left: 22px;
 }
 
@@ -2765,6 +2821,43 @@ div.column-footer li {
 	float: right;
 	top: -25px;
 	position: relative;
+}
+
+#blog-single div.post-content div.entry div.context p img.alignleft {
+	clear: both;
+}
+
+div.instruction-wrapper {
+	display: inline-block;
+	clear: both;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	border-bottom: 1px dotted #5e5e5e;
+	width: 75%;
+}
+
+#rpx_button_1 div.rpx_button div.rpx_small_icons.rpxsharebutton {
+	padding: 0;
+}
+
+#rpx_button_1 div.rpx_button div.rpx_small_icons.rpxsharebutton img.rpx_icon {
+	width: 24px;
+	height: 24px;
+	margin-right: 2px;
+}
+
+div.rpx_button {
+	width: 200px;
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+#blog-single div.post-content div.entry div.context div.instruction-wrapper img {
+	margin-left: 20px;
+	margin-bottom: 20px;
+	float: right;
 }
 
 /* @group Project Pages */
@@ -3084,9 +3177,14 @@ p#linktoshare {
 
 div.addthis_toolbox.addthis_default_style {
 	width: 770px;
-	margin: 10px 20px;
+	margin: 10px 20px 30px 10px;
 	display: inline-block;
 	height: 20px;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 h2#project-headline {
@@ -3115,7 +3213,7 @@ div#project-wrapper {
 
 div#project-description-box {
 	margin-bottom: 20px;
-	margin-top: -44px;
+	margin-top: -60px;
 	padding-top: 40px;
 	border-bottom: 1px solid #d5d5d5;
 	border-left: 1px solid #d5d5d5;
@@ -3595,12 +3693,16 @@ ul.nav {
 	display: inline-block;
 	z-index: 1000;
 	background-color: #c0c0c0;
-	height: 30px;
 	margin-bottom: 0;
 	width: 100%;
+	height: 24px;
+}
+
+#example-two ul.nav {
+	background-color: white;
 	box-shadow:
 		0px 0px 0px rgba(000,000,000,0),
-		inset 4px 4px 10px rgba(0,0,0,0.3);
+		inset 0px 0px 0px rgba(0,0,0,0);
 }
 
 ul.nav li.nav-one,
@@ -3611,7 +3713,7 @@ ul.nav li.nav-three {
 	height: 30px;
 	padding: 0;
 }
-
+/*
 ul.nav li a {
 	height: 30px;
 	display: inline-block;
@@ -3637,6 +3739,15 @@ ul.nav li a {
 		0px -1px 0px rgba(000,000,000,0.2),
 		0px 1px 0px rgba(255,255,255,1);
 	border-right: 1px solid #929292;
+	box-shadow:
+		0px 0px 0px rgba(000,000,000,0),
+		inset 0px 0px 10px 0 rgba(0,0,0,0.3);
+}
+
+ My Comment */
+
+#example-two ul.nav li.nav-two a {
+	border-style: none;
 }
 
 .custom #comments-area-tabs ul.nav li a.current {
