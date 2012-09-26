@@ -1,8 +1,3 @@
-/* @override 
-	http://www.journalismaccelerator.com/wp-content/themes/ja_buddypress/style.css
-	http://ispkintrnt.com/wp-content/themes/ja_buddypress/style.css
-*/
-
 /*
 Theme Name: Journalism Accelerator - BuddyPress
 Version: 1.0
@@ -3263,8 +3258,20 @@ li.comment {
 	padding-left: 25px;
 }
 
+li.storify {
+	list-style-type: none;
+	background: url(http://www.journalismaccelerator.com/wp-content/uploads/2012/09/storify-logo-sm.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+
 ol.commentlist li.comment {
 	background-image: none;
+}
+
+div.project-additional-content-wrapper p a.fancybox {
+	float: left;
+	display: inline-block;
+	margin-right: 60px;
 }
 
 

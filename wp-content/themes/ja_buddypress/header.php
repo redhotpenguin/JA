@@ -50,17 +50,12 @@
 			 *  Different effects
 			 */
 
-			// Change title type, overlay closing speed
-			$(".fancybox-effects-a").fancybox({
-				helpers: {
-					title : {
-						type : 'outside'
-					},
-					overlay : {
-						speedOut : 0
-					}
-				}
-			});
+			// Style for scribd documents
+			$(".iframe").fancybox({
+					scrolling : 'auto',
+					type : 'iframe',
+					preload   : true
+					});
 
 			// Disable opening and closing animations, change title type
 			$(".fancybox-effects-b").fancybox({

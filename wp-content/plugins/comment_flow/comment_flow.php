@@ -39,8 +39,7 @@ add_action('bp_after_blog_comment_list', 'cflow_more_wheel');
 function cflow_more_wheel() {
     echo '<span class="cflow_more_wheel" style="display:none;"><img src="' . plugins_url('img/ajax-loader.gif', __FILE__) . '"/></span>';
     echo '<span class="cflow_more_msg"   style="display:none;"></span>';
-	echo '<span id="why_login"><a href="http://www.journalismaccelerator.com/profile-101/">Why Login?</a></span>';
-	echo '<span id="bottom_reply_link">Post a Comment</span>';
+//	echo '<span id="bottom_reply_link">Post a Comment</span>';
 }
 
 add_action('wp_ajax_cflow_more_c', 'cflow_more_callback');
