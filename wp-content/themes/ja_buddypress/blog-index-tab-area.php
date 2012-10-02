@@ -15,7 +15,7 @@
 	</ul>
 	
 	<div class="list-wrap">
-
+<!-- BY TOPIC -->
 		<div class="hide" id="topic" style="position: relative; top: 0px; left: 0px; display: none;">
 		<p id="helptext">These posts are listed by published date. Most recent posts are at the top.</p>	
 			<?php 
@@ -48,7 +48,7 @@
 			<?php } ?>
 		</div>
 		
-		 
+<!-- BY AUTHOR -->
 		<div class="hide" id="author" style="position: relative; top: 0px; left: 0px; display: none;">
 			<?php 
 			$wp_user_search = new WP_User_Query( array( 

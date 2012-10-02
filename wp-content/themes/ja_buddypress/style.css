@@ -1,3 +1,5 @@
+/* @override http://ispkintrnt.com/wp-content/themes/ja_buddypress/style.css */
+
 /*
 Theme Name: Journalism Accelerator - BuddyPress
 Version: 1.0
@@ -150,6 +152,9 @@ padding: 0;
 .custom div#content .padder {
 	margin-right: 350px;
 	padding-bottom: 15px;
+	display: inline-block;
+	margin-bottom: 50px;
+	border-style: none;
 }
 
 #blog-archives h3.widgettitle.blog-index a.resource:hover {
@@ -1173,6 +1178,26 @@ padding: 3px 0;
 	font-size: 14px;
 }
 
+div#thanks-dev,
+div#pac-northwest,
+div#early-support {
+	margin-top: 0;
+	margin-bottom: 20px;
+	display: inline-block;
+	padding-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #5e5e5e;
+//	border-top: 1px dotted #5e5e5e;
+}
+
+#thanks-dev p {
+	display: inline-block;
+}
+
+#thanks-dev p img.alignleft {
+	margin-bottom: 20px;
+}
+
 .custom .entry ul li , 
 .custom .entry ol li {
 	margin-bottom: .5em;
@@ -1298,6 +1323,32 @@ color: #555;
 
 .custom .page div.context h3 {
 	padding-right: 0;
+	display: inline-block;
+	margin-top: 30px;
+	color: black;
+	margin-bottom: 10px;
+}
+
+#pac-northwest h3 {
+	
+}
+
+#thanks-dev h3,
+#pac-northwest h3 {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+#early-support h3 {
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.custom .page div.context h5 {
+	font-size: 1.35em;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .custom div.context h3 span.numcomments {
@@ -2683,16 +2734,16 @@ margin-bottom: 1em;
 
 #partner-logos .home-banner {
 	background: #DDDDDD;
-	padding: 7px;
-	padding-left: 20px;
 	margin-bottom: 0;
-	text-align: left;
+	text-align: center;
 	margin-top: 0;
+	padding: 7px !important;
 }
 
-#partner-logos p {
+.custom div#partner-logos p {
 	margin-bottom: 0 !important;
 	overflow: hidden;
+	font: italic 1em/20px Georgia, "Times New Roman", Times, serif;
 }
 
 div#text-gutter {
@@ -2891,18 +2942,51 @@ div#feature-left {
 #featuredproject h2,
 #partner-logos h3.home-banner,
 div.listedproject h3  {
-	margin: 0;
+	margin: 0 !important;
 	padding: 10px 10px 10px 20px;
 	background-color: #eaeaea;
 //	text-transform: uppercase;
 	font-size: 18px;
 	color: #797979;
+	display: block !important;
+}
+
+.custom div#quotation-call h3 {
+	background-color: white;
+	font: italic 24px Georgia, "Times New Roman", Times, serif;
+	padding: 10px 0 0 14px;
+	letter-spacing: 0;
+	height: 37px;
+}
+
+#quotation-call h3 span {
+	font-size: 72px;
+	vertical-align: -22px;
+	opacity: 0.55;
+	overflow: visible;
+	width: 35px;
+	padding: 0;
+	height: 40px;
+	margin: -8px 0 0;
+	display: inline-block;
+	float: left;
+}
+
+#quotation-call h3 a {
+	float: left;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#quotation-call p {
+	margin: 0 20px 20px;
 }
 
 
 #feature-left h3 a {
 	display: inline-block;
 	font-size: 24px;
+	line-height: 26px;
 }
 
 #feature-left h3 {
@@ -2914,6 +2998,7 @@ div#partner-logos {
 	display: block;
 	text-align: center;
 	background-color: #E7F6FD;
+	padding: 0;
 }
 
 div.listedproject {
@@ -3207,7 +3292,7 @@ div#project-wrapper {
 }
 
 div#project-description-box {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	margin-top: -60px;
 	padding-top: 40px;
 	border-bottom: 1px solid #d5d5d5;
@@ -3376,8 +3461,16 @@ body.page.custom div#container div#content div.two-columns div#example-two div.l
 }
 
 div#example-two {
-	display: inline-block;
 	height: auto;
+	display: inline-block;
+}
+
+div#topic.hide {
+	display: inline-block;
+}
+
+.custom #example-two div.list-wrap {
+	display: inline-block;
 }
 
 #example-two ul {
@@ -3778,6 +3871,10 @@ div.manual-comments {
 	float: left;
 	width: 370px;
 	margin-right: 40px;
+}
+
+#better-recent-comments div.manual-comments p img {
+	margin-top: 10px;
 }
 
 .custom div.post-content div.entry div.resource-content div.project-examples-desc-box h2 a {

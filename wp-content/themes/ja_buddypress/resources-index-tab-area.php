@@ -17,7 +17,7 @@
 	</ul>
 	
 	<div class="list-wrap">
-	
+<!-- BY TOPIC -->
 		<div  id="topic">
 			<?php 
 			$categories = get_categories('child_of=25&&exclude=16,445,324');
@@ -48,7 +48,7 @@
 </div>
 			<?php } ?>
 		</div>
-		 
+<!-- BY ALPHA -->
 		<div id="alpha" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 			<?php 
 			$args = array(
@@ -64,13 +64,29 @@
 	echo '<a name="letter-index"></a><br />';
 	echo '<p class="letter-index"><strong>Jump to: </strong>';
 	$curr_letter = '';
+	$curr_count = 0;
 	foreach ( $the_query->posts as $post ) {
 		$this_letter = strtoupper(substr($post->post_title,0,1));
-		if( $this_letter != $curr_letter ) {
-			echo "<a class='letter-link' href='#letter-$this_letter' >$this_letter</a>&nbsp;|&nbsp;";
-		 $curr_letter = $this_letter;
-      }
-   }
+		if( (	$this_letter == '#') ||
+		 	(	$this_letter == '0') ||
+		 	(	$this_letter == '1') ||
+		 	(	$this_letter == '2') ||
+		 	(	$this_letter == '3') ||
+		 	(	$this_letter == '4') ||
+		 	(	$this_letter == '5') ||
+		 	(	$this_letter == '6') ||
+		 	(	$this_letter == '7') ||
+		 	(	$this_letter == '8') ||
+		 	(	$this_letter == '9') ) {
+				if ($curr_count == 0) {
+				echo "<a class='letter-link' href='#letter-hashtagto9' >0-9</a>&nbsp;|&nbsp;";
+				$curr_count = 1;	}
+			}
+			elseif( $this_letter != $curr_letter ) {
+				echo "<a class='letter-link' href='#letter-$this_letter' >$this_letter</a>&nbsp;|&nbsp;";
+			 $curr_letter = $this_letter;
+		  }
+	   }
 	echo '</p>';
 	wp_reset_query();
 
@@ -84,6 +100,7 @@
 	
 	$the_query = new WP_Query($args);
 $curr_letter = '';
+$curr_count = 0;
 $letter_div = '<div class="letter-wrap">';
 echo $letter_div;
 while ($the_query->have_posts()) {
@@ -91,7 +108,27 @@ while ($the_query->have_posts()) {
    $this_letter = strtoupper(substr($post->post_title,0,1));
    if ($this_letter != $curr_letter) {
       if ($curr_letter !== '') echo "</ul></div>$letter_div";
-      echo "<a name='letter-$this_letter'></a><br />";
+
+/*		if	( (	$curr_letter == '#') ||
+		 	(	$curr_letter == '0') ||
+		 	(	$curr_letter == '1') ||
+		 	(	$curr_letter == '2') ||
+		 	(	$curr_letter == '3') ||
+		 	(	$curr_letter == '4') ||
+		 	(	$curr_letter == '5') ||
+		 	(	$curr_letter == '6') ||
+		 	(	$curr_letter == '7') ||
+		 	(	$curr_letter == '8') ||
+		 	(	$curr_letter == '9') ) {
+				if ($curr_count == 0) {
+					echo "<a name='letter-hashtagto9'></a><br />";
+					$curr_count = 1;
+				}
+				else {
+*/
+					  echo "<a name='letter-$this_letter'></a><br />";
+//				}
+//				}
       echo "<h3 class='alpha-title'>$this_letter</h2><a href='#letter-index' class='top-arrow-link'><img class='top-arrow' alt='Back to top' src='/wp-content/themes/ja_buddypress/images/blue-arrow-up.png'></a><ul>";
       $curr_letter = $this_letter;
    }
