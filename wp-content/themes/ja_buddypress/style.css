@@ -2951,12 +2951,31 @@ div.listedproject h3  {
 	display: block !important;
 }
 
+h3.project_partners {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 0;
+	float: left;
+	line-height: 36px;
+	width: 132px;
+	text-align: right;
+	font-size: 18px;
+}
+
 .custom div#quotation-call h3 {
 	background-color: white;
-	font: italic 24px Georgia, "Times New Roman", Times, serif;
-	padding: 10px 0 0 14px;
+	font: italic 24px/60px Georgia, "Times New Roman", Times, serif;
+	padding: 10px;
 	letter-spacing: 0;
-	height: 37px;
+	height: 60px;
+	background-color: #E7F6FD;
+	text-align: center;
+	margin: 0;
+}
+
+div#quotation-call {
+	margin: -10px 0 0;
+	padding: 0;
 }
 
 #quotation-call h3 span {
@@ -2964,10 +2983,10 @@ div.listedproject h3  {
 	vertical-align: -22px;
 	opacity: 0.55;
 	overflow: visible;
-	width: 35px;
+	width: 37px;
 	padding: 0;
 	height: 40px;
-	margin: -8px 0 0;
+	margin: 11px 0 0;
 	display: inline-block;
 	float: left;
 }
@@ -2999,6 +3018,22 @@ div#partner-logos {
 	text-align: center;
 	background-color: #E7F6FD;
 	padding: 0;
+}
+
+div#partner-logos-project {
+	clear: both;
+	display: block;
+	text-align: center;
+	background-color: #eaeaea;
+	padding: 10px;
+}
+
+#partner-logos-project p img {
+	margin: 0;
+}
+
+.custom div#partner-logos-project p {
+	margin: 0 !important;
 }
 
 div.listedproject {
@@ -3298,6 +3333,7 @@ div#project-description-box {
 	border-bottom: 1px solid #d5d5d5;
 	border-left: 1px solid #d5d5d5;
 	border-right: 1px solid #d5d5d5;
+	display: inline-block;
 }
 
 div#project-left {
