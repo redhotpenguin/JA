@@ -1,0 +1,1 @@
+*/10 * * * * /usr/bin/curl -silent "http://www.journalismaccelerator.com/wp-content/plugins/ping-highrise/post_highrise.php?action=process_comments&k=jPKsdP56" > /dev/null
