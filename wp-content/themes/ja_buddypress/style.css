@@ -1,4 +1,7 @@
-/* @override http://ispkintrnt.com/wp-content/themes/ja_buddypress/style.css */
+/* @override 
+	http://ispkintrnt.com/wp-content/themes/ja_buddypress/style.css
+	http://www.journalismaccelerator.com/wp-content/themes/ja_buddypress/style.css
+*/
 
 /*
 Theme Name: Journalism Accelerator - BuddyPress
@@ -3290,9 +3293,19 @@ p#linktoshare {
 	text-align: left;
 }
 
+.single-projects div.addthis_toolbox.addthis_default_style {
+	width: 775px;
+	display: inline-block;
+	height: 20px;
+	margin: 0;
+	border-right: 1px solid #dcdfe4;
+	border-left: 1px solid #dcdfe4;
+	padding: 9px 20px 10px;
+}
+
 div.addthis_toolbox.addthis_default_style {
-	width: 770px;
-	margin: 10px 20px 30px 10px;
+	width: 805px;
+	margin: 10px 0 10px 10px;
 	display: inline-block;
 	height: 20px;
 }
@@ -3320,16 +3333,16 @@ div.resource-content {
 
 div#project-wrapper {
 	display: inline-block;
-	width: 770px;
+	width: 775px;
 	padding: 10px 20px 20px;
 	margin: 0;
 	float: left;
 }
 
 div#project-description-box {
-	margin-bottom: 30px;
-	margin-top: -60px;
-	padding-top: 40px;
+	margin-bottom: 20px;
+	margin-top: 0;
+	padding-top: 0;
 	border-bottom: 1px solid #d5d5d5;
 	border-left: 1px solid #d5d5d5;
 	border-right: 1px solid #d5d5d5;
