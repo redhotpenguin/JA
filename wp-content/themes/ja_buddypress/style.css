@@ -61,8 +61,7 @@ padding: 0;
 }
 
 .custom div.post blockquote, .custom div.page blockquote {
-	margin: 0 0 0 3em;
-	margin-left: 0;
+	margin: 15px 0;
 	padding: 0 0 0 55px;
 	background: url('http://journalismaccelerator.com/quote-grey.png') no-repeat top left;
 	min-height: 40px;
@@ -1174,6 +1173,10 @@ padding: 3px 0;
 	margin-bottom: 11px;
 }
 
+div.post-content div.entry div.resource-content h2 {
+	line-height: normal;
+}
+
 .custom .entry ul {
 	list-style-type: disc;
 	margin-left: 45px;
@@ -1387,6 +1390,7 @@ color: #555;
 .custom #blog-single .entry p {
 	margin-bottom: 10px;
 	color: #222;
+	font-size: 14px;
 }
 
 .custom #blog-single .entry p.answer {
@@ -1729,6 +1733,7 @@ border-style: solid;
 	line-height: 1.5em !important;
 	color: #555 !important;
 	font-style: italic !important;
+	margin-bottom: 0;
 }
 
 .custom .wp-caption img {
@@ -2638,6 +2643,7 @@ span.custom_subscribe_replies_only {
 
 .custom .twitter-tweet-rendered {
 	max-width: 815px !important;
+	text-align: center;
 }
 
 .custom .twp-container {
@@ -2646,6 +2652,10 @@ span.custom_subscribe_replies_only {
 
 .custom .twt-border {
 	max-width: 815px !important;
+	width: 400px !important;
+	margin-left: 25% !important;
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;
 }
 
 .custom .twt-tweet .entry-title, 
