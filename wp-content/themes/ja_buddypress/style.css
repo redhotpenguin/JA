@@ -2787,27 +2787,35 @@ div#text-gutter {
 	height: auto;
 }
 
-#home-feature-banner div.excerpt-text h2 {
+#hpbanners li h2 {
 	font-size: 1.5em;
 	margin-bottom: 8px;
 	padding-right: 20px;
 	margin-left: 0;
 }
 
-#home-feature-banner p img {
+#hpbanners p img {
 	margin: 3px 20px 8px 10px;
 }
 
-#home-feature-banner div.excerpt-text p {
+#hpbanners li p {
 	font-size: 1.25em;
 	line-height: 1.4em;
 	padding-right: 20px;
 }
 
-#home-feature-banner div.excerpt-text {
+#hpbanners li {
 	margin: 0;
 	padding: 0 !important;
 }
+
+#hpbanners, #hpbanners li{
+	list-style:none;
+	}
+#hpbanners li{
+	display:none; /* hide the items at first only */
+	}
+	
 
 div#dont-know {
 	display: inline-block;

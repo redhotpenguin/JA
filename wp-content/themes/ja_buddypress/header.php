@@ -216,6 +216,42 @@
 <script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
 <script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/lightbox.js" type="text/javascript"></script>
 
+<!-- Script to help with random display of homepage banner -->
+<script type="text/javascript">
+
+this.randomtip = function(){
+	var length = $("#hpbanners li").length;
+	var temp = -1;		
+	this.getRan = function(){
+		// get the random number
+		var ran = Math.floor(Math.random()*length) + 1;
+		return ran;
+	};
+	this.show = function(){
+		var ran = getRan();
+		// to avoid repeating
+		while (ran == temp){
+			ran = getRan();
+		}; 
+		temp = ran;
+		$("#hpbanners li").hide();	
+		$("#hpbanners li:nth-child(" + ran + ")").show();		
+	};
+	
+	show();
+	
+//	var ran = Math.floor(Math.random()*length) + 1;
+//	$("#hpbanners li:nth-child(" + ran + ")").show();
+
+};
+
+$(document).ready(function(){	
+	randomtip();
+});
+
+</script>
+
+
 <!-- For making comment window stop -->
 
     <script type="text/javascript" src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.stickyPanel.min.js"></script>

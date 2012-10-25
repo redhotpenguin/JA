@@ -19,30 +19,27 @@
 			
 			<div id="home-feature-banner" class="clearfix">
 			<h3 class="home-banner">Welcome to the Journalism Accelerator</h3>
-							<?php
-					$args=array(
-					  'post_type' => 'featured_banner',
-					  'post_status' => 'publish',
-					  'posts_per_page' => 1,
-					  'orderby' => 'rand'
-					  //'caller_get_posts'=> 1
-					  );
+			<div id="text-gutter">
+			<ul id="hpbanners">
+			<?php $args=array(
+					'post_type' => 'featured_banner',
+					'post_status' => 'publish',
+					'orderby' => 'date'
+					//'caller_get_posts'=> 1
+					);
 					$my_query = null;
 					$my_query = new WP_Query($args);
 					if( $my_query->have_posts() ) {
 					 while ($my_query->have_posts()) : $my_query->the_post(); ?>
-					<div id="text-gutter"><div class="excerpt-text" style="padding-left:15px;"><?php the_content( __( 'Read more...', 'twentyeleven' ) ); ?></div></div>
-		
-					<footer class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
-					</footer>
-					</div><!-- #post-<?php the_ID(); ?> -->
-			<?php
-					  endwhile;
-					}
-				wp_reset_query();  // Restore global post data stomped by the_post().
-				?>
+					<li class="excerpt-text"><?php the_content(); ?></li>
+			<?php endwhile; }
 			
+		wp_reset_query();  // Restore global post data stomped by the_post().
+				?>
+					</ul>
+					</div><!-- #post-<?php the_ID(); ?> -->
+					</div>
+					
 			<?php ja_home(); ?>
 			
 			
