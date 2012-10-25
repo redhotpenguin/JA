@@ -40,6 +40,7 @@ foreach ($categories as $category) {
 	});
 </script> 
  -->
+
 <a name="standard-flow"></a><a name="sequential"></a><a name="participants"></a>
 <div id="comments">
 <div id="comments-area-tabs">
@@ -186,8 +187,8 @@ foreach ( (array)$comments as $comment )
 </div><!-- #commentwrapperpad -->
 <!-- 
 	<ul class="nav" id="stickybar">
-		<li class="nav-one"><a class="current" href="#standard-flow">Flow</a></li>
-		<li class="nav-two"><a href="#sequential">Sequential</a></li>
+		<li class="nav-one"><a class="current" href="#standard-flow">Comments</a></li>
+		<li class="nav-two"><a href="#tweets_about_this">Tweets About This</a></li>
 		<li class="nav-three"><a href="#participants">All Participants</a></li>
 		<li class="nav-four"><a href="<?php get_permalink(); ?>">Escape</a></li>
 	</ul>
@@ -197,9 +198,8 @@ foreach ( (array)$comments as $comment )
 
 		<?php endif; ?>
 			
-<!-- 
+<!-- Wrap for entire comment area -->
 	<div class="list-wrap">
- -->
 	
 		<div  id="standard-flow">
 			<ol class="commentlist">
@@ -228,33 +228,27 @@ foreach ( (array)$comments as $comment )
 			</ol><!-- .comment-list -->
 
 		</div>
-		 
-<!-- Commenting out alternative tabs for now
-		<div id="sequential" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
-<h3>This will be a sequentially ordered list of comments.</h3>
+		
+<!-- Commenting out alternative tabs for now		 
+		<div id="tweets_about_this" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
+
+<h3><a class="twitter-timeline" data-dnt=true href="https://twitter.com/search?q=http%3A%2F%2Fwww.journalismaccelerator.com" data-widget-id="260857404831449088">Tweets about "http://www.journalismaccelerator.com"</a></h3>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+http://ispkintrnt.com/blog/experiments-blog/new-post/
+
 </div>
+
+
 	 
 		<div id="participants" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 <h3>This will be a participant grid.</h3>
 		</div>
  -->
 		 
- <!--	 </div> END List Wrap -->
+</div> <!--	END List Wrap -->
 	
 </div>
-
-
-	<?php do_action( 'bp_after_blog_comment_list' ) ?>
-
-	<?php if ( get_option( 'page_comments' ) ) : ?>
-
-		<div class="comment-navigation paged-navigation">
-
-		<?php paginate_comments_links(); ?>
-
-		</div>
-
-	<?php endif; ?>
 
 </div><!-- #comments -->
 
