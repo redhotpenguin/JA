@@ -2771,9 +2771,9 @@ margin-bottom: 1em;
 #partner-logos .home-banner {
 	background: #DDDDDD;
 	margin-bottom: 0;
-	text-align: center;
+	text-align: left;
 	margin-top: 0;
-	padding: 7px !important;
+	padding: 7px 7px 10px 20px;
 }
 
 .custom div#partner-logos p {
@@ -3089,7 +3089,7 @@ div.listedproject {
 }
 
 div.listedproject h3 span {
-	color: #929292;
+	color: #797979;
 }
 
 div.listedproject p a {

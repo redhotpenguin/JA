@@ -73,6 +73,46 @@ function register_cpt_projects() {
     register_post_type( 'projects', $args );
 }
 
+//	Custom Post Type for Questions
+
+add_action( 'init', 'register_cpt_questions' );
+
+function register_cpt_questions() {
+
+    $labels = array( 
+        'name' => _x( 'Questions', 'questions' ),
+        'singular_name' => _x( 'Question', 'question' ),
+        'add_new' => _x( 'Add New', 'questions' ),
+        'all_items' => _x( 'Questions', 'questions' ),
+        'add_new_item' => _x( 'Add New Question', 'questions' ),
+        'edit_item' => _x( 'Edit Question', 'questions' ),
+        'new_item' => _x( 'New Question', 'questions' ),
+        'view_item' => _x( 'View Question', 'questions' ),
+        'search_items' => _x( 'Search Questions', 'questions' ),
+        'not_found' => _x( 'No questions found', 'questions' ),
+        'not_found_in_trash' => _x( 'No questions found in Trash', 'questions' ),
+        'parent_item_colon' => _x( 'Parent Question:', 'questions' ),
+        'menu_name' => _x( 'Questions', 'questions' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'description' => 'Questions are something that need a description.',
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions' ),
+        'taxonomies' => array( 'category', 'post_tag' ),
+        'menu_position' => 25
+    );
+
+    register_post_type( 'questions', $args );
+}
+
+
+
+
 function is_child( $parent = '' ) {
 	global $post;
  
