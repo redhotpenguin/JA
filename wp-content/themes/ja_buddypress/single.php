@@ -28,8 +28,10 @@
 							<h1>Resource:</h1><h3 class="index_title"><a href="/resource-index/" class="resource"><span class="expandlink">Resources Index</span></a></h3>
 						<?php } elseif (in_category(39) || parent_category_is(39)) { ?>
 							<h1>Blog:</h1><h3 class="index_title blog-index"><a href="/blog-index/" class="resource" ><span class="expandlink">Blog Index</span></a></h3>
+<!-- Commenting out About header as all pages in this section have been switched
 						<?php } elseif (in_category(40) || parent_category_is(40)) { ?>
 							<h1>About:</h1>
+ -->
 						<?php } ?>
 
 						<div class="entry">

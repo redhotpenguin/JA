@@ -61,8 +61,8 @@ padding: 0;
 }
 
 .custom div.post blockquote, .custom div.page blockquote {
-	margin: 15px 0;
-	padding: 0 0 0 55px;
+	margin: 20px 0 30px;
+	padding: 0 0 0 60px;
 	background: url('http://journalismaccelerator.com/quote-grey.png') no-repeat top left;
 	min-height: 40px;
 	font: inherit;
@@ -157,6 +157,7 @@ padding: 0;
 	display: inline-block;
 	margin-bottom: 50px;
 	border-style: none;
+	width: 860px;
 }
 
 #blog-archives h3.widgettitle.blog-index a.resource:hover {
@@ -1196,6 +1197,10 @@ div#early-support {
 //	border-top: 1px dotted #5e5e5e;
 }
 
+div#expenses-and-revenue.thanks-dev {
+	width: 100%;
+}
+
 #thanks-dev p {
 	display: inline-block;
 }
@@ -1438,12 +1443,26 @@ color: #555;
 	margin-left: 1em;
 }
 
-.custom div.underwrite h3 {
-	padding: 0;
-	margin-bottom: .5em;
+.custom div.yellow_hghlt_box {
+	padding: 1em;
+	background: #faf4d3;
+	border: 1px solid #f7cd91;
+	margin-bottom: 2em;
+	width: 250px;
+	float: right;
+	font-size: 100%;
+	margin-left: 1em;
 }
 
-.custom div.underwrite img {
+.custom div.underwrite h3,
+.custom div.yellow_hghlt_box h3 {
+	padding: 0;
+	margin-bottom: .5em;
+	margin-top: 0 !important;
+}
+
+.custom div.underwrite img,
+.custom div.yellow_hghlt_box img {
 	float: right;
 	margin: 10px 0 10px 10px;
 }
@@ -2644,7 +2663,7 @@ span.custom_subscribe_replies_only {
 	float: left;
 	width: 180px;
 	margin-left: 10px;
-	margin-top: -5px;
+	margin-top: -2px;
 }
 
 .custom #participants .participant_meta {
@@ -2950,6 +2969,10 @@ div.rpx_button {
 	float: right;
 }
 
+#blog-single div.post-content div.entry div.context h4 {
+	margin-top: 25px;
+}
+
 /* @group Project Pages */
 
 div#featuredproject {
@@ -2985,25 +3008,28 @@ div#feature-left {
 
 #featuredproject h2,
 #partner-logos h3.home-banner,
-div.listedproject h3  {
+div.listedproject h3
+  {
 	margin: 0 !important;
 	padding: 10px 10px 10px 20px;
 	background-color: #eaeaea;
-//	text-transform: uppercase;
 	font-size: 18px;
 	color: #797979;
 	display: block !important;
 }
 
 h3.project_partners {
-	display: inline-block;
+		color: #797979;
+}
+
+h3.project_partners {
 	margin-top: 0;
 	margin-bottom: 0;
-	float: left;
 	line-height: 36px;
-	width: 132px;
-	text-align: right;
+	text-align: left;
 	font-size: 18px;
+	margin-left: 10px;
+	float: left;
 }
 
 .custom div#quotation-call h3 {
@@ -3124,6 +3150,29 @@ div.listedproject div.project-gutter p {
 div.listedproject div.project-gutter p img {
 	margin: 0 20px 0 30px;
 	vertical-align: middle;
+}
+
+div.one-col-width {
+	width: 440px;
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+div.two-col-width {
+	width: 100%;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+a.fancybox.floatright {
+	display: inline-block;
+	float: left;
+}
+
+p.image_wrap {
+	display: inline-block;
 }
 
 /* @group Single Projects */
@@ -3267,8 +3316,20 @@ div.project-additional-content-box div.project-additional-content-wrapper ul {
 	float: left;
 }
 
+.custom ul.two-col-list {
+	margin: 0 0 0 15px !important;
+}
+
 div.project-additional-content-box div.project-additional-content-wrapper ul.social-channels-list {
 	width: 260px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 10px;
+	list-style-type: none;
+}
+
+div.project-additional-content-box div.project-additional-content-wrapper ul.three-col-list {
+	width: 220px;
 	float: left;
 	margin-right: 20px;
 	margin-top: 10px;
@@ -3423,9 +3484,20 @@ li.twitter {
 	padding-left: 22px;
 }
 
+li.twitter.hashtag {
+	font-size: 20px; line-height:30px;
+	background: url(http://www.journalismaccelerator.com/wp-content/plugins/rpx/images/twitter_32.png) no-repeat 0;
+	padding-left: 39px;
+}
+
 li.facebook {
 	padding-left: 25px;
 	background: url(http://www.journalismaccelerator.com/wp-content/uploads/2012/08/facebook.png) no-repeat;
+	list-style-type: none;
+}
+
+li.title {
+	list-style-type: none;
 }
 
 li.comment {
@@ -4086,4 +4158,28 @@ p#other-authors {
 /* @end */
 
 /* @end */
+
+
+
+.custom div.post-content div.entry div.project-examples-desc-box div.project-examples-desc-wrapper div.two_col_box {
+	width: 350px;
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	margin-left: 10px;
+	border: 1px solid #eaeaea;
+}
+
+.custom div.post-content div.two_col_box p {
+	margin: 0 !important;
+	padding: 5px !important;
+	font-size: 16px !important;
+	text-align: center;
+}
+
+.custom div.post-content div.entry div.project-examples-desc-box div.project-examples-desc-wrapper div.two_col_box p small em {
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #797979;
+}
 

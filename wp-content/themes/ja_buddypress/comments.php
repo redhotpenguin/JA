@@ -31,6 +31,7 @@ foreach ($categories as $category) {
 
 ?>
 
+<!-- Script to make tabs work -->
 <!-- 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -228,14 +229,11 @@ foreach ( (array)$comments as $comment )
 			</ol><!-- .comment-list -->
 
 		</div>
-		
+
 <!-- Commenting out alternative tabs for now		 
+		
 		<div id="tweets_about_this" class="hide" style="position: relative; top: 0px; left: 0px; display: none;">
 
-<h3><a class="twitter-timeline" data-dnt=true href="https://twitter.com/search?q=http%3A%2F%2Fwww.journalismaccelerator.com" data-widget-id="260857404831449088">Tweets about "http://www.journalismaccelerator.com"</a></h3>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-http://ispkintrnt.com/blog/experiments-blog/new-post/
 
 </div>
 
