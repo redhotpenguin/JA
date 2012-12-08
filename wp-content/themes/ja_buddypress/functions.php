@@ -14,8 +14,8 @@ function get_blank_avatar() { return false; }
  */
 add_theme_support( 'post-thumbnails' );
 
-
-/*for custom post type*/
+//.............................................................................
+//	Custom Post Type for Homepage Featured Banner
 
 add_action( 'init', 'create_post_type' );
 
@@ -29,12 +29,12 @@ function create_post_type() {
 			),
 		'public' => true,
 		'has_archive' => true,
-		'menu_position' => 20,
+		'menu_position' => 10,
 		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 		)
 	);
 }
-/*End of custom post type*/
+//.............................................................................
 
 //	Custom Post Type for Projects
 
@@ -67,50 +67,58 @@ function register_cpt_projects() {
         'description' => 'Projects are a compilation of all assets around any major initiative the JA produces themselves or in partnership with other organizations.',
         'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions' ),
         'taxonomies' => array( 'category', 'post_tag' ),
-        'menu_position' => 20
+        'menu_position' => 6
     );
 
     register_post_type( 'projects', $args );
 }
 
+//.............................................................................
 //	Custom Post Type for Questions
 
-// add_action( 'init', 'register_cpt_questions' );
-// 
-// function register_cpt_questions() {
-// 
-//     $labels = array( 
-//         'name' => _x( 'Questions', 'questions' ),
-//         'singular_name' => _x( 'Question', 'question' ),
-//         'add_new' => _x( 'Add New', 'questions' ),
-//         'all_items' => _x( 'Questions', 'questions' ),
-//         'add_new_item' => _x( 'Add New Question', 'questions' ),
-//         'edit_item' => _x( 'Edit Question', 'questions' ),
-//         'new_item' => _x( 'New Question', 'questions' ),
-//         'view_item' => _x( 'View Question', 'questions' ),
-//         'search_items' => _x( 'Search Questions', 'questions' ),
-//         'not_found' => _x( 'No questions found', 'questions' ),
-//         'not_found_in_trash' => _x( 'No questions found in Trash', 'questions' ),
-//         'parent_item_colon' => _x( 'Parent Question:', 'questions' ),
-//         'menu_name' => _x( 'Questions', 'questions' ),
-//     );
-// 
-//     $args = array( 
-//         'labels' => $labels,
-//         'hierarchical' => true,
-//         'public' => true,
-//         'show_ui' => true,
-//         'show_in_menu' => true,
-//         'description' => 'Questions are something that need a description.',
-//         'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions' ),
-//         'taxonomies' => array( 'category', 'post_tag' ),
-//         'menu_position' => 25
-//     );
-// 
-//     register_post_type( 'questions', $args );
-// }
+add_action( 'init', 'register_questions_cpt' );
 
+function register_questions_cpt() {
 
+    $labels = array( 
+        'name' => _x( 'Questions', 'questions_cpt' ),
+        'singular_name' => _x( 'Question', 'questions_cpt' ),
+        'add_new' => _x( 'Add New', 'questions_cpt' ),
+        'all_items' => _x( 'Questions', 'questions_cpt' ),
+        'add_new_item' => _x( 'Add New Question', 'questions_cpt' ),
+        'edit_item' => _x( 'Edit Question', 'questions_cpt' ),
+        'new_item' => _x( 'New Question', 'questions_cpt' ),
+        'view_item' => _x( 'View Question', 'questions_cpt' ),
+        'search_items' => _x( 'Search Questions', 'questions_cpt' ),
+        'not_found' => _x( 'No questions found', 'questions_cpt' ),
+        'not_found_in_trash' => _x( 'No questions found in Trash', 'questions_cpt' ),
+        'parent_item_colon' => _x( 'Parent Question:', 'questions_cpt' ),
+        'menu_name' => _x( 'Questions', 'questions_cpt' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'description' => 'Questions are something that need a description.',
+        'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions' ),
+        'taxonomies' => array( 'category', 'post_tag' ),
+        'menu_position' => 7,
+        'has_archive' => true,  
+    	'rewrite' => array(  
+    	    'slug' => 'question-posed',  
+        	'with_front' => false,  
+        	'feed' => false,  
+        	'pages' => true  
+    	)  
+    );
+
+    register_post_type( 'questions_cpt', $args );
+flush_rewrite_rules();
+}
+//.............................................................................
 
 
 function is_child( $parent = '' ) {
@@ -372,12 +380,11 @@ add_filter('excerpt_more', 'new_excerpt_more');
 remove_action( 'bp_adminbar_menus', 'bp_adminbar_random_menu',        100 ); 
 global $bp;
 bp_core_remove_nav_item($bp->activity->id);
+
 function my_function_admin_bar(){
     return false;
 }
 add_filter( 'show_admin_bar' , 'my_function_admin_bar');
-
-
 
 function featured_question() {
 		rewind_posts();
@@ -452,7 +459,7 @@ function ja_question_home() { ?>
 
 function latest_questions() {
 	$latest_listings = new WP_Query();
-	$latest_listings->query('&cat=28&showposts=4');
+	$latest_listings->query('&post_type=questions_cpt&showposts=4');
 	while ( $latest_listings->have_posts() ) {
 		$latest_listings->the_post();
 		global $post;
@@ -569,8 +576,18 @@ function ja_home() {
 
 function ja_slider () {
 	rewind_posts();
-	query_posts($query_string . '&showposts=6&tag=featured');
-	if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+$args = array(
+    'tag' => 'featured',
+	'post_type' => array( 'post', 'projects', 'questions' ),
+    'showposts' => '6',
+    'order' => 'ASC'
+    );              
+
+$the_query = new WP_Query( $args );
+
+if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+
 	$thisID = get_the_ID(); 
 	?>
 	<div class="slide">
@@ -588,6 +605,12 @@ function ja_slider () {
 	endwhile;
 	endif;
 }
+
+$customargs = array(
+  'post_type' => array('post', 'projects', 'questions'),
+  'showposts' => 6, 
+  'tag' => 'featured'
+);
 
 
 /* function useful_answers() {
@@ -662,17 +685,14 @@ function ja_header() {
 			<p><a href="/"><img src="http://www.journalismaccelerator.com/wp-content/uploads/2011/01/ja_logo_1.png"  alt="Journalism Accelerator Logo" width="450" height="46" /></a></p>
 			<p><a href="/">A forum about innovation in journalism, beyond the usual suspects</a></p>
 			</div>
-			<form method="get" class="search_form" id="search_form" action="/"> 
-		
-	<p> 
-		<input class="text_input" type="text" name="s" id="s" value="<?php echo $_GET['s'];?>" /> 
+			<form method="get" class="search_form" id="search_form" action="/">
+			<p><input class="text_input" type="text" name="s" id="s" value="<?php echo $_GET['s'];?>" /> 
 		<input type="submit" id="searchsubmit" value="Search" /> 
 		<a class="find_people" href="/members/">Find People</a> 
 	</p> 	
-
-			</form>
-	</div>
-		<?php
+</form>
+</div>
+<?php
 }
 
 function dp_recent_comments($no_comments = 10, $comment_len = 100) {

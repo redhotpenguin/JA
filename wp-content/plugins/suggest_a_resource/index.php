@@ -42,7 +42,7 @@ function r_fill_ID() {
 
 function r_create_form() {
 	?>
-	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(is_category(25) || !is_category(25) || is_home()) { ?> style="display:none" <?php } ?>>
+<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm resource" id="fsForm1062791" <?php if(is_category(25) || !is_category(25) || is_home() || is_page('questions-archive')) { ?> style="display:none" <?php } ?>>
     <input type="hidden" name="form" value="1062791" />
     <input type="hidden" name="viewkey" value="dcRMIPaG0P" />
     <input type="hidden" name="hidden_fields" id="hidden_fields1062791" value="" />
@@ -66,7 +66,7 @@ function r_create_form() {
 
 function q_create_form() {
 	?>
-	<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm question" id="fsForm1058142" <?php if(!is_category(28) || is_home()) { ?>style="display:none"<?php } ?>>
+<form method="post" enctype="multipart/form-data" action="http://www.formstack.com/forms/index.php" class="fsForm question" id="fsForm1058142" <?php if(!is_category(28) && !is_page('questions-archive') || is_home()) { ?>style="display:none"<?php } ?>>
     <input type="hidden" name="form" value="1058142" />
     <input type="hidden" name="viewkey" value="dcRMIPaG0P" />
     <input type="hidden" name="hidden_fields" id="hidden_fields1058142" value="" />
@@ -132,19 +132,19 @@ function widget_suggest_a_resource($args) {
 	  echo "<p style=\"margin-bottom:0\">Would you like to share a resource on the Journalism Accelerator? Make a suggestion. Tell us why others need to know.</p>";
   }
   
-    if (is_category(28) && !is_home()) {
+    if (is_category(28) && !is_home() || is_page('questions-archive')) {
 	  echo $before_title;
 	  echo "Ask a Question";
 	  echo $after_title;
 	  echo "<p style=\"margin-bottom:0\">Do you have a question for the Journalism Accelerator team? Let us know the question on your mind you think the broader community should be asking.</p>";
   }
   
-	if (is_category(25) || !is_category(25) && !is_category(28)) {
+	if (is_category(25) || !is_category(25) && !is_category(28) && !is_page('questions-archive')) {
 	echo $before_title;
 
 	if (is_category(25)):  // !in_category(25) || is_home()
 		echo '<a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>';
-	else:
+	elseif (!is_page('questions-archive')):
 		echo '<a href="#askaquestion" class="expand question"><span class="expandlink">Ask a Question</span></a>';
 		echo '<a href="#suggestaresource" class="expand resource"><span class="expandlink">Suggest a Resource</span></a>';
 	endif;

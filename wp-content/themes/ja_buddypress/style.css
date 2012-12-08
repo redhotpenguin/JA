@@ -754,10 +754,13 @@ border-radius: 6px; */
 	height: 14px;
 }
 #bp-default div.global_follow_btn div.facebook {
-	width: 85px;
+	width: 95px;
 	margin: 0;
-	padding: 1px 5px 1px 1px;
+	padding: 0 5px 0 0;
+	height: 15px;
 }
+
+/* My Comment */
 
 #bp-default div.global_follow_btn div.linkedin {
 	width: 20px;
@@ -785,6 +788,7 @@ border-radius: 6px; */
 
 #sidebar p.answer {
 	padding-left: 62px;
+	min-height: 50px;
 }
 
 .custom div#sidebar h3.widgettitle {
@@ -1240,7 +1244,6 @@ div#expenses-and-revenue.thanks-dev {
 	margin-bottom: 8px;
 	font-size: 24px;
 	display: inline-block;
-	width: 710px;
 }
 
 .custom #blog-archives h1+p,
@@ -1811,11 +1814,17 @@ div.post-content h3.index_title {
 }
 
 #blog-archives h3.index_title {
-	margin: 0 !important;
+	margin: 5px 0 1px;
 	padding: 0 !important;
 	width: auto;
 	display: inline-block;
 	height: 25px;
+	float: right;
+}
+
+#blog-archives h3.index_title+p {
+	clear: both;
+	display: inline-block;
 }
 
 div.srp-widget-singlepost div.srp-thumbnail-box a.srp-widget-thmblink img {
@@ -3413,6 +3422,21 @@ div.addthis_toolbox.addthis_default_style {
 	height: 20px;
 }
 
+.custom div#content ul#addthis_list_nav {
+	margin: 0;
+	width: 100%;
+	list-style-type: none;
+	display: inline-block;
+	height: 16px;
+}
+
+#addthis_list_nav li {
+	display: inline-block;
+	float: left;
+	height: 26px;
+	width: 100px;
+}
+
 hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -4161,13 +4185,14 @@ p#other-authors {
 
 
 
-.custom div.post-content div.entry div.project-examples-desc-box div.project-examples-desc-wrapper div.two_col_box {
+.custom div.two_col_box {
 	width: 350px;
 	display: inline-block;
 	float: left;
 	padding: 10px;
 	margin-left: 10px;
 	border: 1px solid #eaeaea;
+	text-align: center;
 }
 
 .custom div.post-content div.two_col_box p {
@@ -4183,3 +4208,46 @@ p#other-authors {
 	color: #797979;
 }
 
+
+/* @group 404 */
+
+div#content div#fourohfour-links-wrapper {
+	padding: 15px;
+	margin-top: 10px;
+	background-color: #eee;
+	display: block;
+	margin-bottom: 10px;
+}
+
+#fourohfour p {
+	font-size: 14px;
+	font-style: italic;
+}
+
+#fourohfour-links-wrapper div.top-row,
+#fourohfour-links-wrapper div.bottom-row {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#fourohfour-links-wrapper div.bottom-row {
+	
+}
+
+div.fourohfour-singleitem {
+	width: 30%;
+	float: left;
+	display: inline-block;
+	margin-right: 25px;
+	height: 190px;
+	margin-bottom: 10px;
+}
+
+#fourohfour-links-wrapper div.fourohfour-singleitem ul.fourohfour-lists li {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+
+/* @end */

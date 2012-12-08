@@ -11,8 +11,6 @@
 
 		<?php do_action( 'bp_head' ) ?>
 
-		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
-
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
 <!-- 
@@ -46,20 +44,16 @@
 
 			$('.fancybox').fancybox();
 
-			/*
-			 *  Different effects
-			 */
+/* Different effects */
 
-			// Style for scribd documents
+// Style for scribd documents
 			$(".iframe").fancybox({
 					scrolling : 'auto',
 					type : 'iframe',
 					preload   : true
 					});
 					
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
+/* Media helper. Group items, disable animations, hide arrows, enable media and button helpers. */
 			$('.fancybox-media')
 				.attr('rel', 'media-gallery')
 				.fancybox({
@@ -74,11 +68,8 @@
 						buttons : {}
 					}
 				});
-
 		});
 	</script>
-
-
 
 <script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
 <script src="<?php $bloginfo = get_bloginfo( 'wpurl' ); ?>/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
@@ -215,9 +206,9 @@ $(document).ready(function(){
 		<?php } ?>
 
 
-		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 	
-	<script type="text/javascript">
+<script type="text/javascript">
 
 //<![CDATA[ 
 jQuery(window).load(function(){
@@ -244,7 +235,8 @@ jQuery(function() {
 		<?php
 		global $bp;
 		if($bp->current_component == BP_XPROFILE_SLUG){
-   			?><script language="javascript" src="/js/tweet/jquery.tweet.js" type="text/javascript"></script>
+   			?>
+   			<script language="javascript" src="/js/tweet/jquery.tweet.js" type="text/javascript"></script>
    			<script src="http://platform.twitter.com/anywhere.js?id=gwaI4JpkTimXprMMaNdF0w&v=1" type="text/javascript"></script>
    			<?php
 		}
@@ -285,11 +277,17 @@ jQuery(function() {
 </div>
 		
 <div id="cat_nav">
-	<h2><a href="/topics/questions/" class="questiontab <?php if (is_home()) { } elseif (in_category(28) || is_category(28) || parent_category_is(28)) { echo 'active'; } elseif (is_home()) { } else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a> <a href="/projects-archive/" class="projecttab <?php if (is_home()) { } elseif (is_page('projects-archive') || 'projects' == get_post_type()) { echo 'active'; } else { } ?>">Projects</a> <a href="/about/what-is-the-journalism-accelerator/" class="abouttab <?php if (is_home()) { } elseif (is_page( 'about' ) || '2134' == $post->post_parent) { echo 'active'; } else { } ?>">About</a></h2>
+	<h2><a href="/questions-archive/" class="questiontab <?php
+	 if (is_home()) { } 
+	 elseif (is_page('questions-archive') || 'questions_cpt' == get_post_type() || in_slug('questions')) { echo 'active'; } 
+	 elseif (is_home()) { }
+	 else { } ?>">Questions</a> <a href="/resources/" class="resourcetab <?php if (is_home()) { } elseif (in_category(25) || is_category(25) || parent_category_is(25)) { echo 'active'; } else { } ?>">Resources</a> <a href="/blog/" class="<?php if (is_home()) { } elseif (in_category(39) || is_category(39) || parent_category_is(39)) { echo 'active'; } else { } ?>">Blog</a> <a href="/projects-archive/" class="projecttab <?php if (is_home()) { } elseif (is_page('projects-archive') || 'projects' == get_post_type()) { echo 'active'; } else { } ?>">Projects</a> <a href="/about/what-is-the-journalism-accelerator/" class="abouttab <?php if (is_home()) { } elseif (is_page( 'about' ) || '2134' == $post->post_parent) { echo 'active'; } else { } ?>">About</a></h2>
 
 <!-- Determine what submenu/pills to display -->
 <?php 
-if (is_page('projects-archive') || is_page( array( 2189, 2172, 9592, 2138, 10058, 2167, 2185, 2281 )) || 'projects' == get_post_type()) :
+
+// Testing for Projects post type or landing page
+if (is_home() || is_page('projects-archive') || is_page( array( 2189, 2172, 9592, 2138, 10058, 2167, 2185, 2281 )) || 'projects' == get_post_type() || is_404()) :
 
 echo "<div class='menu_reference'>Resources:</div>";
 wp_nav_menu(array(
@@ -299,16 +297,12 @@ wp_nav_menu(array(
 		'menu_id' => 'resource-menu'
 	));
 
-elseif( is_home() ):
-echo "<div class='menu_reference'>Resources:</div>";
-	wp_nav_menu(array(
-		'theme_location' => 'resources',
-		'container' => 'none',
-		'menu_class' => 'resources',
-		'menu_id' => 'resource-menu'
-	));
-
-elseif (in_category(28) || is_category(28) || parent_category_is(28)) :
+// Testing for Questions post type or landing page or category
+elseif (is_page('questions-archive') ||
+		parent_category_is(28) || 
+		'questions_cpt' == get_post_type() || 
+		in_category(28) ||
+		in_slug('questions')) :
 
 echo "<div class='menu_reference'>Questions:</div>";
 	wp_nav_menu(array(
@@ -317,12 +311,14 @@ echo "<div class='menu_reference'>Questions:</div>";
 		'menu_class' => 'questions',
 		'menu_id' => 'questions-menu'
 	)); ?>
-	<?php elseif (in_category(25) || 
-	is_category(25) || 
-	parent_category_is(25) || 
-	in_slug('members') || 
-	is_page() || 
-	is_home()) :
+
+<?php 
+elseif (in_category(25) || 
+		is_category(25) || 
+		parent_category_is(25) || 
+		in_slug('members') || 
+		is_page() || 
+		is_home()) :
 
 	echo "<div class='menu_reference'>Resources:</div>";	
 	wp_nav_menu(array(
@@ -331,7 +327,10 @@ echo "<div class='menu_reference'>Questions:</div>";
 		'menu_class' => 'resources',
 		'menu_id' => 'resource-menu'
 	)); ?>
-	<?php elseif (is_category(39) || in_category(39) || parent_category_is(39) && !in_slug('members') && !is_home()) :
+<?php 
+elseif (is_category(39) || 
+		in_category(39) || 
+		parent_category_is(39) && !in_slug('members') && !is_home()) :
 	
 	echo "<div class='menu_reference'>Blog:</div>";
 	wp_nav_menu(array(
@@ -344,9 +343,6 @@ echo "<div class='menu_reference'>Questions:</div>";
 
 <ul class="subnav">
 	<li><a href="/" class="first">Home</a></li>
-<!-- Commenting out because its now apart of main navigation
-	<li><a href="/about/what-is-the-journalism-accelerator/">About</a></li>
--->
 	<li><a href="/about/what-is-the-journalism-accelerator/#faq">FAQ</a></li>
 	<li><a href="/members/">People</a></li>
 	<?php if (current_user_can('publish_posts')) { ?> 

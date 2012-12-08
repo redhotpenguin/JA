@@ -36,7 +36,9 @@ $wgStylePath        = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/common/images/wiki.png";
+## $wgLogo             = "$wgStylePath/common/images/wiki.png";
+$wgLogo = "http://www.journalismaccelerator.com/wp-content/uploads/2012/11/ja_icon-150x150.gif";
+
 
 ## UPO means: this is also a user preference option
 
@@ -72,9 +74,15 @@ $wgMemCachedServers = array();
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads  = false;
+$wgEnableUploads  = true;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
+
+## Image upload directory
+$wgUploadDirectory = "{$IP}/images";
+
+## Allowed files
+$wgFileExtensions = array( 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'psd', 'mp3', 'xls', 'xlsx', 'swf', 'doc','docx', 'odt', 'odc', 'odp', 'odg', 'mpp', 'tiff', 'ico', 'ai', 'eps', 'svg', 'html', 'css', 'txt', 'xml', 'rtf', 'otf', 'ttf', 'zip', 'gz', 'rar', 'dmg', 'bmp', '7z', 'tar.gz','csv');
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
 $wgUseInstantCommons  = false;

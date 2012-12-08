@@ -37,22 +37,24 @@
 							the_title('<h2>', '</h2>');
 							$bitly = get_post_bitly( $post->ID );
 							?>
-							<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo get_permalink($post->ID); ?>" tw:via="journaccel"></a>
-<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-<a class="addthis_button_linkedin_counter"></a>
-</div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
-<script type="text/javascript">
-	var addthis_config = {
-		data_track_clickback: false
-	};
-</script>
-
+<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style ">
+			<ul id="addthis_list_nav">
+				<li id="print_friendly_btn"><a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a></li>
+				<li><a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo get_permalink($post->ID); ?>" tw:via="journaccel"></a></li>
+				<li><a class="addthis_button_google_plusone" g:plusone:size="medium"></a></li>
+				<li><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a></li>
+				<li><a class="addthis_button_linkedin_counter"></a></li>
+			</ul>
+		</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
+	<script type="text/javascript">
+		var addthis_config = {
+			data_track_clickback: false
+		};
+	</script>
 <!-- AddThis Button END -->
+
 							<div class="context">
 							
 							<?php if (get_post_meta($post->ID, 'underwrite')) { ?>
@@ -79,12 +81,16 @@
 								<?php if (in_category(39) || parent_category_is(39)) : ?><div class="post-info">Posted <?php if (!in_category(25) && !parent_category_is(25)) : ?>by <?php the_author_link(); ?> <?php endif; ?>on <?php the_date(); ?><?php edit_post_link('Edit Post', ' — '); ?></div><?php endif; ?>
 								<!-- AddThis Button BEGIN -->
 								<?php $bitly = get_post_bitly( $post->ID ); ?>
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
-<a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo get_permalink($post->ID); ?>" tw:via="journaccel"></a>
-<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-</div>
+<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style ">
+			<ul id="addthis_list_nav">
+				<li id="print_friendly_btn"><a class="addthis_button_printfriendly"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a></li>
+				<li><a class="addthis_button_tweet" tw:url="<?php echo $bitly; ?>" tw:counturl="<?php echo get_permalink($post->ID); ?>" tw:via="journaccel"></a></li>
+				<li><a class="addthis_button_google_plusone" g:plusone:size="medium"></a></li>
+				<li><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a></li>
+				<li><a class="addthis_button_linkedin_counter"></a></li>
+			</ul>
+		</div>
 <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=journalismaccelerator"></script>
 <script type="text/javascript">
 	var addthis_config = {

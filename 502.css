@@ -1,0 +1,17 @@
+body {
+	background-color: #c0c0c0;
+}
+
+div#fiveohtwo-wrapper {
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+	padding-left: 390px;
+	background: white url(404_screen.jpg) no-repeat;
+	height: 360px;
+	padding-top: 10px;
+	padding-right: 20px;
+	width: 360px;
+}
+
+#fiveohtwo-wrapper h1 {
+	color: #339966;
+}
