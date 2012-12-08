@@ -108,7 +108,7 @@ function register_questions_cpt() {
         'menu_position' => 7,
         'has_archive' => true,  
     	'rewrite' => array(  
-    	    'slug' => 'question-posed',  
+    	    'slug' => 'journalism-questions',  
         	'with_front' => false,  
         	'feed' => false,  
         	'pages' => true  
