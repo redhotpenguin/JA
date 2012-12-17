@@ -1,6 +1,6 @@
 /* @override 
-	http://ispkintrnt.com/wp-content/themes/ja_buddypress/style.css
 	http://www.journalismaccelerator.com/wp-content/themes/ja_buddypress/style.css
+	http://www.ispkintrnt.com/wp-content/themes/ja_buddypress/style.css
 */
 
 /*
@@ -4076,7 +4076,61 @@ div#better-recent-comments.widget.widget_dp_recent_comments {
 }
 
 .custom input#ajrhk-ajrhk {
+	font-size: 15px;
+	color: #797979;
+	float: left;
+	display: inline-block;
+	margin-right: 10px;
+	width: 250px;
 }
+
+#whysub-form strong,
+#whysub-social strong {
+	font-size: 18px;
+}
+
+div#whysub-social {
+	display: inline-block;
+	float: left;
+	padding: 15px;
+}
+
+.custom #blog-single div.post-content div.entry div.context div.bottom-border-wrapper ul {
+	float: left;
+	display: inline-block;
+	width: 300px;
+	margin-right: 20px;
+	margin-top: 30px;
+}
+
+.custom ul#newsletter-images {
+	margin: 0 !important;
+	list-style-type: none;
+	width: 500px !important;
+}
+
+.custom ul#newsletter-images li {
+	float: left;
+	display: inline-block;
+	width: 200px;
+	margin-right: 20px;
+	padding: 8px;
+	background-color: #eaeaea;
+}
+
+div#right-wrapper {
+	width: 440px;
+	display: inline-block;
+}
+
+#blog-single div.post-content div.entry div.context div.bottom-border-wrapper h3 {
+	display: block;
+}
+
+#newsletter-images li h5 {
+	margin-top: 0;
+}
+
 
 p#more-comments {
 	clear: both;
@@ -4208,7 +4262,6 @@ p#other-authors {
 	color: #797979;
 }
 
-
 /* @group 404 */
 
 div#content div#fourohfour-links-wrapper {
@@ -4228,11 +4281,12 @@ div#content div#fourohfour-links-wrapper {
 #fourohfour-links-wrapper div.bottom-row {
 	display: inline-block;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 45px;
 }
 
 #fourohfour-links-wrapper div.bottom-row {
-	
+	clear: both;
+	display: inline-block;
 }
 
 div.fourohfour-singleitem {
@@ -4247,7 +4301,92 @@ div.fourohfour-singleitem {
 #fourohfour-links-wrapper div.fourohfour-singleitem ul.fourohfour-lists li {
 	margin-bottom: 10px;
 	font-size: 14px;
+	line-height: 15px;
 }
 
 
 /* @end */
+
+div#sub-form-wrapper {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted gray;
+	height: 130px;
+}
+
+form#subForm {
+	display: inline-block;
+	float: left;
+	width: 400px;
+	margin-right: 50px;
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: #eaeaea;
+	border: 1px solid #d5d5d5;
+}
+
+input#subscribe-btn,
+a.call-to-action-btn  {
+   background: #0b590a;
+   background: -webkit-gradient(linear, left top, left bottom, from(#0a871c), to(#0b590a));
+   background: -webkit-linear-gradient(top, #0a871c, #0b590a);
+   background: -moz-linear-gradient(top, #0a871c, #0b590a);
+   background: -ms-linear-gradient(top, #0a871c, #0b590a);
+   background: -o-linear-gradient(top, #0a871c, #0b590a);
+   padding: 5.5px 11px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   text-decoration: none;
+   vertical-align: middle;
+	margin-top: 7px;
+}
+
+a.call-to-action-btn {
+	margin-top: 10px;
+	display: inline-block;
+}
+
+input#subscribe-btn:hover,
+a.call-to-action-btn:hover {
+   background: #2e7828;
+   color: #fff;
+   }
+   
+input#subscribe-btn:active,
+a.call-to-action-btn:active {
+   background: #1b5c1f;
+   }
+
+input#ajrhk-ajrhk {
+	padding: 5px;
+	margin-top: 6px;
+	width: 180px;
+}
+
+div#whysub-form {
+	width: 100%;
+	display: block !important;
+}
+
+div.bottom-border-wrapper {
+	clear: both;
+	border-bottom: 1px dotted #c0c0c0;
+	padding-bottom: 20px;
+	margin-bottom: 0;
+}
+
+ul#sm-chicklets {
+	display: inline-block;
+	margin: 0;
+}
+
+#sm-chicklets li {
+	float: left;
+	display: inline-block;
+	margin-right: 20px;
+	margin-bottom: 0;
+}
