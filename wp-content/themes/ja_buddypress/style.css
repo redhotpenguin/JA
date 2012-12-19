@@ -1,6 +1,8 @@
+/* @override http://www.ispkintrnt.com/wp-content/themes/ja_buddypress/style.css */
+
 /*
 Theme Name: Journalism Accelerator - BuddyPress
-Version: 1.0
+Version: 2.32
 Author: JA
 Author URI: http://ja.redhotpenguin.com/
 Template: bp-default
@@ -4082,6 +4084,8 @@ div#better-recent-comments.widget.widget_dp_recent_comments {
 #whysub-form strong,
 #whysub-social strong {
 	font-size: 18px;
+	margin-bottom: 5px;
+	display: inline-block;
 }
 
 div#whysub-social {
@@ -4308,7 +4312,7 @@ div#sub-form-wrapper {
 	height: 130px;
 }
 
-.custom form#subForm {
+.custom div#sub-form-wrapper form#subForm {
 	display: inline-block;
 	float: left;
 	width: 400px;
@@ -4336,7 +4340,7 @@ a.call-to-action-btn  {
    font-size: 14px;
    text-decoration: none;
    vertical-align: middle;
-	margin-top: 7px;
+	margin-top: 1px;
 }
 
 a.call-to-action-btn {
@@ -4357,8 +4361,9 @@ a.call-to-action-btn:active {
 
 input#ajrhk-ajrhk {
 	padding: 5px;
-	margin-top: 6px;
+	margin-top: 0;
 	width: 180px;
+	margin-bottom: 10px;
 }
 
 div#whysub-form {
@@ -4384,3 +4389,12 @@ ul#sm-chicklets {
 	margin-right: 20px;
 	margin-bottom: 0;
 }
+
+div#sidebar #text-28 div.textwidget p a {
+	clear: both;
+	display: inline-block;
+	float: left;
+	margin-top: -8px;
+	margin-bottom: 5px;
+}
+
