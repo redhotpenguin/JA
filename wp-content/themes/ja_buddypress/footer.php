@@ -15,7 +15,7 @@
 						<li class="facebook-icon"><a href="http://www.facebook.com/journalismaccelerator" title="JA on Facebook" target="_blank">Facebook</a></li>
 						<li class="linkedin-icon"><a href="http://www.linkedin.com/company/journalism-accelerator/" title="JA on LinkedIn" target="_blank">LinkedIn</a></li>
 						<li class="rss-icon"><a href="/feed/">RSS Feed</a></li>
-						<li class="ja-link"><a href="/link-to-us/">Link to Us</a></li>
+						<li class="ja-link"><a href="/why-subscribe/">Why Subscribe?</a></li>			
 					</ul>
 				</div>
 			</div>
