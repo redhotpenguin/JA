@@ -172,10 +172,15 @@ class JPCONV_Widget extends WP_Widget {
 		
 		//echo '<div class="jpconv_footer">';
 		
-			if(!$is_question)
-				echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is talking?</a></span>';			
+			if('questions_cpt' == get_post_type() || in_slug('questions') || in_slug('journalism-questions'))
+				echo '&nbsp;';
 			else
-				echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is here?</a></span>';			
+				echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is talking?</a></span>';			
+
+//			(!$is_question)
+//				echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is talking?</a></span>';			
+//			else
+//				echo '<span class="jpconv_involved"><a href="'.$permalink.'participants">Who else is here?</a></span>';			
 			
 		}
 		else
