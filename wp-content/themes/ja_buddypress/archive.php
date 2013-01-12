@@ -228,7 +228,7 @@
         </div><!-- .padder -->
     </div><!-- #content -->
 
-<!-- DIGEST OF FEATURED RESOURCES -->
+<!-- DIGEST OF FEATURED LINKS -->
 <?php elseif (is_category(324)) : ?>
     <div id="content">
         <div class="padder">
@@ -236,7 +236,7 @@
     <?php do_action('bp_before_archive') ?>
 
             <div class="page" id="blog-archives">
-                <h1>Digest of Featured Resources <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
+                <h1>Digest of Featured Links <span class="feed"><a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2"><img src="/feed.png" alt="Feed Icon" /></a> <a href="/?cat=<?php echo get_query_var('cat'); ?>&amp;feed=rss2">Feed for this topic</a></span></h1>
     <?php echo category_description(); ?>
 
                 <?php if (have_posts()) : ?>

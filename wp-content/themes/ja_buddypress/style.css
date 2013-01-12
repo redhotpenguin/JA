@@ -3429,9 +3429,11 @@ div.addthis_toolbox.addthis_default_style {
 
 #addthis_list_nav li {
 	display: inline-block;
-	float: left;
 	height: 26px;
-	width: 100px;
+	width: auto;
+	margin-left: 0;
+	margin-right: 15px;
+	float: left;
 }
 
 hr {
@@ -4144,7 +4146,7 @@ p#more-comments {
 	padding: 10px;
 	width: 250px;
 	height: auto;
-}
+	min-height: 350px;}
 
 div#author.hide {
 	display: inline-block;
