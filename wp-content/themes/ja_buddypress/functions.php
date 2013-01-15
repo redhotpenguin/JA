@@ -552,7 +552,7 @@ function ja_home() {
 		<div class="home_box_left">
 		  <div class="popular_questions">
 					<div class="box_content">
-						<h2>Recent Blog Posts<span class="read-more"><a href="/topics/blog/">More</a></span></h2>
+						<h2>Recent Blog Posts</span></h2>
 						<?php latest_listings_all('blog'); ?>
 					</div>
 				</div>
